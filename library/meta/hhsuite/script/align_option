@@ -1,0 +1,22 @@
+
+#TM_Score
+tm_score=/home/chengji/software/tm_score2/TMscore
+
+#TM_align
+tm_align=/home/chengji/software/tm_align2/TMalign
+#tm_align=/home/chengji/software/tm_align/TMalign_32
+
+#template structure library dir
+atom_dir=/home/chengji/casp8/hhpred/pdb
+
+#template sequence library
+#one interesting question: 1DXM exists in hhsearchdb library, but not in pdb_cm or sort_90 (new)
+#so use all the pdb sequences
+seq_lib=/home/chengji/casp8/hhpred/pdb.fasta
+
+#clustalw dir
+clustalw_dir=/home/chengji/software/prosys/clustalw1.83
+
+#alignment package library (Align.pm)
+align_dir=/home/chengji/casp8/meta/script/
+

@@ -1,0 +1,188 @@
+############################################################################################################
+#this text file includes the options used in comparative modelling used by cm_main_comb.pl (originally)
+##the same settings are re-used by hhsearch-based template based approach (10/17/2007)
+############################################################################################################
+
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = /home/chengji/software/prosys/
+
+#blast tool dir
+#blast_dir = /home/jianlinc/pspro/blast2.2.8/
+blast_dir = /home/chengji/software/prosys/blast-2.2.17/bin
+
+#modeller 7.0 dir
+modeller_dir = /home/chengji/software/prosys/modeller7v7/
+
+#formated pdb database dir
+#pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
+pdb_db_dir = /home/chengji/software/prosys_database/cm_lib/
+#pdb_db_dir = /var/preserve/eval/cm_lib/
+
+#use non-redundant db dir (should always use non-redundant database)
+#nr_dir = /home/jianlinc/pspro/data/nr/
+#nr_dir = /var/preserve/nr/
+#nr_dir = /home/chengji/software/prosys_database/nr_latest/
+nr_dir = /home/chengji/cheng_group/blast_dbs/
+nr_db = /home/chengji/cheng_group/hhsearch_dbs/nr90
+#not use nr (should never choose this option. its performance is worse)
+#nr_dir = none
+
+#atom files dir
+#atom_dir = /home/jianlinc/prosys/database/atom/
+atom_dir = /home/chengji/software/prosys_database/atom/
+
+###########new settings specifically for hhsearch profile-profile based approach
+#hhsearch dir
+sam_dir=/home/chengji/software/sam3.5.i686-linux/
+
+#all current templates
+samdb=/home/chengji/software/prosys_database/cm_lib/pdb_cm
+
+#templates built before May 10, 2007 (CASP7 starts)
+#hhsearchdb=/home/chengji/software/prosys_database/casp7_hhsearchdb
+
+#meta dir
+#meta_dir=/home/chengji/casp8/meta/
+meta_dir=/home/chengji/casp8/sam/
+###############################################################################
+
+############################End of Software and Data Settings#################
+
+#################################PDB blasting options#######################
+#Not used any more. evalue threshold for msa alignment generation. 
+#Should we change it to 1.0?
+#this value is not used anymore. (collpased with cm_blast_evalue)
+#cm_align_evalue = 0.5
+cm_align_evalue = 0.001
+
+#evalue threshold for template blasting and selection on PDB. 
+#Reasonable values: 1.0, 0.1, 0.01, 0.001. 
+#psi-blast default evalue is 1.0. (-e option)
+#casp6, some paper suggest: 0.01. (we may choose this one)
+#cm_blast_evalue = 1.0
+############This e-value is used by sam too######################
+cm_blast_evalue = 0.001 
+#################################################################
+
+#number of iteration of blasting on PDB. (-j option)
+cm_blast_iteration = 5
+
+#evalue threshold of including into profile on PDB (-h option)
+#in old version: we didn't set this value. defalut is 0.001?
+#cm_including_evalue = 0.001
+#this is the same as default.
+cm_including_evalue = 0.002
+##############################End of PDB blasting option#################
+
+#############################NR profile building option###################
+#number of iterations of blasting on NR for profile building. (-j option)
+#nr_iteration_num = 8
+nr_iteration_num = 5
+
+#evalue threshold for returning from blasting on NR database
+#and is is also the initial blast evalue (psi-blast default is 1.0)(-e option)
+nr_return_evalue = 0.001
+
+#evalue threshold for including in profile building on NR database (-h option)
+#old value (and still used by SSpro, FR feature generation is 1e-10, too small?)
+#nr_including_evalue = 0.001
+#this is used in sspro, better?
+#nr_including_evalue = 0.0000000001
+#nr_including_evalue = 0.001
+#nr_including_evalue = 0.0000000001
+nr_including_evalue = 0.0001
+###############################End of NR profile building options#########
+
+#############################Alignment Combination Options##############
+#maximum allowed gap for stopping the alignment generation
+#cm_max_gap_size = 20
+#cm_max_gap_size = 15 
+cm_max_gap_size = -1 
+
+#minimum covered size for one template to be chosen
+#cm_min_cover_size = 20
+cm_min_cover_size = 15 
+
+#Modeller Option
+#From blast comparative modeling, how many 
+#models to simulate. One model with lowest energy will be chosen.
+#cm_model_num = 10 
+cm_model_num = 19 
+
+#set the combination method
+#1. blast_comb (first version of simple combination). 
+#if set to this option, cm_align_blast.pl will be used.
+#2. new_comb (latest version of alignment combination)
+#if set to this option, blast_align_comb.pl will be used.
+cm_comb_method=new_comb
+#cm_comb_method=blast_comb
+
+#option for advanced combination only (new_comb && cm_max_liner_size>=0)
+#<0: don't join the adjacent fragments(no gaps)
+#>=0: join adjacent fragments (allow gaps)
+#this option controls the maximum allowed intermedite
+#regions betweew two fragments for joining.
+adv_comb_join_max_size=5
+
+
+#option to use simple/advanced combination
+#>=0: use advanced combination. value is the max linker size at two ends
+#<0: use simple combination
+#must be an integer
+cm_max_linker_size=10
+
+#threshold to include significant matched templates
+#templates with evalue lower than e^value will always
+#be included no matter how many gaps are filled by this alignment.
+#for negative number: the real evalue is: 1e^num (always positive)
+#for 0: means only combined if it can cover gaps disregard significance.
+#for 0: don't simply combine significant templates with low evalues
+#for negative number: real value = 1*10^cm_evalue_comb
+#for positive number: real value = cm_evalue_comb * 10^-0
+#cm_evalue_comb=0
+cm_evalue_comb=-20
+
+#option to decide if the redundant alignments should be removed
+#yes: remove, no: not remove
+cm_clean_redundant_align=no
+
+#for the unconditional evalue combination, this option control the evalue difference
+#threshold of adding a less significant templates
+#e.g., 10: means the evalue exponent difference must be less than 10
+cm_evalue_diff=10
+#########################End of Alignment Combination Options#################
+
+
+##########################Options for sorting blast local alignment###########
+
+#The file containing resolution/method/match ratio for all chains
+#chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
+chain_stx_info=/home/chengji/software/prosys_database/cm_lib/chain_stx_info
+
+#resort blast local alignment according to stx quality.
+#yes: resort, no: don't sort
+sort_blast_align=no
+
+#ratio of evalue to be considered in resorting (must > 1).
+#only be valid if sort_blast_align is set to yes.
+#only if the ratio of two evalues is between 1 and ratio to
+#be considered for exchanging positions.
+#smaller, more strict.
+sort_blast_local_ratio=2
+
+#ratio of resolution difference for being considered exchange.
+#in Angstrom.
+#only valid if sort_blast_align is set to yes.
+sort_blast_local_delta_resolution=2
+
+#Option for adding stx information and remove identical by resolution
+#yes: do it. no: don't.
+add_stx_info_rm_identical=no
+
+#resolution difference that decide if the redundant alignment will 
+#be removed. bigger, more strict.
+rm_identical_resolution=2
+
+###############################End of sorting and stx information option#######
+

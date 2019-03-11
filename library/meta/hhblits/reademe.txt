@@ -1,0 +1,6 @@
+
+1. download nr and pdb from hhblits web site
+
+2. use 64-bin static hhblits    
+
+
