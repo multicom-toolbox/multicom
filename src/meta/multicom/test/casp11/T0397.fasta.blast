@@ -1,0 +1,204 @@
+BLASTP 2.2.17 [Aug-26-2007]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics:
+Schaffer, Alejandro A., L. Aravind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= T0397
+         (150 letters)
+
+Database: pdb_cm 
+           114,795 sequences; 29,144,491 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+3D4RA                                                                 212   1e-55
+3D4RB                                                                 211   2e-55
+3D4RE                                                                 204   3e-53
+
+>3D4RA
+          Length = 153
+
+ Score =  212 bits (540), Expect = 1e-55,   Method: Composition-based stats.
+ Identities = 142/146 (97%), Positives = 143/146 (97%), Gaps = 3/146 (2%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 9   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY-SLDTLK 67
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 68  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 126
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYM 147
+           VNSPVSGTVIF NEIPSERANYVFY+
+Sbjct: 127 VNSPVSGTVIF-NEIPSERANYVFYL 151
+
+
+>3D4RB
+          Length = 152
+
+ Score =  211 bits (538), Expect = 2e-55,   Method: Composition-based stats.
+ Identities = 142/146 (97%), Positives = 143/146 (97%), Gaps = 3/146 (2%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 8   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY-SLDTLK 66
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 67  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 125
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYM 147
+           VNSPVSGTVIF NEIPSERANYVFY+
+Sbjct: 126 VNSPVSGTVIF-NEIPSERANYVFYL 150
+
+
+>3D4RE
+          Length = 146
+
+ Score =  204 bits (520), Expect = 3e-53,   Method: Composition-based stats.
+ Identities = 140/146 (95%), Positives = 141/146 (96%), Gaps = 5/146 (3%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEK  EYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 4   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEK--EYSGNGKLLYQVIYDDLAKY-SLDTLK 60
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 61  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 119
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYM 147
+           VNSPVSGTVIF NEIPSERANYVFY+
+Sbjct: 120 VNSPVSGTVIF-NEIPSERANYVFYL 144
+
+
+Searching..................................................done
+
+
+Results from round 2
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+3D4RA                                                                 254   4e-68
+3D4RB                                                                 252   8e-68
+3D4RE                                                                 245   1e-65
+
+Sequences not found previously or not previously below threshold:
+
+
+CONVERGED!
+>3D4RA
+          Length = 153
+
+ Score =  254 bits (648), Expect = 4e-68,   Method: Composition-based stats.
+ Identities = 143/148 (96%), Positives = 144/148 (97%), Gaps = 3/148 (2%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 9   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY-SLDTLK 67
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 68  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 126
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYMLE 149
+           VNSPVSGTVIF NEIPSERANYVFY+ E
+Sbjct: 127 VNSPVSGTVIF-NEIPSERANYVFYLEE 153
+
+
+>3D4RB
+          Length = 152
+
+ Score =  252 bits (645), Expect = 8e-68,   Method: Composition-based stats.
+ Identities = 143/148 (96%), Positives = 144/148 (97%), Gaps = 3/148 (2%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 8   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKY-SLDTLK 66
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 67  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 125
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYMLE 149
+           VNSPVSGTVIF NEIPSERANYVFY+ E
+Sbjct: 126 VNSPVSGTVIF-NEIPSERANYVFYLEE 152
+
+
+>3D4RE
+          Length = 146
+
+ Score =  245 bits (626), Expect = 1e-65,   Method: Composition-based stats.
+ Identities = 141/148 (95%), Positives = 142/148 (95%), Gaps = 5/148 (3%)
+
+Query: 2   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEKDEEYSGNGKLLYQVIYDDLAKYMSLDTLK 61
+           KIPKIYVEGELNDGDRVAIEKDGNAIIFLEK  EYSGNGKLLYQVIYDDLAKY SLDTLK
+Sbjct: 4   KIPKIYVEGELNDGDRVAIEKDGNAIIFLEK--EYSGNGKLLYQVIYDDLAKY-SLDTLK 60
+
+Query: 62  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPIMDFGFRVLKGYRLATLESKKGDLRY 121
+           KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI DFGFRVLKGYRLATLESKKGDLRY
+Sbjct: 61  KDVLIQYPDKHTLTYLKAGTKLISVPAEGYKVYPI-DFGFRVLKGYRLATLESKKGDLRY 119
+
+Query: 122 VNSPVSGTVIFMNEIPSERANYVFYMLE 149
+           VNSPVSGTVIF NEIPSERANYVFY+ E
+Sbjct: 120 VNSPVSGTVIF-NEIPSERANYVFYLEE 146
+
+
+  Database: pdb_cm
+    Posted date:  Feb 5, 2014  4:55 AM
+  Number of letters in database: 29,144,491
+  Number of sequences in database:  114,795
+  
+Lambda     K      H
+   0.318    0.146    0.437 
+
+Lambda     K      H
+   0.267   0.0450    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 24,918,334
+Number of Sequences: 114795
+Number of extensions: 1388023
+Number of successful extensions: 2835
+Number of sequences better than 1.0e-03: 3
+Number of HSP's better than  0.0 without gapping: 6
+Number of HSP's successfully gapped in prelim test: 0
+Number of HSP's that attempted gapping in prelim test: 2809
+Number of HSP's gapped (non-prelim): 6
+length of query: 150
+length of database: 29,144,491
+effective HSP length: 94
+effective length of query: 56
+effective length of database: 18,353,761
+effective search space: 1027810616
+effective search space used: 1027810616
+T: 11
+A: 40
+X1: 16 ( 7.3 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 41 (21.6 bits)
+S2: 92 (39.9 bits)

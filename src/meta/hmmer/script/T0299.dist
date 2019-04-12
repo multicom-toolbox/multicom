@@ -1,0 +1,96 @@
+%  SAM: ../bin/hmmscore v3.5 (July 15, 2005) compiled 07/18/05_16:55:18
+%  (c) 1992-2001 Regents of the University of California, Santa Cruz
+%
+%          Sequence Alignment and Modeling Software System
+%         http://www.cse.ucsc.edu/research/compbio/sam.html
+%
+% ----------------- Citations (SAM, SAM-T2K, HMMs) --------------------
+% R. Hughey, A. Krogh, Hidden Markov models for sequence analysis:
+%  Extension and analysis of the basic method, CABIOS 12:95-107, 1996.
+% K. Karplus, et al., What is the value added by human intervention in protein
+%  structure prediction, Proteins: Stucture, Function, Genetics 45(S5):86--91, 2001.
+% A. Krogh et al., Hidden Markov models in computational biology:
+%  Applications to protein modeling, JMB 235:1501-1531, Feb 1994.
+% ---------------------------------------------------------------------
+%  T0299   Host: localhost.localdomain    Mon Dec 14 22:06:15 2009
+%  chengji   Dir:  /home/chengji/marc/sam3.5.i686-linux/test
+% ---------------------------------------------------------------------
+% Inserted Files:  T0299.mod
+% Database Files:  T0299.fas
+%
+% Subsequence-submodel (local) (SW = 2)
+% Simple scores adjusted by +1.5*ln(seq len) (adjust_score = 2)
+% Track 0 FIMs added (geometric mean of match probabilities (6))
+% Single Track Model:  T0299.mod
+% Score DP Method: forward all-paths (dpstyle = 0)
+% Align DP Method: viterbi (adpstyle = 1)
+% 55 sequences, 5400 residues, 108 nodes, 0.08 seconds
+%
+% Sequence scores selected:  All  (select_score=8)
+%
+% Simple: NLL-NULL using FIM probabilities
+% Reverse: NLL-NULL for the reverse sequence NULL model
+%    Calculated when Simple < simple_threshold (10000.00)
+% E-value on N (=55) sequences:
+%    N / (1 + exp(-(lambda(=1.0000) * Reverse)^tau(=1.0000)))
+%    Calculated when Simple < simple_threshold (10000.00)
+%    Rescale E-values or use -dbsize for multiple scoring runs.
+%    WARNING:  E-VALUES ARE NOT CALIBRATED!
+% Scores sorted by E-value, best first
+%
+% Sequence ID   Length      Simple     Reverse     E-value      X count
+T02991            136      -111.90     -102.82     1.22e-43
+T0299             180      -111.64     -102.69     1.39e-43
+T02992            178      -104.87      -95.47     1.90e-40
+T029931           111      -102.81      -94.83     3.59e-40
+T029926           104      -102.40      -93.93     8.84e-40
+T02999            173      -102.63      -93.88     9.34e-40
+T02998            170      -100.97      -92.96     2.34e-39
+T029912           165      -100.55      -92.92     2.42e-39
+T02997            171      -101.20      -92.54     3.55e-39
+T029916            90       -99.17      -91.12     1.46e-38
+T029921           173       -99.29      -90.87     1.88e-38
+T029932            90      -101.20      -89.39     8.28e-38
+T029915           169       -95.32      -87.04     8.66e-37
+T029941           114       -94.89      -86.78     1.13e-36
+T029911           172       -95.54      -86.06     2.31e-36
+T029918            90       -93.77      -85.82     2.95e-36
+T029914           162       -95.51      -85.65     3.48e-36
+T029940           130       -93.41      -85.26     5.16e-36
+T029927           163       -92.49      -83.26     3.82e-35
+T02993             71       -90.68      -81.58     2.04e-34
+T029928           163       -89.98      -80.76     4.67e-34
+T029924           126       -88.39      -79.74     1.29e-33
+T029935            69       -87.58      -78.43     4.79e-33
+T029930            69       -85.99      -77.92     7.96e-33
+T029929            86       -85.85      -77.64     1.05e-32
+T029913            87       -84.63      -77.02     1.96e-32
+T029938            64       -84.05      -76.16     4.62e-32
+T029923            62       -82.41      -74.58     2.24e-31
+T02996             62       -82.57      -74.20     3.27e-31
+T029948            92       -81.76      -73.15     9.36e-31
+T029910            67       -81.10      -72.78     1.35e-30
+T029917            79       -80.47      -72.02     2.89e-30
+T029945            87       -78.76      -71.53     4.75e-30
+T029946           168       -76.54      -67.35     3.10e-28
+T029920            68       -75.35      -67.31     3.24e-28
+T029933            51       -74.41      -66.70     5.95e-28
+T029943            71       -73.90      -65.72     1.58e-27
+T029919            50       -71.55      -63.58     1.35e-26
+T029922            50       -70.55      -62.94     2.54e-26
+T02994            135       -70.34      -61.76     8.27e-26
+T029947            67       -70.00      -61.30     1.31e-25
+T02995            135       -69.59      -60.92     1.92e-25
+T029942            61       -69.07      -59.37     9.01e-25
+T029925            49       -66.11      -59.03     1.27e-24
+T029936            48       -66.51      -58.85     1.52e-24
+T029934            47       -66.48      -58.70     1.77e-24
+T029952            58       -65.81      -57.99     3.61e-24
+T029937            58       -66.11      -57.88     3.99e-24
+T029949            64       -64.06      -56.41     1.75e-23
+T029953            59       -61.85      -54.09     1.77e-22
+T029944            47       -61.25      -53.17     4.44e-22
+T029951            50       -60.32      -52.40     9.59e-22
+T029939            48       -59.70      -49.53     1.70e-20
+T029950            46       -57.21      -49.45     1.83e-20
+T029954            45       -50.10      -42.50     1.93e-17

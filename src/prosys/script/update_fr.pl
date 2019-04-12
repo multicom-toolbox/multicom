@@ -1,0 +1,202 @@
+#!/usr/bin/perl -w
+###################################################################
+#Script to update fr library 
+#Input: database option file. 
+#Author: Jianlin Cheng
+#Date: 10/13/05
+###################################################################
+
+if (@ARGV != 1)
+{
+	die "need 1 parameters: database option file.\n"; 
+}
+
+$db_option = shift @ARGV;
+
+#################read option file##################################
+open(OPTION, $db_option) || die "can't read option file.\n";
+
+while (<OPTION>)
+{
+	$line = $_; 
+	chomp $line;
+	if ($line =~ /^prosys_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$prosys_dir = $value; 
+	}
+	if ($line =~ /^prosys_db_stat_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$prosys_db_stat_dir = $value; 
+	}
+	if ($line =~ /^set_seq_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$set_seq_dir = $value; 
+	}
+	if ($line =~ /^set_atom_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$set_atom_dir = $value; 
+	}
+	if ($line =~ /^set_work_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$set_work_dir = $value; 
+	}
+	if ($line =~ /^cm_database_name/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$cm_database_name = $value; 
+	}
+
+	if ($line =~ /^blast_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$blast_dir = $value; 
+	}
+
+	if ($line =~ /^nr_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$nr_dir = $value; 
+	}
+
+	if ($line =~ /^fr_identity_threshold/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$fr_identity_threshold = $value; 
+	}
+
+	if ($line =~ /^fr_template_library_file/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$fr_template_library_file = $value; 
+	}
+
+	if ($line =~ /^fr_template_library_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$fr_template_library_dir = $value; 
+	}
+
+}
+#####################End of reading options######################
+-d $prosys_dir || die "can't find prosys dir: $prosys_dir\n";
+-d $prosys_db_stat_dir || die "can't find database stat dir: $prosys_db_stat_dir\n";
+-d $set_seq_dir || die "cna't find set seq dir: $set_seq_dir\n";
+-d $set_atom_dir || die "can't find set atom dir: $set_atom_dir\n";
+-d $blast_dir || die "can't find blast dir:$blast_dir.\n";
+-d $nr_dir || die "can't find nr dir:$nr_dir.\n";
+-d $set_work_dir || die "can't find work dir: $set_work_dir\n";
+-d $fr_template_library_dir || die "can't find fr template library dir:$fr_template_library_dir.\n";
+
+$fr_identity_threshold >= 0.4 && $fr_identity_threshold <= 0.98 || die "fr identity threshold is out of range [0.4, 0.98].\n"; 
+
+#this file is the basis for the new fr library file
+if (!-f  "$set_work_dir/$cm_database_name.work")
+{
+	die "can't find the updated cm fasta library file.\n";
+}
+
+$old_fr_lib = $fr_template_library_dir . "/" . $fr_template_library_file;
+if (!-f $old_fr_lib)
+{
+	print "no old fr library fasta file exists. set to empty.\n";
+	$old_fr_lib = "empty";
+}
+
+$candidate_file = "$set_work_dir/$cm_database_name.work";
+
+$new_fr_file = "$set_work_dir/$fr_template_library_file.work";
+
+
+print "generate fr library file and reduce redundancy using blast from new cm fasta file...\n";
+#generate the updated fr library file
+
+#remove the fr file
+if (-f $new_fr_file)
+{
+	`rm $new_fr_file`; 
+}
+system("$prosys_dir/script/build_library_blast_update.pl $prosys_dir/script $blast_dir $old_fr_lib $candidate_file $fr_identity_threshold $new_fr_file");
+
+######################################################################
+#added 10/11/2007
+$new_hhsearch_file = "$set_work_dir/hhsearchdb.work";
+if (-f $new_hhsearch_file) { `rm $new_hhsearch_file`; }
+######################################################################
+
+if (-f $new_fr_file)
+{
+	open(NFR, $new_fr_file);
+	@content = <NFR>;
+	close NFR;
+	$size = @content;
+	$size /=2; 
+
+	#generate required files for all templates
+	#create a new option file
+	`cp $db_option $db_option.temp`; 
+
+	#neet to reset the cm_seq_dir option for template files generation
+	#this option is the directory where to get the seq file for each template
+	$source_seq_dir = "$set_work_dir/seq";
+	open(TOPT, ">>$db_option.temp") || die "can't append $db_option.temp.\n";
+	print TOPT "cm_seq_dir = $source_seq_dir"; 
+	close TOPT;
+
+	$fr_out_dir = "$set_work_dir/fr";
+	`rm -r $fr_out_dir 2>/dev/null`;
+	`mkdir $fr_out_dir`; 
+
+	#generate required files
+	print "Round 1: generate required files for fr templates...\n";
+	system("$prosys_dir/script/gen_temp_files.pl $db_option.temp $new_fr_file $fr_out_dir"); 
+
+	#########################################################################
+	#add 10/11/2007
+	system("$prosys_dir/script/join_shhm.pl $fr_out_dir $new_hhsearch_file");
+	#########################################################################
+
+	#verify if all files are generated. if not, then retry it.
+	print "Verify if all required files are generated...\n";
+	system("$prosys_dir/script/verify_temp.pl $new_fr_file $fr_out_dir $new_fr_file.miss");
+	open(MISS, "$new_fr_file.miss");
+	@miss = <MISS>;
+	close MISS;
+	if (@miss > 0) #retry.
+	{
+		print "Some files for some templates are missing. Retry on the missing ones...\n";
+		system("$prosys_dir/script/gen_temp_files.pl $db_option.temp $new_fr_file.miss $fr_out_dir"); 
+	}
+
+	`rm $db_option.temp`;
+
+	$log_file = "$set_work_dir/fr.log";
+	-f $log_file || `> $log_file`;
+	open(LOG, ">>$log_file"); 
+	$date = `date`;
+	print LOG "\n$date\n";
+	print LOG "num of new templates added: $size\n";
+	close LOG; 
+	print "$size of new templates added.\n";
+}
+else
+{
+	print "0 new fr templates are created.\n";
+}
+print "The building of fr library is done.\n";
+

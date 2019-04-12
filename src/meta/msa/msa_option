@@ -1,0 +1,245 @@
+#prosys dir
+prosys_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/prosys/
+
+#modeller dir
+modeller_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/modeller-9.16/
+
+#spem_dir 
+spem_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/spem-release/
+
+#compass dir
+compass_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/new_compass/
+
+#hhsearch dir (old hhsearch)
+hhsearch_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/hhsearch
+
+#hhblits dir
+hhblits_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/hhblits/hhblits/
+
+#atom dir
+atom_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/databases/atom/
+
+#muscle dir & lobster dir
+lobster_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/lobster/
+
+#meta dir
+meta_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/
+
+#construct dir
+msa_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/msa/
+
+#prc_dir
+prc_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/prc1.5.6/
+
+#msacompro dir
+msacompro_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/MSACompro_1.2.0
+
+#msaprobs dir
+msaprobs_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/MSAProbs-0.9.4
+
+#promsals3d_dir 
+#promsals3d_dir = xxxx
+
+#tm align program
+tm_align = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/tm_align/TMalign_32
+
+#tm align program used by promsals
+ptmalign = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/promals/promals_package/TMalign
+
+#promals program
+promalsexe = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/promals/promals_package/bin/promals 
+
+#promals3d program
+promals3d = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/promals/promals_structure_MSA/src_abs/Run_promals3d.pl
+
+#number of templates to select (one model will be generate for each template)
+template_num = 10
+
+#number of combined struture model to generate
+construct_num = 5
+
+#time out (in seconds), set to 20 hours 
+time_out = 72000 
+
+#number of threads used to generate alignments and models
+thread_num  = 8
+
+##############the following options are copied from sp3 option######################
+##############many of them may not be useful########################################
+#blast dir
+blast_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/blast-2.2.17/bin
+
+#clustalw dir
+clustalw_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/clustalw1.83.linux/
+
+#palign dir
+palign_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/palign/linux
+
+#tcoffee dir
+##tcoffee_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/tcoffee2.03 ## failed on lewis
+tcoffee_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/T-COFFEE_distribution_Version_2.03
+
+
+#hmmer dir
+hmmer_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/hmmer2.3.2
+
+#hhm prc dir
+prc_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/prchmm1.5.2
+
+#pspro dir (should use pspro2) 
+pspro_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/pspro2
+
+#betapro dir 
+betapro_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/betapro-1.0
+
+######################################################################
+
+##############Fold Recogntion Option##################################
+#fr option: input dir1  (hold template related files such as profiles)
+#template_dir=/home/baldig/jianlin/library
+template_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/library
+
+#fr option: fold recognition template library file (fasta format)
+fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/databases/cm_lib/pdb_cm_all_sel.fasta
+
+#fr option: query dir: (hold query related files)
+#files needed: msa(align), chk, pssm, cm8a, cm12a, bcm8a, bcm12, bmap, hmm, set(9-line or more
+#used to store query related files (don't need to exist)
+#if query_dir is "generate", then the script of pairwise feature generation will automatically 
+#generate query files and overwrite query dir. if not, it will use the files in the dir. 
+#However: for fr_main_simple.pl and fr_main_simple_comb.pl, the query_dir will be overwritten
+#by output dir and all files are automatically regenerated. In that case, this option is not used. 
+#query dir must use full path name
+#
+#Not used by the main scripts. 10/06/2005
+query_dir=/home/cheng/prosys/system/test_fea/1aco-d1aco_1-query-bench
+
+#fr option: if use tcoffee in the feature generation(should always be 0)
+use_tcoffee = 0
+
+#fr option: if use palign prof-prof alignment in feature generation (should always be 0)
+use_palign_prof = 0
+
+#parameters exlusively used for palign or palign_ss profile-profile alignment
+#in fold recognition. Effective only for palign or palign_ss. 
+#the gap below or equal to this value will be joined 
+#in palign  or palign_ss alignments for the same template
+fr_palign_join_gap_size=10
+#the threshold to stop combine palign local alignments
+#fr_palign_stop_gap_size=20
+fr_palign_stop_gap_size=10
+#the threshold of selecting alignments of covering gaps
+#fr_palign_min_cover_size=20
+fr_palign_min_cover_size=10
+
+#fr option: number of templates to select (used by fr_main_simple_comb.pl/fr_main_simple_adv.pl)
+#But the program will automatically select all positive templates, but
+#limited by at most 50.
+#hard coded in fr_main_align_join.pl and fr_main_adv_comb_join.pl
+fr_temp_select_num=10
+
+#fr option: number of combined alignments and structures to generated.
+#must be less than fr_temp_select_num
+fr_stx_num=10
+
+#fr option: minimum cover size of choosing a template for alignment combination
+#fr_min_cover_size=20
+fr_min_cover_size=5
+
+#fr option: gap stop size. if gap is less than this number, the combination of alignment stops.
+#fr_gap_stop_size=20
+fr_gap_stop_size=5
+
+#fr option: maximum linker sized added to the segments of filling gaps
+fr_max_linker_size=10
+
+#fr_option: alignment combination method (not applied to fr_main_simple.pl)
+#only be used by script: fr_main_adv_comb.pl so far.
+#advanced:advanced combination, simple:simple combination. 
+fr_align_comb_method=advanced
+#fr_align_comb_method=simple
+
+#option for advanced combination only
+#<0: don't join the adjacent fragments(no gaps)
+#>=0: join adjacent fragments (allow gaps)
+#this option controls the maximum allowed intermedite
+#regions betweew two fragments for joining.
+adv_comb_join_max_size=15
+
+#choose which alignment method is used as the basis of structural features
+#support two methods: clustalw and lobster
+#fr_stx_feature_alignment=clustalw
+#fr_stx_feature_alignment=lobster
+#fr_stx_feature_alignment=lobster_sel
+#fr_stx_feature_alignment=muscle
+fr_stx_feature_alignment=lobster_no_clustalw
+
+#option to decide if very significant svm models should be combined
+#recommended value: 0.7 or 0.5
+#a large number such as 100 means no combination
+svm_comb_threshold=0.7
+####################################################################################
+
+
+###########################Modeller Option##########################################
+#Modeller Options:
+#atom dir (the directory of storing atom files of templates for Modeller)
+#each template should have a file there named as: temp_name.atom.gz
+#atom_dir=/home/jianlinc/prosys/database/atom
+atom_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/databases/atom
+
+#used by modeller: comparative modelling seq dir(11 line sequence format)
+#This directory is used by both fold recognition and CM. 
+#cm_seq_dir=/home/jianlinc/prosys/database/seq
+cm_seq_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/databases/seq
+
+#modeller option: number of models to simulate in modeller for each pir alignment
+#for each alignment, modeller will generate this number of models
+#and pick one with the minimum energy.
+#num_model_simulate=10
+num_model_simulate=5
+####################################################################################
+
+
+##########################Options for sorting blast local alignment###########
+
+#The file containing resolution/method/match ratio for all chains
+#chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
+chain_stx_info=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/databases/cm_lib/chain_stx_info
+
+#resort blast local alignment according to stx quality.
+#yes: resort, no: don't sort
+sort_svm_rank=no
+
+#ratio of evalue to be considered in resorting (must > 1).
+#only be valid if sort_blast_align is set to yes.
+#only if the ratio of two evalues is between 1 and ratio to
+#be considered for exchanging positions.
+#smaller, more strict.
+sort_svm_detal_rvalue=0.1
+
+#ratio of resolution difference for being considered exchange.
+#in Angstrom.
+#only valid if sort_blast_align is set to yes.
+sort_svm_delta_resolution=2
+
+#Option for adding stx information and remove identical by resolution
+#yes: do it. no: don't.
+fr_add_stx_info_rm_identical=no
+
+#resolution difference that decide if the redundant alignment will 
+#be removed. bigger, more strict.
+fr_rm_identical_resolution=2
+
+###############################End of sorting and stx information option#######
+psipred_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/psipred/
+new_hhsearch_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/hhsearch1.2/linux32/
+
+#query-template alignment method
+#use spem to do alignment
+#alignment_method=lobster
+alignment_method=muscle
+
+
+
+

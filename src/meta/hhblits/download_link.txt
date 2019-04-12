@@ -1,0 +1,5 @@
+
+ftp://toolkit.lmb.uni-muenchen.de/HHblits/
+
+databases: (nr and pdb)
+ftp://toolkit.lmb.uni-muenchen.de/HHblits/databases/

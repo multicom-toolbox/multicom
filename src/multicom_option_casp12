@@ -1,0 +1,25 @@
+
+#multicom dir
+multicom_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/
+
+#option for generate full length model
+meta_option_full_length = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/test_system/multicom_option_casp12
+
+#option for generate easy domain model
+meta_option_easy_domain = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/test_system/multicom_option_casp12
+
+#option for generate hard domain model
+meta_option_hard_domain = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/test_system/multicom_option_hard_casp12
+
+#prosys dir
+prosys_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/
+
+#model dir
+modeller_dir = /storage/htc/bdm/tools/modeller/modeller-9.16/
+
+#number of models to simulate for generating one model by Modeller
+cm_model_num = 5
+
+#total number of combined models to generate (for domain combination only)
+final_model_num = 5
+
