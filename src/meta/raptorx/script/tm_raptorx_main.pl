@@ -152,12 +152,12 @@ while (<OPTION>)
 #check the options
 -d $script_dir || die "can't find script dir: $script_dir.\n"; 
 -d $blast_dir || die "can't find blast dir.\n";
--f $modeller_program || die "can't find modeller_program $modeller_program.\n";
+-f $modeller_program || die "can't find $modeller_program.\n";
 -d $raptorx_dir || die "can't find hhsearch dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
--d $pdb_db_dir || die "can't find pdb_db_dir $pdb_db_dir.\n";
--d $meta_dir || die "can't find meta_dir $meta_dir.\n";
--d $meta_common_dir || die "can't find meta_common_dir $meta_common_dir.\n";
+-d $pdb_db_dir || die "can't find $pdb_db_dir.\n";
+-d $meta_dir || die "can't find $meta_dir.\n";
+-d $meta_common_dir || die "can't find $meta_common_dir.\n";
 
 
 #check fast file format
@@ -287,6 +287,14 @@ for ($i = 0; $i < @template_list; $i++)
 
 		close PIR; 
 	}	
+}
+
+$rank_file = "$work_dir/$name.rank";
+if (! -f $rank_file)
+{
+	open(RANK, ">$rank_file") || die "can't create $rank_file\n";; 
+	print RANK "RaptorX failed, this is an empty rank file.\n";
+	close RANK;
 }
 
 print "Raptorx prediction is finished.\n";

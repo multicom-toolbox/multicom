@@ -351,7 +351,7 @@ while (<OPTION>)
 -d $script_dir || die "can't find script dir: $script_dir.\n"; 
 -d $blast_dir || die "can't find blast dir.\n";
 -d $modeller_dir || die "can't find modeller_dir.\n";
--d $hhblits3_dir || die "can't find hhsearch dir.\n";
+-d $hhblits3_dir || die "can't find hhsearch dir. $hhblits3_dir\n";
 -d $atom_dir || die "can't find atom dir.\n";
 -d $pdb_db_dir || die "can't find $pdb_db_dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
@@ -473,6 +473,9 @@ print "generate ranking list...\n";
 #system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank");
 print("$meta_dir/script/rank_templates.pl $name.ss.hhr $work_dir/$name.rank\n");
 system("$meta_dir/script/rank_templates.pl $name.ss.hhr $work_dir/$name.rank");
+
+#filter ranked templates according to the PDB library
+system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank $name.filter.rank");
 	
 #parse the blast output
 print "parse hhsearch output...\n"; 
@@ -513,7 +516,5 @@ for ($i = 1; $i <= $cm_model_num; $i++)
 	system("$meta_dir/script/standarize_pdb_code.pl $output_prefix_name$i.pir $output_prefix_name$i.pir"); 	
 }
 
-#filter ranked templates according to the PDB library
-system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank $name.filter.rank");
 
 

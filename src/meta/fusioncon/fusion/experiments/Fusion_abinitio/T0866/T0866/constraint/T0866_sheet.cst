@@ -1,0 +1,85 @@
+#Betapro Sheet Pairing Probability
+AmbiguousConstraint
+AtomPair CA 98 CA 115 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 99 CA 114 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 100 CA 113 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 101 CA 112 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 102 CA 111 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 103 CA 110 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 67 CA 86 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 68 CA 85 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 69 CA 84 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 70 CA 83 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 71 CA 82 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 72 CA 81 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 73 CA 80 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 58 CA 65 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 59 CA 64 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 60 CA 63 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 40 CA 86 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 41 CA 85 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 42 CA 84 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 43 CA 83 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 44 CA 82 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 45 CA 81 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 46 CA 80 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 82 CA 103 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 83 CA 102 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 84 CA 101 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 85 CA 100 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 86 CA 99 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS

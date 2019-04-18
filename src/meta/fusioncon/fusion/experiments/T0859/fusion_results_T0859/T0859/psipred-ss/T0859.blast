@@ -1,0 +1,118 @@
+BLASTP 2.2.26 [Sep-21-2011]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Altschul, Stephen F., 
+John C. Wootton, E. Michael Gertz, Richa Agarwala, Aleksandr Morgulis,
+Alejandro A. Schaffer, and Yi-Kuo Yu (2005) "Protein database searches
+using compositionally adjusted substitution matrices", FEBS J. 272:5101-5109.
+
+
+Reference for composition-based statistics starting in round 2:
+Schaffer, Alejandro A., L. Aravind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= 
+         (133 letters)
+
+Database: nr 
+           10,219,744 sequences; 3,539,507,111 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+gi|13449258                                                           263   3e-69
+gi|167760589                                                           35   2.0  
+gi|375144317                                                           35   2.4  
+gi|289704913                                                           34   4.2  
+
+Searching..................................................done
+
+
+Results from round 2
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+gi|13449258                                                           255   1e-66
+
+Sequences not found previously or not previously below threshold:
+
+gi|358395854                                                           39   0.12 
+gi|375144317                                                           36   1.4  
+gi|218890081                                                           35   3.1  
+gi|238918486                                                           35   3.3  
+gi|352123116                                                           34   4.4  
+gi|172040403                                                           34   6.4  
+gi|224008132                                                           33   9.2  
+
+
+CONVERGED!
+  Database: nr
+    Posted date:  Feb 28, 2013  3:13 PM
+  Number of letters in database: 999,999,802
+  Number of sequences in database:  2,918,502
+  
+  Database: /home/db279/fusion/fusion_lib/nr/nr.01
+    Posted date:  Feb 28, 2013  3:15 PM
+  Number of letters in database: 999,999,994
+  Number of sequences in database:  2,940,858
+  
+  Database: /home/db279/fusion/fusion_lib/nr/nr.02
+    Posted date:  Feb 28, 2013  3:18 PM
+  Number of letters in database: 999,999,812
+  Number of sequences in database:  2,796,349
+  
+  Database: /home/db279/fusion/fusion_lib/nr/nr.03
+    Posted date:  Feb 28, 2013  3:19 PM
+  Number of letters in database: 539,507,503
+  Number of sequences in database:  1,564,035
+  
+Lambda     K      H
+   0.306    0.132    0.390 
+
+Lambda     K      H
+   0.267   0.0390    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 1,679,182,291
+Number of Sequences: 10219744
+Number of extensions: 58673236
+Number of successful extensions: 112580
+Number of sequences better than 10.0: 11
+Number of HSP's better than 10.0 without gapping: 7
+Number of HSP's successfully gapped in prelim test: 21
+Number of HSP's that attempted gapping in prelim test: 112571
+Number of HSP's gapped (non-prelim): 28
+length of query: 133
+length of database: 3,539,507,111
+effective HSP length: 98
+effective length of query: 35
+effective length of database: 2,537,972,199
+effective search space: 88829026965
+effective search space used: 88829026965
+T: 11
+A: 40
+X1: 16 ( 7.1 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 42 (21.5 bits)
+S2: 74 (33.2 bits)

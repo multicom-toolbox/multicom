@@ -42,7 +42,7 @@ foreach $file (@align_files)
 	}
 
 	$pir_file = $alignment_dir . "/" . $file;
-
+	print "Processing $pir_file\n";
 	open(PIR, $pir_file) || die "can't read $pir_file.\n";
 	@pir = <PIR>;
 	close PIR; 

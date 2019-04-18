@@ -1,0 +1,239 @@
+#!/usr/bin/perl -w
+###############################################################################
+#This is the main entry script for protein structure prediction server
+#Inputs: option file, query file(fasta), output dir
+#New version: starte date: 1/10/2009
+#########################################################################
+
+#####################Read Input Parameters###################################
+if (@ARGV != 3)
+{
+	die "need three parameters: option file, query file(fasta), output dir\n";
+}
+
+$option_file = shift @ARGV;
+$query_file = shift @ARGV;
+$output_dir = shift @ARGV;
+
+#convert output_dir to absolute path if necessary
+-d $output_dir || die "output dir doesn't exist.\n";
+use Cwd 'abs_path';
+$output_dir = abs_path($output_dir);
+$query_file = abs_path($query_file);
+############################################################################
+
+###################Preprocessing of Inputs###################################
+#read option file
+open(OPTION, $option_file) || die "can't read option file.\n";
+
+$local_model_num = 50;
+
+$tm_score = "/home/chengji/software/tm_score/TMscore_32";
+
+$q_score = "/home/chengji/software/pairwiseQA/q_score";
+
+while (<OPTION>)
+{
+	$line = $_; 
+	chomp $line;
+
+	if ($line =~ /^meta_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$meta_dir = $value; 
+	}
+
+	if ($line =~ /^prosys_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$prosys_dir = $value; 
+	}
+
+	if ($line =~ /^tm_score/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$tm_score = $value; 
+	}
+
+	if ($line =~ /^q_score/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$q_score = $value; 
+	}
+
+	if ($line =~ /^rosettacon_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$rosettacon_dir = $value; 
+	}
+
+	if ($line =~ /^rosettacon_program/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$rosettacon_program = $value; 
+	}
+
+	if ($line =~ /^scwrl_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$scwrl_dir = $value; 
+	}
+
+	if ($line =~ /^max_wait_time/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$max_wait_time = $value; 
+	}
+
+
+	if ($line =~ /^local_model_num/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$local_model_num = $value; 
+	}
+}
+
+close OPTION; 
+
+#check the options
+-d $meta_dir || die "can't find $meta_dir.\n";
+-d $prosys_dir || die "can't find $prosys_dir.\n";
+-d $rosettacon_dir || die "can't find $rosettacon_dir.\n";
+-f $rosettacon_program || die "can't find $rosettacon_program.\n";
+-d $scwrl_dir || die "can't find $scwrl_dir.\n";
+$max_wait_time > 10 && $max_wait_time < 600 || die "waiting time is out of range.\n";
+
+#get query name and sequence 
+open(FASTA, $query_file) || die "can't read fasta file.\n";
+$query_name = <FASTA>;
+chomp $query_name; 
+$qseq = <FASTA>;
+chomp $qseq;
+close FASTA;
+
+#rewrite fasta file if it contains lower-case letter
+if ($qseq =~ /[a-z]/)
+{
+	print "There are lower case letters in the input file. Convert them to upper case.\n";
+	$qseq = uc($qseq);
+	open(FASTA, ">$query_file") || die "can't rewrite fasta file.\n";
+	print FASTA "$query_name\n$qseq\n";
+	close FASTA;
+}
+
+if ($query_name =~ /^>/)
+{
+	$query_name = substr($query_name, 1); 
+}
+else
+{
+	die "fasta foramt error.\n"; 
+}
+####################End of Preprocessing of Inputs#############################
+
+chdir $output_dir; 
+
+$model_dir = "$output_dir/rosetta_results_$query_name";
+`mkdir $model_dir`;
+
+-d $model_dir || die "can't create $model_dir.\n";
+
+#####################################################
+#
+#Wait for external DNCON2 to make contact predictions
+#wait for at most 4 fours?
+#
+#####################################################
+
+if (1)   #if a contact file exists
+{
+
+	print "Generate models using Rosetta with contacts...\n";
+
+	use Cwd;
+	$server_dir = abs_path($server_dir); 	
+	
+	system("$rosettacon_program $query_name $query_file $server_dir");
+
+}
+else
+{
+	#run Rosetta without contacts
+	print "Generate models using Rosetta without contacts...\n";
+}
+
+
+	#evaluate these models using ModelEvaluator
+	#select at most top 10 models for further 
+	#analysis
+print "Evaluate ab initio models using ModelEvaluator...\n";
+`cp $query_file $query_name.fasta`; 
+system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_name.fasta $server_dir");
+
+#sort models by scores 
+open(MCH, "$server_dir/$query_name.mch") || die "can't read Rosetta 2 score file.\n";
+@mch = <MCH>;
+close MCH; 	
+my @model2score = (); 
+while (@mch)
+{
+	my $line = shift @mch; 
+	chomp $line; 
+	@fields = split(/\s+/, $line); 
+	push @model2score, {
+				"name" => $fields[0], 
+				"score" => $fields[1]
+	}; 	
+
+}
+
+my @sorted_model2score	= (); 
+if (@model2score > 0)
+{	
+	@sorted_model2score = sort {$b->{"score"} <=> $a->{"score"}} @model2score; 
+}
+				#select up to 10 models with highest scores	
+my $i = 0; 
+open(SEL, ">$server_dir/selected_models"); 
+for ($i = 0; $i < 8 && $i < @sorted_model2score; ++$i)
+{
+	my $model_name = $sorted_model2score[$i]->{"name"}; 
+	my $score = $sorted_model2score[$i]->{"score"}; 
+	`cp $server_dir/models/$model_name rocon$i.pdb`; 
+
+	###########Chain chain id from "A" to " "#################### 	
+	open(AB, "rocon$i.pdb"); 
+	@ab = <AB>;
+	close AB;
+	open(AB, ">rocon$i.pdb"); 
+	while (@ab)
+	{
+		$line = shift @ab;
+		if ($line =~ /^ATOM/)
+		{
+			$left = substr($line, 0, 21);
+			$right = substr($line, 22);
+			$record = "$left $right";
+			print AB $record;
+		}
+	}		
+	close AB;
+					###############################################################
+
+	print SEL "$model_name\trocon$i\t$score\n";		
+
+}
+close SEL; 
+
+#self model rosetta models
+system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server_dir");
+

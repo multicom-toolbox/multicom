@@ -1,0 +1,13 @@
+prosys_dir=/home/casp13/MULTICOM_package/software/prosys/
+
+model_check_dir=/home/casp13/MULTICOM_package/software/model_eva1.0/
+
+betacon_dir=/home/casp13/MULTICOM_package/software/betacon/
+
+pspro_dir=/home/casp13/MULTICOM_package/software/pspro2/
+
+model_energy_dir=/home/casp13/MULTICOM_package/software/energy/
+
+betapro_dir=/home/casp13/MULTICOM_package/software/betapro-1.0-src-new/
+
+thread_num=12

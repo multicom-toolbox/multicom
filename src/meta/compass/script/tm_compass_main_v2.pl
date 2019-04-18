@@ -137,6 +137,12 @@ while (<OPTION>)
 		$value =~ s/\s//g; 
 		$nr_dir = $value; 
 	}
+	if ($line =~ /^nrdb/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$nrdb = $value; 
+	}
 	if ($line =~ /^atom_dir/)
 	{
 		($other, $value) = split(/=/, $line);
@@ -421,12 +427,12 @@ if (-f "$fasta_file.local")
 #assumption: pdb database name is: pdb_cm
 #	     nr database name is: nr
 #################################################################
-$nr_db = "$nr_dir/nr";
+$nr_db = "$nr_dir/$nrdb";
 print "blast NR to find homology templates...\n";
-(-f "$nr_dir/nr.phr" || -f "$nr_dir/nr.pal") || die "can't find the nr database.\n"; 
+(-f "$nr_db.pal") || die "can't find the nr database.\n"; 
 
 #generate input profile
-#print("$blast_dir/blastpgp -i $fasta_file -o $fasta_file.blast -j $nr_iteration_num -e $nr_return_evalue -h $nr_including_evalue -d $nr_db"); 
+print("$blast_dir/blastpgp -i $fasta_file -o $fasta_file.blast -j $nr_iteration_num -e $nr_return_evalue -h $nr_including_evalue -d $nr_db"); 
 system("$blast_dir/blastpgp -i $fasta_file -o $fasta_file.blast -j $nr_iteration_num -e $nr_return_evalue -h $nr_including_evalue -d $nr_db"); 
 
 
@@ -454,9 +460,9 @@ system("$prosys_dir/script/generate_aln_new.pl $prosys_dir/script . $fasta_file 
 system("$compass_dir/compass_search/prep_psiblastali -i $work_dir/$name.aln -o $work_dir/$name.paln");
 
 
-########################Search two compass databases###################################################
+########################Search five compass databases###################################################
 
-@indices = (1, 2, 3); 
+@indices = (1, 2, 3, 4, 5); 
 @rank = ();
 while (@indices)
 {

@@ -5,9 +5,9 @@
 #Date: 5/11/2010
 ########################################################################
 
-$model_eva_script = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/model_eva1.0/script/gen_feature.pl";
-$script_dir = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/model_eva1.0/script";
-$dssp_dir = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/dssp/";
+$model_eva_script = "/home/casp13/MULTICOM_package/software/model_eva1.0/script/gen_feature.pl";
+$script_dir = "/home/casp13/MULTICOM_package/software/model_eva1.0/script";
+$dssp_dir = "/home/casp13/MULTICOM_package/software/prosys/dssp/";
 
 if (@ARGV != 3)
 {

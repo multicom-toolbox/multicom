@@ -13,20 +13,20 @@ use lib ".";
 
 ###########################################################################################################
 ####################################The values are hard coded and need to be parameterized later###########
-use lib "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhpred/script/";
+use lib "/home/casp13/MULTICOM_package/casp8/hhpred/script/";
 use Align;
 # CUSTOMIZE
-my $dbbase="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhpred/nr/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
+my $dbbase="/home/casp13/MULTICOM_package/casp8/hhpred/nr/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
                                    # It is recommended to use nre = nr + env. 
                                    # 90: filtered with CD-HIT to 90% maximum pairwise sequence identity
-my $hh="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhpred/script/";
+my $hh="/home/casp13/MULTICOM_package/casp8/hhpred/script/";
 my $perl=$hh;
-my $ncbidir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
+my $ncbidir="/home/casp13/MULTICOM_package/software/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
 my $blastpgp=$ncbidir."/blastpgp -I T -s T"; # blastpgp executable
 #our $blastpgp.=" -I T -s T"; # show gi's in defline; use Smith-Waterman
 
-my $execdir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/cheng_group/psipred-2.61/bin";  # directory with PSIPRED binaries 
-my $datadir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/cheng_group/psipred-2.61/data"; # directory with PSIPRED data 
+my $execdir="/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/bin";  # directory with PSIPRED binaries 
+my $datadir="/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/data"; # directory with PSIPRED data 
 ###########################################################################################################
 
 

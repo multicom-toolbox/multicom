@@ -71,8 +71,8 @@ while ($count <= 5)
 
 	print "do model combination...\n";
 
-	#system("$meta_dir/script/stx_model_comb_global.pl /home/chengji/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
-	system("$meta_dir/script/stx_model_comb_global.pl /home/chengji/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70");
+	#system("$meta_dir/script/stx_model_comb_global.pl /home/casp13/MULTICOM_package/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
+	system("$meta_dir/script/stx_model_comb_global.pl /home/casp13/MULTICOM_package/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70");
 
 	open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 	@pir = <PIR>;
@@ -85,7 +85,7 @@ while ($count <= 5)
 	while (@pir < 10)
 	{
 		print "Less than two templates, do local model combination...\n";
-		system("$meta_dir/script/stx_model_comb.pl /home/chengji/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
+		system("$meta_dir/script/stx_model_comb.pl /home/casp13/MULTICOM_package/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
 
 		open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 		@pir = <PIR>;
@@ -101,12 +101,12 @@ while ($count <= 5)
 	}
 
 	print "generate model...\n";
-	#system("$meta_dir/script/pir2ts_energy.pl /home/chengji/software/prosys/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
+	#system("$meta_dir/script/pir2ts_energy.pl /home/casp13/MULTICOM_package/software/prosys/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
 
 
 	#hard coded
-	#system("$meta_dir/script/pir2ts_energy_9v7.pl /home/chengji/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
-	system("$meta_dir/script/pir2ts_energy_9v7.pl /home/chengji/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
+	#system("$meta_dir/script/pir2ts_energy_9v7.pl /home/casp13/MULTICOM_package/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
+	system("$meta_dir/script/pir2ts_energy_9v7.pl /home/casp13/MULTICOM_package/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
 
 		
 
@@ -115,7 +115,7 @@ while ($count <= 5)
 	
 	#using scwrl
 	#disable scwrl
-	#system("/home/chengji/software/scwrl/scwrl3 -i $output_dir/$name-$count.pdb -o $output_dir/$name-$count-s.pdb >/dev/null");
+	#system("/home/casp13/MULTICOM_package/software/scwrl/scwrl3 -i $output_dir/$name-$count.pdb -o $output_dir/$name-$count-s.pdb >/dev/null");
 
 	#clash check
 	system("$meta_dir/script/clash_check.pl $fasta_file $output_dir/$name-$count.pdb > $output_dir/clash$count.txt"); 

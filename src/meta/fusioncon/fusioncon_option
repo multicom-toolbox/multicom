@@ -1,0 +1,29 @@
+#meta directory
+#meta_dir = /data/jh7x3/multicom_github/multicom/src/meta
+meta_dir = SOFTWARE_PATH/src/meta
+
+#prosys dir
+#prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys
+prosys_dir = SOFTWARE_PATH/src/prosys
+
+#fusioncon+dncon2 directory
+#fusioncon_dir = /home/casp13/MULTICOM_package/casp8/fusioncon
+fusioncon_dir = SOFTWARE_PATH/src/meta/fusioncon
+
+#fusioncon program of making predictions with contacts
+#fusioncon_program = /home/casp13/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
+fusioncon_program = SOFTWARE_PATH/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
+
+#fusion ab intio program without contacts
+#fusion_program = /home/casp13/fusion/scripts/run_CASP13_fusion_abinitio.sh
+fusion_program = SOFTWARE_PATH/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
+
+#number of models to be selected from this predictor
+local_model_num = 10
+
+#maxmum time for contact predictions to be finished in hours 
+max_wait_time = 6
+
+#contact file (where the contact file is), which is used by Rosetta to generate 3D models
+contact_file = /xxx/xxx/xxx
+

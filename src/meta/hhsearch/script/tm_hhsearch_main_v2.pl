@@ -137,6 +137,12 @@ while (<OPTION>)
 		$value =~ s/\s//g; 
 		$nr_dir = $value; 
 	}
+	if ($line =~ /^nrdb/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$nrdb = $value; 
+	}
 	if ($line =~ /^atom_dir/)
 	{
 		($other, $value) = split(/=/, $line);
@@ -405,9 +411,9 @@ if (-f "$fasta_file.local")
 #################################################################
 
 
-$nr_db = "$nr_dir/nr";
+$nr_db = "$nr_dir/$nrdb";
 print "blast NR to find homology templates...\n";
-(-f "$nr_dir/nr.phr" || -f "$nr_dir/nr.pal") || die "can't find the nr database.\n"; 
+(-f "$nr_db.pal") || die "can't find the nr database.\n"; 
 
 #use new version: cm_psiblast_temp_opt.pl with many options to tune
 system("$blast_dir/blastpgp -i $fasta_file -o $fasta_file.blast -j $nr_iteration_num -e $nr_return_evalue -h $nr_including_evalue -d $nr_db"); 

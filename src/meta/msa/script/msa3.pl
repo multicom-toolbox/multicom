@@ -267,7 +267,7 @@ while (<OPTION>)
 -d $prosys_dir || die "can't find $prosys_dir.\n";
 -d $modeller_dir || die "can't find modeller_dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
--d $spem_dir || die "can't find $spem_dir.\n";
+#-d $spem_dir || die "can't find $spem_dir.\n";
 -d $lobster_dir || die "can't find $lobster_dir.\n";
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $msa_dir || die "can't find $msa_dir.\n";
@@ -287,16 +287,6 @@ $time_out >= $TIME_OUT_FREQUENCY || die "time out is too short.\n";
 #@source_dir = ("blast", "csblast", "psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch12"); #six are based pdb_cm, four are based on sort90
 #@source_dir = ("blast", "csblast", "psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch12", "hhsearch151", "hhblits", "muster", "hhpred", "hhsuite", "fugue"); #six are based pdb_cm, four are based on sort90
 @source_dir = ("blast", "csblast", "psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "raptorx", "ffas", "hhsearch12", "hhsearch151", "hhblits", "hhblits3", "muster", "hhpred", "hhsuite"); #six are based pdb_cm, four are based on sort90
-
-
-
-###### since sunflower cm_pb lib has problem, will cause csiblast,csblast,psiblast,blast,hhsearch12 failed, so in current stage, manually skip these 10/07/2017
-print "###### since sunflower cm_pb lib has problem, will cause csiblast,csblast,psiblast,blast,hhsearch12 failed, so in current stage, manually skip these\n\n";
-`touch $work_dir/csiblast/$fasta_file.local`;
-`touch $work_dir/csblast/$fasta_file.local`;
-`touch $work_dir/psiblast/$fasta_file.easy.local`;
-`touch $work_dir/blast/$fasta_file.easy.local`;
-`touch $work_dir/hhsearch12/$query_name.rank`;
 
 
 $rounds = int($time_out / $TIME_OUT_FREQUENCY); 
@@ -327,11 +317,7 @@ while (1)
 			#old version of hhsearch, it shares directory with blast
 			if ($sub eq "hhsearch12")
 			{
-				#`ln -f -s $work_dir/blast $sub_dir`; 	
-				if(!(-d "hhsearch12"))  #### debug by Jie 2017/10/05
-        {
-          `ln -f -s $work_dir/blast $sub_dir`; 	
-        }
+				`ln -f -s $work_dir/blast $sub_dir`; 	
 			}
 			#########################################################
 
@@ -555,18 +541,9 @@ while (1)
 
 
 	}
-  #aded by jie 10/08/2017
-  for($idx=0;$idx<@flags;$idx++)
-  {
-    if($flags[$idx] ==0)
-    {
-      print "Among ".@source_dir." jobs, $finished jobs finished, Waiting for ".$source_dir[$idx]." to finish!\n";
-    }
-  }
 
 	if ($finished == $to_do)
 	{
-    print "All ".@source_dir." jobs finished!\n\n"; # added by Jie 10/08/2017
 		last; 
 	}
 
@@ -613,10 +590,8 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 
 	$temp_file = "$atom_dir/$temp_name.atom.gz";
 	if (-f $temp_file)
-	{   
+	{
 		`cp $temp_file .`;
-   
-     `chmod 777 -R *`; # added by jie 2017/10/05 since report permission problem   
 		`rm ./$temp_name.atom 2>/dev/null`; 
 		`gunzip -f $temp_name.atom.gz`; 
 		print LIST "./$temp_name.atom\n";
@@ -632,8 +607,6 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 		if (-f $temp_file)
 		{
 			`cp $temp_file .`;
-   
-     `chmod 777 -R *`; # added by jie 2017/10/05 since report permission problem
 			`rm ./$temp_name.atom 2>/dev/null`; 
 			`gunzip -f $temp_name.atom.gz`; 
 			print LIST "./$temp_name.atom\n";
@@ -808,8 +781,6 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 		if (-f $temp_file)
 		{
 			`cp $temp_file .`;
-   
-     `chmod 777 -R *`; # added by jie 2017/10/05 since report permission problem
 			`rm ./$tname.atom 2>/dev/null`;  
 			`gunzip -f $tname.atom.gz`; 
 		}			
@@ -892,7 +863,7 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 	$pss = <SS>;
 	$psa = <SS>;
 	close SS; 
-	chomp $pss;  
+	chomp $pss; 
 	chomp $psa; 
 	###########################################################################################################
 	###########################################################################################################
@@ -950,8 +921,6 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 		if (-f $temp_file)
 		{
 			`cp $temp_file .`;
-   
-     `chmod 777 -R *`; # added by jie 2017/10/05 since report permission problem
 			`rm ./$tname.atom 2>/dev/null`;  
 			`gunzip -f $tname.atom.gz`; 
 		}			
@@ -1166,8 +1135,6 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 		if (-f $temp_file)
 		{
 			`cp $temp_file .`;
-   
-     `chmod 777 -R *`; # added by jie 2017/10/05 since report permission problem
 			`rm ./$tname.atom 2>/dev/null`;  
 			`gunzip -f $tname.atom.gz`; 
 		}			

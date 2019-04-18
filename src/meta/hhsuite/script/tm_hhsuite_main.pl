@@ -327,11 +327,11 @@ while (<OPTION>)
 -d $script_dir || die "can't find script dir: $script_dir.\n"; 
 -d $blast_dir || die "can't find blast dir.\n";
 -d $modeller_dir || die "can't find modeller_dir.\n";
--d $hhsuite_dir || die "can't find hhsearch dir.\n";
+-d $hhsuite_dir || die "can't find hhsearch dir. $hhsuite_dir\n";
 -d $atom_dir || die "can't find atom dir.\n";
 -d $pdb_db_dir || die "can't find $pdb_db_dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
--f $hhsuitedb || die "can't find hhsearch database.\n";
+-f $hhsuitedb || die "can't find hhsearch database.$hhsuitedb\n";
 -f "${nr_db}_a3m_db" || die "can't find ${nr_db}_a3m_db database.\n";
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $meta_common_dir || die "can't find $meta_common_dir.\n";
@@ -433,16 +433,13 @@ else
 
 
 #add secondary structure into alignments
-print("$hhblits_dir/scripts/addss.pl $name.a3m $name.ss.a3m -a3m\n"); 
 system("$hhblits_dir/scripts/addss.pl $name.a3m $name.ss.a3m -a3m"); 
 
 #make hmm
 $ENV{HHLIB}="$hhsuite_dir/lib/hh";
-print("$hhsuite_dir/bin/hhmake -i $name.ss.a3m -o $name.hmm\n"); 
 system("$hhsuite_dir/bin/hhmake -i $name.ss.a3m -o $name.hmm"); 
 
 #search shhm against the database
-print("$hhsuite_dir/bin/hhsearch -i $name.hmm -d $hhsuitedb -realign -mact 0\n"); 
 system("$hhsuite_dir/bin/hhsearch -i $name.hmm -d $hhsuitedb -realign -mact 0"); 
 
 print "generate ranking list...\n";

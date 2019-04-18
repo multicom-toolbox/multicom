@@ -34,9 +34,9 @@ foreach $model (@models)
 }
 
 #generate features
-system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/model_check2/script/generate_input_v2.pl /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/betacon/ /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/pspro2/ /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/disorder_new/ $query_file $feature_dir");
+system("/home/casp13/MULTICOM_package/software/model_check2/script/generate_input_v2.pl /home/casp13/MULTICOM_package/software/betacon/ /home/casp13/MULTICOM_package/software/pspro2/ /home/casp13/MULTICOM_package/software/disorder_new/ $query_file $feature_dir");
 
-system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/model_check2/script/casp_model_eva_full.pl /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/betacon/ /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/model_check2/ $query_file $feature_dir $output_dir $output_file");
+system("/home/casp13/MULTICOM_package/software/model_check2/script/casp_model_eva_full.pl /home/casp13/MULTICOM_package/software/betacon/ /home/casp13/MULTICOM_package/software/model_check2/ $query_file $feature_dir $output_dir $output_file");
 
 `mv $feature_dir $output_dir`; 
 

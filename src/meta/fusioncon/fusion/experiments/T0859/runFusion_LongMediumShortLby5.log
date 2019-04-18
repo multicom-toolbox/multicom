@@ -1,0 +1,98 @@
+PYROSETTA_DATABASE environment variable was set to: /home/jh7x3/fusion_hybrid/fusion_lib/PyRosetta.ScientificLinux-r55981.64Bit/rosetta_database; using it....
+PyRosetta 3.4.0 [Rosetta-3.4 55979:55979:c838dc0f9dbce71d24efd3d6892b1e383bbea025] retrieved from: 
+(C) Copyright Rosetta Commons Member Institutions.
+Created in JHU by Sergey Lyskov and PyRosetta Team.
+
+core.init: Rosetta version  from
+core.init: command: PyRosetta -ex1 -ex2aro -ignore_zero_occupancy false -ignore_unrecognized_res true -chemical:exclude_patches LowerDNA UpperDNA Cterm_amidation SpecialRotamer VirtualBB ShoveBB VirtualDNAPhosphate VirtualNTerm CTermConnect sc_orbitals pro_hydroxylated_case1 pro_hydroxylated_case2 ser_phosphorylated thr_phosphorylated tyr_phosphorylated tyr_sulfated lys_dimethylated lys_monomethylated lys_trimethylated lys_acetylated glu_carboxylated cys_acetylated tyr_diiodinated N_acetylated C_methylamidated MethylatedProteinCterm -database /home/jh7x3/fusion_hybrid/fusion_lib/PyRosetta.ScientificLinux-r55981.64Bit/rosetta_database
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=-1107653924 seed_offset=0 real_seed=-1107653924
+core.init.random: RandomGenerator:init: Normal mode, seed=-1107653924 RG_type=mt19937
+
+  ############################################################################
+  #                                                                          #
+  #      FUSION : A Probabilistic Model of Protein Conformational Space      #
+  #                                                                          #
+  #   Copyright (C) 2014 - 2024   Debswapna Bhattacharya and Jianlin Cheng   #
+  #                                                                          #
+  #   FUSION is free software: you can redistribute it and/or modify         #
+  #   it under the terms of the GNU General Public License as published by   #
+  #   the Free Software Foundation, either version 3 of the License, or      #
+  #   (at your option) any later version.                                    #
+  #                                                                          #
+  #   FUSION is distributed in the hope that it will be useful,              #
+  #   but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+  #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the           #
+  #   GNU General Public License for more details.                           #
+  #                                                                          #
+  #   You should have received a copy of the GNU General Public License      #
+  #   along with FUSION. If not, see <http://www.gnu.org/licenses/>.         #
+  #                                                                          #
+  ############################################################################
+  #                                                                          #
+  #   Method to perform abinitio modeling (TS)                               #
+  #                                                                          #
+  ############################################################################
+
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch Cterm_amidation as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch SpecialRotamer as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch VirtualBB as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch ShoveBB as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch LowerDNA as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch UpperDNA as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch VirtualDNAPhosphate as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch pro_hydroxylated_case1 as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch pro_hydroxylated_case2 as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch ser_phosphorylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch thr_phosphorylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch tyr_phosphorylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch tyr_sulfated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch lys_monomethylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch lys_dimethylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch lys_trimethylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch lys_acetylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch glu_carboxylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch cys_acetylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch tyr_diiodinated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch N_acetylated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch C_methylamidated as requested
+core.chemical.ResidueTypeSet: While generating ResidueTypeSet fa_standard: Skipping patch MethylatedProteinCterm as requested
+core.chemical.ResidueTypeSet: Finished initializing fa_standard residue type set.  Created 3577 residue types
+sh: /home/jh7x3/fusion_hybrid/fusion_lib/nncon1.0/bin/predict_homo_cm.sh: No such file or directory
+protocols.FusionModeling: setting default modeling settings
+protocols.FusionModeling: setting target to T0859
+protocols.FusionModeling: setting reply email to jh7x3@mail.missouri.edu
+protocols.FusionModeling: setting simulation timeout to 10.0 hours
+Loading custom constraints  /home/casp13/fusion/experiments/T0859/fusion_results_T0859/T0859.rr.LongMediumShortLby5.contact.cst
+protocols.FusionModeling: setting custom constraint file
+protocols.FusionModeling: setting cpu to 5
+protocols.FusionModeling: setting decoy per cpu to 20
+protocols.FusionModeling: setting number of models to 5
+protocols.FusionModeling: increasing default monte carlo cycles by a factor of 1
+protocols.FusionModeling: setting author to FUSION
+mover.GeometryMover: setting default geometry settings
+mover.GeometryMover: running PSIPRED
+mover.GeometryMover: running RAPTOR-X
+mover.GeometryMover: Finished generating pose geometry
+mover.GeometryMover: Finished generating pose ss
+mover.GeometryMover: Found 3 Helix(s)
+mover.GeometryMover: Found 4 Strand(s)
+mover.GeometryMover: Found 7 SSE(s)
+mover.DisulfideConstraintMover: setting default constraint settings
+mover.DisulfideConstraintMover: Found 0 unique cysteine pair(s)
+mover.AmbiguousSheetConstraintMover: setting default constraint settings
+mover.AmbiguousSheetConstraintMover: running BETApro
+mover.AmbiguousSheetConstraintMover: running SSE Alignment
+mover.AmbiguousSheetConstraintMover: Found 1 sheet pair(s)
+mover.AmbiguousSheetConstraintMover: Finished generating ambiguous sheet constraints
+mover.AmbiguousContactConstraintMover: setting default constraint settings
+mover.AmbiguousContactConstraintMover: running NNcon
+mover.AmbiguousContactConstraintMover: running NNcon Failed --->  /home/jh7x3/fusion_hybrid/fusion_lib/nncon1.0/bin/predict_homo_cm.sh /home/casp13/fusion/experiments/T0859/fusion_results_T0859/T0859/nncon-cm/T0859
+mover.AmbiguousContactConstraintMover: running PhyCMAP
+Traceback (most recent call last):
+  File "/home/casp13/fusion/scripts/Fusion_Abinitio_with_contact.py", line 173, in <module>
+    modeling.apply(pose)
+  File "/home/jh7x3/fusion_hybrid/fusion_lib/protocols.py", line 553, in apply
+    contact_constraint.dump_constraints(contact_constraint_file)
+  File "/home/jh7x3/fusion_hybrid/fusion_lib/mover.py", line 1053, in dump_constraints
+    f = open(nncon_8a_file, 'r')    # open the NNcon 8A contact prediction file
+IOError: [Errno 2] No such file or directory: '/home/casp13/fusion/experiments/T0859/fusion_results_T0859/T0859/nncon-cm/T0859.cm8a.rr'

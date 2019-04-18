@@ -29,19 +29,34 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-$tm_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/tm_score/TMscore_32";
-$q_score =  "/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/pairwiseQA/q_score";
-$hhsearch_option_casp8 = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch/hhsearch_option_cluster_used_in_casp8";
+$tm_score = "/home/casp13/MULTICOM_package/software/tm_score/TMscore_32";
+
+$q_score = "/home/casp13/MULTICOM_package/software/pairwiseQA/q_score";
+$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package/casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
 {
 	$line = $_; 
 	chomp $line;
-	if ($line =~ /^meta_dir/) #/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta
+	if ($line =~ /^meta_dir/)
 	{
 		($other, $value) = split(/=/, $line);
 		$value =~ s/\s//g; 
 		$meta_dir = $value; 
+	}
+
+	if ($line =~ /^sparks_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$sparks_dir = $value; 
+	}
+
+	if ($line =~ /^sparks_option/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$sparks_option = $value; 
 	}
 
 	if ($line =~ /^csblast_dir/)
@@ -175,6 +190,20 @@ while (<OPTION>)
 		($other, $value) = split(/=/, $line);
 		$value =~ s/\s//g; 
 		$hhsuite_option = $value; 
+	}
+
+	if ($line =~ /^fugue_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$fugue_dir = $value; 
+	}
+
+	if ($line =~ /^fugue_option/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$fugue_option = $value; 
 	}
 
 	if ($line =~ /^raptorx_dir/)
@@ -399,6 +428,8 @@ while (<OPTION>)
 #check the options
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $prosys_dir || die "can't find $prosys_dir.\n";
+#-d $sparks_dir || die "can't find $sparks_dir.\n";
+#-f $sparks_option || die "can't find $sparks_option.\n";
 -d $hhsearch_dir || die "can't find $hhsearch_dir.\n";
 -f $hhsearch_option || die "can't find $hhsearch_option.\n";
 -d $hhsearch15_dir || die "can't find $hhsearch15_dir.\n";
@@ -436,6 +467,7 @@ while (<OPTION>)
 -f $hhblits3_option || die "can't find $hhblits3_option.\n";
 -d $hhsuite_dir || die "can't find $hhsuite_dir.\n";
 -f $hhsuite_option || die "can't find $hhsuite_option.\n";
+-d $fugue_dir || die "can't find $fugue_dir.\n";
 -f $fugue_option || die "can't find $fugue_option.\n";
 -d $raptorx_dir || die "can't find $raptorx_dir.\n";
 -f $raptorx_option || die "can't find $raptorx_option.\n";
@@ -482,6 +514,8 @@ else
 
 chdir $output_dir; 
 
+#@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
+#@servers = ("hhsearch", "compass", "multicom", "sp3", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "construct", "hhpred", "ffas", "hhblits", "muster", "hhsearch151", "msa"); 
 @servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa"); 
 
 $post_process = 0; 
@@ -507,161 +541,232 @@ for ($i = 0; $i < @servers; $i++)
 		print "start thread $i\n";
 		`mkdir $server`; 	
 
-		if ($server eq "hhsearch") #done
+		if ($server eq "sp3")
 		{
+			chdir $server; 
+
+			open(FASTA, ">$query_name.fasta");
+			print FASTA ">$query_name\n";
+			for ($j = 0; $j < length($qseq); $j++)
+			{
+				print FASTA substr($qseq, $j, 1);
+				if ( ($j + 1) % 70 == 0)
+				{
+					print FASTA "\n";
+				}
+			}
+			print FASTA "\n";
+			close FASTA;
+			
+
+			#need to convert file into a new format (at most 70 AA each line, to do)
+			system("$sparks_dir/bin/scan_sp3.job $query_name.fasta");
+
+			#rank templates
+			system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
+
+			#generate alignments and models
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
+
+			#remodel sp3 models
+			for ($iii = 1; $iii <= 10; $iii++)
+			{
+				if (-f "${query_name}_sp3_$iii.pdb")
+				{
+					system("$meta_dir/script/threading.pl $query_file ${query_name}_sp3_$iii.pdb sthread$iii.pir sthread$iii.pdb"); 
+
+					if (-f "spem$iii.pir")
+					{
+						`mv sthread$iii.pir sthread$iii.pir.org`;
+						`cp spem$iii.pir sthread$iii.pir`; 
+				
+					}
+
+				}
+			}
+
+			#run sp3 addition
+			$sp3_add_dir = "$output_dir/sp3_add";
+			`mkdir $sp3_add_dir`; 
+			`cp $query_name.fasta $sp3_add_dir`; 
+			chdir $sp3_add_dir;  
+			system("$sparks_dir/bin/scan_sp3_add.job $query_name.fasta");
+			system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
+			for ($iii = 1; $iii <= 10; $iii++)
+			{
+				if ($iii <= 5)  #only use top five
+				{
+					`mv spem$iii.pir spar$iii.pir`; 
+					`mv spem$iii.pdb spar$iii.pdb`; 
+				}
+				else
+				{
+					`mv spem$iii.pir spar$iii.pir1`; 
+					`mv spem$iii.pdb spar$iii.pdb1`; 
+				}
+			}
+
+		}
+
+		elsif ($server eq "sp2")
+		{
+	
+			chdir $server; 
+
+			open(FASTA, ">$query_name.fasta");
+			print FASTA ">$query_name\n";
+			for ($j = 0; $j < length($qseq); $j++)
+			{
+				print FASTA substr($qseq, $j, 1);
+				if ( ($j + 1) % 70 == 0)
+				{
+					print FASTA "\n";
+				}
+			}
+			print FASTA "\n";
+			close FASTA;
+
+			system("$sparks_dir/bin/scan_sparks2.job $query_name.fasta");
+	
+			#rank templates
+			system("$meta_dir/script/rank_sp2.pl ${query_name}_spk2.out $query_name > $query_name.rank");
+
+			#generate alignments and models
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
+		}
+
+		elsif ($server eq "hhsearch")
+		{
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
-      #hhsearch_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch
-      #hhsearch_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch/hhsearch_option_cluster
+		}
 
-		}
- 	  elsif ($server eq "compass") #done
+		elsif ($server eq "hhsearch15")
 		{
-			system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
-      #compass_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/compass
-      #compass_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/compass/compass_option
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
+			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
 		}
-		elsif ($server eq "multicom") #done
+
+		elsif ($server eq "hhsearch151")
 		{
-			system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
-      #multicom_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/multicom/
-      #multicom_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/multicom/cm_option_adv
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
+			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
 		}
-		elsif ($server eq "csblast") #done
+
+		elsif ($server eq "csblast")
 		{
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
-      #csblast_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/csblast
-      #csblast option file
-      #csblast_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/csblast/csblast_option
-      #csiblast_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/csblast/csiblast_option
-
 
 			#call hhsuite predictor
-			`mkdir hhsuite`;  #done
-      system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite"); 
-      #hhsuite_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsuite/
-      #hhsuite_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsuite/hhsuite_option
+			`mkdir hhsuite`; 
+			system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite"); 
 
 			#call hhsuite with super_option
-			$super_option = "$hhsuite_dir/super_option"; #done
+			$super_option = "$hhsuite_dir/super_option";
 			system("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite"); 
 			system("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite"); 
 		}
-		elsif ($server eq "csiblast") #done
+
+		elsif ($server eq "csiblast")
 		{
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
 		}
-		elsif ($server eq "sam") #done
-		{
-			system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
-      #sam_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/sam/
-      #sam_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/sam/sam_option_nr
 
-		}   
-		elsif ($server eq "hmmer") #done
+		elsif ($server eq "blast")
 		{
-			system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
-      #hmmer_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hmmer
-      #hmmer_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hmmer/hmmer_option
-		}
-		elsif ($server eq "blast") #done
-		{
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
 			system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
-      #blast_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/blast/
-      #blast option
-      #blast_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/blast/cm_option_adv
-      
-      #hhsearch_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch
-      #hhsearch_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch/hhsearch_option_cluster
-
 		}
-		elsif ($server eq "psiblast") #done
+
+		elsif ($server eq "psiblast")
 		{
+			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
-      #psiblast_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/psiblast/
-      #psiblast option
-      #psiblast_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/psiblast/cm_option_adv
-
 		}
 
-		elsif ($server eq "hhsearch15") #done
+		elsif ($server eq "compass")
 		{
-			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
-      #hhsearch15_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch1.5
-      #hhsearch15_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch1.5/hhsearch1.5_option
+			system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
 		}
+
+		elsif ($server eq "sam")
+		{
+			system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
+		}
+
 		elsif ($server eq "prc")
 		{
 			system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
-      #prc_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/prc
-      #prc_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/prc/prc_option
+		}
+
+		elsif ($server eq "hmmer")
+		{
+			system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
 		}
 		elsif ($server eq "raptorx")
 		{
 			system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
-      #raptorx_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/raptorx/
-      #raptorx_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/raptorx/raptorx_option_version3
 		}
 		elsif ($server eq "newblast")
 		{
 			system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
-      #newblast_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/newblast/
-      #newblast_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/newblast/newblast_option
+		}
 
+		elsif ($server eq "multicom")
+		{
+			system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
 		}
 		elsif ($server eq "construct")
 		{
+			#system("$construct_dir/script/construct.pl $construct_option $query_file $output_dir");
+			#system("$construct_dir/script/construct_v2.pl $construct_option $query_file $output_dir");
+			#system("$construct_dir/script/construct_v5.pl $construct_option $query_file $output_dir");
+			#system("$construct_dir/script/construct_v6.pl $construct_option $query_file $output_dir");
+			#system("$construct_dir/script/construct_v7.pl $construct_option $query_file $output_dir");
 			system("$construct_dir/script/construct_v8.pl $construct_option $query_file $output_dir");
-      #construct_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/construct/
-      #construct_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/construct/construct_option
-		} 
+		}
+		elsif ($server eq "msa")
+		{
+			#system("$msa_dir/script/msa.pl $msa_option $query_file $output_dir");
+			#system("$msa_dir/script/msa2.pl $msa_option $query_file $output_dir");
+			system("$msa_dir/script/msa3.pl $msa_option $query_file $output_dir");
+		}
 		elsif ($server eq "hhpred")
 		{
-			system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
-      #hhpred_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhpred/
-      #hhpred_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhpred/hhpred_option
-		}
-		elsif ($server eq "ffas")
-		{
 			
-			system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
-      #ffas_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/ffas
-      #ffas_option=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/ffas/ffas_option
+			system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
 		}
 		elsif ($server eq "hhblits")
 		{
 			
 			system("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server");
 			system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
-      #hhblits_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhblits/
-      #hhblits_option=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhblits/hhblits_option
-
 		}
 		elsif ($server eq "hhblits3")
 		{
 			
 			system("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server");
 			system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
-      #hhblits3_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhblits3/
-      #hhblits3_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhblits3/hhblits3_option
 		}
 		elsif ($server eq "muster")
 		{
 			
 			system("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server");
+			#system("$muster_dir/script/tm_lomets_main.pl $muster_option $query_file $server");
+			#system("$muster_dir/script/tm_NNNd_main.pl $muster_option $query_file $server");
+			#filter out redundant models
 			system("$muster_dir/script/filter_identical_muster.pl $server"); 
-      #muster_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/muster/
-      #muster_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/muster/muster_option_version4
 		}
-		elsif ($server eq "hhsearch151")
+		elsif ($server eq "ffas")
 		{
-			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
-      #hhsearch151_dir = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch151
-      #hhsearch151_option = /storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/library/meta/hhsearch151/hhsearch151_option
-		}
-		elsif ($server eq "msa")
-		{
-			system("$msa_dir/script/msa3.pl $msa_option $query_file $output_dir");
+			
+			system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
+		#	`mkdir fugue`; 
+			#system("$fugue_dir/script/tm_fugue_main.pl $fugue_option $query_file fugue"); 
 		}
 
 		exit; 
@@ -702,10 +807,7 @@ if ($i == $thread_num && $post_process == 0)
 	#copy files into one common directory
 	#@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
 	#@servers = ("hhsearch", "compass", "multicom", "sp3", "sp3_add", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "ffas", "muster", "hhsearch151", "hhsuite", "fugue", "msa"); 
-	#@servers = ("hhsearch", "compass", "multicom", "raptorx", "newblast", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "msa"); 
- 
- @servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa"); 
- 
+	@servers = ("hhsearch", "compass", "multicom", "raptorx", "newblast", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "msa"); 
 	for ($i = 0; $i < @servers; $i++)
 	{
 		$server_dir = "$output_dir/$servers[$i]";

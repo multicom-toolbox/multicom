@@ -19,6 +19,9 @@ $seq_file = shift @ARGV;
 $out_file = shift @ARGV;
 $evalue = shift @ARGV;
 
+
+print "evalue of newblast is $evalue.\n";
+
 if (! -d $blast_path)
 {
 	die "can't find blast path: $blast_path\n";

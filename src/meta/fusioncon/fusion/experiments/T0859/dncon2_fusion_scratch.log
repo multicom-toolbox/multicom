@@ -1,0 +1,33 @@
+Setting contact file to /home/casp13/dncon2_Rosetta_experiments/DNCON2-Filtered/T0859.rr
+perl /home/casp13/fusion/scripts//run_CASP13_fusion_withcontact_LongMediumShortLby5.pl T0859   /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta  /home/casp13/fusion/experiments/T0859  /home/casp13/dncon2_Rosetta_experiments/DNCON2-Filtered/T0859.rr 3.5 8 1
+Name "main::weight" used only once: possible typo at /home/casp13/fusion/scripts//run_CASP13_fusion_withcontact_LongMediumShortLby5.pl line 15.
+Name "main::final_model_number" used only once: possible typo at /home/casp13/fusion/scripts//run_CASP13_fusion_withcontact_LongMediumShortLby5.pl line 21.
+Name "main::output_prefix_name" used only once: possible typo at /home/casp13/fusion/scripts//run_CASP13_fusion_withcontact_LongMediumShortLby5.pl line 20.
+Detecting contact file /home/casp13/dncon2_Rosetta_experiments/DNCON2-Filtered/T0859.rr, validating......
+
+/home/casp13/fusion/experiments/T0859/dncon2/T0859.dncon2.rr generated!
+
+1. Filtering dncon2 
+perl /home/casp13/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr T0859.dncon2.rr  -fasta /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta  -smin 24 -smax 10000 -top L5
+
+1. Filtering dncon2 
+perl /home/casp13/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr T0859.dncon2.rr  -fasta /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta  -smin 12 -smax 23 -top L5
+
+1. Filtering dncon2 
+perl /home/casp13/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr T0859.dncon2.rr  -fasta /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta  -smin 6 -smax 11 -top L5
+
+2. Generating dncon2 constraints
+perl /home/casp13/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl T0859-Long-range-L5.rr.raw  /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta T0859.rr.longL5.contact.cst  3.5  8
+
+2. Generating dncon2 constraints
+perl /home/casp13/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl T0859-Short-range-L5.rr.raw  /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta T0859.rr.shortL5.contact.cst  3.5  8 
+
+2. Generating dncon2 constraints
+perl /home/casp13/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl T0859-Medium-range-L5.rr.raw  /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta T0859.rr.mediumL5.contact.cst 3.5  8
+
+5. Running fusion with contact constraints
+/home/casp13/fusion/scripts/Fusion_Abinitio_with_contact.sh  --target  T0859  --fasta /home/casp13/dncon2_Rosetta_experiments/Fasta/T0859.fasta  --email jh7x3@mail.missouri.edu --dir /home/casp13/fusion/experiments/T0859/fusion_results_T0859  --timeout  10  --constraint /home/casp13/fusion/experiments/T0859/fusion_results_T0859/T0859.rr.LongMediumShortLby5.contact.cst --cpu 5 --decoy 100 --model  5 &>> /home/casp13/fusion/experiments/T0859/runFusion_LongMediumShortLby5.log
+
+
+####### Fusion-dncon2 modeling finished within 0.0741666666666667 hrs!
+

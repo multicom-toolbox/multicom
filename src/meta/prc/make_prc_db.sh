@@ -1,4 +1,4 @@
 #!/bin/sh
 
-/home/chengji/casp8/prc/script/make_prc_db.pl /home/chengji/software/prosys_database/ /home/chengji/software/sam3.5.i686-linux/ /home/chengji/casp8/prc/database prcdb.lib
+/home/casp13/MULTICOM_package/casp8/prc/script/make_prc_db.pl /home/casp13/MULTICOM_package/software/prosys_database/ /home/casp13/MULTICOM_package/software/sam3.5.i686-linux/ /home/casp13/MULTICOM_package/casp8/prc/database prcdb.lib
 

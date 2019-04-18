@@ -1,0 +1,129 @@
+#MULTICOM server ideally needs 8 to 12 processors 
+
+#MULTICOM option file for hard domain
+########################################################################
+#meta directory
+meta_dir = /home/chengji/casp8/meta
+
+#prosys dir
+prosys_dir = /home/chengji/software/prosys
+
+#blast dir - server 1
+blast_dir=/home/chengji/casp8/blast/
+#blast option
+blast_option = /home/chengji/casp8/blast/cm_option_adv
+
+#psiblast dir - server 2
+psiblast_dir = /home/chengji/casp8/psiblast/
+#psiblast option
+psiblast_option = /home/chengji/casp8/psiblast/psiblast_option_hard
+
+#csblast dir - servers 3 and 4
+csblast_dir = /home/chengji/casp8/csblast
+#csblast option file
+csblast_option = /home/chengji/casp8/csblast/csblast_option
+csiblast_option = /home/chengji/casp8/csblast/csiblast_option_hard
+
+#sam dir and option file - server 5
+sam_dir = /home/chengji/casp8/sam
+sam_option = /home/chengji/casp8/sam/sam_option_hard
+
+#prc dir and option file - server 6
+prc_dir = /home/chengji/casp8/prc
+prc_option = /home/chengji/casp8/prc/prc_option_hard
+
+#hmmer dir and option file - server 7
+hmmer_dir = /home/chengji/casp8/hmmer
+hmmer_option = /home/chengji/casp8/hmmer/hmmer_option_hard
+
+#sp3 and sp3 directory - server 8
+sparks_dir = /home/chengji/sparks
+sparks_option = /home/chengji/casp8/meta/script/sp3_option_adv_hard
+
+#hhsearch dir - server 9
+hhsearch_dir = /home/chengji/casp8/hhsearch
+hhsearch_option = /home/chengji/casp8/hhsearch/hhsearch_option_hard
+
+#hhsearch 1.5 dir - server 10
+hhsearch15_dir = /home/chengji/casp8/hhsearch1.5
+hhsearch15_option = /home/chengji/casp8/hhsearch1.5/hhsearch1.5_option_hard
+
+#hhsearch 1.5.1
+hhsearch151_dir = /home/chengji/casp8/hhsearch151
+hhsearch151_option = /home/chengji/casp8/hhsearch151/hhsearch151_option_hard
+
+#compass dir - server 11
+compass_dir = /home/chengji/casp8/compass
+compass_option = /home/chengji/casp8/compass/compass_option_hard
+
+#multicom dir - server 12 
+multicom_dir = /home/chengji/casp8/multicom/
+multicom_option = /home/chengji/casp8/multicom/cm_option_adv
+
+#construct dir
+construct_dir = /home/chengji/casp8/construct/
+construct_option = /home/chengji/casp8/construct/construct_option
+
+#msa dir
+msa_dir = /home/chengji/casp8/msa/
+msa_option = /home/chengji/casp8/msa/msa_option
+
+#hhpred dir
+hhpred_dir = /home/chengji/casp8/hhpred/
+hhpred_option = /home/chengji/casp8/hhpred/hhpred_option_hard
+
+#ffas
+ffas_dir = /home/chengji/casp8/ffas/
+ffas_option = /home/chengji/casp8/ffas/ffas_option
+
+#hhblits
+hhblits_dir = /home/chengji/casp8/hhblits/
+hhblits_option = /home/chengji/casp8/hhblits/hhblits_option
+
+#hhblits3
+hhblits3_dir = /home/chengji/casp8/hhblits3/
+hhblits3_option = /home/chengji/casp8/hhblits3/hhblits3_option
+
+#muster
+muster_dir = /home/chengji/casp8/muster/
+muster_option = /home/chengji/casp8/muster/muster_option
+
+#hhsuite
+hhsuite_dir = /home/chengji/casp8/hhsuite/
+hhsuite_option = /home/chengji/casp8/hhsuite/hhsuite_option
+
+#fugue
+fugue_dir = /home/chengji/casp8/fugue/
+fugue_option = /home/chengji/casp8/fugue/fugue_option
+
+#raptorx
+raptorx_dir = /home/chengji/casp8/raptorx/
+raptorx_option = /home/chengji/casp8/raptorx/raptorx_option
+
+#newblast
+newblast_dir = /home/chengji/casp8/newblast/
+newblast_option = /home/chengji/casp8/newblast/newblast_option
+
+#rosetta dir
+rosetta_dir = /home/chengji/software/rosetta
+
+#scwrl_dir
+scwrl_dir = /home/chengji/software/scwrl4
+
+#########################################################################
+#number of ab initio models to simulate by default at local
+#local_model_num = 50
+#local_model_num = 100  (will take about 3 hours)
+#it takes 6 hours to generate 200 models for 150 residues
+#it may tak 3 hours to generate 100 models for 150 residues
+#it may take 9 hours to generate 100 models for 200 residues (power^4)
+#we need to test how long it will take for 200 residues
+local_model_num = 100
+
+#maximum waiting time for a rosetta server to finish (minutes)
+max_wait_time = 360 
+
+#we need five processors (sp3, sp3, multicom, hhs, compass)
+#and a remote server for rosetta
+#########################################################################
+

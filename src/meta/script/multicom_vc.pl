@@ -61,8 +61,8 @@ $cm_model_num = 5;
 $prosys_dir = "";
 $modeller_dir = "";
 
-$tm_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/tm_score/TMscore_32";
-$q_score =  "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/pairwiseQA/q_score";
+$tm_score = "/home/casp13/MULTICOM_package/software/tm_score/TMscore_32";
+$q_score =  "/home/casp13/MULTICOM_package/software/pairwiseQA/q_score";
 
 #read option file
 open(OPTION, $system_option) || die "can't read option file.\n";
@@ -1367,7 +1367,7 @@ if (-d "$output_dir/comb" && $domain_split_comb == 1)
 #system("/home/chengji/casp8/sov/run_sov.pl $query_name $full_length_dir/meta/ $full_length_dir/meta/$query_name.sov"); 
 
 #generate ss and sa matching scores
-system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/get_ss_sa_score.pl $query_file $full_length_dir/meta/ $full_length_dir/meta/model_check > $full_length_dir/meta/$query_name.ss.sa"); 
+system("/home/chengji/casp8/sov/get_ss_sa_score.pl $query_file $full_length_dir/meta/ $full_length_dir/meta/model_check > $full_length_dir/meta/$query_name.ss.sa"); 
 
 if (0)   #disable this option in order to save time
 {
@@ -1387,8 +1387,8 @@ if (0)   #disable this option in order to save time
        		 `mv $model_file $model_file.org`;
 	        if (-f "$model_file.org")
        		 {
-    	            system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
-       		         system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $query_file $mdir/casp$i.scw > $mdir/clash$i.txt");
+    	            system("/home/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
+       		         system("/home/chengji/casp8/model_cluster/script/clash_check.pl $query_file $mdir/casp$i.scw > $mdir/clash$i.txt");
        		         system("$pdb2casp2 $mdir/casp$i.scw $i $query_name $mdir/casp$i.pdb");
 	        }
 	}
@@ -1415,8 +1415,8 @@ if (1)
        		 `mv $model_file $model_file.org`;
 	        if (-f "$model_file.org")
        		 {
-    	            system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/caspa$i.scw >/dev/null");
-       		    system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $query_file $mdir/caspa$i.scw > $mdir/clasha$i.txt");
+    	            system("/home/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/caspa$i.scw >/dev/null");
+       		    system("/home/chengji/casp8/model_cluster/script/clash_check.pl $query_file $mdir/caspa$i.scw > $mdir/clasha$i.txt");
        		    system("$pdb2casp2 $mdir/caspa$i.scw $i $query_name $mdir/caspa$i.pdb");
 	        }
 	}
@@ -1428,8 +1428,8 @@ if (1)
        		 `mv $model_file $model_file.org`;
 	        if (-f "$model_file.org")
        		 {
-    	            system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/caspb$i.scw >/dev/null");
-       		    system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $query_file $mdir/caspb$i.scw > $mdir/clashb$i.txt");
+    	            system("/home/chengji/software/scwrl4/Scwrl4 -i $model_file.org -o $mdir/caspb$i.scw >/dev/null");
+       		    system("/home/chengji/casp8/model_cluster/script/clash_check.pl $query_file $mdir/caspb$i.scw > $mdir/clashb$i.txt");
        		    system("$pdb2casp2 $mdir/caspb$i.scw $i $query_name $mdir/caspb$i.pdb");
 	        }
 	}
@@ -1466,7 +1466,7 @@ $feature_dir = "$output_dir/features";
 `mkdir $feature_dir`; 
 $check_dir = "$output_dir/check";
 `mkdir $check_dir`; 
-system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/model_check_v2.pl $query_file $full_length_dir/meta $feature_dir $check_dir $output_dir/check2.score"); 
+system("/home/chengji/casp8/meta/script/model_check_v2.pl $query_file $full_length_dir/meta $feature_dir $check_dir $output_dir/check2.score"); 
 }
 ###############################################################################
 

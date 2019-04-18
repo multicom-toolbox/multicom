@@ -28,10 +28,10 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-$tm_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/tm_score/TMscore_32";
+$tm_score = "/home/casp13/MULTICOM_package/software/tm_score/TMscore_32";
 
-$q_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/pairwiseQA/q_score";
-$hhsearch_option_casp8 = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
+$q_score = "/home/casp13/MULTICOM_package/software/pairwiseQA/q_score";
+$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package/casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
 {
@@ -428,8 +428,8 @@ while (<OPTION>)
 #check the options
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $prosys_dir || die "can't find $prosys_dir.\n";
--d $sparks_dir || die "can't find $sparks_dir.\n";
--f $sparks_option || die "can't find $sparks_option.\n";
+#-d $sparks_dir || die "can't find $sparks_dir.\n";
+#-f $sparks_option || die "can't find $sparks_option.\n";
 -d $hhsearch_dir || die "can't find $hhsearch_dir.\n";
 -f $hhsearch_option || die "can't find $hhsearch_option.\n";
 -d $hhsearch15_dir || die "can't find $hhsearch15_dir.\n";

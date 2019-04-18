@@ -321,7 +321,7 @@ else
 }
 
 
--f "$pdb_db_dir/pdb_cm.phr" || die "can't find the pdb database $pdb_db_dir/pdb_cm.phr.\n"; 
+-f "$pdb_db_dir/pdb_cm.phr" || die "can't find the pdb database.\n"; 
 
 #try to identify easy template using blastp
 system("$script_dir/easy_blast.pl $option_file $fasta_file $fasta_file.easy.blast"); 

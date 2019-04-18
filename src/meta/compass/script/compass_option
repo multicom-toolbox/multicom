@@ -5,56 +5,57 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/chengji/software/prosys/
+prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
 
 #blast tool dir
 #blast_dir = /home/jianlinc/pspro/blast2.2.8/
-blast_dir = /home/chengji/software/prosys/blast-2.2.17/bin
+blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
 
 #modeller 7.0 dir
-modeller_dir = /home/chengji/software/prosys/modeller7v7/
+#modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
+modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
 
 #formated pdb database dir
 #pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
-pdb_db_dir = /home/chengji/software/prosys_database/cm_lib/
+pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib/
 #pdb_db_dir = /var/preserve/eval/cm_lib/
 
 #use non-redundant db dir (should always use non-redundant database)
 #nr_dir = /home/jianlinc/pspro/data/nr/
 #nr_dir = /var/preserve/nr/
-#nr_dir = /home/chengji/software/prosys_database/nr/
-nr_dir = /home/chengji/software/prosys_database/nr_latest/
+#nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr/
+nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr_latest/
 #not use nr (should never choose this option. its performance is worse)
 #nr_dir = none
 
 #atom files dir
 #atom_dir = /home/jianlinc/prosys/database/atom/
-atom_dir = /home/chengji/software/prosys_database/atom/
+atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsearch dir
-hhsearch_dir=/home/chengji/software/hhsearch1.2/linux32/
+hhsearch_dir=/home/casp13/MULTICOM_package/software/hhsearch1.2/linux32/
 
 #psipred dir
-psipred_dir=/home/chengji/software/psipred/
+psipred_dir=/home/casp13/MULTICOM_package/software/psipred/
 
 #hhsearchdb 
 #all current templates
-#hhsearchdb=/home/chengji/software/prosys_database/fr_lib/hhsearchdb
+#hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/hhsearchdb
 
 #templates built before May 10, 2007 (CASP7 starts)
-hhsearchdb=/home/chengji/software/prosys_database/casp7_hhsearchdb
+hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/casp7_hhsearchdb
 
 #meta dir
-meta_dir=/home/chengji/casp8/compass/
+meta_dir=/home/casp13/MULTICOM_package/casp8/compass/
 
 ##############################################################################
 #Key settings for compass
 
-compass_dir=/home/chengji/software/new_compass/
+compass_dir=/home/casp13/MULTICOM_package/software/new_compass/
 
-compassdb=/home/chengji/casp8/compass/database/compass_db
-#compassdb=/home/chengji/casp8/compass/casp7_benchmark/casp7_compass_db
+compassdb=/home/casp13/MULTICOM_package/casp8/compass/database/compass_db
+#compassdb=/home/casp13/MULTICOM_package/casp8/compass/casp7_benchmark/casp7_compass_db
 
 ###############################################################################
 
@@ -163,7 +164,7 @@ cm_evalue_diff=10
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-chain_stx_info=/home/chengji/software/prosys_database/cm_lib/chain_stx_info
+chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

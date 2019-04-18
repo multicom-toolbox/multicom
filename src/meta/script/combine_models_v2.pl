@@ -214,7 +214,7 @@ close OUT;
 
 #convert top models to casp format
 chdir $output_dir;
-$pdb2casp1 = "/home/chengji/software/prosys/script/pdb2casp.pl";
+$pdb2casp1 = "/home/casp13/MULTICOM_package/software/prosys/script/pdb2casp.pl";
 
 for ($i = 0; $i < @new_rank && $i < 5; $i++)
 {
@@ -229,8 +229,8 @@ for ($i = 0; $i < @new_rank && $i < 5; $i++)
 	{
 
 		print "Covert $model_name into casp format...\n"; 
-		system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file -o $model_name.scw >/dev/null");
-	        system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $fasta_file $model_name.scw > con_clash$i.txt");
+		system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_name.scw >/dev/null");
+	        system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_name.scw > con_clash$i.txt");
        		#system("$pdb2casp1 $model_name.scw $pir_file $i+1 con_casp$i.pdb");
 		$count = $i + 1; 
        		system("$pdb2casp1 $model_name.scw $pir_file $count con_casp$i.pdb");

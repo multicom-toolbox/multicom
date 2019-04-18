@@ -157,10 +157,10 @@ foreach $model (@models)
 		next;
 	}
 	#call Scwrl4 to refine side chain
-	system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-	system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
+	system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+	system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
 
-	$pdb2casp2 = "/home/chengji/casp8/meta/script/pdb2casp.pl";
+	$pdb2casp2 = "/home/casp13/MULTICOM_package/casp8/meta/script/pdb2casp.pl";
 	#convert models to pdb format
 	$qq = $jj + 1; 
 	system("$pdb2casp2 $model_file.scw $qq $target_name $comb_dir/casp1-$model$jj.pdb");	

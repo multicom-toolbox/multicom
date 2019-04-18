@@ -323,7 +323,7 @@ while (<OPTION>)
 -d $modeller_dir || die "can't find modeller_dir.\n";
 -d $pdb_db_dir || die "can't find pdb database dir.\n";
 -d $muster_dir || die "can't find muster dir.\n";
--d $itasser_dir || die "can't find itasser dir. $itasser_dir\n";
+-d $itasser_dir || die "can't find itasser dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
 -d $nr_dir || die "can't find nr dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
@@ -403,6 +403,8 @@ else
 
 print "Use muster to do fold recognition...\n";
 `cp $fasta_file $work_dir/seq.fasta`; 
+open(ERR, ">err.log") || die "can't create err.log file.\n";
+print ERR "Start to run TASSER...\n";
 
 if ($itasser_dir =~ /3\.0/)
 {
@@ -415,13 +417,33 @@ else
 	system("$itasser_dir/I-TASSERmod/runMUSTER.pl -pkgdir $itasser_dir -libdir $itasser_dir/ITLIB -seqname $name -datadir $work_dir"); 
 }
 
+print ERR "Finish running TASSER.\n";
+
+
 #generate ranking list, and parse the output into local alignment format
-open(INIT, "initres.MUSTER") || die "can't read initres.MUSTER\n";
+#open(INIT, "initres.MUSTER") || die "can't read initres.MUSTER\n";
+if (!open(INIT, "initres.MUSTER"))
+{
+	print ERR "Can't open initres.MUSTER file. Probably fail to execute runMUSTER.pl\n";
+
+	close ERR; 
+	die "can't read initres.MUSTER\n";
+}
+
 @init = <INIT>;
 close INIT;
 shift @init; 
 
-open(RANK, ">$name.rank") ||die "can't create $name.rank.\n";
+#open(RANK, ">$name.rank") ||die "can't create $name.rank.\n";
+if (!open(RANK, ">$name.rank"))
+{
+	print ERR "Can't create $name.rank\n";
+	close ERR;
+
+	die "can't create $name.rank.\n";
+}
+
+
 print RANK "Rank templates for $name\n";
 while (@init)
 {
@@ -441,14 +463,23 @@ close RANK;
 #filter muster ranking
 system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank $name.filter.rank"); 
 
+if (! -f "$name.filter.rank")
+{
+	print ERR "can't find $name.filter.rank\n";
+}
+print ERR "$name.filter.rank is successfully created.\n";
+
 #convert alignment file into pir format
 for ($i = 1; $i <= 10; $i++)
 {
 	$org_align = "align_MUSTER_$i.txt";
 	$new_pir = "muster$i.pir";
 	$atom_file = "threading_MUSTER_$i.pdb";
+
+	print ERR "Generate muster$i.pir...\n";
 	if (! -f $org_align)
 	{
+		print ERR "$org_align does not exist, fail to generate the model.\n";
 		next;
 	}
 
@@ -667,6 +698,7 @@ for ($i = 1; $i <= 10; $i++)
 	}
 }
 
+close ERR; 
 
 print "MUSTER comparative modeling is done.\n";
 

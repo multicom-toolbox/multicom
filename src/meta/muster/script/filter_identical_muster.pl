@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #filter out identical muster, nnnd, lomets models 
-$tm_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/tm_score2/TMscore"; 
+$tm_score = "/home/chengji/software/tm_score2/TMscore"; 
 if (@ARGV !=1)
 {
 	die "need one parameters: muster model dir.\n";

@@ -8,7 +8,7 @@
 
 if (@ARGV != 5)
 {
-	die "need 5 parameters: prosys_dir (/home/chengji/software/prosys/), modeller_dir (/home/chengji/software/modeller9v7/),  fasta file, multicom output directory (~/casp_roll/T0663), and number of domains\n";
+	die "need 5 parameters: prosys_dir (/home/casp13/MULTICOM_package/software/prosys/), modeller_dir (/home/casp13/MULTICOM_package/software/modeller9v7/),  fasta file, multicom output directory (~/casp_roll/T0663), and number of domains\n";
 }
 
 $prosys_dir = shift @ARGV;
@@ -136,10 +136,10 @@ foreach $model (@models)
 			next;
 		}
 		#call Scwrl4 to refine side chain
-		system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-		system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
+		system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+		system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
 
-		$pdb2casp2 = "/home/chengji/casp8/meta/script/pdb2casp.pl";
+		$pdb2casp2 = "/home/casp13/MULTICOM_package/casp8/meta/script/pdb2casp.pl";
 		#convert models to pdb format
 		system("$pdb2casp2 $model_file.scw 1 $target_name $comb_dir/casp1-$model$jj.pdb");	
 

@@ -192,7 +192,7 @@ $cur_dir = `pwd`;
 chomp $cur_dir;
 
 #do modeling
-system("/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/script/pir2ts_energy.pl /storage/htc/bdm/tools/modeller/modeller-9.16 $cur_dir/atomtmp $cur_dir/outtmp $output_pir 5");
+system("/home/casp13/MULTICOM_package/software/prosys/script/pir2ts_energy.pl /home/casp13/MULTICOM_package/software/prosys/modeller7v7 $cur_dir/atomtmp $cur_dir/outtmp $output_pir 5");
 
 `cp $cur_dir/outtmp/$name.pdb $output_pdb`;
 

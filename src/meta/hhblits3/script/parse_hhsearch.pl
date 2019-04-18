@@ -123,6 +123,8 @@ while (@hhsearch)
 	{
 		$id = $1; 		
 		$temp_name = $2;
+
+
 		$temp_evalue = $4;
 		$temp_len = $9;
 
@@ -164,14 +166,20 @@ for ($i = 0; $i < @temp_ids; $i++)
 	($qstart, $qend) = split(/-/, $q_range);
 	$t_range = $temp_range{$id}; 
 	($tstart, $tend) = split(/-/, $t_range);
+
+	$front = substr($temp_name, 0, 4);
+        $endx = substr($temp_name, 4);
+        $lower_temp_name = lc($front);
+        $lower_temp_name .= $endx;
 	
-	$entry = "$temp_name\t$temp_len";
+	$entry = "$lower_temp_name\t$temp_len";
 	$q_align = "";
 	$t_align = "";
 	#print "$line,$hhsearch[0]";
 	while (@hhsearch)
 	{
 		$line = shift @hhsearch;
+
 
 		#check if reach the next one.		
 		$next_id = $id + 1; 

@@ -1,0 +1,65 @@
+Name:
+T0859
+
+Sequence:
+GSMANKPMQPITSTANKIVWSDPTRLSTTFSASLLRQRVKVGIAELNNVSGQYVSVYKRPAPKPEGGADAGVIMPNENQSIRTVISGSAENLATLKAEWETHKRNVDTLFASGNAGLGFLDPTAAIVSSDTTA
+
+Secondary Structure(H:helix, E:Beta Strand/Bridge, C:Coil):
+................EEEE........H.HHHHHHHHHHH.HHHH......EEEEEE............EEE.......EEEEE...HHHHHHHHHHHHHH...............................
+
+The predicted beta-strands:
+Format: id:[a-b]:[c-d].
+id: the index of strand;
+a-b: the starting and ending positions of strand in the sequence;
+c-d: the indices of the first and last beta-residue of strand. All the beta-residues in the sequence are ordered sequentially and assigned an index starting from 1.
+    1:[17-20]:[1-4]
+    2:[53-58]:[5-10]
+    3:[71-73]:[11-13]
+    4:[81-85]:[14-18]
+
+The predicted strand pairs and strand alignments:
+Format: x--y:r:[a-b:c-d]:w
+x: the index of strand 1, y: the index of strand 2. x and y are paired.
+r: pairing direction (A:antiparallel, P: parallel, B: bridge)
+[a-b:c-d] specifies the alignment. The amino acids between position a and b of strand 1 are paired with the amino acids between c and d of strand2 one by one.
+w: the pseudo-binding energy between strand 1 and 2, an indicator of confidence.
+INFO : 1--2:P:[17-20:53-56]:1
+INFO : 3--4:A:[71-73:83-81]:0.44
+
+See the attached image file (strand_pair.png) for the visulized Strand Pairing Graph.
+blue edge:antiparallel, red edge:parallel strand pair, black edge:beta bridge.
+
+The predicted beta-sheets:
+   The number of beta-sheets: 2
+   Sheet 1 (strand pairs): 1--2  
+   Sheet 2 (strand pairs): 3--4  
+
+The pseudo-energy matrix of all strand pairs:
+ strand    1    2    3    4
+   1    0.02    1 0.13 0.09
+   2       1 0.03 0.43 0.17
+   3    0.13 0.43 0.01 0.44
+   4    0.09 0.17 0.44 0.02
+
+See the attached image file (beta_residue_pair.png) for the visulized Residue Pairing Map.
+
+The predicted pairing probability matrix of all beta-residues:
+ index    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18
+  1       0    0    0 0.01  0.3 0.01 0.04 0.01 0.02 0.02 0.03 0.01 0.02 0.01 0.01 0.01 0.01 0.01
+  2       0    0    0    0 0.04 0.32 0.02  0.1 0.02 0.01 0.02 0.04 0.01 0.01 0.01 0.03 0.02 0.01
+  3       0    0    0    0 0.03 0.04 0.27 0.06  0.1 0.01 0.02 0.06 0.02 0.01 0.02 0.02 0.03 0.01
+  4    0.01    0    0    0 0.02 0.02 0.03 0.12 0.06 0.11 0.02 0.02 0.05 0.02 0.01 0.01 0.02 0.02
+  5     0.3 0.04 0.03 0.02    0    0    0    0    0 0.01 0.06 0.01 0.08 0.01 0.01 0.01 0.02 0.02
+  6    0.01 0.32 0.04 0.02    0    0    0    0    0    0 0.01 0.09 0.01 0.02 0.01 0.03 0.02 0.02
+  7    0.04 0.02 0.27 0.03    0    0    0    0    0    0 0.04 0.02 0.05 0.01 0.05 0.03 0.04 0.01
+  8    0.01  0.1 0.06 0.12    0    0    0    0    0    0 0.02 0.03 0.11 0.01 0.01 0.06 0.02 0.02
+  9    0.02 0.02  0.1 0.06    0    0    0    0    0    0 0.02 0.18 0.03 0.01 0.02 0.01 0.03 0.01
+ 10    0.02 0.01 0.01 0.11 0.01    0    0    0    0    0 0.14 0.01 0.04 0.03 0.01 0.01 0.02 0.02
+ 11    0.03 0.02 0.02 0.02 0.06 0.01 0.04 0.02 0.02 0.14    0    0    0 0.02 0.03 0.18 0.02 0.05
+ 12    0.01 0.04 0.06 0.02 0.01 0.09 0.02 0.03 0.18 0.01    0    0    0 0.01 0.15 0.01  0.1 0.01
+ 13    0.02 0.01 0.02 0.05 0.08 0.01 0.05 0.11 0.03 0.04    0    0    0 0.11 0.01 0.05 0.01 0.07
+ 14    0.01 0.01 0.01 0.02 0.01 0.02 0.01 0.01 0.01 0.03 0.02 0.01 0.11    0    0    0    0    0
+ 15    0.01 0.01 0.02 0.01 0.01 0.01 0.05 0.01 0.02 0.01 0.03 0.15 0.01    0    0    0    0    0
+ 16    0.01 0.03 0.02 0.01 0.01 0.03 0.03 0.06 0.01 0.01 0.18 0.01 0.05    0    0    0    0    0
+ 17    0.01 0.02 0.03 0.02 0.02 0.02 0.04 0.02 0.03 0.02 0.02  0.1 0.01    0    0    0    0    0
+ 18    0.01 0.01 0.01 0.02 0.02 0.02 0.01 0.02 0.01 0.02 0.05 0.01 0.07    0    0    0    0    0

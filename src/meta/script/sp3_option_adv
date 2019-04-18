@@ -4,61 +4,58 @@
 ##################Path to dependent packages#############################
 #blast dir
 #blast_dir=/home/jianlinc/pspro/blast2.2.8
-#blast_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/blast-2.2.9
-blast_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/blast-2.2.17/bin
+#blast_dir=/home/casp13/MULTICOM_package/software/prosys/blast-2.2.9
+blast_dir=/home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
 
 #clustalw dir
-#clustalw_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/clustalw1.83  ## failed on lewis
-
-clustalw_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/clustalw1.83.linux
+clustalw_dir=/home/casp13/MULTICOM_package/software/prosys/clustalw1.83
 
 #palign dir
-palign_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/palign/linux
+palign_dir=/home/casp13/MULTICOM_package/software/prosys/palign/linux
 
 #tcoffee dir
-#tcoffee_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/tcoffee2.03## failed on lewis
-tcoffee_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/T-COFFEE_distribution_Version_2.03
+tcoffee_dir=/home/casp13/MULTICOM_package/software/prosys/tcoffee2.03
 
 #hmmer dir
-hmmer_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/hmmer2.3.2
+hmmer_dir=/home/casp13/MULTICOM_package/software/prosys/hmmer2.3.2
 
 #hhm prc dir
-prc_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/prchmm1.5.2
+prc_dir=/home/casp13/MULTICOM_package/software/prosys/prchmm1.5.2
 
 #hhsearch dir
-hhsearch_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/hhsearch
+hhsearch_dir=/home/casp13/MULTICOM_package/software/prosys/hhsearch
 
 #lobster dir
-lobster_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/lobster
+lobster_dir=/home/casp13/MULTICOM_package/software/prosys/lobster
 
 #compass dir
-compass_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/compass1.24
+compass_dir=/home/casp13/MULTICOM_package/software/prosys/compass1.24
 
 #prosys dir (script dir = pspro_dir/script/)
-prosys_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys
+prosys_dir=/home/casp13/MULTICOM_package/software/prosys
 
 #pspro dir (should use pspro2) 
-pspro_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/pspro2
+pspro_dir=/home/casp13/MULTICOM_package/software/pspro2
 
 #betapro dir 
-betapro_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/betapro-1.0
+betapro_dir=/home/casp13/MULTICOM_package/software/betapro-1.0
 
 ######################################################################
 
 ##############Fold Recogntion Option##################################
 #fr option: input dir1  (hold template related files such as profiles)
 #template_dir=/home/baldig/jianlin/library
-template_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/library
+template_dir=/home/casp13/MULTICOM_package/software/prosys_database/library
 
 #fr option: fold recognition template library file (fasta format)
 #fr_template_lib_file=/home/jianlinc/prosys/library/lib/fr_set1
 #fr_template_lib_file=/home/jianlinc/prosys/database/fr_lib/sort90
-#fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/fr_lib/sort90
-#fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/cm_lib/pdb_cm
-fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/cm_lib/pdb_cm_all_sel.fasta
-#fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/fr_lib/sort30
-#fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/test/sort30
-#fr_template_lib_file=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/fr_lib/sort90
+#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort90
+#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/pdb_cm
+fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/pdb_cm_all_sel.fasta
+#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort30
+#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys/test/sort30
+#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort90
 #fr_template_lib_file=/var/preserve/eval/fr_lib/sort90
 
 #fr option: query dir: (hold query related files)
@@ -158,17 +155,16 @@ svm_comb_threshold=0.7
 #atom dir (the directory of storing atom files of templates for Modeller)
 #each template should have a file there named as: temp_name.atom.gz
 #atom_dir=/home/jianlinc/prosys/database/atom
-atom_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/atom
+atom_dir=/home/casp13/MULTICOM_package/software/prosys_database/atom
 
 #used by modeller: comparative modelling seq dir(11 line sequence format)
 #This directory is used by both fold recognition and CM. 
 #cm_seq_dir=/home/jianlinc/prosys/database/seq
-cm_seq_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/seq
+cm_seq_dir=/home/casp13/MULTICOM_package/software/prosys_database/seq
 
 #Modeller 7.0 dir 
-#modeller_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys/modeller7v7
-#modeller_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/modeller9v7
-modeller_dir=/storage/htc/bdm/tools/modeller/modeller-9.16/
+#modeller_dir=/home/casp13/MULTICOM_package/software/prosys/modeller7v7
+modeller_dir=/home/casp13/MULTICOM_package/software/modeller9v7
 
 #modeller option: number of models to simulate in modeller for each pir alignment
 #for each alignment, modeller will generate this number of models
@@ -182,7 +178,7 @@ num_model_simulate=5
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-chain_stx_info=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/prosys_database/cm_lib/chain_stx_info
+chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort
@@ -209,9 +205,9 @@ fr_add_stx_info_rm_identical=no
 fr_rm_identical_resolution=2
 
 ###############################End of sorting and stx information option#######
-spem_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/spem-release/
-psipred_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/psipred/
-new_hhsearch_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/hhsearch1.2/linux32/
+spem_dir=/home/casp13/MULTICOM_package/spem-release/
+psipred_dir=/home/casp13/MULTICOM_package/software/psipred/
+new_hhsearch_dir=/home/casp13/MULTICOM_package/software/hhsearch1.2/linux32/
 #use spem to do alignment
 #alignment_method=lobster
 alignment_method=muscle

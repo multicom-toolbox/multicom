@@ -1,0 +1,13 @@
+#Betapro Sheet Pairing Probability
+AmbiguousConstraint
+AtomPair CA 17 CA 53 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 18 CA 54 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 19 CA 55 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS
+AmbiguousConstraint
+AtomPair CA 20 CA 56 BOUNDED 4.5 5.25 0.5 0.5 tag
+END_AMBIGUOUS

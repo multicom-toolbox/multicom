@@ -28,10 +28,10 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-$tm_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/tm_score/TMscore_32";
+$tm_score = "/home/casp13/MULTICOM_package/software/tm_score/TMscore_32";
 
-$q_score = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/pairwiseQA/q_score";
-$hhsearch_option_casp8 = "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
+$q_score = "/home/casp13/MULTICOM_package/software/pairwiseQA/q_score";
+$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package/casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
 {
@@ -428,8 +428,8 @@ while (<OPTION>)
 #check the options
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $prosys_dir || die "can't find $prosys_dir.\n";
--d $sparks_dir || die "can't find $sparks_dir.\n";
--f $sparks_option || die "can't find $sparks_option.\n";
+#-d $sparks_dir || die "can't find $sparks_dir.\n";
+#-f $sparks_option || die "can't find $sparks_option.\n";
 -d $hhsearch_dir || die "can't find $hhsearch_dir.\n";
 -f $hhsearch_option || die "can't find $hhsearch_option.\n";
 -d $hhsearch15_dir || die "can't find $hhsearch15_dir.\n";
@@ -536,30 +536,26 @@ for ($i = 0; $i < @servers; $i++)
 	if ($server eq "rosetta2")
 	{
 		#generate fragments files for all ab initio modeling 
-   print "start rosetta2 \n\n";
 		print "generate fragment files for rosetta ab initio modeling...\n";
 		`mkdir $output_dir/rosetta_common`; 
 		chdir "$output_dir/rosetta_common"; 
-		print("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null\n\n");
-		##system("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null");
+		system("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null");
 
 		chdir "$output_dir"; 
 	}
 
-	#if ( !defined( $kidpid = fork() ) )
-	#{
-	#	die "can't create process $i\n";
-	#}
-	#elsif ($kidpid == 0)
-	#{
+	if ( !defined( $kidpid = fork() ) )
+	{
+		die "can't create process $i\n";
+	}
+	elsif ($kidpid == 0)
+	{
 		print "start thread $i\n";
 		`mkdir $server`; 	
 
 		if ($server eq "sp3")
 		{
 			chdir $server; 
-      
-       print "start sp3 \n\n";
 
 			open(FASTA, ">$query_name.fasta");
 			print FASTA ">$query_name\n";
@@ -576,16 +572,13 @@ for ($i = 0; $i < @servers; $i++)
 			
 
 			#need to convert file into a new format (at most 70 AA each line, to do)
-			print("$sparks_dir/bin/scan_sp3.job $query_name.fasta\n");
-			#system("$sparks_dir/bin/scan_sp3.job $query_name.fasta");
+			system("$sparks_dir/bin/scan_sp3.job $query_name.fasta");
 
 			#rank templates
-			print("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank\n");
-			#system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
+			system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
 
 			#generate alignments and models
-			print("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .\n");
-			#system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
 
 			#remodel sp3 models
 			for ($iii = 1; $iii <= 10; $iii++)
@@ -608,27 +601,22 @@ for ($i = 0; $i < @servers; $i++)
 			`mkdir $sp3_add_dir`; 
 			`cp $query_name.fasta $sp3_add_dir`; 
 			chdir $sp3_add_dir;  
-			#system("$sparks_dir/bin/scan_sp3_add.job $query_name.fasta");
-			#system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
-			#system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
-      
-      
-			print("$sparks_dir/bin/scan_sp3_add.job $query_name.fasta\n");
-			print("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank\n");
-			print("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .\n");
-			#for ($iii = 1; $iii <= 10; $iii++)
-			#{
-			#	if ($iii <= 5)  #only use top five
-			#	{
-			#		`mv spem$iii.pir spar$iii.pir`; 
-			#		`mv spem$iii.pdb spar$iii.pdb`; 
-			#	}
-			#	else
-			#	{
-			#		`mv spem$iii.pir spar$iii.pir1`; 
-			#		`mv spem$iii.pdb spar$iii.pdb1`; 
-			#	}
-			#}
+			system("$sparks_dir/bin/scan_sp3_add.job $query_name.fasta");
+			system("$meta_dir/script/rank_sp3.pl ${query_name}_sp3.out $query_name > $query_name.rank");
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
+			for ($iii = 1; $iii <= 10; $iii++)
+			{
+				if ($iii <= 5)  #only use top five
+				{
+					`mv spem$iii.pir spar$iii.pir`; 
+					`mv spem$iii.pdb spar$iii.pdb`; 
+				}
+				else
+				{
+					`mv spem$iii.pir spar$iii.pir1`; 
+					`mv spem$iii.pdb spar$iii.pdb1`; 
+				}
+			}
 
 		}
 
@@ -636,7 +624,6 @@ for ($i = 0; $i < @servers; $i++)
 		{
 	
 			chdir $server; 
-       print "start sp2 \n\n";
 
 			open(FASTA, ">$query_name.fasta");
 			print FASTA ">$query_name\n";
@@ -651,63 +638,44 @@ for ($i = 0; $i < @servers; $i++)
 			print FASTA "\n";
 			close FASTA;
 
-			#system("$sparks_dir/bin/scan_sparks2.job $query_name.fasta");
+			system("$sparks_dir/bin/scan_sparks2.job $query_name.fasta");
 	
 			#rank templates
-			#system("$meta_dir/script/rank_sp2.pl ${query_name}_spk2.out $query_name > $query_name.rank");
+			system("$meta_dir/script/rank_sp2.pl ${query_name}_spk2.out $query_name > $query_name.rank");
 
 			#generate alignments and models
-			#system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
-      
-			print("$sparks_dir/bin/scan_sparks2.job $query_name.fasta\n");
-	
-			#rank templates
-			print("$meta_dir/script/rank_sp2.pl ${query_name}_spk2.out $query_name > $query_name.rank\n");
-
-			#generate alignments and models
-			print("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .\n");
-      
+			system("$meta_dir/script/multicom_gen.pl $sparks_option $query_file $query_name.rank .");
 		}
 
 		elsif ($server eq "hhsearch")
 		{
-       print "start hhsearch \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
-			print("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log\n");
+			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
 		}
 
 		elsif ($server eq "hhsearch15")
 		{
-       print "start hhsearch15 \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
-			print("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server\n");
+			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
 		}
 
 		elsif ($server eq "hhsearch151")
 		{
-       print "start hhsearch151 \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
-			print("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server\n");
+			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
 		}
 
 		elsif ($server eq "csblast")
 		{
-       print "start csblast \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
-			print("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server\n");
+			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
 
 		}
 
 		elsif ($server eq "csiblast")
 		{
-       print "start csiblast \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
-			print("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server\n");
+			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
 	
 			#call fugue predictor
 			#`mkdir fugue`; 
@@ -716,144 +684,94 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "blast")
 		{
-       print "start blast \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
-			#system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
-      
-			print("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server\n");
-			print("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log\n");
+			system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
+			system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
 		}
 
 		elsif ($server eq "psiblast")
 		{
-       print "start psiblast \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
-			print("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server\n");
+			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
 		}
 
 		elsif ($server eq "newblast")
 		{
-       print "start newblast \n\n";
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
-			#system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
-			print("$newblast_dir/script/newblast.pl $newblast_option $query_file $server\n");
+			system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
 		}
 
 		elsif ($server eq "compass")
 		{
-       print "start compass \n\n";
-			#system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
-			print("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server\n");
+			system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
 		}
 		elsif ($server eq "raptorx")
 		{
-       print "start raptorx \n\n";
-			#system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
-			print("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server\n");
+			system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
 		}
 
 		elsif ($server eq "sam")
 		{
-       print "start sam \n\n";
-			#system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
-			print("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server\n");
+			system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
 		}
 
 		elsif ($server eq "prc")
 		{
-       print "start prc \n\n";
-			#system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
-			print("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
+			system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
 		}
 
 		elsif ($server eq "hhpred")
 		{
-       print "start hhpred \n\n";
-			#system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
-			print("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
+			system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
 		}
 
 		elsif ($server eq "hhblits")
 		{
-       print "start hhblits \n\n";
-			#system("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server");
-			#system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
-      
-			print("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server\n");
-			print("$hhblits_dir/script/filter_identical_hhblits.pl hhblits\n"); 
+			system("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server");
+			system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
 		}
 
 		elsif ($server eq "hhblits3")
 		{
-       print "start hhblits3 \n\n";
-			#system("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server");
-			#system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
-      
-			print("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server\n");
-			print("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3\n"); 
+			system("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server");
+			system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
 		}
 
 		elsif ($server eq "ffas")
 		{
-       print "start ffas \n\n";
-			#system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
-			print("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server\n");
+			system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
 
 			#call hhsuite predictor
 			`mkdir hhsuite`; 
-			#system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite");
+			system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite");
 
 			#call hhsuite with super_option
 			$super_option = "$hhsuite_dir/super_option";
-			#system("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite"); 
-			#system("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite"); 
-      
-      
-			print("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite\n");
-
-			#call hhsuite with super_option
-			$super_option = "$hhsuite_dir/super_option";
-			print("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite\n"); 
-			print("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite\n"); 
+			system("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite"); 
+			system("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite"); 
 		}
 
 		elsif ($server eq "muster")
 		{
-       print "start muster \n\n";
-			#system("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server");
+			system("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server");
 	#		system("$muster_dir/script/tm_lomets_main.pl $muster_option $query_file $server");
 	#		system("$muster_dir/script/tm_NNNd_main.pl $muster_option $query_file $server");
 			#filter out redundant models
-			#system("$muster_dir/script/filter_identical_muster.pl $server"); 
-      
-      
-			print("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server\n");
-	#		system("$muster_dir/script/tm_lomets_main.pl $muster_option $query_file $server");
-	#		system("$muster_dir/script/tm_NNNd_main.pl $muster_option $query_file $server");
-			#filter out redundant models
-			print("$muster_dir/script/filter_identical_muster.pl $server\n"); 
-      
+			system("$muster_dir/script/filter_identical_muster.pl $server"); 
 		}
 
 		elsif ($server eq "hmmer")
 		{
-       print "start hmmer \n\n";
-			#system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
-			print("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server\n");
+			system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
 		}
 
 		elsif ($server eq "multicom")
 		{
-       print "start multicom \n\n";
-			#system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
-			print("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server\n");
+			system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
 		}
 
 		elsif ($server eq "rosetta")
 		{
-       print "start rosetta \n\n";
 			if (length($qseq) <= 250)
 			{
 				print "$query_name is a hard, short target. Start to run Rosetta 1.\n";
@@ -861,18 +779,15 @@ for ($i = 0; $i < @servers; $i++)
 				#my $sim_num = $local_model_num * 2; 
 				my $sim_num = int($local_model_num / 2); 
 				#system("$meta_dir/script/rosetta_seed.pl $rosetta_dir $query_file $local_model_num 22222 $server");
-				#system("$meta_dir/script/rosetta_seed.pl $rosetta_dir $query_file $sim_num 22222 $server");
-				print("$meta_dir/script/rosetta_seed.pl $rosetta_dir $query_file $sim_num 22222 $server\n");
+				system("$meta_dir/script/rosetta_seed.pl $rosetta_dir $query_file $sim_num 22222 $server");
 
 				#self model rosetta models
-				#system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server");
-				print("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server\n");
+				system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server");
 			}
 		}
 
 		elsif ($server eq "rosetta2" || $server eq "rosetta3" || $server eq "rosetta4" || $server eq "rosetta5" || $server eq "rosetta6" || $server eq "rosetta7")
 		{
-       print "start rosetta2 \n\n";
 			if (length($qseq) > 200)
 			{
 				$local_model_num = int($local_model_num / 2) + 10;
@@ -909,33 +824,30 @@ for ($i = 0; $i < @servers; $i++)
 
 				#copy fragment files
 				`cp -r $output_dir/rosetta_common/abini $server_dir`; 
-				#system("$meta_dir/script/run_rosetta_no_fragment.sh $query_file abini $server_dir $local_model_num >/dev/null");
-				print("$meta_dir/script/run_rosetta_no_fragment.sh $query_file abini $server_dir $local_model_num >/dev/null\n");
+				system("$meta_dir/script/run_rosetta_no_fragment.sh $query_file abini $server_dir $local_model_num >/dev/null");
 				#evaluate these models using ModelEvaluator
 				#select at most top 10 models for further 
 				#analysis
 				print "Evaluate ab initio models using ModelEvaluator...\n";
 				#the score is stored in $query_name.mch
 				`cp $query_file $query_name.fasta`; 
-				print("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_name.fasta $server_dir/abini\n");
-=pod
-				#system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_name.fasta $server_dir/abini");
+				system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_name.fasta $server_dir/abini");
 				#sort models by scores 
-				#open(MCH, "$server_dir/abini/$query_name.mch") || die "can't read Rosetta 2 score file.\n";
-				#@mch = <MCH>;
-				#close MCH; 	
-				#my @model2score = (); 
-				#while (@mch)
-				#{
-				#	my $line = shift @mch; 
-				#	chomp $line; 
-				#	@fields = split(/\s+/, $line); 
-				#	push @model2score, {
-				#		"name" => $fields[0], 
-				#		"score" => $fields[1]
-				#	}; 	
+				open(MCH, "$server_dir/abini/$query_name.mch") || die "can't read Rosetta 2 score file.\n";
+				@mch = <MCH>;
+				close MCH; 	
+				my @model2score = (); 
+				while (@mch)
+				{
+					my $line = shift @mch; 
+					chomp $line; 
+					@fields = split(/\s+/, $line); 
+					push @model2score, {
+						"name" => $fields[0], 
+						"score" => $fields[1]
+					}; 	
 
-				#}
+				}
 
 				my @sorted_model2score	= (); 
 				if (@model2score > 0)
@@ -979,46 +891,41 @@ for ($i = 0; $i < @servers; $i++)
 
 				#self model rosetta models
 				system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server_dir");
-=cut
 
 		#	}
 		}
 		elsif ($server eq "construct")
 		{
-       print "start construct \n\n";
 			#system("$construct_dir/script/construct_hard.pl $construct_option $query_file $output_dir");
 			#system("$construct_dir/script/construct_hard_v2.pl $construct_option $query_file $output_dir");
 			#system("$construct_dir/script/construct_hard_v5.pl $construct_option $query_file $output_dir");
 			#system("$construct_dir/script/construct_hard_v6.pl $construct_option $query_file $output_dir");
 			#system("$construct_dir/script/construct_hard_v7.pl $construct_option $query_file $output_dir");
-			#system("$construct_dir/script/construct_hard_v8.pl $construct_option $query_file $output_dir");
-			print("$construct_dir/script/construct_hard_v8.pl $construct_option $query_file $output_dir\n");
+			system("$construct_dir/script/construct_hard_v8.pl $construct_option $query_file $output_dir");
 		}
 
 		elsif ($server eq "msa")
                 {
-       print "start msa \n\n";
                         #system("$msa_dir/script/msa.pl $msa_option $query_file $output_dir");
                         #system("$msa_dir/script/msa2.pl $msa_option $query_file $output_dir");
-                        #system("$msa_dir/script/msa3.pl $msa_option $query_file $output_dir");
-                        print("$msa_dir/script/msa3.pl $msa_option $query_file $output_dir\n");
+                        system("$msa_dir/script/msa3.pl $msa_option $query_file $output_dir");
                 }
 
 
-	#	exit; 
+		exit; 
 
-	#}
-#	else
-	#{
-	#	$thread_ids[$i] = $kidpid;
-	#	print "The process id of the thread $i is $thread_ids[$i].\n";
-	#}
+	}
+	else
+	{
+		$thread_ids[$i] = $kidpid;
+		print "The process id of the thread $i is $thread_ids[$i].\n";
+	}
 	
 
 }
 ###############################################################################
 use Fcntl qw (:flock);
-=pod
+
 #wait for all the child processes to be done
 
 #if ($i == @servers && $post_process == 0)
@@ -1306,4 +1213,3 @@ if ($i == $thread_num && $post_process == 0)
 }
 ###############################################################################
 END:
-=cut

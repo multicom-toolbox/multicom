@@ -1,0 +1,29 @@
+###############################Software and Data Settings####################
+#prosys script dir
+#prosys_dir = /home/casp13/MULTICOM_package/casp8/
+prosys_dir = SOFTWARE_PATH/src/meta/
+
+#Unicon3D tool dir
+#tool_dir = /home/casp13/Confold2-Unicon3D/UniCon3D/
+tool_dir = SOFTWARE_PATH/tools/UniCon3D/
+
+#metapsicov tool dir
+#metapsicov_dir = /home/casp13/tools/metapsicov-pipeline-2.0/
+metapsicov_dir = SOFTWARE_PATH/tools/metapsicov-pipeline-2.0/
+
+#SCRATCH tool dir
+SCRATCH_dir = SOFTWARE_PATH/tools/DNCON2/SCRATCH-1D_1.1/
+
+#decoy_model_number
+decoy_model_number = 30
+
+#final_model_number
+final_model_number = 5
+
+#Unicon3D prefix
+output_prefix_name = Unicon3d
+
+
+
+
+
