@@ -1,0 +1,60 @@
+#this text file includes the options used in comparative modelling used by cm_main_comb.pl
+
+#prosys script dir
+script_dir = ~/prosys/script/
+
+#blast tool dir
+blast_dir = ~/pspro/blast2.2.8/
+
+#modeller 7.0 dir
+modeller_dir = ~/prosys/modeller7/
+
+#formated pdb database dir
+pdb_db_dir = ~/prosys/database/cm/
+
+#use non-redundant db dir (should always use non-redundant database)
+nr_dir = ~/pspro/data/nr/
+#not use nr (should never choose this option. its performance is worse)
+#nr_dir = none
+
+#atom files dir
+atom_dir = ~/prosys/database/atom/
+
+#evalue threshold for template blasting. This is a good threshold in our testing and consistent with rych's paper. 
+cm_blast_evalue = 1.0
+
+#evalue threshold for msa alignment generation. Should we change it to 1.0?
+#this value is not used anymore. (collpased with cm_blast_evalue)
+cm_align_evalue = 0.5
+
+#maximum allowed gap for stopping the alignment generation
+cm_max_gap_size = 20
+
+#minimum covered size for one template to be chosen
+cm_min_cover_size = 20
+
+#number of model to generated (from blast comparative modeling, how many 
+#models to simulate. One model with lowest energy will be chosen).
+cm_model_num = 5
+
+#set the combination method
+#1. blast_comb (first version of simple combination). 
+#if set to this option, cm_align_blast.pl will be used.
+#2. new_comb (latest version of alignment combination)
+#if set to this option, blast_align_comb.pl will be used.
+cm_comb_method=new_comb
+#cm_comb_method=blast_comb
+
+
+#option to use simple/advanced combination
+#>=0: use advanced combination. value is the max linker size at two ends
+#<0: use simple combination
+cm_max_linker_size=10
+
+#threshold to include significant matched templates
+#templates with evalue lower than e^value will always
+#be included no matter how many gaps are filled by this alignment.
+cm_evalue_comb=0
+#cm_evalue_comb=-30
+
+

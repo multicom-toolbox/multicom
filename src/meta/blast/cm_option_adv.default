@@ -29,7 +29,7 @@ pdb_db_dir = SOFTWARE_PATH/databases/cm_lib/
 #nr_dir = /home/jianlinc/pspro/data/nr/
 #nr_dir = /var/preserve/nr/
 #nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr/
-nr_dir = SOFTWARE_PATH/databases/nr/
+nr_dir = SOFTWARE_PATH/databases/nr_latest/
 #not use nr (should never choose this option. its performance is worse)
 #nr_dir = none
 

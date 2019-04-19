@@ -31,7 +31,7 @@ psiblast_option = SOFTWARE_PATH/src/meta/psiblast/cm_option_adv
 csblast_dir = SOFTWARE_PATH/src/meta/csblast
 #csblast option file
 #csblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csblast_option
-csiblast_option = SOFTWARE_PATH/src/meta/csblast/csiblast_option
+csblast_option = SOFTWARE_PATH/src/meta/csblast/csblast_option
 #csiblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csiblast_option
 csiblast_option = SOFTWARE_PATH/src/meta/csblast/csiblast_option
 
@@ -44,7 +44,8 @@ sam_option = SOFTWARE_PATH/src/meta/sam/sam_option_nr
 #prc dir and option file - server 6
 #prc_dir = /home/casp13/MULTICOM_package/casp8/prc
 prc_dir = SOFTWARE_PATH/src/meta/prc
-prc_option = /home/casp13/MULTICOM_package/casp8/prc/prc_option
+#prc_option = /home/casp13/MULTICOM_package/casp8/prc/prc_option
+prc_option = SOFTWARE_PATH/src/meta/prc/prc_option
 
 
 #hmmer dir and option file - server 7

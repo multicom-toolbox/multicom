@@ -1,0 +1,13 @@
+###########################################################################
+#This is the title description file for casp tertiary structure file format
+#you need to adjust target name, author name, model number.
+#You also may to change remarks or method description
+############################################################################
+PFRMAT TS
+TARGET Txxxx
+AUTHOR xxxx-xxxx-xxxx 
+REMARK Use one or more templates for structure modeling
+METHOD A Machine Learning Information Retrieval Approach to
+METHOD Protein Fold Recognition 
+MODEL 1 
+

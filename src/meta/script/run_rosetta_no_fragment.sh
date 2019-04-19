@@ -12,12 +12,11 @@
 ###############################################################################
 
 # manually add library
-#export LD_LIBRARY_PATH=/home/casp13/MULTICOM_package/cheng_group/rosetta3.1/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/casp13/MULTICOM_package/cheng_group/rosetta3.1/rosetta_source/build/src/release/linux/2.6/64/x86/gcc/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/multicom/tools/rosetta3.1/rosetta_source/build/src/release/linux/2.6/64/x86/gcc/:$LD_LIBRARY_PATH
 
 
 
-ROSETTA_PATH='/home/casp13/MULTICOM_package/cheng_group/rosetta3.1'
+ROSETTA_PATH='/data/jh7x3/multicom_github/multicom/tools/rosetta3.1'
 NNMAKE_PATH=$ROSETTA_PATH/rosetta_fragments/nnmake
 #OUTPUT_DIR='/data/rosetta3.1'
 

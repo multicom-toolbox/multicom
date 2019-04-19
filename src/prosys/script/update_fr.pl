@@ -116,7 +116,13 @@ if (!-f $old_fr_lib)
 {
 	print "no old fr library fasta file exists. set to empty.\n";
 	$old_fr_lib = "empty";
+}else{
+	# added by jie 2018/04/09 to avoid long path_info, this depends on the short path of work directory, otherwise, blast will fail
+	`cp $old_fr_lib $set_work_dir/${fr_template_library_file}_old`;
+	$old_fr_lib = "$set_work_dir/${fr_template_library_file}_old";
 }
+
+
 
 $candidate_file = "$set_work_dir/$cm_database_name.work";
 

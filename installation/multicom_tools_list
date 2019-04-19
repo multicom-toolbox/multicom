@@ -1,0 +1,27 @@
+# psipred
+tools/psipred/runpsipred
+tools/psipred/runpsipred_new
+
+# psipred-2.61
+tools/psipred-2.61/runpsipred
+
+# pspro2
+tools/pspro2/configure.pl
+
+# SCRATCH-1D_1.1
+tools/SCRATCH-1D_1.1/lib/install_template1.sh
+tools/SCRATCH-1D_1.1/lib/install_template2.sh
+tools/SCRATCH-1D_1.1/lib/install_template3.sh
+tools/SCRATCH-1D_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/ACCpro20_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/ACCpro_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/HOMOLpro_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/PROFILpro_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/SSpro_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/SSpro8_5.2/install.pl
+
+# hhblits
+tools/hhblits/scripts/addss.pl
+
+# hhsuite-3.0-beta.3-Linux
+tools/hhsuite-3.0-beta.3-Linux/scripts/addss.pl

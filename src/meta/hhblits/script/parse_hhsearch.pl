@@ -165,7 +165,13 @@ for ($i = 0; $i < @temp_ids; $i++)
 	$t_range = $temp_range{$id}; 
 	($tstart, $tend) = split(/-/, $t_range);
 	
-	$entry = "$temp_name\t$temp_len";
+#	$entry = "$temp_name\t$temp_len";
+        $front = substr($temp_name, 0, 4);
+        $endx = substr($temp_name, 4);
+        $lower_temp_name = lc($front);
+        $lower_temp_name .= $endx;
+        $entry = "$lower_temp_name\t$temp_len";
+
 	$q_align = "";
 	$t_align = "";
 	#print "$line,$hhsearch[0]";

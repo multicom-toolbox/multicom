@@ -2,7 +2,7 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #script_dir = /home/casp13/MULTICOM_package/casp8/csblast/script
-script_dir = SOFTWARE_PATH/src/prosys/script
+script_dir = SOFTWARE_PATH/src/meta/csblast/script
 
 #meta_dir=/home/casp13/MULTICOM_package/casp8/csblast/
 meta_dir=SOFTWARE_PATH/src/meta/csblast/

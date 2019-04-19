@@ -56,9 +56,9 @@ if (prompt_yn("multicom will be installed into <$install_dir> ")){
 }
 print "Start install multicom into <$install_dir>\n"; 
 
-
+=pod
 #$files		="lib/library.py,scripts/P2_alignment_generation/gen_query_temp_align_proc.pl,software/pspro2/configure.pl,scripts/P1_run_fold_recognition/Analyze_top5_folds.py,scripts/P1_run_fold_recognition/run_multicom_fr.pl,training/P1_evaluate.sh,training/P1_train.sh,training/predict_single.py,training/predict_main.py,training/training_main.py";
-$files='src/multicom_ve.pl;src/meta/script/multicom_server_ve.pl';
+$files='src/multicom_ve.pl;src/meta/script/multicom_server_ve.pl;src/meta/script/multicom_server_hard_ve.pl';
 
 @updatelist		=split(/,/,$files);
 
@@ -94,6 +94,12 @@ foreach my $file (@updatelist) {
 
 $files		="software/spem-release/spem/bin/scan_spem_alone.job,software/psipred/runpsipred_new";
 
+
+# psipred
+/data/jh7x3/multicom_github/multicom/tools/psipred/runpsipred.default
+
+
+
 @updatelist		=split(/,/,$files);
 
 foreach my $file (@updatelist) {
@@ -124,181 +130,51 @@ foreach my $file (@updatelist) {
 
 
 }
-
-print "#########  Setting up option file\n";
-$option_default = $install_dir.'/src/multicom_system_option_casp13.default';
-$option_new = $install_dir.'/src/multicom_system_option_casp13';
-
-$option_default = $install_dir.'/src/multicom_system_option_hard_casp13.default';
-$option_new = $install_dir.'/src/multicom_system_option_hard_casp13';
-
-
-$option_default = $install_dir.'/src/test_system/multicom_option_casp13.default';
-$option_new = $install_dir.'/src/test_system/multicom_option_casp13';
-
-#blast
-$option_default = $install_dir.'/src/meta/blast/cm_option_adv.default';
-$option_new = $install_dir.'/src/meta/blast/cm_option_adv';
-
-#psiblast
-$option_default = $install_dir.'/src/meta/psiblast/cm_option_adv.default';
-$option_new = $install_dir.'/src/meta/psiblast/cm_option_adv';
-$option_default = $install_dir.'/src/meta/psiblast/psiblast_option_hard.default';
-$option_new = $install_dir.'/src/meta/psiblast/psiblast_option_hard';
-
-#csiblast
-$option_default = $install_dir.'/src/meta/csblast/csiblast_option.default';
-$option_new = $install_dir.'/src/meta/csblast/csiblast_option';
-$option_default = $install_dir.'/src/meta/csblast/csiblast_option.default';
-$option_new = $install_dir.'/src/meta/csblast/csiblast_option';
-$option_default = $install_dir.'/src/meta/csblast/csiblast_option_hard.default';
-$option_new = $install_dir.'/src/meta/csblast/csiblast_option_hard';
-
-
-#sam
-$option_default = $install_dir.'/src/meta/sam/sam_option_nr.default';
-$option_new = $install_dir.'/src/meta/sam/sam_option_nr';
-$option_default = $install_dir.'/src/meta/sam/sam_option_hard.default';
-$option_new = $install_dir.'/src/meta/sam/sam_option_hard';
-
-#prc
-$option_default = $install_dir.'/src/meta/prc/prc_option.default';
-$option_new = $install_dir.'/src/meta/prc/prc_option';
-$option_default = $install_dir.'/src/meta/prc/prc_option_hard.default';
-$option_new = $install_dir.'/src/meta/prc/prc_option_hard';
-
-#hmmer
-$option_default = $install_dir.'/src/meta/hmmer/hmmer_option.default';
-$option_new = $install_dir.'/src/meta/hmmer/hmmer_option';
-$option_default = $install_dir.'/src/meta/hmmer/hmmer_option_hard.default';
-$option_new = $install_dir.'/src/meta/hmmer/hmmer_option_hard';
-
-#hmmer3
-$option_default = $install_dir.'/src/meta/hmmer3/hmmer3_option.default';
-$option_new = $install_dir.'/src/meta/hmmer3/hmmer3_option';
-$option_default = $install_dir.'/src/meta/hmmer3/hmmer3_option_hard.default';
-$option_new = $install_dir.'/src/meta/hmmer3/hmmer3_option_hard';
-
-#hhsearch
-$option_default = $install_dir.'/src/meta/hhsearch/hhsearch_option_cluster.default';
-$option_new = $install_dir.'/src/meta/hhsearch/hhsearch_option_cluster';
-$option_default = $install_dir.'/src/meta/hhsearch/hhsearch_option_hard.default';
-$option_new = $install_dir.'/src/meta/hhsearch/hhsearch_option_hard';
-$option_default = $install_dir.'/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8.default';
-$option_new = $install_dir.'/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8';
-
-#hhsearch1.5
-$option_default = $install_dir.'/src/meta/hhsearch1.5/hhsearch1.5_option.default';
-$option_new = $install_dir.'/src/meta/hhsearch1.5/hhsearch1.5_option';
-$option_default = $install_dir.'/src/meta/hhsearch1.5/hhsearch1.5_option_hard.default';
-$option_new = $install_dir.'/src/meta/hhsearch1.5/hhsearch1.5_option_hard';
-
-#hhsearch1.5.1
-$option_default = $install_dir.'/src/meta/hhsearch151/hhsearch151_option.default';
-$option_new = $install_dir.'/src/meta/hhsearch151/hhsearch151_option';
-$option_default = $install_dir.'/src/meta/hhsearch151/hhsearch151_option_hard.default';
-$option_new = $install_dir.'/src/meta/hhsearch151/hhsearch151_option_hard';
-
-#compass
-$option_default = $install_dir.'/src/meta/compass/compass_option.default';
-$option_new = $install_dir.'/src/meta/compass/compass_option';
-$option_default = $install_dir.'/src/meta/compass/compass_option_hard.default';
-$option_new = $install_dir.'/src/meta/compass/compass_option_hard';
-
-#multicom
-$option_default = $install_dir.'/src/meta/multicom/cm_option_adv.default';
-$option_new = $install_dir.'/src/meta/multicom/cm_option_adv';
-
-#construct
-$option_default = $install_dir.'/src/meta/construct/construct_option.default';
-$option_new = $install_dir.'/src/meta/construct/construct_option';
-
-#msa
-$option_default = $install_dir.'/src/meta/msa/msa_option.default';
-$option_new = $install_dir.'/src/meta/msa/msa_option';
-
-#hhpred
-$option_default = $install_dir.'/src/meta/hhpred/hhpred_option.default';
-$option_new = $install_dir.'/src/meta/hhpred/hhpred_option';
-$option_default = $install_dir.'/src/meta/hhpred/hhpred_option_hard.default';
-$option_new = $install_dir.'/src/meta/hhpred/hhpred_option_hard';
-
-#ffas
-$option_default = $install_dir.'/src/meta/ffas/ffas_option.default';
-$option_new = $install_dir.'/src/meta/ffas/ffas_option';
-
-#hhblits
-$option_default = $install_dir.'/src/meta/hhblits/hhblits_option.default';
-$option_new = $install_dir.'/src/meta/hhblits/hhblits_option';
-
-#hhblits3
-$option_default = $install_dir.'/src/meta/hhblits3/hhblits3_option.default';
-$option_new = $install_dir.'/src/meta/hhblits3/hhblits3_option';
-
-#muster
-$option_default = $install_dir.'/src/meta/muster/muster_option_version4.default';
-$option_new = $install_dir.'/src/meta/muster/muster_option_version4';
-
-#hhsuite
-$option_default = $install_dir.'/src/meta/hhsuite/hhsuite_option.default';
-$option_new = $install_dir.'/src/meta/hhsuite/hhsuite_option';
-$option_default = $install_dir.'/src/meta/hhsuite/super_option.default';
-$option_new = $install_dir.'/src/meta/hhsuite/super_option';
-
-#fugue
-$option_default = $install_dir.'/src/meta/fugue/fugue_option.default';
-$option_new = $install_dir.'/src/meta/fugue/fugue_option';
-
-#raptorx
-$option_default = $install_dir.'/src/meta/raptorx/raptorx_option_version3.default';
-$option_new = $install_dir.'/src/meta/raptorx/raptorx_option_version3';
-
-#newblast
-$option_default = $install_dir.'/src/meta/newblast/newblast_option.default';
-$option_new = $install_dir.'/src/meta/newblast/newblast_option';
-
-#CONFOLD
-$option_default = $install_dir.'/src/meta/confold2/CONFOLD_option.default';
-$option_new = $install_dir.'/src/meta/confold2/CONFOLD_option';
-
-#UNICON3d
-$option_default = $install_dir.'/src/meta/unicon3d/Unicon3D_option.default';
-$option_new = $install_dir.'/src/meta/unicon3d/Unicon3D_option';
-
-#rosettacon
-$option_default = $install_dir.'/src/meta/rosettacon/rosettacon_option.default';
-$option_new = $install_dir.'/src/meta/rosettacon/rosettacon_option';
-
-#fusicon
-$option_default = $install_dir.'/src/meta/fusioncon/fusioncon_option.default';
-$option_new = $install_dir.'/src/meta/fusioncon/fusioncon_option';
+=cut
 
 
 
+print "#########  (1) Configuring option files\n";
 
+$option_list = "$install_dir/installation/multicom_option_list";
 
-open(IN,$option_default) || die "Failed to open file $option_default\n";
-open(OUT,">$option_new") || die "Failed to open file $option_new\n";
-while(<IN>)
+if (! -f $option_list)
 {
-	$line = $_;
-	chomp $line;
-
-	if(index($line,'SOFTWARE_PATH')>=0)
-	{
-		$line =~ s/SOFTWARE_PATH/$install_dir/g;
-		print OUT $line."\n";
-	}else{
-		print OUT $line."\n";
-	}
+        die "\nOption file $option_list not exists.\n";
 }
-close IN;
-close OUT;
+configure_file($option_list,'src');
+print "#########  Configuring option files, done\n\n\n";
+
+
+
+print "#########  (2) Configuring tools\n";
+
+$option_list = "$install_dir/installation/multicom_tools_list";
+
+if (! -f $option_list)
+{
+        die "\nOption file $option_list not exists.\n";
+}
+configure_file($option_list,'tools');
+print "#########  Configuring tools, done\n\n\n";
+
+print "#########  (3) Configuring scripts\n";
+
+$option_list = "$install_dir/installation/multicom_scripts_list";
+
+if (! -f $option_list)
+{
+        die "\nOption file $option_list not exists.\n";
+}
+configure_file($option_list,'src');
+print "#########  Configuring scripts, done\n\n\n";
+
+
 
 
 
 print "#########  Setting up pspro2\n";
-$ssprodir = $install_dir.'/software/pspro2/';
+$ssprodir = $install_dir.'/tools/pspro2/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -311,8 +187,23 @@ if(-f 'configure.pl')
 	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
+
+print "#########  Setting up raptorx\n";
+$ssprodir = $install_dir.'/tools/RaptorX4/CNFsearch1.66/';
+chdir $ssprodir;
+if(-f 'setup.pl')
+{
+	$status = system("perl setup.pl");
+	if($status){
+		die "Failed to run perl setup.pl\n";
+		exit(-1);
+	}
+}else{
+	die "The setup.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
 print "\n#########  Setting up SCRATCH \n";
-$ssprodir = $install_dir.'/software/SCRATCH-1D_1.1/';
+$ssprodir = $install_dir.'/tools/SCRATCH-1D_1.1/';
 chdir $ssprodir;
 if(-f 'install.pl')
 {
@@ -326,23 +217,23 @@ if(-f 'install.pl')
 }
 
 
-print "\n#########  Setting up MODELLER \n";
-my($addr_mod913) = $install_dir."/software/"."modeller9.13/bin/mod9.13";
-if (!-s $addr_mod913) {
-	die "Please check $addr_mod913, you can download the modeller and install it by yourself if the current one in the tool folder is not working well, the key is MODELIRANJE.  please install it to the folder $tool_path/modeller9.13, with the file mod9.13 in the bin directory\n";
+print "\n#########  Setting up MODELLER 9v7 \n";
+my($addr_mod9v7) = $install_dir."/tools/modeller9v7/bin/mod9v7";
+if (!-s $addr_mod9v7) {
+	die "Please check $addr_mod9v7, you can download the modeller and install it by yourself if the current one in the tool folder is not working well, the key is MODELIRANJE.  please install it to the folder tools/modeller9v7, with the file mod9v7 in the bin directory\n";
 }
 
-my($deep_mod913) = $install_dir."/software/"."modeller9.13/bin/modeller9.13local";
-$OUT = new FileHandle ">$deep_mod913";
-$IN=new FileHandle "$addr_mod913";
+my($deep_mod9v7) = $install_dir."/tools/modeller9v7/bin/modeller9v7local";
+$OUT = new FileHandle ">$deep_mod9v7";
+$IN=new FileHandle "$addr_mod9v7";
 while(defined($line=<$IN>))
 {
         chomp($line);
         @ttt = split(/\=/,$line);
 
-        if(@ttt>1 && $ttt[0] eq "MODINSTALL9v13")
+        if(@ttt>1 && $ttt[0] eq "MODINSTALL9v7")
         {
-                print $OUT "MODINSTALL9v13=\"$install_dir/software/modeller9.13\"\n";
+                print $OUT "MODINSTALL9v7=\"$install_dir/tools/modeller9v7\"\n";
         }
         else
         {
@@ -351,14 +242,52 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 755 $deep_mod913");
-my($modeller_conf) = $install_dir."/software/"."modeller9.13/modlib/modeller/config.py";
+system("chmod 755 $deep_mod9v7");
+my($modeller_conf) = $install_dir."/tools/modeller9v7/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
-print $OUT "install_dir = r\'$install_dir/software/modeller9.13/\'\n";
+print $OUT "install_dir = r\'$install_dir/tools/modeller9v7/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
 system("chmod 755 $modeller_conf");
+system("cp $deep_mod9v7 $addr_mod9v7");
 print "Done\n";
+
+
+print "\n#########  Setting up MODELLER 9v16 \n";
+my($addr_mod9v16) = $install_dir."/tools/modeller-9.16/bin/mod9.16";
+if (!-s $addr_mod9v16) {
+	die "Please check $addr_mod9v16, you can download the modeller and install it by yourself if the current one in the tool folder is not working well, the key is MODELIRANJE.  please install it to the folder tools/modeller-9.16, with the file mod9v7 in the bin directory\n";
+}
+
+my($deep_mod9v16) = $install_dir."/tools/modeller-9.16/bin/modeller9v16local";
+$OUT = new FileHandle ">$deep_mod9v16";
+$IN=new FileHandle "$addr_mod9v16";
+while(defined($line=<$IN>))
+{
+        chomp($line);
+        @ttt = split(/\=/,$line);
+
+        if(@ttt>1 && $ttt[0] eq "MODINSTALL9v16")
+        {
+                print $OUT "MODINSTALL9v16=\"$install_dir/tools/modeller-9.16\"\n";
+        }
+        else
+        {
+                print $OUT $line."\n";
+        }
+}
+$IN->close();
+$OUT->close();
+system("chmod 755 $deep_mod9v16");
+my($modeller_conf) = $install_dir."/tools/modeller-9.16/modlib/modeller/config.py";
+$OUT = new FileHandle ">$modeller_conf";
+print $OUT "install_dir = r\'$install_dir/tools/modeller-9.16/\'\n";
+print $OUT "license = \'MODELIRANJE\'";
+$OUT->close();
+system("chmod 755 $modeller_conf");
+system("cp $deep_mod9v16 $addr_mod9v16");
+print "Done\n";
+
 
 sub prompt_yn {
   my ($query) = @_;
@@ -374,7 +303,47 @@ sub prompt {
 }
 
 
+sub configure_file{
+	my ($option_list,$prefix) = @_;
+	open(IN,$option_list) || die "Failed to open file $option_list\n";
+	$file_indx=0;
+	while(<IN>)
+	{
+		$file = $_;
+		chomp $file;
+		if ($file =~ /^$prefix/)
+		{
+			$option_default = $install_dir.$file.'.default';
+			$option_new = $install_dir.$file;
+			$file_indx++;
+			print "$file_indx: Configuring $option_new\n";
+			if (! -f $option_default)
+			{
+					die "\nOption file $option_default not exists.\n";
+			}	
+			
+			open(IN1,$option_default) || die "Failed to open file $option_default\n";
+			open(OUT1,">$option_new") || die "Failed to open file $option_new\n";
+			while(<IN1>)
+			{
+				$line = $_;
+				chomp $line;
 
+				if(index($line,'SOFTWARE_PATH')>=0)
+				{
+					$line =~ s/SOFTWARE_PATH/$install_dir/g;
+					$line =~ s/\/\//\//g;
+					print OUT1 $line."\n";
+				}else{
+					print OUT1 $line."\n";
+				}
+			}
+			close IN1;
+			close OUT1;
+		}
+	}
+	close IN;
+}
 
 
 =pod

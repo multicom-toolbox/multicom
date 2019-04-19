@@ -1,0 +1,30 @@
+PDB directory 1_____________ ./
+PDB directory 2_____________ ./
+PDB list 1 ___________________________ ./xl
+PDB list 2 ___________________________ ./yl
+Resulting file _______________________ ./sarf_results
+Print level (1,2,3) __________________ 2
+Min fragment size (for SS)____________ 5
+Max rmsd for alpha 1 _________________ 0.4
+Max rmsd for alpha 2 _________________ 0.3
+Max rmsd for beta 1 __________________ 0.8
+Max rmsd for beta 2 __________________ 0.4
+Max angle between compatible SS ______ 50.
+Error in distance compatible SS ______ 1.5
+Filtering distance ___________________ 4.0
+Min fragment size (residue level) ____ 5
+Rmsd for two SS pairs from ensemble __ 2.5
+Number of the ensembles ______________ 200
+Fraction of the matched residues (%) _ 10
+Min number of SS in ensemble _________ 2
+Fragment size (extension) ____________ 5
+Number of iterations in extension ____ 5   
+Mean dist for extension ______________ 4.5
+Indel for extension __________________ 2  
+Min dist for extension _______________ 3.0
+Max dist for extension _______________ 4.5
+Max rmsd for extension _______________ 3.2
+Max dist for single residues _________ 4.2
+To incorporate single residues? ______ N
+Consecutive fragments only? __________ N
+Print sequence alignment? ____________ Y

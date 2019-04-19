@@ -32,11 +32,20 @@ while (<TEMP>)
 		$wrong = 1; 
 	}
 
-	if (! -f "$atom_dir/$name.atom")
+	if (! -f "$atom_dir/$name.atom.gz")
 	{
-		$wrong = 1; 
+
+		if ( -f "$atom_dir/$name.atom")
+		{
+#			warn "$name.atom is not zipped, compress it\n"; 
+			`gzip $atom_dir/$name.atom`; 
+		}
+		if (! -f "$atom_dir/$name.atom.gz")
+		{
+			$wrong = 1; 
+		}
 	}
-	if ($wrong == 0)
+	if ($wrong == 1)
 	{
 		print OUT ">$name\n$seq";
 	}

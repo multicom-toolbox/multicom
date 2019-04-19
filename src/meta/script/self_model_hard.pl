@@ -4,8 +4,8 @@
 #Author: Jianlin Cheng
 #############################################################
 
-$self = "/home/casp13/MULTICOM_package/casp8/meta/script/self.pl";
-$pdb2casp2 = "/home/casp13/MULTICOM_package/casp8/meta/script/pdb2casp.pl";
+$self = "/data/jh7x3/multicom_github/multicom/src/meta/script/self.pl";
+$pdb2casp2 = "/data/jh7x3/multicom_github/multicom/src/meta/script/pdb2casp.pl";
 
 if (@ARGV != 2)
 {
@@ -64,7 +64,7 @@ foreach $target (@targets)
 				#$casp_model.self");
 				`mv self$target_name.pdb $casp_model.self.pdb`; 
 				`mv $casp_model $casp_model.abi`; 
-				system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $casp_model.self.pdb -o $casp_model.self.scw  >/dev/null");
+				system("/data/jh7x3/multicom_github/multicom/tools/scwrl4/Scwrl4 -i $casp_model.self.pdb -o $casp_model.self.scw  >/dev/null");
 				system("$pdb2casp2 $casp_model.self.scw $i $target_name $casp_model");	
 			
 			}

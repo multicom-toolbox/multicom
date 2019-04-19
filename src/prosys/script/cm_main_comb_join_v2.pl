@@ -338,7 +338,7 @@ else
 #	     nr database name is: nr
 #################################################################
 
--f "$pdb_db_dir/pdb_cm.phr" || die "can't find the pdb database $pdb_db_dir/pdb_cm.phr.\n";  
+-f "$pdb_db_dir/pdb_cm.phr" || die "can't find the pdb database.\n"; 
 
 $lib_lock = "$atom_dir/_lib_lock";
 print "try to get library lock to blast database (into a loop)...\n"; 

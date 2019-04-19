@@ -342,8 +342,8 @@ while (<OPTION>)
 -d $hhsearch_dir || die "can't find hhsearch dir.\n";
 -d $compass_dir || die "can't find compass dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
--f "${compassdb}1" || die "can't find compass database 1.\n";
--f "${compassdb}2" || die "can't find compass database 2.\n";
+-f "${compassdb}1" || die "can't find compass database ${compassdb}1.\n";
+-f "${compassdb}2" || die "can't find compass database ${compassdb}2.\n";
 -d $nr_dir || die "can't find nr dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
 -d $meta_dir || die "can't find $meta_dir.\n";

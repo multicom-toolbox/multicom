@@ -38,7 +38,7 @@ atom_dir = SOFTWARE_PATH/databases/atom/
 
 ###########new settings specifically for ffas profile-profile based approach
 #ffas dir
-ffas_dir=SOFTWARE_PATH/src/metaffas/
+ffas_dir=SOFTWARE_PATH/src/meta/ffas/
 
 #psipred dir
 #psipred_dir=/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/
@@ -56,7 +56,7 @@ ffas_soft_dir=SOFTWARE_PATH/tools/ffas_soft
 #meta dir
 #meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
 #meta_dir=/home/casp13/MULTICOM_package/casp8/ffas/
-meta_dir=meta_dir=SOFTWARE_PATH/src/meta/ffas/
+meta_dir=SOFTWARE_PATH/src/meta/ffas/
 
 #meta common dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/

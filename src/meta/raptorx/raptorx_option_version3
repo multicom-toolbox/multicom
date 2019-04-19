@@ -6,33 +6,33 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
-prosys_dir = SOFTWARE_PATH/src/prosys/
+prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys/
 
 #blast tool dir
 #blast_dir = /home/jianlinc/pspro/blast2.2.8/
 #blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
-blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
+blast_dir = /data/jh7x3/multicom_github/multicom/tools/blast-2.2.17/bin
 
 #modeller_program = /home/casp13/MULTICOM_package//software/prosys/modeller7v7/
 #modeller_program = /home/tools/modeller-9.12/bin/mod9.12
 #modeller_program = /home/casp13/MULTICOM_package/software/modeller-9.16/bin/mod9.16
-modeller_program = SOFTWARE_PATH/tools/modeller-9.16/bin/mod9.16
+modeller_program = /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/bin/mod9.16
 
 #pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
 #pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib/
-pdb_db_dir = SOFTWARE_PATH/databases/cm_lib/
+pdb_db_dir = /data/jh7x3/multicom_github/multicom/databases/cm_lib/
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #raptorx dir
 #raptorx_dir=/home/tools/RaptorX2
 #raptorx_dir=/home/tools/RaptorX3/CNFsearch1.66
 #raptorx_dir=/home/casp13/tools/RaptorX4/CNFsearch1.66
-raptorx_dir=SOFTWARE_PATH/tools/RaptorX4/CNFsearch1.66
+raptorx_dir=/data/jh7x3/multicom_github/multicom/tools/RaptorX4/CNFsearch1.66
 
 
 #hhsearch pdb dir 
 #atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
-atom_dir = SOFTWARE_PATH/databases/atom/
+atom_dir = /data/jh7x3/multicom_github/multicom/databases/atom/
 
 #templates built before May 10, 2007 (CASP7 starts)
 #hhsearchdb=/home/casp13/MULTICOM_package//software/prosys_database/casp7_hhsearchdb
@@ -40,11 +40,11 @@ atom_dir = SOFTWARE_PATH/databases/atom/
 #meta dir for hhblits
 #meta_dir=/home/casp13/MULTICOM_package//casp8/meta/
 #meta_dir=/home/casp13/MULTICOM_package//casp8/raptorx/
-meta_dir=SOFTWARE_PATH/src/meta/raptorx/
+meta_dir=/data/jh7x3/multicom_github/multicom/src/meta/raptorx/
 
 #meta common dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
-meta_common_dir=SOFTWARE_PATH/src/meta/
+meta_common_dir=/data/jh7x3/multicom_github/multicom/src/meta/
 
 ###############################################################################
 

@@ -1,0 +1,38 @@
+#this text file includes the options used in comparative modelling used by cm_ts.pl
+
+#prosys script dir
+script_dir = ~/prosys/script/
+
+#blast tool dir
+blast_dir = ~/pspro/blast2.2.8/
+
+#modeller 7.0 dir
+modeller_dir = ~/prosys/modeller7/
+
+#formated pdb database dir
+pdb_db_dir = ~/prosys/database/cm/
+
+#use non-redundant db dir
+#nr_dir = ~/pspro/data/nr/
+#not use nr 
+nr_dir = none
+
+#atom files dir
+atom_dir = ~/prosys/database/atom/
+
+#evalue threshold for template blasting. This is a good threshold in our testing and consistent with rych's paper. 
+blast_evalue = 1.0
+
+#evalue threshold for msa alignment generation. Should we change it to 1.0?
+align_evalue = 0.5
+
+#maximum allowed gap for stopping the alignment generation
+max_gap_size = 20
+
+#minimum covered size for one template to be chosen
+min_cover_size = 20
+
+#number of model to generated 
+model_num = 2
+
+

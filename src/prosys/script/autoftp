@@ -306,7 +306,7 @@ sub ProcessCommand
 
   # Create the FTP object
   print STDERR "Creating FTP object to <$system>\n" if ($DEBUG);
-  $ftp = Net::FTP->new($system, Timeout =>360);
+  $ftp = Net::FTP->new($system, Timeout =>3600);
   if (!defined($ftp)) {
     warn "$program: can't create FTP object: $@\n";
     return(1);

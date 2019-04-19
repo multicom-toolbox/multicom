@@ -2,51 +2,51 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #script_dir = /home/casp13/MULTICOM_package/casp8/csblast/script
-script_dir = SOFTWARE_PATH/src/prosys/script
+script_dir = /data/jh7x3/multicom_github/multicom/src/meta/csblast/script
 
 #meta_dir=/home/casp13/MULTICOM_package/casp8/csblast/
-meta_dir=SOFTWARE_PATH/src/meta/csblast/
+meta_dir=/data/jh7x3/multicom_github/multicom/src/meta/csblast/
 
 #prosys dir
 #prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
-prosys_dir = SOFTWARE_PATH/src/prosys/
+prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys/
 
 #blast tool dir
 #blast_dir = /home/jianlinc/pspro/blast2.2.8/
 #blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.9/
 #blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
-blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
+blast_dir = /data/jh7x3/multicom_github/multicom/tools/blast-2.2.17/bin
 
 #csblast_dir = /home/casp13/MULTICOM_package/software/csblast-2.1.0-linux32 
-csblast_dir = SOFTWARE_PATH/tools/csblast-2.1.0-linux32 
+csblast_dir = /data/jh7x3/multicom_github/multicom/tools/csblast-2.1.0-linux32 
 
 #modeller 7.0 dir
 #modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
-modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/
+modeller_dir = /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
 #pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
 #pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
-#pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
-pdb_db_dir = SOFTWARE_PATH/databases/cm_lib/
+#pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib/
+pdb_db_dir = /data/jh7x3/multicom_github/multicom/databases/cm_lib/
 
 #use non-redundant db dir (should always use non-redundant database)
 #nr_dir = /home/jianlinc/pspro/data/nr/
 #nr_dir = /var/preserve/nr/
 #nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr_latest/
-nr_dir = SOFTWARE_PATH/databases/nr_latest/
+nr_dir = /data/jh7x3/multicom_github/multicom/databases/nr_latest/
 #not use nr (should never choose this option. its performance is worse)
 #nr_dir = none
 
 #atom files dir
 #atom_dir = /home/jianlinc/prosys/database/atom/
 #atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
-atom_dir = SOFTWARE_PATH/databases/atom/
+atom_dir = /data/jh7x3/multicom_github/multicom/databases/atom/
 
 #meta common dir
-meta_common_dir=SOFTWARE_PATH/src/meta/
+meta_common_dir=/data/jh7x3/multicom_github/multicom/src/meta/
 ############################End of Software and Data Settings#################
 
 #################################PDB blasting options#######################
@@ -158,7 +158,7 @@ output_prefix_name=csblast
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
 #chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
-chain_stx_info=SOFTWARE_PATH/databases/cm_lib/chain_stx_info
+chain_stx_info=/data/jh7x3/multicom_github/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

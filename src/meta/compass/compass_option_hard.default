@@ -74,7 +74,7 @@ meta_common_dir=SOFTWARE_PATH/src/meta/
 compass_dir=SOFTWARE_PATH/tools/new_compass/
 
 #compassdb=/home/casp13/MULTICOM_package/casp8/compass/database/compass_db
-compassdb=SOFTWARE_PATH/databases/compass_db
+compassdb=SOFTWARE_PATH/databases/compass_db/compass_db
 #compassdb=/home/casp13/MULTICOM_package/casp8/compass/casp7_benchmark/casp7_compass_db
 
 

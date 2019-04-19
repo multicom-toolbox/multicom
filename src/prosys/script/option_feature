@@ -1,0 +1,31 @@
+#Options to generate features for a pair of query and target used by feature_all.pl
+
+#blast dir
+blast_dir=/home/jianlinc/pspro/blast2.2.8
+
+#clustalw dir
+clustalw_dir=/home/jianlinc/prosys/clustalw1.83
+
+#palign dir
+palign_dir=/home/jianlinc/prosys/palign/linux
+
+#tcoffee dir
+tcoffee_dir=/home/jianlinc/prosys/tcoffee2.03
+
+#hmmer dir
+hmmer_dir=/home/jianlinc/prosys/hmmer2.3.2
+
+#prosys dir (script dir = pspro_dir/script/)
+prosys_dir=/home/jianlinc/prosys
+
+#input dir1  (hold template related files)
+template_dir=/home/jianlinc/prosys/dataset/rych/ssamaps
+
+#input dir 2 (hold query related files)
+#files needed: msa(align), chk, pssm, cm8a, cm12a, bcm8a, bcm12, bmap, hmm, set(9-line or more
+#see comparative modelling seq format)
+query_dir=/home/jianlinc/prosys/dataset/rych/ssamaps
+
+#disable t_coffee
+use_tcoffee = 0
+use_palign_prof = 1

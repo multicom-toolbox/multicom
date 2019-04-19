@@ -1,0 +1,13 @@
+prosys_dir=SOFTWARE_PATH/src/prosys/
+
+model_check_dir=SOFTWARE_PATH/tools/model_eva1.0/
+
+betacon_dir=SOFTWARE_PATH/tools/betacon/
+
+pspro_dir=SOFTWARE_PATH/tools/pspro2/
+
+model_energy_dir=SOFTWARE_PATH/tools/energy/
+
+betapro_dir=SOFTWARE_PATH/tools/betapro-1.0/
+
+thread_num=12

@@ -330,7 +330,7 @@ while (<OPTION>)
 -d $atom_dir || die "can't find atom dir.\n";
 -d $pdb_db_dir || die "can't find $pdb_db_dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
--f $hhsearchdb || die "can't find hhsearch database.\n";
+-f "${hhsearchdb}_hhm_db" || die "can't find hhsearch database: ${hhsearchdb}_hhm_db.\n";
 -f "${nr_db}_a3m_db" || die "can't find ${nr_db}_a3m_db database.\n";
 -d $meta_dir || die "can't find $meta_dir.\n";
 -d $meta_common_dir || die "can't find $meta_common_dir.\n";
@@ -441,10 +441,20 @@ system("$hhblits_dir/bin/hhsearch -i $name.hmm -d $hhsearchdb -realign -mact 0")
 
 print "generate ranking list...\n";
 system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank");
+
+#remove templates from rank file
+system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank $work_dir/$name.rank.fil1");
+`cp $work_dir/$name.rank $work_dir/$name.rank.org1`;
+`cp $work_dir/$name.rank.fil1 $work_dir/$name.rank`;
+
 	
 #parse the blast output
 print "parse hhsearch output...\n"; 
 system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.local");
+
+system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.local $fasta_file.local.fil");
+`cp $fasta_file.local $fasta_file.local.org`;
+`mv $fasta_file.local.fil $fasta_file.local`;
 
 MULTICOM:
 
@@ -458,6 +468,8 @@ system("$meta_dir/script/local_global_align.pl $align_option $fasta_file.local $
 system("$meta_dir/script/local2model_v2.pl $option_file $fasta_file $fasta_file .");
 
 
+GLOBAL:
+
 #do global hmm search
 print "Do global blits search...\n";
 
@@ -470,11 +482,20 @@ system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank.gl
 
 #filter ranked templates according to the PDB library
 system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank.global $name.filter.rank"); 
+
+system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank.global $work_dir/$name.rank.fil2");
+`cp $work_dir/$name.rank.global $work_dir/$name.rank.org2`;
+`cp $work_dir/$name.rank.fil2 $work_dir/$name.rank.global`;
 	
 #parse the blast output
 print "parse hhsearch output...\n"; 
 system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.global");
 `mv $filename.hhr $filename.hhr.global`; 
+
+#filter alignments
+system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.global $fasta_file.global.fil");
+`cp $fasta_file.global $fasta_file.global.org`;
+`mv $fasta_file.global.fil $fasta_file.global`;
 
 $align_option = "$meta_dir/script/align_option";
 -f $align_option || die "can't find alignment option file: $align_option.\n";

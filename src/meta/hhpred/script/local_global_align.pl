@@ -31,7 +31,7 @@ $output_name = shift @ARGV;
 
 open(OPTION, $align_option) || die "can't read $align_option file.\n";
 
-$align_dir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/hhpred/script"; 
+$align_dir="/data/jh7x3/multicom_github/multicom/src/meta/hhpred/script"; 
 
 while (<OPTION>)
 {
@@ -559,7 +559,7 @@ close SIM;
 #Using Align.pm ------------ Developed by Soeding.
 #########################################################
 
-use lib "/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/casp8/meta/script/";
+use lib "/data/jh7x3/multicom_github/multicom/src/meta/script/";
 use Align; 
 #load the alignment methods
 #require "$align_dir/align_methods.pl";

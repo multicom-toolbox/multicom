@@ -1,0 +1,59 @@
+HEADER    HYDROLASE                               06-APR-81   1BP2      1BP2   3
+COMPND    PHOSPHOLIPASE A=2= (E.C.3.1.1.4) (PHOSPHATIDE                 1BP2   4
+COMPND   2 ACYL-HYDROLASE)                                              1BP2   5
+SOURCE    BOVINE (BOS TAURUS L.) PANCREAS                               1BP2   6
+AUTHOR    B.W.DIJKSTRA,K.H.KALK,W.G.J.HOL,J.DRENTH                      1BP2   7
+REVDAT   4   29-OCT-85 1BP2C   1       REMARK                           1BP2C  1
+REVDAT   3   30-SEP-83 1BP2B   1       REVDAT                           1BP2B  1
+REVDAT   2   07-MAR-83 1BP2A   2       HET    CONECT                    1BP2B  2
+REVDAT   1   21-MAY-81 1BP2    0                                        1BP2B  3
+JRNL        AUTH   B.W.DIJKSTRA,K.H.KALK,W.G.J.HOL,J.DRENTH             1BP2   8
+JRNL        TITL   STRUCTURE OF BOVINE PANCREATIC PHOSPHOLIPASE A2 AT   1BP2   9
+JRNL        TITL 2 1.7 ANGSTROMS RESOLUTION                             1BP2  10
+JRNL        REF    J.MOL.BIOL.                   V. 147    97 1981      1BP2  11
+JRNL        REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  1BP2  12
+ATOM    614  N   ASN    80      11.360  29.531  17.156  1.00 21.61      1BP2 717
+ATOM    615  CA  ASN    80      11.775  28.149  16.946  1.00 16.09      1BP2 718
+ATOM    616  C   ASN    80      13.254  27.923  17.307  1.00  9.70      1BP2 719
+ATOM    617  O   ASN    80      13.889  27.010  16.777  1.00 17.80      1BP2 720
+ATOM    618  CB  ASN    80      11.444  27.683  15.501  1.00 17.95      1BP2 721
+ATOM    619  CG  ASN    80       9.911  27.819  15.341  1.00 26.38      1BP2 722
+ATOM    620  OD1 ASN    80       9.447  28.647  14.550  1.00 24.40      1BP2 723
+ATOM    621  ND2 ASN    80       9.168  27.040  16.119  1.00 16.20      1BP2 724
+ATOM    622  N   GLU    81      13.731  28.776  18.212  1.00 12.17      1BP2 725
+ATOM    623  CA  GLU    81      15.102  28.637  18.718  1.00  8.14      1BP2 726
+ATOM    624  C   GLU    81      15.045  28.412  20.247  1.00  6.39      1BP2 727
+ATOM    625  O   GLU    81      14.300  29.084  20.950  1.00 13.96      1BP2 728
+ATOM    626  CB  GLU    81      15.967  29.889  18.479  1.00  9.71      1BP2 729
+ATOM    627  CG  GLU    81      16.435  29.795  17.008  1.00 41.56      1BP2 730
+ATOM    628  CD  GLU    81      17.520  28.720  16.841  1.00 57.79      1BP2 731
+ATOM    629  OE1 GLU    81      18.178  28.416  17.872  1.00 46.25      1BP2 732
+ATOM    630  OE2 GLU    81      17.665  28.241  15.679  1.00 46.82      1BP2 733
+ATOM    631  N   ILE    82      15.866  27.453  20.657  1.00  8.78      1BP2 734
+ATOM    632  CA  ILE    82      15.897  27.138  22.090  1.00  5.24      1BP2 735
+ATOM    633  C   ILE    82      17.119  27.816  22.741  1.00  5.29      1BP2 736
+ATOM    634  O   ILE    82      18.246  27.721  22.273  1.00  9.43      1BP2 737
+ATOM    635  CB  ILE    82      16.111  25.613  22.268  1.00 11.75      1BP2 738
+ATOM    636  CG1 ILE    82      15.089  24.838  21.427  1.00  8.74      1BP2 739
+ATOM    637  CG2 ILE    82      16.035  25.270  23.768  1.00 10.76      1BP2 740
+ATOM    638  CD1 ILE    82      15.585  23.398  21.185  1.00  8.40      1BP2 741
+ATOM    639  N   THR    83      16.799  28.414  23.886  1.00 10.93      1BP2 742
+ATOM    640  CA  THR    83      17.884  28.942  24.717  1.00  4.79      1BP2 743
+ATOM    641  C   THR    83      17.772  28.299  26.117  1.00  6.37      1BP2 744
+ATOM    642  O   THR    83      16.706  28.295  26.720  1.00 13.06      1BP2 745
+ATOM    643  CB  THR    83      17.714  30.470  24.902  1.00  8.74      1BP2 746
+ATOM    644  OG1 THR    83      17.558  30.975  23.568  1.00 23.82      1BP2 747
+ATOM    645  CG2 THR    83      19.024  31.070  25.458  1.00 16.81      1BP2 748
+ATOM    646  N   CYS    84      18.936  27.831  26.552  1.00  6.09      1BP2 749
+ATOM    647  CA  CYS    84      18.967  27.266  27.924  1.00 11.63      1BP2 750
+ATOM    648  C   CYS    84      19.330  28.476  28.820  1.00  8.84      1BP2 751
+ATOM    649  O   CYS    84      20.246  29.236  28.499  1.00 14.81      1BP2 752
+ATOM    650  CB  CYS    84      20.056  26.186  28.005  1.00  7.37      1BP2 753
+ATOM    651  SG  CYS    84      19.615  24.595  27.267  1.00  7.10      1BP2 754
+ATOM    652  N   SER    85      18.600  28.606  29.912  1.00  6.60      1BP2 755
+ATOM    653  CA  SER    85      18.805  29.718  30.824  1.00  6.43      1BP2 756
+ATOM    654  C   SER    85      20.183  29.809  31.482  1.00  7.57      1BP2 757
+ATOM    655  O   SER    85      20.749  28.849  31.989  1.00 11.89      1BP2 758
+ATOM    656  CB  SER    85      17.731  29.649  31.935  1.00 12.08      1BP2 759
+ATOM    657  OG  SER    85      17.966  30.818  32.732  1.00 15.43      1BP2 760
+

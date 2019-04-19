@@ -6,7 +6,8 @@
 #as this one
 ############################################################################# 
 
-$prosys_dir = "/home/chengji/software/prosys/script";
+#$prosys_dir = "/home/casp13/MULTICOM_package/software/prosys/script";
+$prosys_dir = "/data/jh7x3/multicom_github/multicom/src/prosys/script";
 use Cwd 'abs_path';
 $script_path =  abs_path($0);
 $ridx = rindex($script_path, "/");

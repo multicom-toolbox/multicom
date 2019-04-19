@@ -11,13 +11,13 @@ use strict;
 # CUSTOMIZE:
 my $hh=".";
 my $perl=$hh;
-my $ncbidir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/software/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
+my $ncbidir="/data/jh7x3/multicom_github/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
 #my $execdir="/home/soeding/programs/psipred/bin";  # directory with PSIPRED binaries 
 #my $datadir="/home/soeding/programs/psipred/data"; # directory with PSIPRED data 
-my $execdir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/cheng_group/psipred-2.61/bin";  # directory with PSIPRED binaries 
-my $datadir="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/cheng_group/psipred-2.61/data"; # directory with PSIPRED data 
+my $execdir="/data/jh7x3/multicom_github/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
+my $datadir="/data/jh7x3/multicom_github/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
 my $dummydb="./dummydb"; # Name of a dummy blast database (single sequence formatted with formatdb)
-my $nr70="/storage/htc/bdm/tools/MULTICOM_CLUSTER/sunflower/chengji/cheng_group/hhsearch_dbs/nr70";
+my $nr70="/data/jh7x3/multicom_github/multicom/databases/nr70_90/nr70";
 ###########################################################################################################
 ###########################################################################################################
 

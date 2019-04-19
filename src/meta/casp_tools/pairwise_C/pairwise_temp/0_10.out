@@ -1,0 +1,33 @@
+
+ *****************************************************************************
+ *                                 TM-SCORE                                  *
+ * A scoring function to assess the quality of protein structure predictions *
+ * Based on statistics:                                                      *
+ *       0.0 < TM-score < 0.17, Random predictions                           *
+ *       0.4 < TM-score < 1.00, Meaningful predictions                       *
+ * Reference: Yang Zhang and Jeffrey Skolnick, Proteins 2004 57: 702-710     *
+ * For comments, please email to: yzhang@ku.edu                              *
+ *****************************************************************************
+
+Structure1: /data/casp  Length=  174
+Structure2: /data/casp  Length=  172 (by which all scores are normalized)
+Number of residues in common=  172
+RMSD of  the common residues=    5.565
+
+TM-score    = 0.6999  (d0= 4.89, TM10= 0.6869)
+MaxSub-score= 0.5427  (d0= 3.50)
+GDT-score   = 0.5916 %(d<1)=0.2907 %(d<2)=0.5174 %(d<4)=0.6919 %(d<8)=0.8663
+
+ -------- rotation matrix to rotate Chain-1 to Chain-2 ------
+ i          t(i)         u(i,1)         u(i,2)         u(i,3)
+ 1      3.1452320900   0.0191617390   0.5160603977  -0.8563378385
+ 2      2.0498794776   0.5849662603   0.6888138801   0.4281937796
+ 3     15.9011421197   0.8108312414  -0.5091336804  -0.2886790492
+
+Superposition in the TM-score: Length(d<5.0)=126  RMSD=  2.16
+(":" denotes the residue pairs of distance < 5.0 Angstrom)
+ENLYFQSMINSFYAFEVKDAKGRTVSLEKYKGKVSLVVNVASDCQLTDRNYLGLKELHKEFGPSHFSVLAFPCNQFGESEPRPSKEVESFARKNYGVTFPIFHKIKILGSEGEPAFRFLVDSSKKEPRWNFWKYLVNPEGQVVKFWRPEEPIEVIRPDIAALVRQVIIKKKEDL
+          :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::       ::::::::::  ::::::::::       ::: ::        :::::::::::::::::::::::::: :::::::::::           
+-NLYFQSMINSFYAFEVKDAKGRTVSLEKYKGKVSLVVNVASDCQLTDRNYLGLKELHKEFGPSHFSVLAFPCNQFGESEPRPSKEVESFARKNYGVTFPIFHKIKILGSEGEPAFRFLVDSSKKEPRWNFWKYLVNPEGQVVKFWRPEEPIEVIRPDIAALVRQVIIKKKED-
+123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234
+

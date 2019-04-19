@@ -1,38 +1,38 @@
 
 #multicom dir
 #multicom_dir = /data/jh7x3/multicom_github/multicom/src/meta/
-multicom_dir = SOFTWARE_PATH/src/meta/
+multicom_dir = /data/jh7x3/multicom_github/multicom/src/meta/
 
 #option for generate full length model
 #meta_option_full_length = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
-meta_option_full_length = SOFTWARE_PATH/src/meta/test_system/multicom_option_casp13
+meta_option_full_length = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 
 #option for generate easy domain model
 #meta_option_easy_domain = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
-meta_option_easy_domain = SOFTWARE_PATH/src/meta/test_system/multicom_option_casp13
+meta_option_easy_domain = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 
 #option for generate hard domain model
 #meta_option_hard_domain = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_hard_casp13
-meta_option_hard_domain = SOFTWARE_PATH/src/meta/test_system/multicom_option_hard_casp13
+meta_option_hard_domain = /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_hard_casp13
 
 #prosys dir
 #prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys/
-prosys_dir = SOFTWARE_PATH/src/prosys/
+prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys/
 
 #model dir
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
 #modeller_dir = /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/
-modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/
+modeller_dir = /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/
 
 #tm_score
 #tm_score = /home/casp13/MULTICOM_package//software/tm_score/TMscore_32
 #tm_score = /data/jh7x3/multicom_github/multicom/tools/tm_score/TMscore_32
-tm_score = SOFTWARE_PATH/tools/tm_score/TMscore_32
+tm_score = /data/jh7x3/multicom_github/multicom/tools/tm_score/TMscore_32
 
 #q_score
 #q_score = /home/casp13/MULTICOM_package//software/pairwiseQA/q_score
 #q_score = /data/jh7x3/multicom_github/multicom/tools/pairwiseQA/q_score
-q_score = SOFTWARE_PATH/tools/pairwiseQA/q_score
+q_score = /data/jh7x3/multicom_github/multicom/tools/pairwiseQA/q_score
 
 
 #human protein model quality assessment program based on deep learning

@@ -29,7 +29,7 @@ psiblast_option = SOFTWARE_PATH/src/meta/psiblast/psiblast_option_hard
 csblast_dir = SOFTWARE_PATH/src/meta/csblast
 #csblast option file
 #csblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csblast_option
-csiblast_option = SOFTWARE_PATH/src/meta/csblast/csiblast_option
+csblast_option = SOFTWARE_PATH/src/meta/csblast/csblast_option
 #csiblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csiblast_option_hard
 csiblast_option = SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard
 

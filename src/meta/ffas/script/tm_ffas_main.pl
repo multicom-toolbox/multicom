@@ -322,13 +322,13 @@ while (<OPTION>)
 -d $blast_dir || die "can't find blast dir.\n";
 -d $modeller_dir || die "can't find modeller_dir.\n";
 -d $pdb_db_dir || die "can't find pdb database dir.\n";
--d $ffas_dir || die "can't find ffas dir.\n";
+-d $ffas_dir || die "can't find ffas dir $ffas_dir.\n";
 -d $ffas_soft_dir || die "can't find ffas dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
 -f $ffasdb || die "can't find ffas database.\n";
 -d $nr_dir || die "can't find nr dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
--d $meta_dir || die "can't find $meta_dir.\n";
+-d $meta_dir || die "can't find meta_dir $meta_dir.\n";
 -d $meta_common_dir || die "can't find $meta_common_dir.\n";
 
 if ($cm_blast_evalue <= 0 || $cm_blast_evalue >= 10 || $cm_align_evalue <= 0 || $cm_align_evalue >= 10)
@@ -416,6 +416,7 @@ $ENV{'FFAS'} = $ffas_dir;
 $ENV{'PATH'} = $ENV{'PATH'} . ":$ffas_soft_dir";
 
 #generate profile for the query
+print "$ffas_soft_dir/blast.pl < $fasta_file | tee $fasta_file.align | profil > $fasta_file.prof\n";
 `$ffas_soft_dir/blast.pl < $fasta_file | tee $fasta_file.align | profil > $fasta_file.prof`; 
 
 #search the profile against the profile database

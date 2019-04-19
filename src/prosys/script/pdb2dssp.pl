@@ -60,8 +60,7 @@ while(@filelist)
        $unzip_file = $dest_dir.$prefix;
        $dssp_file = $dest_dir.$prefix.".dssp";
        #do conversion
-       #$status = system("${dssp_dir}dsspcmbi $unzip_file $dssp_file");
-       $status = system("${dssp_dir}dssp-2.0.4-linux-amd64 -i $unzip_file -o $dssp_file"); ## modified by jie to support 64 bit 
+       $status = system("${dssp_dir}dsspcmbi $unzip_file $dssp_file");
        if ($status == 0) #succeed
        {
           `gzip -f $dssp_file`;

@@ -326,9 +326,9 @@ while (<OPTION>)
 -d $blast_dir || die "can't find blast dir.\n";
 -d $modeller_dir || die "can't find modeller_dir.\n";
 -d $pdb_db_dir || die "can't find pdb database dir.\n";
--d $hhsearch_dir || die "can't find hhsearch dir.\n";
+-d $hhsearch_dir || die "can't find hhsearch dir.$hhsearch_dir\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
--f $hhsearchdb || die "can't find hhsearch database.\n";
+-f "${hhsearchdb}_hhm_db" || die "can't find hhsearch database.\n";
 -d $nr_dir || die "can't find nr dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
 -d $meta_dir || die "can't find $meta_dir.\n";
@@ -414,7 +414,6 @@ if (-f "$fasta_file.local")
 #################################################################
 
 print "Generate alignments from the nr database...\n";
-print("$meta_dir/script/buildali.pl $fasta_file >/dev/null\n"); 
 system("$meta_dir/script/buildali.pl $fasta_file >/dev/null"); 
 
 #get file name prefix
@@ -431,28 +430,43 @@ else
 
 #conver raw alignment to hhm
 print "convert alignment to HMM...\n";
+print("$hhsearch_dir/hhmake -i $filename.a3m -o $filename.hhm\n"); 
 system("$hhsearch_dir/hhmake -i $filename.a3m -o $filename.hhm"); 
 
 #calibrate the hhm model
 print "calibrate HMM model...\n";
+print("$hhsearch_dir/hhsearch -cal -i $filename.hhm -d $hhsearch_dir/cal.hhm\n");
 system("$hhsearch_dir/hhsearch -cal -i $filename.hhm -d $hhsearch_dir/cal.hhm");
 
 #search shhm against the database
 print "search HMM against HMM database...\n";
+print("$hhsearch_dir/hhsearch -i $filename.hhm -d $hhsearchdb\n");
 system("$hhsearch_dir/hhsearch -i $filename.hhm -d $hhsearchdb");
 #system("$hhsearch_dir/hhsearch -i $filename.hhm -d $hhsearchdb -realign -mact 0");
 #system("$hhsearch_dir/hhsearch -i $filename.hhm -d $hhsearchdb -realign");
 #output file is: name.hhr
 
 print "generate ranking list...\n";
+print("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank\n");
 system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank");
 
 #filter ranked templates according to the PDB library
 system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank $name.filter.rank"); 
+
+#remove templates from rank file
+system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank $work_dir/$name.rank.fil");
+`cp $work_dir/$name.rank $work_dir/$name.rank.org`;
+`cp $work_dir/$name.rank.fil $work_dir/$name.rank`;
 	
 #parse the blast output
 print "parse hhsearch output...\n"; 
 system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.local");
+
+#remove templates whose pdb files do not exist (to do)******************************
+system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.local $fasta_file.local.fil");
+
+`cp $fasta_file.local $fasta_file.local.org`;
+`mv $fasta_file.local.fil $fasta_file.local`;
 
 
 
@@ -477,10 +491,18 @@ system("$hhsearch_dir/hhsearch -i $filename.hhm -d $hhsearchdb -realign -mact 0"
 
 print "generate ranking list...\n";
 system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank.global");
+#remove templates from rank file
+system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank.global $work_dir/$name.rank.global.fil");
+`cp $work_dir/$name.rank.global $work_dir/$name.rank.global.org`;
+`cp $work_dir/$name.rank.global.fil $work_dir/$name.rank.global`;
 	
 #parse the blast output
 print "parse hhsearch output...\n"; 
 system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.global");
+
+system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.global $fasta_file.global.fil");
+`cp $fasta_file.global $fasta_file.global.org`;
+`mv $fasta_file.global.fil $fasta_file.global`;
 
 #preprocess local alignments
 system("$meta_dir/script/local_global_align.pl $align_option $fasta_file.global $fasta_file $fasta_file");

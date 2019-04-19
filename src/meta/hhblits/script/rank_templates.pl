@@ -107,6 +107,11 @@ while (@hhsearch)
 		$temp_prob = $3;
 		$temp_evalue = $4;
 
+		$front = substr($temp_name, 0, 4);
+ 		$end = substr($temp_name, 4);
+ 		$temp_name = lc($front);
+ 		$temp_name .= $end;
+
 		push @temp_ids, $temp_name;
 		push @probs, $temp_prob;
 		push @evalues, $temp_evalue;

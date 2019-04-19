@@ -1,0 +1,57 @@
+
+#meta server ideally needs five processors and a remote server for rosetta
+
+########################################################################
+#meta directory
+meta_dir = SOFTWARE_PATH/src/meta
+
+#sp3 and sp3 directory
+#sparks_dir = /home/casp13/MULTICOM_package/sparks
+
+#sparks_option = SOFTWARE_PATH/src/meta/script/sp3_option_adv
+
+#hhsearch dir
+hhsearch_dir = SOFTWARE_PATH/src/meta/hhsearch
+
+#hhsearch option file
+hhsearch_option = SOFTWARE_PATH/src/meta/hhsearch/hhsearch_option
+
+#compass dir
+compass_dir = SOFTWARE_PATH/src/meta/compass
+
+#compass option file
+compass_option = SOFTWARE_PATH/src/meta/compass/compass_option
+
+#multicom dir
+multicom_dir = SOFTWARE_PATH/src/prosys/
+
+#multicom option file
+multicom_option = SOFTWARE_PATH/src/prosys/multicom_option
+
+#rosetta dir
+rosetta_dir = SOFTWARE_PATH/rosetta
+
+#rosetta server 1
+rosetta_server1 = lewis.rnet.missouri.edu
+
+#rosetta server 2
+rosetta_server2 = clark.rnet.missouri.edu
+
+#scwrl_dir
+scwrl_dir = SOFTWARE_PATH/tools/scwrl
+
+#########################################################################
+#maximum waiting time for a rosetta server to finish (minutes)
+max_wait_time = 240
+
+#we need five processors (sp3, sp3, multicom, hhs, compass)
+#and a remote server for rosetta
+#########################################################################
+
+
+
+
+
+
+
+

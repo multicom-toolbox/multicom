@@ -90,12 +90,12 @@ while (<OPTION>)
 		$meta_option_hard_domain = $value; 
 	}
 
-	if ($line =~ /^human_qa_program/)
-	{
-		($other, $value) = split(/=/, $line);
-		$value =~ s/\s//g; 
-		$human_qa_program = $value; 
-	}
+	#if ($line =~ /^human_qa_program/)
+	#{
+	#	($other, $value) = split(/=/, $line);
+	#	$value =~ s/\s//g; 
+	#	$human_qa_program = $value; 
+	#}
 
 	if ($line =~ /^final_model_num/)
 	{
@@ -203,12 +203,13 @@ if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
 {
 	#generate full-length model
 	#system("$multicom_dir/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
-	system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
+	print("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir\n"); 
+	#system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
 	# /data/jh7x3/multicom_github/multicom/src/meta/
 	# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 }
 #########################################################################################################
-
+exit;
 
 ##############################################################################
 

@@ -44,7 +44,7 @@ atom_dir = SOFTWARE_PATH/databases/atom/
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsearch dir
 #hmmer_dir=/home/casp13/MULTICOM_package/software/hmmer-3.0b3/binaries/intel-linux-x86_64
-hmmer_dir= SOFTWARE_PATH/databases/hmmer-3.0b3/binaries/intel-linux-x86_64
+hmmer_dir= SOFTWARE_PATH/tools/hmmer-3.0b3/binaries/intel-linux-x86_64
 
 #all current templates
 #hmmerdb=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/pdb_cm
