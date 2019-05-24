@@ -1,0 +1,26 @@
+# pspro2
+installation/MULTICOM_test_codes/T1-run-pspro2.sh
+
+# SCRATCH
+installation/MULTICOM_test_codes/T2-run-SCRATCH.sh
+
+# freecontact
+installation/MULTICOM_test_codes/T3-run-freecontact.sh
+
+# dncon2
+installation/MULTICOM_test_codes/T4-run-dncon2.sh
+
+# modeller9.16
+installation/MULTICOM_test_codes/T5-run-modeller9.16.sh
+
+# modeller9.7
+installation/MULTICOM_test_codes/T6-run-modeller9.7.sh
+
+# hhsearch
+installation/MULTICOM_test_codes/T7-run-hhsearch.sh
+
+# hhsearch15
+installation/MULTICOM_test_codes/T8-run-hhsearch15.sh
+
+# hhsearch151
+installation/MULTICOM_test_codes/T9-run-hhsearch151.sh

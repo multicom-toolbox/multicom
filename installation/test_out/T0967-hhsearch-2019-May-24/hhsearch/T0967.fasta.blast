@@ -1,0 +1,135 @@
+BLASTP 2.2.17 [Aug-26-2007]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics:
+Schaffer, Alejandro A., L. Aravind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= T0967
+         (81 letters)
+
+Database: uniref90 
+           70,056,378 sequences; 23,724,371,664 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+UniRef90_G8IQT4 Magnetosome protein n=2 Tax=Desulfamplus magneto...   151   2e-34
+UniRef90_A0A1W9VYI0 Uncharacterized protein n=1 Tax=Desulfobacte...    68   3e-09
+UniRef90_A0A0M9ECL1 Magnetosome protein MamB n=1 Tax=Candidatus ...    55   2e-05
+UniRef90_U5IHX2 Magnetosome protein MamB n=1 Tax=delta proteobac...    53   7e-05
+UniRef90_UPI000711A0A0 cation transporter n=1 Tax=Blastocystis s...    49   0.001
+UniRef90_A0A178Y7M7 Uncharacterized protein n=1 Tax=Sinorhizobiu...    44   0.050
+
+>UniRef90_G8IQT4 Magnetosome protein n=2 Tax=Desulfamplus magnetovallimortis
+           TaxID=1246637 RepID=G8IQT4_9DELT
+          Length = 270
+
+ Score =  151 bits (381), Expect = 2e-34,   Method: Composition-based stats.
+ Identities = 81/81 (100%), Positives = 81/81 (100%)
+
+Query: 1   EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQII 60
+           EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQII
+Sbjct: 190 EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQII 249
+
+Query: 61  KEIVDRKSTVKVRLFAAQEEL 81
+           KEIVDRKSTVKVRLFAAQEEL
+Sbjct: 250 KEIVDRKSTVKVRLFAAQEEL 270
+
+
+>UniRef90_A0A1W9VYI0 Uncharacterized protein n=1 Tax=Desulfobacteraceae bacterium
+           4572_87 TaxID=1972443 RepID=A0A1W9VYI0_9DELT
+          Length = 254
+
+ Score = 67.8 bits (164), Expect = 3e-09,   Method: Composition-based stats.
+ Identities = 35/75 (46%), Positives = 49/75 (65%)
+
+Query: 1   EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQII 60
+           E+  + +   L    ++SD+++I +RE+GQ LE EI L VP DITV+ GE IK E  Q I
+Sbjct: 174 EEMDDEVREALRGVANVSDIREINSREMGQELELEIRLGVPKDITVSQGETIKHETKQAI 233
+
+Query: 61  KEIVDRKSTVKVRLF 75
+           +EI+DRK  + V LF
+Sbjct: 234 REIIDRKLRITVMLF 248
+
+
+>UniRef90_A0A0M9ECL1 Magnetosome protein MamB n=1 Tax=Candidatus Magnetomorum sp. HK-1
+           TaxID=1509431 RepID=A0A0M9ECL1_9DELT
+          Length = 303
+
+ Score = 55.1 bits (131), Expect = 2e-05,   Method: Composition-based stats.
+ Identities = 29/80 (36%), Positives = 49/80 (61%)
+
+Query: 2   DYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIK 61
+           + I+    VL++  ++  +  + ARE+GQ +EFE+ L V  +ITV   E+IK +   ++ 
+Sbjct: 214 EVIKDAYKVLKQLDNVIGIDHVYAREIGQTIEFEVGLNVSENITVLEAEKIKTQARSLLS 273
+
+Query: 62  EIVDRKSTVKVRLFAAQEEL 81
+             +DRKSTV V+L A  E++
+Sbjct: 274 GSMDRKSTVIVKLHAVAEQV 293
+
+
+>UniRef90_U5IHX2 Magnetosome protein MamB n=1 Tax=delta proteobacterium ML-1
+           TaxID=947513 RepID=U5IHX2_9DELT
+          Length = 377
+
+ Score = 53.1 bits (126), Expect = 7e-05,   Method: Composition-based stats.
+ Identities = 26/76 (34%), Positives = 42/76 (55%)
+
+Query: 1   EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQII 60
+           ++ +E I   L   P I +V  ++ RELG  LE  I+L VP  ++V  GERIK+     +
+Sbjct: 301 KETLEEIHIALATVPGIREVGRVVGRELGPTLEVTINLGVPAALSVLEGERIKEAARAAV 360
+
+Query: 61  KEIVDRKSTVKVRLFA 76
+            +   R++ + V L+A
+Sbjct: 361 MKTFSRQTKISVHLYA 376
+
+
+>UniRef90_UPI000711A0A0 cation transporter n=1 Tax=Blastocystis sp. subtype 4 TaxID=944170
+           RepID=UPI000711A0A0
+          Length = 420
+
+ Score = 48.9 bits (115), Expect = 0.001,   Method: Composition-based stats.
+ Identities = 27/79 (34%), Positives = 43/79 (54%)
+
+Query: 2   DYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIK 61
+           + I+ + + LE  P +    D+ ARE+G  +  ++ LYV P   V   E I+  V +IIK
+Sbjct: 230 EVIDKLNSTLETIPGVEGYSDVRAREMGAFMVVDLKLYVHPGTHVEDAEEIQNTVERIIK 289
+
+Query: 62  EIVDRKSTVKVRLFAAQEE 80
+           E V   S V VR+ + ++E
+Sbjct: 290 EEVKNVSEVMVRITSIRDE 308
+
+
+>UniRef90_A0A178Y7M7 Uncharacterized protein n=1 Tax=Sinorhizobium saheli TaxID=36856
+           RepID=A0A178Y7M7_SINSA
+          Length = 336
+
+ Score = 43.5 bits (101), Expect = 0.050,   Method: Composition-based stats.
+ Identities = 23/73 (31%), Positives = 38/73 (52%)
+
+Query: 5   EAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIV 64
+           + I +  E  P I DV D+ AR LG  L  ++D+ + PD+ V   +RI     + +K  +
+Sbjct: 262 DEIKHTAEHVPGIVDVLDVKARWLGHKLRADVDIAMDPDLPVAVADRIASHYERELKNHL 321
+
+Query: 65  DRKSTVKVRLFAA 77
+              + V++R  AA
+Sbjct: 322 PALTAVQIRTRAA 334
+
+
+Searching.................

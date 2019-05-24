@@ -1,0 +1,119 @@
+# psipred
+tools/psipred/runpsipred
+tools/psipred/runpsipred_new
+
+# psipred-2.61
+tools/psipred-2.61/runpsipred
+
+# pspro2
+tools/pspro2/configure.pl
+
+# nncon
+tools/nncon1.0/configure.pl
+
+# disorder_new
+tools/disorder_new/configure.pl
+
+# SCRATCH-1D_1.1
+tools/SCRATCH-1D_1.1/lib/install_template1.sh
+tools/SCRATCH-1D_1.1/lib/install_template2.sh
+tools/SCRATCH-1D_1.1/lib/install_template3.sh
+tools/SCRATCH-1D_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/ACCpro20_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/ACCpro_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/HOMOLpro_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/PROFILpro_1.1/install.pl
+tools/SCRATCH-1D_1.1/pkg/SSpro_5.2/install.pl
+tools/SCRATCH-1D_1.1/pkg/SSpro8_5.2/install.pl
+
+# hhblits
+tools/hhblits/scripts/addss.pl
+tools/hhblits/bin/.hhdefaults
+
+# hhsuite-3.0-beta.3-Linux
+tools/hhsuite-3.0-beta.3-Linux/scripts/addss.pl
+
+# ffas
+tools/ffas_soft/blast.pl
+
+## promals
+tools/promals/promals_structure_MSA/src_abs/Run_promals3d.pl
+tools/promals/promals_structure_MSA/src_abs/Run_pdb2seq.pl
+
+## sam
+tools/sam3.5.i686-linux/bin/sam-t2k.conf
+tools/sam3.5.i686-linux/bin/build-weighted-model
+tools/sam3.5.i686-linux/bin/w0.5
+
+
+## dncon2
+tools/DNCON2/dncon2-v1.0.sh
+tools/DNCON2/scripts/dncon2-main.pl
+tools/DNCON2/metapsicov/runpsipredandsolv
+tools/DNCON2/scripts/aln-hhblits-jhmmer.pl
+tools/DNCON2/scripts/generate-alignments.pl
+tools/DNCON2/scripts/jackhammer_aln.pl
+tools/DNCON2/scripts/run-ccmpred-freecontact-psicov.pl
+
+
+## confold2
+tools/confold2/cns_solve_1.3/cns_solve_env.sh
+tools/confold2/confold-v2.0/core.pl
+
+## unicon3d
+tools/UniCon3D/run_Unicon3D_withdncon2.pl
+
+## rosetta
+tools/rosetta3.1/rosetta_fragments/nnmake/make_fragments.pl
+tools/rosetta_bin_linux_2018.09.60072_bundle/tools/fragment_tools/make_fragments.pl
+
+## modeleva
+tools/model_eva1.0/configure.pl
+
+## betacon
+tools/betacon/configure.pl
+
+## betapro-1.0
+tools/betapro-1.0/configure.pl
+
+## spem
+tools/spem-release/spem/bin/scan_spem_alone.job
+
+## MULTICOM_NOVEL
+tools/MULTICOM_NOVEL/run_novel_3d.sh
+tools/MULTICOM_NOVEL/scripts/run_multicom_novel.pl
+tools/MULTICOM_NOVEL/scripts/gen_models.pl
+tools/MULTICOM_NOVEL/scripts/run_hhsearch15.pl
+tools/MULTICOM_NOVEL/scripts/run_hhsearch12.pl
+tools/MULTICOM_NOVEL/scripts/run_hhsuite.pl
+tools/MULTICOM_NOVEL/scripts/buildali15.pl
+tools/MULTICOM_NOVEL/scripts/buildali12.pl
+tools/MULTICOM_NOVEL/scripts/buildalisuite.pl
+tools/MULTICOM_NOVEL/scripts/domain_detect_from_aln.pl
+tools/MULTICOM_NOVEL/scripts/local2model_2.pl
+tools/MULTICOM_NOVEL/scripts/MyPaths.pm
+tools/MULTICOM_NOVEL/scripts/alignhits.pl
+tools/MULTICOM_NOVEL/scripts/hhsuite/hhsuite_option
+tools/MULTICOM_NOVEL/scripts/hhsuite/align_option
+tools/MULTICOM_NOVEL/scripts/hhsearch/hhsearch_option12
+tools/MULTICOM_NOVEL/scripts/hhsearch/hhsearch_option15
+tools/MULTICOM_NOVEL/scripts/formatCASPmodel.pl
+
+## deepsf
+tools/deepsf/run_deepsf_3d.sh
+tools/deepsf/scripts/deepsf_fr.pl
+tools/deepsf/scripts/fr_option_adv_for_deepsf
+tools/deepsf/lib/library.py
+tools/deepsf/scripts/P2_alignment_generation/gen_query_temp_align_proc.pl
+tools/deepsf/scripts/P1_run_fold_recognition/Analyze_top5_folds.py
+tools/deepsf/scripts/P1_run_fold_recognition/run_DeepSF_fr.pl
+tools/deepsf/scripts/P1_run_fold_recognition/generate_pssm.py
+tools/deepsf/scripts/P1_run_fold_recognition/combine_top10_hidden_for_5folds_CAMEO.pl
+tools/deepsf/scripts/P1_run_fold_recognition/combine_top10_hidden_for_5folds_ECOD_H_CAMEO.pl
+tools/deepsf/scripts/P1_run_fold_recognition/combine_top10_hidden_for_5folds_ECOD_X_CAMEO.pl
+
+
+## fusion
+tools/Fusion/fusion_lib/mover.py
+tools/Fusion/fusion_lib/raptorx-ss3-ss8/bin/run_raptorx-ss3.pl
+tools/Fusion/Fusion_Hybrid.sh

@@ -1,0 +1,636 @@
+Started [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/dncon2-main.pl]: Fri May 24 11:58:28 2019
+
+Input: /home/casp14/MULTICOM_TS/multicom/examples/T0967.fasta
+L    : 81
+Seq  : EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL
+
+[[Executing: cp /home/casp14/MULTICOM_TS/multicom/examples/T0967.fasta /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24//]]
+[[Executing: echo ">T0967" > /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24//T0967.fasta]]
+[[Executing: echo "EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL" >> /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24//T0967.fasta]]
+
+
+Generating PSSM..
+[[Executing: mkdir -p /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/pssm]]
+[[Executing: cp ../T0967.fasta ./]]
+Running PSI-Blast with nr90...
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/ncbi-blast-2.2.25+/bin/psiblast -query T0967.fasta -evalue .001 -inclusion_ethresh .002 -db /home/casp14/MULTICOM_TS/multicom/databases/nr70_90/nr90 -num_iterations 3 -outfmt 0 -out T0967.psiblast.output -seg yes -out_ascii_pssm T0967.pssm]]
+Warning: lcl|Query_1 T0967: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+
+
+Predicting secondary structure and solvent accessibility using SCRATCH..
+[[Executing: mkdir -p /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa]]
+[[Executing: cp ../T0967.fasta ./]]
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/SCRATCH-1D_1.1/bin/run_SCRATCH-1D_predictors.sh T0967.fasta T0967 4]]
+
+###################################
+#                                 #
+#  SCRATCH-1D release 1.1 (2015)  #
+#                                 #
+###################################
+
+[SCRATCH-1D_predictions.pl] 1 protein sequence(s) found
+[SCRATCH-1D_predictions.pl] generating sequence profiles...
+[SCRATCH-1D_predictions.pl] running SCRATCH-1D predictors...
+[SCRATCH-1D_predictions.pl] running homology analysis...
+[SCRATCH-1D_predictions.pl] writing SSpro predictions...
+[SCRATCH-1D_predictions.pl] writing SSpro8 predictions...
+[SCRATCH-1D_predictions.pl] writing ACCpro predictions...
+[SCRATCH-1D_predictions.pl] writing ACCpro20 predictions...
+[SCRATCH-1D_predictions.pl] job successfully completed!
+
+[[Executing: cp /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.fasta /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+[[Executing: echo ">T0967" > /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+[[Executing: echo "EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL" >> /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+[[Executing: tail -n 1 /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss >> /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+[[Executing: tail -n 1 /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.acc >> /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+[[Executing: sed -i 's/-/b/g' /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/ss_sa/T0967.ss_sa]]
+Predicted SS and SA:
+>T0967
+EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL
+CHHHHHHHHHHHCCCCHHHHHHHHHHHHCCEEEEEEEEECCCCCEECCHHHHHHHHHHHHHHHHHCCCCHHHHHHHHHHHC
+eebbebbbebbeeeeebeebeebbbeebeebbebebebebeeebebeeeeebeeebeebbeebbeeeeebebebbebeeee
+
+
+Predicting secondary structure and solvent accessibility using PSIPRED..
+[[Executing: mkdir -p /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24/psipred]]
+[[Executing: echo ">T0967" > ./T0967.fasta]]
+[[Executing: echo "EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL" >> ./T0967.fasta]]
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/metapsicov/runpsipredandsolv T0967.fasta]]
+Running PSI-BLAST with sequence T0967.fasta ...
+Predicting secondary structure...
+Pass1 ...
+Pass2 ...
+Solvation pass ...
+Cleaning up ...
+Final output files: T0967.ss2 T0967.horiz T0967.solv
+Finished.
+
+
+Generating alignments..
+[[Executing: mkdir -p alignments]]
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/generate-alignments.pl T0967.fasta alignments]]
+Started [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/generate-alignments.pl]: Fri May 24 12:12:52 2019
+Starting job hhb-cov60.sh ..
+running hhblits job hhb-cov60..
+Wait until all HHblits jobs are done ..
+1 jobs running currently
+hhblits hhb-cov60 job done.
+0 jobs running currently
+
+Alignment Summary:
+L = 81
+4175 hhb-cov60.aln
+
+Copying hhb-cov60.aln as T0967.aln
+HHblits jobs have enough alignments! Not running JackHmmer!
+
+Finished [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/generate-alignments.pl]: Fri May 24 12:14:21 2019
+
+
+Generate alignment stats ..
+[[Executing: mkdir -p alnstat]]
+[[Executing: cp alignments/T0967.aln ./alnstat/]]
+[[Executing: cp alignments/T0967.aln ./alnstat/]]
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/metapsicov/bin/alnstats T0967.aln T0967.colstats T0967.pairstats]]
+
+
+Contact Predictions ..
+[[Executing: mkdir -p psicov]]
+[[Executing: mkdir -p ccmpred]]
+[[Executing: mkdir -p freecontact]]
+
+Running PSICOV, CCmpred, and FreeContact parallely..
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/run-ccmpred-freecontact-psicov.pl alignments/T0967.aln psicov ccmpred freecontact]]
+Started [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/run-ccmpred-freecontact-psicov.pl]: Fri May 24 12:14:23 2019
+Starting job T0967-d0.03.sh ..
+Starting job T0967-r0.01.sh ..
+Starting job T0967-r0.001.sh ..
+Starting job T0967-ccmpred.sh ..
+Starting job T0967-freecontact.sh ..
+running freecontact ..
+
+Wait for max 24 hours until all jobs are done ..
+freecontact job done.
+
+Attempting to kill psicov processes that aren't finished..
+
+Checking FreeContact prediction..
+
+Checking CCMpred prediction..
+
+Checking PSICOV predictions..
+Looks like PSICOV 'd-0.03' option has already finished!
+
+Finished [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/run-ccmpred-freecontact-psicov.pl]: Fri May 24 12:16:52 2019
+
+
+Verify coevolution-based contact predictions ..
+
+
+Generating feature file..
+/home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-dncon2-2019-May-24
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/generate-dncon2-features.pl ./T0967.fasta ./pssm/T0967.pssm ./ss_sa/T0967.ss_sa ./alnstat/T0967.colstats ./alnstat/T0967.pairstats ./freecontact/T0967.freecontact.rr ./ccmpred/T0967.ccmpred ./psicov/T0967.psicov.rr ./psipred/T0967.ss2 ./psipred/T0967.solv > feat-T0967.txt]]
+Strip leading spaces from feature files..
+[[Executing: sed -i 's/^ *//g' feat-T0967.txt]]
+
+
+Predict RR from features
+[[Executing: /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/predict-rr-from-features.sh feat-T0967.txt T0967.rr.raw T0967.feat.stage2.txt]]
+# Predict stage1 coevolution-based features (and prepare stage2 feature file)..
+
+Running prediction using coevo-60A .. 
+Using Theano backend.
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+SCRIPT        : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-and-append-to-X.py
+dir_config    : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+file_weights  : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage1-60A.hdf5
+string_header : 60A
+fileX         : feat-T0967.txt
+fileX_stage2  : T0967.feat.stage2.txt
+
+
+Running prediction using coevo-75A .. 
+Using Theano backend.
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+SCRIPT        : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-and-append-to-X.py
+dir_config    : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+file_weights  : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage1-75A.hdf5
+string_header : 75A
+fileX         : feat-T0967.txt
+fileX_stage2  : T0967.feat.stage2.txt
+
+
+Running prediction using coevo-80A .. 
+Using Theano backend.
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+SCRIPT        : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-and-append-to-X.py
+dir_config    : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+file_weights  : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage1-80A.hdf5
+string_header : 80A
+fileX         : feat-T0967.txt
+fileX_stage2  : T0967.feat.stage2.txt
+
+
+Running prediction using coevo-85A .. 
+Using Theano backend.
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+SCRIPT        : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-and-append-to-X.py
+dir_config    : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+file_weights  : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage1-85A.hdf5
+string_header : 85A
+fileX         : feat-T0967.txt
+fileX_stage2  : T0967.feat.stage2.txt
+
+
+Running prediction using coevo-10A .. 
+Using Theano backend.
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+SCRIPT        : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-and-append-to-X.py
+dir_config    : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+file_weights  : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage1-10A.hdf5
+string_header : 10A
+fileX         : feat-T0967.txt
+fileX_stage2  : T0967.feat.stage2.txt
+
+
+All features in final X:
+# Sequence Length (log)
+# alignment-count (log)
+# effective-alignment-count (log)
+# Relative 'b' count
+# Relative 'H' count
+# Relative 'E' count
+# AA composition
+# Atchley factors
+# Secondary Structure
+# Solvent accessibility
+# PSSM inf feature
+# PSSM
+# PSSM Sums (divided by 100)
+# PSSM sum cosines
+# Relative sequence separation
+# Sequence separation between 23 and 28
+# Sequence separation between 28 and 38
+# Sequence separation between 38 and 48
+# Sequence separation 48+
+# Psipred
+# Psisolv
+# pref score
+# scld lu con pot
+# levitt con pot
+# braun con pot
+# joint entro
+# pearson r
+# Shannon entropy sum
+# ccmpred
+# freecontact
+# psicov
+# pstat_pots
+# pstat_mimt
+# pstat_mip
+# Prediction at 60A
+# Prediction at 75A
+# Prediction at 80A
+# Prediction at 85A
+# Prediction at 10A
+
+Predict stage2..
+Using Theano backend.
+
+SCRIPT     : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/cnn-predict-stage2.py
+dir_config : /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend
+fileX      : T0967.feat.stage2.txt
+fileRR     : T0967.rr.raw.tmp
+
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-1.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-2.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-3.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-4.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-5.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-6.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-7.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-8.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-9.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-10.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-11.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-12.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-13.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-14.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-15.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-16.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-17.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-18.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-19.hdf5 ..
+Reading weight file /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-20.hdf5 ..
+
+FeatID         Avg        Med        Max        Sum        Avg[30]    Med[30]    Max[30]    Sum[30]
+ Feat 0     3.4817     4.3944     4.3944    28831.7         3.9115     4.3944     4.3944   355.9464
+ Feat 1     6.6053     8.3369     8.3369    54698.2         7.4207     8.3369     8.3369   675.2865
+ Feat 2     6.0793     7.6730     7.6730    50342.4         6.8298     7.6730     7.6730   621.5107
+ Feat 3     0.3169     0.4000     0.4000     2624.4         0.3560     0.4000     0.4000    32.4000
+ Feat 4     0.4991     0.6300     0.6300     4133.4         0.5608     0.6300     0.6300    51.0300
+ Feat 5     0.1109     0.1400     0.1400      918.5         0.1246     0.1400     0.1400    11.3400
+ Feat 6     0.3580     0.2400     1.0000     2964.6         0.0000     0.0000     0.0000     0.0000
+ Feat 7     0.3580     0.2400     1.0000     2964.6         0.4022     0.3500     1.0000    36.6000
+ Feat 8     0.2749     0.2700     1.0000     2276.1         0.3115     0.3500     0.3500    28.3500
+ Feat 9     0.2749     0.2700     1.0000     2276.1         0.3088     0.2700     1.0000    28.1000
+ Feat10     0.4899     0.5400     1.0000     4056.5         0.4807     0.5400     0.5400    43.7400
+ Feat11     0.4899     0.5400     1.0000     4056.5         0.5503     0.6700     1.0000    50.0800
+ Feat12     0.5518     0.6100     1.0000     4569.2         0.8100     0.9100     0.9100    73.7100
+ Feat13     0.5518     0.6100     1.0000     4569.2         0.6199     0.6800     1.0000    56.4100
+ Feat14     0.3934     0.3800     1.0000     3257.8         0.2848     0.3200     0.3200    25.9200
+ Feat15     0.3934     0.3800     1.0000     3257.8         0.4420     0.3900     1.0000    40.2200
+ Feat16     0.4989     0.0000     1.0000     4131.0         0.0000     0.0000     0.0000     0.0000
+ Feat17     0.4989     0.0000     1.0000     4131.0         0.5604     1.0000     1.0000    51.0000
+ Feat18     0.1076     0.0000     1.0000      891.0         0.8901     1.0000     1.0000    81.0000
+ Feat19     0.1076     0.0000     1.0000      891.0         0.1209     0.0000     1.0000    11.0000
+ Feat20     0.1858     0.0000     1.0000     1539.0         0.0000     0.0000     0.0000     0.0000
+ Feat21     0.1858     0.0000     1.0000     1539.0         0.2088     0.0000     1.0000    19.0000
+ Feat22     0.4793     0.0000     1.0000     3969.0         0.0000     0.0000     0.0000     0.0000
+ Feat23     0.4793     0.0000     1.0000     3969.0         0.5385     1.0000     1.0000    49.0000
+ Feat24     0.0637     0.0567     0.2517      527.9         0.0282     0.0317     0.0317     2.5677
+ Feat25     0.0637     0.0567     0.2517      527.9         0.0716     0.0633     0.2517     6.5168
+ Feat26     0.7928     1.0000     1.0100     6565.0         0.8990     1.0100     1.0100    81.8100
+ Feat27     0.7928     1.0000     1.0100     6565.0         0.8907     1.0000     1.0100    81.0500
+ Feat28     0.2095     0.0900     1.0000     1735.1         0.2411     0.2100     1.0000    21.9400
+ Feat29     0.2640     0.2100     0.9900     2186.2         0.2360     0.2200     0.6200    21.4800
+ Feat30     0.0676     0.0000     1.0000      560.0         0.1099     0.0000     1.0000    10.0000
+ Feat31     0.1171     0.0000     1.0000      970.0         0.1429     0.0000     1.0000    13.0000
+ Feat32     0.0930     0.0000     1.0000      770.0         0.1099     0.0000     1.0000    10.0000
+ Feat33     0.1355     0.0000     1.0000     1122.0         0.0330     0.0000     1.0000     3.0000
+ Feat34     0.2501     0.0740     0.9970     2071.3         0.1762     0.1980     0.1980    16.0380
+ Feat35     0.2501     0.0740     0.9970     2071.3         0.2810     0.1140     0.9970    25.5720
+ Feat36     0.2952     0.0160     0.9930     2444.2         0.0018     0.0020     0.0020     0.1620
+ Feat37     0.2952     0.0160     0.9930     2444.2         0.3316     0.0730     0.9930    30.1750
+ Feat38     0.2238     0.0050     0.9910     1853.2         0.6970     0.7830     0.7830    63.4230
+ Feat39     0.2238     0.0050     0.9910     1853.2         0.2514     0.0240     0.9910    22.8790
+ Feat40     0.2313     0.2210     0.8130     1915.3         0.2118     0.2380     0.2380    19.2780
+ Feat41     0.2313     0.2210     0.8130     1915.3         0.2598     0.2380     0.8130    23.6460
+ Feat42     0.3208     0.3040     1.0000     2656.7         0.4888     0.4280     0.9840    44.4840
+ Feat43     0.5396     0.6510     1.0000     4468.2         0.5146     0.5870     0.7620    46.8310
+ Feat44     0.4948     0.6050     1.0000     4097.1         0.5783     0.6320     1.0000    52.6260
+ Feat45     0.4695     0.5500     1.0000     3887.5         0.5149     0.5500     0.7860    46.8540
+ Feat46     0.3666     0.4340     0.7150     3035.6         0.4763     0.5290     0.6670    43.3400
+ Feat47     0.4340     0.4480     1.0000     3594.2         0.4702     0.4740     1.0000    42.7870
+ Feat48     0.5782     0.7130     0.9140     4787.8         0.8073     0.9070     0.9070    73.4670
+ Feat49     0.5782     0.7130     0.9140     4787.8         0.6495     0.7420     0.9140    59.1090
+ Feat50     0.2877     0.3075     1.6909     2382.2         0.3281     0.3328     1.0000    29.8595
+ Feat51     0.1307     0.0000     6.7738     1081.9         0.1299     0.0000     2.5994    11.8165
+ Feat52     0.2172     0.0000    15.8648     1798.6         0.1793     0.0000     2.3787    16.3146
+ Feat53     0.3954     0.5021     0.5724     3274.2         0.4528     0.5056     0.5224    41.2080
+ Feat54     0.3976     0.5005     0.5837     3292.5         0.4465     0.5011     0.5078    40.6304
+ Feat55     0.3961     0.4989     0.5804     3280.5         0.4451     0.4997     0.5062    40.4997
+ Feat56     0.0564     0.0002     1.0000      467.0         0.0464     0.0001     1.0000     4.2201
+ Feat57     0.0909     0.0018     1.0000      752.6         0.0744     0.0009     1.0000     6.7729
+ Feat58     0.0943     0.0049     1.0000      781.2         0.0821     0.0058     1.0000     7.4677
+ Feat59     0.1046     0.0019     1.0000      866.1         0.0872     0.0008     0.9999     7.9364
+ Feat60     0.1637     0.0201     1.0000     1355.8         0.1622     0.0177     0.9999    14.7608
+
+Starting ensemble prediction.. 
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-3.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-4.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-5.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-16.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-7.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-8.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-10.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-13.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-6.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-11.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-15.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-12.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-17.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-20.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-9.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-2.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-18.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-19.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-14.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+
+Running prediction using /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/stage2-1.hdf5 and /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/../model-config-n-weights-theano-backend/model-arch.config
+
+Read model architecture:
+layer0 : 16 5 1 relu
+layer1 : 16 5 1 relu
+layer2 : 16 5 1 relu
+layer3 : 16 5 1 relu
+layer4 : 16 5 1 relu
+layer5 : 16 5 1 relu
+layer6 : 1 5 0 sigmoid
+
+Writing RR file T0967.rr.raw.tmp
+
+
+Preparing predictions..
+[[Executing: mkdir -p predictions]]
+[[Executing: rm -f predictions/*]]
+[[Executing: echo "EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL" > ./predictions/T0967.psicov.rr]]
+[[Executing: cat ./psicov/T0967.psicov.rr >> ./predictions/T0967.psicov.rr]]
+[[Executing: echo "EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL" > ./predictions/dncon2.rr]]
+[[Executing: cat ./T0967.rr.raw >> ./predictions/dncon2.rr]]
+Add some details to the prediction and prepared CASP RR format..
+Checking ./predictions/dncon2.rr
+EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL
+1 2 0 8 0.94484
+sequence: EDYIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAAQEEL
+
+Finished [/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/scripts/dncon2-main.pl]: Fri May 24 12:18:10 2019
