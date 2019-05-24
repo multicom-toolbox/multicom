@@ -38,7 +38,7 @@ $ sh ./P2_install_OpenBlas.sh  (take ~1 min)
 
 $ sh ./P3_install_freecontact.sh (take ~1 min)
 
-$ sh ./P4_install_scwrl4.sh (take ~1 min)
+$ sh ./P4_install_scwrl4.sh (take ~1 min, please copy the path provided by program for scwrl installation)
 
 $ sh ./P5_python_virtual.sh (take ~1 min)
 ```
