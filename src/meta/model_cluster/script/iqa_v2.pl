@@ -233,7 +233,7 @@ for ($i = 1; $i <= 1; $i++)
 		{
 			$model_file = "$model_dir/$model";
 			#$out = `/home/chengji/software/tm_score/TMscore_32 $model_file closc$i.pdb`;
-			$out = `/home/casp14/MULTICOM_TS/jie_test/multicom/tools/tm_score/TMscore_32 $model_file closc$i.pdb`;
+			$out = `/home/casp14/MULTICOM_TS/jie_github/multicom/tools/tm_score/TMscore_32 $model_file closc$i.pdb`;
 			@out = split(/\n+/, $out);
 			$found = 0; 
 			foreach $line (@out)
@@ -295,7 +295,7 @@ if ($found == 1)
 push @new_rank, @tmp;
 
 #align each model with top five models
-$tm_score_program = "/home/casp14/MULTICOM_TS/jie_test/multicom/tools/tm_score/TMscore_32 ";
+$tm_score_program = "/home/casp14/MULTICOM_TS/jie_github/multicom/tools/tm_score/TMscore_32 ";
 
 @model_scores = ();
 

@@ -5,7 +5,7 @@
 #New version: starte date: 1/10/2009
 #second version: add construct predictor
 #########################################################################
-$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_test/multicom/";
+$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_github/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -505,10 +505,10 @@ while (<OPTION>)
 -d $hmmer3_dir || die "can't find $hmmer3_dir.\n";
 -f $hmmer3_option || die "can't find $hmmer3_option.\n";
 
-#-d $deepsf_dir || die "can't find $deepsf_dir.\n";
-#-f $deepsf_option || die "can't find $deepsf_option.\n";
-#-d $novel_dir || die "can't find $novel_dir.\n";
-#-f $novel_option || die "can't find $novel_option.\n";
+-d $deepsf_dir || die "can't find $deepsf_dir.\n";
+-f $deepsf_option || die "can't find $deepsf_option.\n";
+-d $novel_dir || die "can't find $novel_dir.\n";
+-f $novel_option || die "can't find $novel_option.\n";
 
 
 -d $csblast_dir || die "can't find $csblast_dir.\n";
@@ -536,8 +536,8 @@ while (<OPTION>)
 -f $hhblits3_option || die "can't find $hhblits3_option.\n";
 -d $hhsuite_dir || die "can't find $hhsuite_dir.\n";
 -f $hhsuite_option || die "can't find $hhsuite_option.\n";
-#-d $hhsuite3_dir || die "can't find $hhsuite3_dir.\n";
-#-f $hhsuite3_option || die "can't find $hhsuite3_option.\n";
+-d $hhsuite3_dir || die "can't find $hhsuite3_dir.\n";
+-f $hhsuite3_option || die "can't find $hhsuite3_option.\n";
 -d $fugue_dir || die "can't find $fugue_dir.\n";
 -f $fugue_option || die "can't find $fugue_option.\n";
 -d $raptorx_dir || die "can't find $raptorx_dir.\n";

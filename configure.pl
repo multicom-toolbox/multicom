@@ -80,7 +80,7 @@ if($multicom_db_tools_dir eq "$cur_dir/")
 `rm ${install_dir}databases`; 
 `rm ${install_dir}tools`; 
 `ln -s $database_dir ${install_dir}databases`;
-`ln -s $database_dir ${install_dir}tools`;
+`ln -s $tools_dir ${install_dir}tools`;
 
 
 
@@ -408,8 +408,11 @@ close OUT;
 
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh\n";
 print OUT "#!/bin/bash -e\n\n";
-print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
-print OUT "echo \" Setting installation path to <${multicom_db_tools_dir}tools/scwrl4>\"\n\n";
+print OUT "echo \" Start compile freecontact (will take ~1 min)\"\n\n";
+print OUT "echo \" \"\n\n";
+print OUT "echo \" \"\n\n";
+print OUT "echo \" !!!!!!!! Please copy and set the installation path of scwrl to <${multicom_db_tools_dir}tools/scwrl4> !!!!!!!! \"\n\n";
+print OUT "echo \" \"\n\n";
 print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd scwrl4\n\n";
 print OUT "./install_Scwrl4_Linux\n\n";
@@ -422,6 +425,7 @@ open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P5_python_v
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start install python virtual environment (will take ~1 min)\n\"\n\n";
 print OUT "cd $multicom_db_tools_dir/tools\n\n";
+print OUT "rm -rf python_virtualenv\n\n";
 print OUT "virtualenv python_virtualenv\n\n";
 print OUT "source $multicom_db_tools_dir/tools/python_virtualenv/bin/activate\n\n";
 print OUT "pip install --upgrade pip\n\n";

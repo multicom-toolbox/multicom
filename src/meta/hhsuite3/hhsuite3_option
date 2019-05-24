@@ -4,30 +4,30 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/src/prosys/
+prosys_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/src/prosys/
 
 #blast tool dir
-blast_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/tools/blast-2.2.17/bin
+blast_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
-modeller_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/tools/modeller-9.16/
+modeller_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
-pdb_db_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/databases/cm_lib/
+pdb_db_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/databases/cm_lib/
 
 #nr database used by hhblits to generate profiles, this database needs to be updated!!!!!!!
-nr_db = /home/casp14/MULTICOM_TS/jie_test/multicom/databases/uniprot30/uniclust30_2017_10/uniclust30_2017_10
+nr_db = /home/casp14/MULTICOM_TS/jie_github/multicom/databases/uniprot30/uniclust30_2017_10/uniclust30_2017_10
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsuite dir
 #hhsuite_dir=/home/casp13/hhsuite3
-hhsuite_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/hhsuite-3.0-beta.1/
+hhsuite_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/hhsuite-3.0-beta.1/
 
 #hhblits dir (used for secondary structure prediction only)
-hhblits_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/hhblits/
+hhblits_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/hhblits/
 
 #psipred dir
-psipred_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/psipred-2.61/
+psipred_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/psipred-2.61/
 
 ##############################################################
 #hhsearchdb 
@@ -35,17 +35,17 @@ psipred_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/psipred-2.61/
 #new database to reconstruct
 #hhsuitedb=/home/casp13/MULTICOM_package/casp8/hhsuite3/database/hhsuitedb
 #old database
-hhsuitedb=/home/casp14/MULTICOM_TS/jie_test/multicom/databases/MULTICOM_sort90_hhblists_db/hhblits_db/hhblits_sort90
+hhsuitedb=/home/casp14/MULTICOM_TS/jie_github/multicom/databases/MULTICOM_sort90_hhblists_db/hhblits_db/hhblits_sort90
 #############################################################
 
 #hhsearch pdb dir 
-atom_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/databases/atom/
+atom_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/databases/atom/
 
 #meta dir for hhblits
-meta_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/hhsuite3/
+meta_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/hhsuite3/
 
 #meta common dir
-meta_common_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/
+meta_common_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/
 ###############################################################################
 
 ############################End of Software and Data Settings#################
@@ -159,7 +159,7 @@ cm_evalue_diff=10
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-chain_stx_info=/home/casp14/MULTICOM_TS/jie_test/multicom/databases/cm_lib/chain_stx_info
+chain_stx_info=/home/casp14/MULTICOM_TS/jie_github/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

@@ -4,7 +4,7 @@
 #Inputs: option file, query file(fasta), output dir
 #New version: starte date: 1/10/2009
 #########################################################################
-$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_test/multicom/";
+$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_github/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)

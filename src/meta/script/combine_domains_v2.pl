@@ -151,12 +151,12 @@ foreach $model (@models)
 	}
 	#call Scwrl4 to refine side chain
 	#system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
 	#system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model$jj.txt");
 
 	#$pdb2casp2 = "/home/casp13/MULTICOM_package/casp8/meta/script/pdb2casp.pl";
-	$pdb2casp2 = "/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/script/pdb2casp.pl";
+	$pdb2casp2 = "/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/script/pdb2casp.pl";
 	#convert models to pdb format
 	$qq = $jj + 1; 
 	system("$pdb2casp2 $model_file.scw $qq $target_name $comb_dir/casp1-$model$jj.pdb");	

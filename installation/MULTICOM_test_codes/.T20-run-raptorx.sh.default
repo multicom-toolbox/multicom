@@ -7,7 +7,7 @@ mkdir -p SOFTWARE_PATH/test_out/T0993s2-raptorx-$dtime/
 cd SOFTWARE_PATH/test_out/T0993s2-raptorx-$dtime/
 
 mkdir raptorx
-perl SOFTWARE_PATH/src/meta/raptorx/script/tm_raptorx_main.pl SOFTWARE_PATH/src/meta/raptorx/raptorx_option_version3 SOFTWARE_PATH/examples/T0993s2.fasta hhsearch15  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2-raptorx-$dtime.log
+perl SOFTWARE_PATH/src/meta/raptorx/script/tm_raptorx_main.pl SOFTWARE_PATH/src/meta/raptorx/raptorx_option_version3 SOFTWARE_PATH/examples/T0993s2.fasta raptorx  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2-raptorx-$dtime.log
 
 
 printf "\nFinished.."

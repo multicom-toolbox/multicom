@@ -6,63 +6,63 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
-prosys_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/src/prosys/
+prosys_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/src/prosys/
 
 #blast tool dir
 #blast_dir = /home/jianlinc/pspro/blast2.2.8/
 #blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
-blast_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/tools/blast-2.2.17/bin
+blast_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
 #modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
-modeller_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/tools/modeller-9.16/
+modeller_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
 #pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
 #pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
-pdb_db_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/databases/cm_lib/
+pdb_db_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/databases/cm_lib/
 
 #use non-redundant db dir (should always use non-redundant database)
 #nr_dir = /home/jianlinc/pspro/data/nr/
 #nr_dir = /var/preserve/nr/
 #nr_dir = /home/casp13/MULTICOM_package/casp8/hhpred/
-nr_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/databases/hhpred_dbs/
+nr_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/databases/hhpred_dbs/
 #not use nr (should never choose this option. its performance is worse)
 #nr_dir = none
 
 #atom files dir
 #atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
-atom_dir = /home/casp14/MULTICOM_TS/jie_test/multicom/databases/atom/
+atom_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/databases/atom/
 
 #muster dir
 #muster_dir=/home/casp13/MULTICOM_package/casp8/muster/
-muster_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/muster/
+muster_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/muster/
 
 #psipred dir
 #psipred_dir=/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/
-psipred_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/psipred-2.61/
+psipred_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/psipred-2.61/
 
 #i-tasser dir
 #itasser_dir=/home/tools/itasser3.0/
 #itasser_dir=/home/tools/I-TASSER4.4/
 #itasser_dir=/home/casp13/tools/I-TASSER5.1/
-itasser_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/I-TASSER5.1/
+itasser_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/I-TASSER5.1/
 
 #pulchra program
 #pulchra=/home/casp13/MULTICOM_package/software/pulchra304/pulchra
-pulchra=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/pulchra304/pulchra
+pulchra=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/pulchra304/pulchra
 
 
 #meta dir
 #meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
 #meta_dir=/home/casp13/MULTICOM_package/casp8/muster/
-meta_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/muster/
+meta_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/muster/
 
 #meta common dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
-meta_common_dir=/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/
+meta_common_dir=/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/
 
 ###############################################################################
 
@@ -177,7 +177,7 @@ cm_evalue_diff=10
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
 #chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
-chain_stx_info=/home/casp14/MULTICOM_TS/jie_test/multicom/databases/cm_lib/chain_stx_info
+chain_stx_info=/home/casp14/MULTICOM_TS/jie_github/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

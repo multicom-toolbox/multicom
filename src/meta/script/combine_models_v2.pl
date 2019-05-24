@@ -215,7 +215,7 @@ close OUT;
 #convert top models to casp format
 chdir $output_dir;
 #$pdb2casp1 = "/home/casp13/MULTICOM_package/software/prosys/script/pdb2casp.pl";
-$pdb2casp1 = "/home/casp14/MULTICOM_TS/jie_test/multicom/src/prosys/script/pdb2casp.pl";
+$pdb2casp1 = "/home/casp14/MULTICOM_TS/jie_github/multicom/src/prosys/script/pdb2casp.pl";
 
 for ($i = 0; $i < @new_rank && $i < 5; $i++)
 {
@@ -231,9 +231,9 @@ for ($i = 0; $i < @new_rank && $i < 5; $i++)
 
 		print "Covert $model_name into casp format...\n"; 
 		#system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_name.scw >/dev/null");
-		system("/home/casp14/MULTICOM_TS/jie_test/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_name.scw >/dev/null");
+		system("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_name.scw >/dev/null");
 	    #system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_name.scw > con_clash$i.txt");
-	    system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_name.scw > con_clash$i.txt");
+	    system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_name.scw > con_clash$i.txt");
        		#system("$pdb2casp1 $model_name.scw $pir_file $i+1 con_casp$i.pdb");
 		$count = $i + 1; 
        		system("$pdb2casp1 $model_name.scw $pir_file $count con_casp$i.pdb");

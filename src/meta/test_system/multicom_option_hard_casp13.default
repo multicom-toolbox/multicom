@@ -192,16 +192,16 @@ unicon3d_option = SOFTWARE_PATH/src/meta/unicon3d/Unicon3D_option
 
 
 #deepsf_dir 
-#deepsf_dir = /home/casp13/MULTICOM_package/casp8/deepsf
-#deepsf_option = /home/casp13/MULTICOM_package/casp8/deepsf/deepsf_option
+deepsf_dir = SOFTWARE_PATH/src/meta/deepsf
+deepsf_option = SOFTWARE_PATH/src/meta/deepsf/deepsf_option
 
 #novel_dir
-#novel_dir = /home/casp13/MULTICOM_package/casp8/novel
-#novel_option = /home/casp13/MULTICOM_package/casp8/novel/novel_option
+novel_dir = SOFTWARE_PATH/src/meta/novel
+novel_option = SOFTWARE_PATH/src/meta/novel/novel_option
 
 #confoldtemp_dir
-#confoldtemp_dir = /home/casp13/MULTICOM_package/casp8/confoldtemp
-#confoldtemp_option = /home/casp13/MULTICOM_package/casp8/confoldtemp/confoldtemp_option
+confoldtemp_dir = SOFTWARE_PATH/src/meta/confoldtemp
+confoldtemp_option = SOFTWARE_PATH/src/meta/confoldtemp/confoldtemp_option
 
 #scwrl_dir
 #scwrl_dir = /home/casp13/MULTICOM_package/software/scwrl4

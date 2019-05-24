@@ -123,7 +123,7 @@ while ($count <= 5)
 
 	#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/stx_model_comb_global.pl /home/casp13/MULTICOM_package//software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3.5 0.8 0.5");
 	#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/stx_model_comb_global.pl /home/casp13/MULTICOM_package//software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/stx_model_comb_global.pl /home/casp14/MULTICOM_TS/jie_test/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/stx_model_comb_global.pl /home/casp14/MULTICOM_TS/jie_github/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
 
 	open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 	@pir = <PIR>;
@@ -136,7 +136,7 @@ while ($count <= 5)
 		print "Less than two templates, do local model combination...\n";
 		#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/stx_model_comb.pl /home/casp13/MULTICOM_package//software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 2.5 $length $gdt");
 		#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/stx_model_comb.pl /home/casp13/MULTICOM_package//software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
-		system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/stx_model_comb.pl /home/casp14/MULTICOM_TS/jie_test/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
+		system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/stx_model_comb.pl /home/casp14/MULTICOM_TS/jie_github/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
 
 		open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 		@pir = <PIR>;
@@ -153,7 +153,7 @@ while ($count <= 5)
 
 	print "generate model...\n";
 	#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/pir2ts_energy.pl /home/casp13/MULTICOM_package//software/prosys/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 9");
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/pir2ts_energy.pl /home/casp14/MULTICOM_TS/jie_test/multicom/tools/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 9");
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/pir2ts_energy.pl /home/casp14/MULTICOM_TS/jie_github/multicom/tools/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 9");
 
 		
 
@@ -164,8 +164,8 @@ while ($count <= 5)
 	#system("/home/casp13/MULTICOM_package//software/scwrl/scwrl3 -i $output_dir/$name-$count.pdb -o $output_dir/$name-$count-s.pdb >/dev/null");
 
 	#clash check
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $output_dir/$name-$count.pdb > $output_dir/clash$count.txt"); 
-	system("/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/model_cluster/script/pdb2casp.pl $output_dir/$name-$count.pdb $count $name $output_dir/casp$count.pdb");
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $output_dir/$name-$count.pdb > $output_dir/clash$count.txt"); 
+	system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/pdb2casp.pl $output_dir/$name-$count.pdb $count $name $output_dir/casp$count.pdb");
 
 	$count++;
 

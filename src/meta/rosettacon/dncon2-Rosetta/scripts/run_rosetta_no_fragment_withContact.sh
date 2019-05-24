@@ -12,9 +12,9 @@
 # Revision: Jie Hou, 03/21/2018
 ###############################################################################
 
-export LD_LIBRARY_PATH=/home/casp14/MULTICOM_TS/jie_test/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/static/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/casp14/MULTICOM_TS/jie_github/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/static/:$LD_LIBRARY_PATH
 
-ROSETTA_PATH='/home/casp14/MULTICOM_TS/jie_test/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle'
+ROSETTA_PATH='/home/casp14/MULTICOM_TS/jie_github/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle'
 NNMAKE_PATH=$ROSETTA_PATH/rosetta_fragments/nnmake
 #OUTPUT_DIR='/data/rosetta3.1'
 

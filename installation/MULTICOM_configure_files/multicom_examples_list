@@ -87,3 +87,12 @@ installation/MULTICOM_test_codes/T29-run-rosetta.sh
 
 # rosettacon
 installation/MULTICOM_test_codes/T30-run-rosettacon.sh
+
+# deepsf
+installation/MULTICOM_test_codes/T31-run-deepsf.sh
+
+# novel
+installation/MULTICOM_test_codes/T32-run-novel.sh
+
+# hhsuite3
+installation/MULTICOM_test_codes/T33-run-hhsuite3.sh
