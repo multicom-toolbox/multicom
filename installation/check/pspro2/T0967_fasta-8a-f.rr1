@@ -1,9 +1,0 @@
-PFRMAT RR
-TARGET T0967
-AUTHOR baldi-group-server
-REMARK This model only includes the pairs predicted to be in contact.
-METHOD cmappro: 2D recurrent neural network, optimized for far cont
-METHOD acts
-MODEL 1
-
-END

@@ -136,7 +136,7 @@ foreach my $file (@updatelist) {
 
 print "#########  (1) Configuring option files\n";
 
-$option_list = "$install_dir/installation/multicom_option_list";
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_option_list";
 
 if (! -f $option_list)
 {
@@ -149,7 +149,7 @@ print "#########  Configuring option files, done\n\n\n";
 
 print "#########  (2) Configuring tools\n";
 
-$option_list = "$install_dir/installation/multicom_tools_list";
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_tools_list";
 
 if (! -f $option_list)
 {
@@ -160,7 +160,7 @@ print "#########  Configuring tools, done\n\n\n";
 
 print "#########  (3) Configuring scripts\n";
 
-$option_list = "$install_dir/installation/multicom_scripts_list";
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_scripts_list";
 
 if (! -f $option_list)
 {
@@ -168,6 +168,19 @@ if (! -f $option_list)
 }
 configure_file($option_list,'src');
 print "#########  Configuring scripts, done\n\n\n";
+
+
+
+print "#########  (4) Configuring examples\n";
+
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_examples_list";
+
+if (! -f $option_list)
+{
+        die "\nOption file $option_list not exists.\n";
+}
+configure_file2($option_list,'installation');
+print "#########  Configuring examples, done\n\n\n";
 
 
 
@@ -184,7 +197,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "#########  Setting up nncon1.0\n";
@@ -198,7 +211,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for nncon1.0 doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
@@ -213,7 +226,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up betacon\n";
@@ -227,7 +240,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up betapro-1.0\n";
@@ -241,7 +254,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
@@ -257,7 +270,7 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 }else{
-	die "The configure.pl file for disorder doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
@@ -274,7 +287,7 @@ if(-f 'setup.pl')
 		exit(-1);
 	}
 }else{
-	die "The setup.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The setup.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n#########  Setting up SCRATCH \n";
@@ -391,7 +404,7 @@ close PRCLIB;
 ####### tools compilation 
 
 ### install boost-1.55 
-open(OUT,">$install_dir/installation/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/P1_install_boost.sh\n";
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile boost (will take ~20 min)\n\"\n\n";
 print OUT "cd $install_dir/tools\n\n";
@@ -402,7 +415,7 @@ print OUT "./b2 install\n\n";
 close OUT;
 
 #### install OpenBlas
-open(OUT,">$install_dir/installation/P2_install_OpenBlas.sh") || die "Failed to open file $install_dir/installation/P2_install_OpenBlas.sh\n";
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P2_install_OpenBlas.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P2_install_OpenBlas.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile OpenBlas (will take ~5 min)\n\"\n\n";
 print OUT "cd $install_dir/tools\n\n";
@@ -415,7 +428,7 @@ close OUT;
 
 #### install freecontact
 
-open(OUT,">$install_dir/installation/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/P3_install_freecontact.sh\n";
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
 print OUT "cd $install_dir/tools/DNCON2\n\n";
@@ -429,7 +442,7 @@ close OUT;
 
 #### install scwrl4
 
-open(OUT,">$install_dir/installation/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/P4_install_scwrl4.sh\n";
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
 print OUT "echo \" Setting installation path to <${install_dir}tools/scwrl4>\"\n\n";
@@ -439,7 +452,24 @@ print OUT "./install_Scwrl4_Linux\n\n";
 close OUT;
 
 
+#### create python virtual environment
 
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start install python virtual environment (will take ~1 min)\n\"\n\n";
+print OUT "cd $install_dir/tools\n\n";
+print OUT "virtualenv python_virtualenv\n\n";
+print OUT "source $install_dir/tools/python_virtualenv/bin/activate\n\n";
+print OUT "pip install --upgrade pip\n\n";
+print OUT "pip install --upgrade numpy==1.12.1\n\n";
+print OUT "pip install --upgrade keras==1.2.2\n\n";
+print OUT "pip install --upgrade theano==0.9.0\n\n";
+print OUT "pip install --upgrade h5py\n\n";
+print OUT "pip install --upgrade matplotlib\n\n";
+print OUT "NOW=\$(date +\"%m-%d-%Y\")\n\n";
+print OUT "cp ~/.keras/keras.json ~/.keras/keras.json.\$NOW.\$RANDOM\n\n";
+print OUT "cp $install_dir/installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json\n\n";
+close OUT;
 
 
 
@@ -470,6 +500,54 @@ sub configure_file{
 		if ($file =~ /^$prefix/)
 		{
 			$option_default = $install_dir.$file.'.default';
+			$option_new = $install_dir.$file;
+			$file_indx++;
+			print "$file_indx: Configuring $option_new\n";
+			if (! -f $option_default)
+			{
+					die "\nOption file $option_default not exists.\n";
+			}	
+			
+			open(IN1,$option_default) || die "Failed to open file $option_default\n";
+			open(OUT1,">$option_new") || die "Failed to open file $option_new\n";
+			while(<IN1>)
+			{
+				$line = $_;
+				chomp $line;
+
+				if(index($line,'SOFTWARE_PATH')>=0)
+				{
+					$line =~ s/SOFTWARE_PATH/$install_dir/g;
+					$line =~ s/\/\//\//g;
+					print OUT1 $line."\n";
+				}else{
+					print OUT1 $line."\n";
+				}
+			}
+			close IN1;
+			close OUT1;
+		}
+	}
+	close IN;
+}
+
+
+
+sub configure_file2{
+	my ($option_list,$prefix) = @_;
+	open(IN,$option_list) || die "Failed to open file $option_list\n";
+	$file_indx=0;
+	while(<IN>)
+	{
+		$file = $_;
+		chomp $file;
+		if ($file =~ /^$prefix/)
+		{
+			@tmparr = split('/',$file);
+			$filename = pop @tmparr;
+			chomp $filename;
+			$filepath = join('/',@tmparr);
+			$option_default = $install_dir.$filepath.'/.'.$filename.'.default';
 			$option_new = $install_dir.$file;
 			$file_indx++;
 			print "$file_indx: Configuring $option_new\n";

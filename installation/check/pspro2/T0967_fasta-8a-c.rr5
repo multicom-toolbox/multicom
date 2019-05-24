@@ -1,9 +1,0 @@
-PFRMAT RR
-TARGET T0967
-AUTHOR 3655-7312-2721
-REMARK This model only includes the pairs predicted to be in contact.
-METHOD cmappro_con: a consensus approach from band and full map pre
-METHOD diction
-MODEL 5
-
-END
