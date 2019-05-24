@@ -73,7 +73,6 @@ sh T20-run-raptorx.sh
 
 ```
 
-
 **(6) Run MULTICOM for structure predicton**
 
 ```
@@ -84,13 +83,3 @@ sh T20-run-raptorx.sh
    $ sh bin/run_multicom.sh examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
-(2) Predicting multiple proteins:
-
-```
-   Usage:
-   $ perl run_DNSS2.pl -indir <input directory> -out <output directory>
-
-   Example:
-   $ source ~/python_virtualenv_DNSS2/bin/activate
-   $ perl run_DNSS2.pl -indir ./test/ -out ./output/
-```
