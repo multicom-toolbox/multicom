@@ -5,26 +5,40 @@
 
 ######################## !!! customize settings here !!! ############################
 #																					#
-# Set installation directory of multicom to your unzipped multicom directory            #
-     
-$install_dir = "/your_path/multicom";
+# Set directory of multicom databases and tools								        #
+
+$multicom_db_tools_dir = "/home/casp14/MULTICOM_db_tools/";							        
+
 ######################## !!! End of customize settings !!! ##########################
 
-if($install_dir eq "/your_path/multicom")
-{# user forgets to set the default path of multicom, try to solve this problem
-    $install_dir = getcwd;
-    $install_dir=abs_path($install_dir);
-}
+######################## !!! Don't Change the code below##############
+
+
+$install_dir = getcwd;
+$install_dir=abs_path($install_dir);
 
 
 if(!-s $install_dir)
 {
 	die "The multicom directory ($install_dir) is not existing, please revise the customize settings part inside the configure.pl, set the path as  your unzipped multicom directory\n";
 }
+
+if(!-d $multicom_db_tools_dir)
+{
+	die "The multicom databases/tools folder ($multicom_db_tools_dir) is not existing\n";
+}
+
 if ( substr($install_dir, length($install_dir) - 1, 1) ne "/" )
 {
         $install_dir .= "/";
 }
+
+if ( substr($multicom_db_tools_dir, length($multicom_db_tools_dir) - 1, 1) ne "/" )
+{
+        $multicom_db_tools_dir .= "/";
+}
+
+
 
 print "checking whether the configuration file run in the installation folder ...";
 $cur_dir = `pwd`;
@@ -32,12 +46,11 @@ chomp $cur_dir;
 $configure_file = "$cur_dir/configure.pl";
 if (! -f $configure_file || $install_dir ne "$cur_dir/")
 {
-        die "\nPlease check the installation directory setting and run the configure program in the installation directory of multicom.\n";
+        die "\nPlease check the installation directory setting and run the configure program under the main directory of multicom.\n";
 }
 print " OK!\n";
 
 
-################Don't Change the code below##############
 
 if (! -d $install_dir)
 {
@@ -49,89 +62,35 @@ if ( substr($install_dir, length($install_dir) - 1, 1) ne "/" )
 }
 
 
+######### check the multicom database and tools
+
+$database_dir = "$multicom_db_tools_dir/databases";
+$tools_dir = "$multicom_db_tools_dir/tools";
+
+if(!(-d $database_dir) or !(-d $tools_dir))
+{
+	die "Failed to find databases and tools under $multicom_db_tools_dir/\n";
+}
+
+if($multicom_db_tools_dir eq "$cur_dir/")
+{
+	die "Same directory as MULTICOM main folder. Differnt path for original databases/tools folder $multicom_db_tools_dir is recommended.\n";
+}
+#create link for databases and tools
+`rm ${install_dir}databases`; 
+`rm ${install_dir}tools`; 
+`ln -s $database_dir ${install_dir}databases`;
+`ln -s $database_dir ${install_dir}tools`;
+
+
+
+
 if (prompt_yn("multicom will be installed into <$install_dir> ")){
 
 }else{
 	die "The installation is cancelled!\n";
 }
 print "Start install multicom into <$install_dir>\n"; 
-
-=pod
-#$files		="lib/library.py,scripts/P2_alignment_generation/gen_query_temp_align_proc.pl,software/pspro2/configure.pl,scripts/P1_run_fold_recognition/Analyze_top5_folds.py,scripts/P1_run_fold_recognition/run_multicom_fr.pl,training/P1_evaluate.sh,training/P1_train.sh,training/predict_single.py,training/predict_main.py,training/training_main.py";
-$files='src/multicom_ve.pl;src/meta/script/multicom_server_ve.pl;src/meta/script/multicom_server_hard_ve.pl';
-
-@updatelist		=split(/,/,$files);
-
-foreach my $file (@updatelist) {
-	$file2update=$install_dir.$file;
-	
-	$check_log ='GLOBAL_PATH=';
-	open(IN,$file2update) || die "Failed to open file $file2update\n";
-	open(OUT,">$file2update.tmp") || die "Failed to open file $file2update.tmp\n";
-	while(<IN>)
-	{
-		$line = $_;
-		chomp $line;
-
-		if(index($line,$check_log)>=0)
-		{
-			print $file2update."\n";
-			print "Current ".$line."\n";
-			print "Change to ".substr($line,0,index($line, '=')+1)." \'".$install_dir."\';\n\n\n";
-			print OUT substr($line,0,index($line, '=')+1)."\'".$install_dir."\';\n";
-		}else{
-			print OUT $line."\n";
-		}
-	}
-	close IN;
-	close OUT;
-	system("mv $file2update.tmp $file2update");
-	system("chmod 755  $file2update");
-
-
-}
-
-
-$files		="software/spem-release/spem/bin/scan_spem_alone.job,software/psipred/runpsipred_new";
-
-
-# psipred
-/data/jh7x3/multicom_github/multicom/tools/psipred/runpsipred.default
-
-
-
-@updatelist		=split(/,/,$files);
-
-foreach my $file (@updatelist) {
-	$file2update=$install_dir.$file;
-	
-	$check_log ='GLOBAL_PATH=';
-	open(IN,$file2update) || die "Failed to open file $file2update\n";
-	open(OUT,">$file2update.tmp") || die "Failed to open file $file2update.tmp\n";
-	while(<IN>)
-	{
-		$line = $_;
-		chomp $line;
-
-		if(index($line,$check_log)>=0)
-		{
-			print $file2update."\n";
-			print "Current ".$line."\n";
-			print "Change to ".substr($line,0,index($line, '=')+1).$install_dir."\n\n\n";
-			print OUT substr($line,0,index($line, '=')+1).$install_dir."\n";
-		}else{
-			print OUT $line."\n";
-		}
-	}
-	close IN;
-	close OUT;
-	system("mv $file2update.tmp $file2update");
-	system("chmod 755  $file2update");
-
-
-}
-=cut
-
 
 
 print "#########  (1) Configuring option files\n";
@@ -155,7 +114,7 @@ if (! -f $option_list)
 {
         die "\nOption file $option_list not exists.\n";
 }
-configure_file($option_list,'tools');
+configure_tools($option_list,'tools',$multicom_db_tools_dir);
 print "#########  Configuring tools, done\n\n\n";
 
 print "#########  (3) Configuring scripts\n";
@@ -192,7 +151,7 @@ system("chmod +x $install_dir/bin/run_multicom.sh");
 
 
 print "#########  Setting up pspro2\n";
-$ssprodir = $install_dir.'/tools/pspro2/';
+$ssprodir = $multicom_db_tools_dir.'/tools/pspro2/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -206,7 +165,7 @@ if(-f 'configure.pl')
 }
 
 print "#########  Setting up nncon1.0\n";
-$ssprodir = $install_dir.'/tools/nncon1.0/';
+$ssprodir = $multicom_db_tools_dir.'/tools/nncon1.0/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -221,7 +180,7 @@ if(-f 'configure.pl')
 
 
 print "\n\n#########  Setting up modeleva\n";
-$ssprodir = $install_dir.'/tools/model_eva1.0/';
+$ssprodir = $multicom_db_tools_dir.'/tools/model_eva1.0/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -235,7 +194,7 @@ if(-f 'configure.pl')
 }
 
 print "\n\n#########  Setting up betacon\n";
-$ssprodir = $install_dir.'/tools/betacon/';
+$ssprodir = $multicom_db_tools_dir.'/tools/betacon/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -249,7 +208,7 @@ if(-f 'configure.pl')
 }
 
 print "\n\n#########  Setting up betapro-1.0\n";
-$ssprodir = $install_dir.'/tools/betapro-1.0/';
+$ssprodir = $multicom_db_tools_dir.'/tools/betapro-1.0/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -265,7 +224,7 @@ if(-f 'configure.pl')
 
 ######
 print "\n\n#########  Setting up disorder\n"; 
-$ssprodir = $install_dir.'/tools/disorder_new/';
+$ssprodir = $multicom_db_tools_dir.'/tools/disorder_new/';
 chdir $ssprodir;
 if(-f 'configure.pl')
 {
@@ -282,7 +241,7 @@ if(-f 'configure.pl')
 
 
 print "\n\n#########  Setting up raptorx\n";
-$ssprodir = $install_dir.'/tools/RaptorX4/CNFsearch1.66/';
+$ssprodir = $multicom_db_tools_dir.'/tools/RaptorX4/CNFsearch1.66/';
 chdir $ssprodir;
 if(-f 'setup.pl')
 {
@@ -296,7 +255,7 @@ if(-f 'setup.pl')
 }
 
 print "\n#########  Setting up SCRATCH \n";
-$ssprodir = $install_dir.'/tools/SCRATCH-1D_1.1/';
+$ssprodir = $multicom_db_tools_dir.'/tools/SCRATCH-1D_1.1/';
 chdir $ssprodir;
 if(-f 'install.pl')
 {
@@ -311,12 +270,12 @@ if(-f 'install.pl')
 
 
 print "\n#########  Setting up MODELLER 9v7 \n";
-my($addr_mod9v7) = $install_dir."/tools/modeller9v7/bin/mod9v7";
+my($addr_mod9v7) = $multicom_db_tools_dir."/tools/modeller9v7/bin/mod9v7";
 if (!-s $addr_mod9v7) {
 	die "Please check $addr_mod9v7, you can download the modeller and install it by yourself if the current one in the tool folder is not working well, the key is MODELIRANJE.  please install it to the folder tools/modeller9v7, with the file mod9v7 in the bin directory\n";
 }
 
-my($deep_mod9v7) = $install_dir."/tools/modeller9v7/bin/modeller9v7local";
+my($deep_mod9v7) = $multicom_db_tools_dir."/tools/modeller9v7/bin/modeller9v7local";
 $OUT = new FileHandle ">$deep_mod9v7";
 $IN=new FileHandle "$addr_mod9v7";
 while(defined($line=<$IN>))
@@ -326,7 +285,7 @@ while(defined($line=<$IN>))
 
         if(@ttt>1 && $ttt[0] eq "MODINSTALL9v7")
         {
-                print $OUT "MODINSTALL9v7=\"$install_dir/tools/modeller9v7\"\n";
+                print $OUT "MODINSTALL9v7=\"$multicom_db_tools_dir/tools/modeller9v7\"\n";
         }
         else
         {
@@ -336,9 +295,9 @@ while(defined($line=<$IN>))
 $IN->close();
 $OUT->close();
 system("chmod 755 $deep_mod9v7");
-my($modeller_conf) = $install_dir."/tools/modeller9v7/modlib/modeller/config.py";
+$modeller_conf = $multicom_db_tools_dir."/tools/modeller9v7/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
-print $OUT "install_dir = r\'$install_dir/tools/modeller9v7/\'\n";
+print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller9v7/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
 system("chmod 755 $modeller_conf");
@@ -347,12 +306,12 @@ print "Done\n";
 
 
 print "\n#########  Setting up MODELLER 9v16 \n";
-my($addr_mod9v16) = $install_dir."/tools/modeller-9.16/bin/mod9.16";
+my($addr_mod9v16) = $multicom_db_tools_dir."/tools/modeller-9.16/bin/mod9.16";
 if (!-s $addr_mod9v16) {
 	die "Please check $addr_mod9v16, you can download the modeller and install it by yourself if the current one in the tool folder is not working well, the key is MODELIRANJE.  please install it to the folder tools/modeller-9.16, with the file mod9v7 in the bin directory\n";
 }
 
-my($deep_mod9v16) = $install_dir."/tools/modeller-9.16/bin/modeller9v16local";
+my($deep_mod9v16) = $multicom_db_tools_dir."/tools/modeller-9.16/bin/modeller9v16local";
 $OUT = new FileHandle ">$deep_mod9v16";
 $IN=new FileHandle "$addr_mod9v16";
 while(defined($line=<$IN>))
@@ -362,7 +321,7 @@ while(defined($line=<$IN>))
 
         if(@ttt>1 && $ttt[0] eq "MODINSTALL9v16")
         {
-                print $OUT "MODINSTALL9v16=\"$install_dir/tools/modeller-9.16\"\n";
+                print $OUT "MODINSTALL9v16=\"$multicom_db_tools_dir/tools/modeller-9.16\"\n";
         }
         else
         {
@@ -372,9 +331,9 @@ while(defined($line=<$IN>))
 $IN->close();
 $OUT->close();
 system("chmod 755 $deep_mod9v16");
-my($modeller_conf) = $install_dir."/tools/modeller-9.16/modlib/modeller/config.py";
+$modeller_conf = $multicom_db_tools_dir."/tools/modeller-9.16/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
-print $OUT "install_dir = r\'$install_dir/tools/modeller-9.16/\'\n";
+print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller-9.16/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
 system("chmod 755 $modeller_conf");
@@ -383,7 +342,7 @@ print "Done\n";
 
 
 ####### update prc database 
-$prc_db = "$install_dir/databases/prc_db/";
+$prc_db = "$multicom_db_tools_dir/databases/prc_db/";
 if(!(-d $prc_db))
 {
 	die "PRC database $prc_db is not found\n";
@@ -412,9 +371,9 @@ close PRCLIB;
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile boost (will take ~20 min)\n\"\n\n";
-print OUT "cd $install_dir/tools\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd boost_1_55_0\n\n";
-print OUT "./bootstrap.sh  --prefix=$install_dir/tools/boost_1_55_0\n\n";
+print OUT "./bootstrap.sh  --prefix=$multicom_db_tools_dir/tools/boost_1_55_0\n\n";
 print OUT "./b2\n\n";
 print OUT "./b2 install\n\n";
 close OUT;
@@ -423,11 +382,11 @@ close OUT;
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P2_install_OpenBlas.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P2_install_OpenBlas.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile OpenBlas (will take ~5 min)\n\"\n\n";
-print OUT "cd $install_dir/tools\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd OpenBLAS\n\n";
 print OUT "make clean\n\n";
 print OUT "make\n\n";
-print OUT "make PREFIX=$install_dir/tools/OpenBLAS install\n\n";
+print OUT "make PREFIX=$multicom_db_tools_dir/tools/OpenBLAS install\n\n";
 close OUT;
 
 
@@ -436,11 +395,11 @@ close OUT;
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
-print OUT "cd $install_dir/tools/DNCON2\n\n";
+print OUT "cd $multicom_db_tools_dir/tools/DNCON2\n\n";
 print OUT "cd freecontact-1.0.21\n\n";
 print OUT "autoreconf -f -i\n\n";
 print OUT "make clean\n\n";
-print OUT "./configure --prefix=$install_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$install_dir/tools/OpenBLAS/lib -L$install_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$install_dir/tools/OpenBLAS/include -I$install_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$install_dir/tools/OpenBLAS/include -I$install_dir/tools/boost_1_55_0/include\" --with-boost=$install_dir/tools/boost_1_55_0/\n\n";
+print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\" --with-boost=$multicom_db_tools_dir/tools/boost_1_55_0/\n\n";
 print OUT "make\n\n";
 print OUT "make install\n\n";
 close OUT;
@@ -450,8 +409,8 @@ close OUT;
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
-print OUT "echo \" Setting installation path to <${install_dir}tools/scwrl4>\"\n\n";
-print OUT "cd $install_dir/tools\n\n";
+print OUT "echo \" Setting installation path to <${multicom_db_tools_dir}tools/scwrl4>\"\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd scwrl4\n\n";
 print OUT "./install_Scwrl4_Linux\n\n";
 close OUT;
@@ -462,9 +421,9 @@ close OUT;
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start install python virtual environment (will take ~1 min)\n\"\n\n";
-print OUT "cd $install_dir/tools\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "virtualenv python_virtualenv\n\n";
-print OUT "source $install_dir/tools/python_virtualenv/bin/activate\n\n";
+print OUT "source $multicom_db_tools_dir/tools/python_virtualenv/bin/activate\n\n";
 print OUT "pip install --upgrade pip\n\n";
 print OUT "pip install --upgrade numpy==1.12.1\n\n";
 print OUT "pip install --upgrade keras==1.2.2\n\n";
@@ -523,6 +482,49 @@ sub configure_file{
 				if(index($line,'SOFTWARE_PATH')>=0)
 				{
 					$line =~ s/SOFTWARE_PATH/$install_dir/g;
+					$line =~ s/\/\//\//g;
+					print OUT1 $line."\n";
+				}else{
+					print OUT1 $line."\n";
+				}
+			}
+			close IN1;
+			close OUT1;
+		}
+	}
+	close IN;
+}
+
+
+sub configure_tools{
+	my ($option_list,$prefix,$DBtool_path) = @_;
+	open(IN,$option_list) || die "Failed to open file $option_list\n";
+	$file_indx=0;
+	while(<IN>)
+	{
+		$file = $_;
+		chomp $file;
+		if ($file =~ /^$prefix/)
+		{
+			$option_default = $DBtool_path.$file.'.default';
+			$option_new = $DBtool_path.$file;
+			$file_indx++;
+			print "$file_indx: Configuring $option_new\n";
+			if (! -f $option_default)
+			{
+					die "\nOption file $option_default not exists.\n";
+			}	
+			
+			open(IN1,$option_default) || die "Failed to open file $option_default\n";
+			open(OUT1,">$option_new") || die "Failed to open file $option_new\n";
+			while(<IN1>)
+			{
+				$line = $_;
+				chomp $line;
+
+				if(index($line,'SOFTWARE_PATH')>=0)
+				{
+					$line =~ s/SOFTWARE_PATH/$DBtool_path/g;
 					$line =~ s/\/\//\//g;
 					print OUT1 $line."\n";
 				}else{

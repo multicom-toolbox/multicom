@@ -3,11 +3,11 @@
 echo " Start install python virtual environment (will take ~1 min)
 "
 
-cd /home/casp14/MULTICOM_TS/jie_test/multicom//tools
+cd /home/casp14/MULTICOM_db_tools//tools
 
 virtualenv python_virtualenv
 
-source /home/casp14/MULTICOM_TS/jie_test/multicom//tools/python_virtualenv/bin/activate
+source /home/casp14/MULTICOM_db_tools//tools/python_virtualenv/bin/activate
 
 pip install --upgrade pip
 
