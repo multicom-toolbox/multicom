@@ -45,6 +45,7 @@ $ sh ./P5_python_virtual.sh (take ~1 min)
 
 #### (5) Testing the MULTICOM tools (recommended)
 
+
 ```
 cd installation/MULTICOM_test_codes
 
@@ -54,7 +55,42 @@ sh T1-run-pspro2.sh
 
 sh T2-run-SCRATCH.sh
 
+sh T4-run-dncon2.sh 
+
 sh T5-run-modeller9.16.sh
 
 sh T7-run-hhsearch.sh
+
+sh T11-run-hhsuite.sh
+
+sh T14-run-psiblast.sh
+
+sh T15-run-compass.sh
+
+sh T17-run-prc.sh
+
+sh T20-run-raptorx.sh
+
+```
+
+
+**(6) Run MULTICOM for structure predicton**
+
+```
+   Usage:
+   $ sh bin/run_multicom.sh <file name>.fasta  <output folder>
+
+   Example:
+   $ sh bin/run_multicom.sh examples/T0993s2.fasta test_out/T0993s2_out
+```
+
+(2) Predicting multiple proteins:
+
+```
+   Usage:
+   $ perl run_DNSS2.pl -indir <input directory> -out <output directory>
+
+   Example:
+   $ source ~/python_virtualenv_DNSS2/bin/activate
+   $ perl run_DNSS2.pl -indir ./test/ -out ./output/
 ```
