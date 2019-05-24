@@ -1,0 +1,12 @@
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = SOFTWARE_PATH/src/meta
+
+#novel prediction program
+deepsf_program = SOFTWARE_PATH/tools/deepsf/run_deepsf_3d.sh 
+
+final_model_number = 5
+
+#novel model prefix
+output_prefix_name = deepsf 
+

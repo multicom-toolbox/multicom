@@ -1,12 +1,12 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/confoldtemp/script/
+prosys_dir = /data/jh7x3/multicom_github/jie_test/multicom/src/meta/confoldtemp/script/
 
 #confold2 tool dir
-tool_dir =/home/casp14/MULTICOM_TS/jie_github/multicom/tools/confold2/confold-v2.0
+tool_dir =/data/jh7x3/multicom_github/jie_test/multicom/tools/confold2/confold-v2.0
 
 #metapsicov tool dir
-dncon_program = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/DNCON2/dncon2-v1.0.sh
+dncon_program = /data/jh7x3/multicom_github/jie_test/multicom/tools/DNCON2/dncon2-v1.0.sh
 
 #final_model_number
 final_model_number = 5

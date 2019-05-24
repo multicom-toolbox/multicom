@@ -13,22 +13,22 @@ use lib ".";
 
 ###########################################################################################################
 ####################################The values are hard coded and need to be parameterized later###########
-use lib "/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/hhsearch151/script/";
+use lib "/data/jh7x3/multicom_github/jie_test/multicom/src/meta/hhsearch151/script/";
 use Align;
 # CUSTOMIZE
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhpred/nr_latest/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhsearch_db/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
                                    # It is recommended to use nre = nr + env. 
                                    # 90: filtered with CD-HIT to 90% maximum pairwise sequence identity
-my $dbbase="/home/casp14/MULTICOM_TS/jie_github/multicom/databases/nr70_90/nr";
-my $hh="/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/hhsearch151/script/";
+my $dbbase="/data/jh7x3/multicom_github/jie_test/multicom/databases/nr70_90/nr";
+my $hh="/data/jh7x3/multicom_github/jie_test/multicom/src/meta/hhsearch151/script/";
 my $perl=$hh;
-my $ncbidir="/home/casp14/MULTICOM_TS/jie_github/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
+my $ncbidir="/data/jh7x3/multicom_github/jie_test/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
 my $blastpgp=$ncbidir."/blastpgp -I T -s T"; # blastpgp executable
 #our $blastpgp.=" -I T -s T"; # show gi's in defline; use Smith-Waterman
 
-my $execdir="/home/casp14/MULTICOM_TS/jie_github/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
-my $datadir="/home/casp14/MULTICOM_TS/jie_github/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
+my $execdir="/data/jh7x3/multicom_github/jie_test/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
+my $datadir="/data/jh7x3/multicom_github/jie_test/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
 ###########################################################################################################
 
 

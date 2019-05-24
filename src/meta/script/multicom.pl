@@ -61,8 +61,8 @@ $cm_model_num = 5;
 $prosys_dir = "";
 $modeller_dir = "";
 
-$tm_score = "/home/casp14/MULTICOM_TS/jie_github/multicom/tools/tm_score/TMscore_32";
-$q_score =  "/home/casp14/MULTICOM_TS/jie_github/multicom/tools/pairwiseQA/q_score";
+$tm_score = "/data/jh7x3/multicom_github/jie_test/multicom/tools/tm_score/TMscore_32";
+$q_score =  "/data/jh7x3/multicom_github/jie_test/multicom/tools/pairwiseQA/q_score";
 
 #read option file
 open(OPTION, $system_option) || die "can't read option file.\n";
@@ -860,7 +860,7 @@ if ($query_length > 300)
 	$refine_num = 50; 
 }
 print "Refine tails of top models if necessary...\n";
-system("$multicom_dir/script/refine_model_tails.pl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/run_rosetta_refine.sh $full_length_dir/meta/$model_prefix.pir $full_length_dir/meta/$model_prefix.pdb  $refine_dir $refine_num 2>&1 1>/dev/null");  
+system("$multicom_dir/script/refine_model_tails.pl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/run_rosetta_refine.sh $full_length_dir/meta/$model_prefix.pir $full_length_dir/meta/$model_prefix.pdb  $refine_dir $refine_num 2>&1 1>/dev/null");  
 
 #need to evaluate refined models using pairwise model evaluation 
 $model_list = $refine_dir . "/model.list";

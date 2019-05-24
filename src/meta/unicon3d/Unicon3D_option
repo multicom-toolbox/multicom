@@ -1,18 +1,18 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #prosys_dir = /home/casp13/MULTICOM_package/casp8/
-prosys_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/
+prosys_dir = /data/jh7x3/multicom_github/jie_test/multicom/src/meta/
 
 #Unicon3D tool dir
 #tool_dir = /home/casp13/Confold2-Unicon3D/UniCon3D/
-tool_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/UniCon3D/
+tool_dir = /data/jh7x3/multicom_github/jie_test/multicom/tools/UniCon3D/
 
 #metapsicov tool dir
 #metapsicov_dir = /home/casp13/tools/metapsicov-pipeline-2.0/
-metapsicov_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/metapsicov-pipeline-2.0/
+metapsicov_dir = /data/jh7x3/multicom_github/jie_test/multicom/tools/metapsicov-pipeline-2.0/
 
 #SCRATCH tool dir
-SCRATCH_dir = /home/casp14/MULTICOM_TS/jie_github/multicom/tools/SCRATCH-1D_1.1/
+SCRATCH_dir = /data/jh7x3/multicom_github/jie_test/multicom/tools/SCRATCH-1D_1.1/
 
 #decoy_model_number
 decoy_model_number = 30

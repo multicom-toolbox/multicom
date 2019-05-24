@@ -1,0 +1,12 @@
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = /home/casp13/MULTICOM_package/casp8/
+
+#novel prediction program
+deepsf_program = /home/casp13/deepsf_3d/run_deepsf_3d.sh 
+
+final_model_number = 5
+
+#novel model prefix
+output_prefix_name = deepsf 
+

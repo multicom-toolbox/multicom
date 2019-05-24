@@ -1,0 +1,3 @@
+Name "main::seqfile" used only once: possible typo at /home/casp13/deepsf_3d//scripts/formatCAMEOmodel.pl line 11.
+can't read pdb file.
+Failed to run /home/casp13/deepsf_3d//scripts//pdb2cameo.pl on pdb <casp1.pdb>

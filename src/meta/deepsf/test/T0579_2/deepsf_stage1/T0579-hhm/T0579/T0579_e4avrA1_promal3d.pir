@@ -1,0 +1,9 @@
+C;template; converted from global alignment
+>P1;e4avrA1
+structureX:e4avrA1: 1: : 94: : : : : 
+----------------------------MDTGEASYYGSRHAGLRTASGERYNP----------------------NAMTAAHRTLPFGARVRVTNLDNRRSVVVRINDRGPFRRGRIIDVSRKAAEGLGMIRSGVAPVRIESL-------*
+
+C;query; converted from global alignment
+>P1;T0579
+ : : : : : : : : : 
+MKVGSQVIINTSHMKGMKGAEATVTGAYDTTAYVVSYTP------TNGGQRVDHHKWVIQEEIKDAGDKTLQPGDQVILEASHMKGMKGATAEIDSAEKTTVYMVDYTST---TSGE------------------KVKNHKWVTEDELSAK*

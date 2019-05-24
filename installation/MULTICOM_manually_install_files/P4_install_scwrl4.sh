@@ -6,11 +6,11 @@ echo " "
 
 echo " "
 
-echo " !!!!!!!! Please copy and set the installation path of scwrl to </home/casp14/MULTICOM_db_tools/tools/scwrl4> !!!!!!!! "
+echo " !!!!!!!! Please copy and set the installation path of scwrl to </data/commons/MULTICOM_db_tools/tools/scwrl4> !!!!!!!! "
 
 echo " "
 
-cd /home/casp14/MULTICOM_db_tools//tools
+cd /data/commons/MULTICOM_db_tools//tools
 
 cd scwrl4
 

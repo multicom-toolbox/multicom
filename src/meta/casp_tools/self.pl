@@ -13,7 +13,7 @@ $in_pdb = shift @ARGV;
 $name = shift @ARGV;
 -f $in_pdb || die "can't find $in_pdb\n";
 
-$seq = `/home/casp14/MULTICOM_TS/jie_github/multicom/tools/model_eva1.0/script/pdb2seq.pl $in_pdb`;
+$seq = `/data/jh7x3/multicom_github/jie_test/multicom/tools/model_eva1.0/script/pdb2seq.pl $in_pdb`;
 
 chomp $seq;
 
@@ -45,7 +45,7 @@ $cur_dir = `pwd`;
 chomp $cur_dir;
 
 #do modeling
-system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/prosys/script/pir2ts_energy.pl /home/casp14/MULTICOM_TS/jie_github/multicom/tools/modeller9v7 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 5");
+system("/data/jh7x3/multicom_github/jie_test/multicom/src/prosys/script/pir2ts_energy.pl /data/jh7x3/multicom_github/jie_test/multicom/tools/modeller9v7 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 5");
 
 `cp $cur_dir/outtmp/$name.pdb $name.pdb`;
 

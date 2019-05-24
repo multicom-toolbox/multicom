@@ -1,0 +1,649 @@
+
+                         MODELLER 9.16, 2016/01/07, r10745
+
+     PROTEIN STRUCTURE MODELLING BY SATISFACTION OF SPATIAL RESTRAINTS
+
+
+                     Copyright(c) 1989-2016 Andrej Sali
+                            All Rights Reserved
+
+                             Written by A. Sali
+                               with help from
+              B. Webb, M.S. Madhusudhan, M-Y. Shen, G.Q. Dong,
+          M.A. Marti-Renom, N. Eswar, F. Alber, M. Topf, B. Oliva,
+             A. Fiser, R. Sanchez, B. Yerkovich, A. Badretdinov,
+                     F. Melo, J.P. Overington, E. Feyfant
+                 University of California, San Francisco, USA
+                    Rockefeller University, New York, USA
+                      Harvard University, Cambridge, USA
+                   Imperial Cancer Research Fund, London, UK
+              Birkbeck College, University of London, London, UK
+
+
+Kind, OS, HostName, Kernel, Processor: 4, Linux lotus.rnet.missouri.edu 2.6.32-358.el6.x86_64 x86_64
+Date and time of compilation         : 2016/01/07 09:04:56
+MODELLER executable type             : x86_64-intel8
+Job starting time (YY/MM/DD HH:MM:SS): 2018/04/15 18:55:46
+
+openf___224_> Open           $(LIB)/restyp.lib
+openf___224_> Open           ${MODINSTALL9v16}/modlib/resgrp.lib
+rdresgr_266_> Number of residue groups:        2
+openf___224_> Open           ${MODINSTALL9v16}/modlib/sstruc.lib
+
+Dynamically allocated memory at   amaxlibraries [B,KiB,MiB]:       191566     187.076     0.183
+
+Dynamically allocated memory at   amaxlibraries [B,KiB,MiB]:       192094     187.592     0.183
+openf___224_> Open           ${MODINSTALL9v16}/modlib/resdih.lib
+
+Dynamically allocated memory at   amaxlibraries [B,KiB,MiB]:       240694     235.053     0.230
+rdrdih__263_> Number of dihedral angle types         :        9
+              Maximal number of dihedral angle optima:        3
+              Dihedral angle names                   :  Alph Phi Psi Omeg chi1 chi2 chi3 chi4 chi5
+openf___224_> Open           ${MODINSTALL9v16}/modlib/radii.lib
+
+Dynamically allocated memory at   amaxlibraries [B,KiB,MiB]:       253994     248.041     0.242
+openf___224_> Open           ${MODINSTALL9v16}/modlib/radii14.lib
+openf___224_> Open           ${MODINSTALL9v16}/modlib/af_mnchdef.lib
+rdwilmo_274_> Mainchain residue conformation classes:  APBLE
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch.lib
+rdclass_257_> Number of classes:        5
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch1.lib
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch2.lib
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch3.lib
+openf___224_> Open           ${MODINSTALL9v16}/modlib/xs4.mat
+rdrrwgh_268_> Number of residue types:       21
+openf___224_> Open           bak_T0579_e5udb33.pir
+
+Dynamically allocated memory at   amaxalignment [B,KiB,MiB]:       265487     259.265     0.253
+
+Dynamically allocated memory at   amaxalignment [B,KiB,MiB]:       266937     260.681     0.255
+
+Dynamically allocated memory at   amaxalignment [B,KiB,MiB]:       269837     263.513     0.257
+
+Dynamically allocated memory at   amaxalignment [B,KiB,MiB]:       272877     266.481     0.260
+
+Dynamically allocated memory at   amaxalignment [B,KiB,MiB]:       334133     326.302     0.319
+check_prot_W> Alignment sequence T0579 protein type ''
+              does not contain 'sequence' or 'structure'; it will be treated as
+              a sequence without structure
+
+
+Dynamically allocated memory at    amaxsequence [B,KiB,MiB]:       334285     326.450     0.319
+
+Dynamically allocated memory at    amaxsequence [B,KiB,MiB]:       334777     326.931     0.319
+
+Read the alignment from file       : bak_T0579_e5udb33.pir
+Total number of alignment positions:   125
+
+  #  Code        #_Res #_Segm PDB_code    Name
+-------------------------------------------------------------------------------
+  1    e5udb33      39      1     e5udb33
+  2      T0579     124      1
+check_a_343_> >> BEGINNING OF COMMAND
+openf___224_> Open           ./e5udb33.atm
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       348202     340.041     0.332
+
+Dynamically allocated memory at    amaxsequence [B,KiB,MiB]:       348202     340.041     0.332
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       348373     340.208     0.332
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       349223     341.038     0.333
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       350481     342.267     0.334
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       352385     344.126     0.336
+
+Dynamically allocated memory at    amaxsequence [B,KiB,MiB]:       352385     344.126     0.336
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       352475     344.214     0.336
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       355331     347.003     0.339
+
+Dynamically allocated memory at    amaxsequence [B,KiB,MiB]:       355331     347.003     0.339
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       355466     347.135     0.339
+
+Dynamically allocated memory at amaxcoordinates [B,KiB,MiB]:       359750     351.318     0.343
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:       359696     351.266     0.343
+
+check_ali___> Checking the sequence-structure alignment. 
+
+Implied intrachain target CA(i)-CA(i+1) distances longer than  8.0 angstroms:
+
+ALN_POS  TMPL  RID1  RID2  NAM1  NAM2     DIST
+----------------------------------------------
+END OF TABLE
+check_a_344_> << END OF COMMAND
+openf___224_> Open           ${LIB}/top_heav.lib
+read_to_681_> topology.submodel read from topology file:        3
+openf___224_> Open           ${LIB}/par.lib
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       498948     487.254     0.476
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       500548     488.816     0.477
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       504528     492.703     0.481
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       506528     494.656     0.483
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       509528     497.586     0.486
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       514028     501.980     0.490
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       519600     507.422     0.496
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       522400     510.156     0.498
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       526600     514.258     0.502
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       532900     520.410     0.508
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       535672     523.117     0.511
+
+Dynamically allocated memory at  amaxparameters [B,KiB,MiB]:       537072     524.484     0.512
+read_pa_232_> parameters    BONDS   ANGLS  DIHEDS IMPROPS    MODE
+                              227     561     661     112       0
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:       556383     543.343     0.531
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:       650855     635.601     0.621
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:       664807     649.226     0.634
+
+mkilst______> segment topology constructed from sequence and RTF:
+              segments residues atoms bonds angles dihedrals impropers:
+                     1      124   945   960      0         0       392
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:       704779     688.261     0.672
+
+patch_______> segment topology patched using RTF:     1  ;  MET  ;  NTER
+              segments residues atoms bonds angles dihedrals impropers:
+                     1      124   945   960   1296      1528       392
+
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:       749275     731.714     0.715
+patch_______> segment topology patched using RTF:   124  ;  LYS  ;  CTER
+              segments residues atoms bonds angles dihedrals impropers:
+                     1      124   946   961   1298      1530       393
+
+genseg______> segment topology constructed from sequence and RTF:
+              segments residues atoms bonds angles dihedrals impropers:
+                     1      124   946   961   1298      1530       393
+transfe_506_> MODEL is an average of all templates.
+transfe_511_> Number of templates for coordinate transfer:        1
+              After transferring coordinates of the equivalent template atoms,
+              there are defined, undefined atoms in MODEL:      212      734
+openf___224_> Open           T0579.ini
+wrpdb___568_> Residues, atoms, selected atoms:      124      946      946
+make_re_417_> Restraint type to be calculated:  stereo
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:       856324     836.254     0.817
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:       864516     844.254     0.824
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:       880900     860.254     0.840
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:       913668     892.254     0.871
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:       946436     924.254     0.903
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1011972     988.254     0.965
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1044740    1020.254     0.996
+r_stere_606_> Stereochemical restraints were constructed from RTF & PRMF.
+              Added bond,angle,dihedral,improper restraints  :      961    1298    1442     391
+              Total number of restraints before, now         :        0     4092
+make_re_422_> Number of previous, current restraints         :        0     4092
+make_re_423_> Number of previous, current selected restraints:        0     4092
+make_re_417_> Restraint type to be calculated:  phi-psi_binormal
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1114655    1088.530     1.063
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch1.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/mnch1.mdt
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1147439    1120.546     1.094
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1212975    1184.546     1.157
+make_re_422_> Number of previous, current restraints         :     4092     4214
+make_re_423_> Number of previous, current selected restraints:     4092     4214
+make_re_417_> Restraint type to be calculated:  omega_dihedral
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1212975    1184.546     1.157
+openf___224_> Open           ${MODINSTALL9v16}/modlib/omega.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/omega.mdt
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+omgdel__425_> Unselected all O C +N +CA dihedrals:      125
+              (This is to avoid clashes between STEREO
+              and OMEGA_DIHEDRAL restraints)
+make_re_422_> Number of previous, current restraints         :     4214     4337
+make_re_423_> Number of previous, current selected restraints:     4214     4212
+make_re_417_> Restraint type to be calculated:  chi1_dihedral
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1212975    1184.546     1.157
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi1234.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi1.mdt
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+make_re_422_> Number of previous, current restraints         :     4337     4440
+make_re_423_> Number of previous, current selected restraints:     4212     4315
+make_re_417_> Restraint type to be calculated:  chi2_dihedral
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1212975    1184.546     1.157
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi1234.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi2.mdt
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1278511    1248.546     1.219
+make_re_422_> Number of previous, current restraints         :     4440     4508
+make_re_423_> Number of previous, current selected restraints:     4315     4383
+make_re_417_> Restraint type to be calculated:  chi3_dihedral
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1278511    1248.546     1.219
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi1234.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi3.mdt
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+make_re_422_> Number of previous, current restraints         :     4508     4544
+make_re_423_> Number of previous, current selected restraints:     4383     4419
+make_re_417_> Restraint type to be calculated:  chi4_dihedral
+
+Dynamically allocated memory at   amaxstructure [B,KiB,MiB]:      1278511    1248.546     1.219
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi1234.bin
+openf___224_> Open           ${MODINSTALL9v16}/modlib/chi4.mdt
+mdtrsr__446W> A potential that relies on one protein is used, yet you have at
+              least one known structure available. MDT, not library, potential is used.
+getdata_643_> Protein accepted:  e5udb33
+getdata_289_> Proteins (all/accepted):        1        1
+make_re_422_> Number of previous, current restraints         :     4544     4558
+make_re_423_> Number of previous, current selected restraints:     4419     4433
+make_re_417_> Restraint type to be calculated:  DISTANCE
+
+Dynamically allocated memory at amaxhash_contac [B,KiB,MiB]:      1550923    1514.573     1.479
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1681995    1642.573     1.604
+make_re_422_> Number of previous, current restraints         :     4558     4801
+make_re_423_> Number of previous, current selected restraints:     4433     4676
+make_re_417_> Restraint type to be calculated:  DISTANCE
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1747531    1706.573     1.667
+make_re_422_> Number of previous, current restraints         :     4801     5134
+make_re_423_> Number of previous, current selected restraints:     4676     5009
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5134     5394
+make_re_423_> Number of previous, current selected restraints:     5009     5269
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5394     5407
+make_re_423_> Number of previous, current selected restraints:     5269     5282
+0 atoms in HETATM/BLK residues constrained
+to protein atoms within 2.30 angstroms
+and protein CA atoms within 10.00 angstroms
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5407     5407
+make_re_423_> Number of previous, current selected restraints:     5282     5282
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5407     5407
+make_re_423_> Number of previous, current selected restraints:     5282     5282
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5407     5407
+make_re_423_> Number of previous, current selected restraints:     5282     5282
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5407     5407
+make_re_423_> Number of previous, current selected restraints:     5282     5282
+0 atoms in residues without defined topology
+constrained to be rigid bodies
+make_re_417_> Restraint type to be calculated:  DISTANCE
+make_re_422_> Number of previous, current restraints         :     5407     5407
+make_re_423_> Number of previous, current selected restraints:     5282     5282
+rmdupl__427_>      731 redundant cosine dihedral restraints were unselected.
+condens_443_> Restraints marked for deletion were removed.
+              Total number of restraints before, now:     5407     4551
+openf___224_> Open           T0579.rsr
+openf___224_> Open           T0579.rsr
+rdcsr2__307_> Number of restraints read    :     4551
+              Number of excluded pairs read:        0
+              Number of pseudo atoms read  :        0
+rdcsrs__304_> Restraints in memory, selected restraints:     4551     4551
+              Explicitly excluded atom pairs in memory :        0
+              Pseudo atoms in memory                   :        0
+openf___224_> Open           T0579.ini
+
+Dynamically allocated memory at       amaxmodel [B,KiB,MiB]:      1580832    1543.781     1.508
+read_mo_297_> Segments, residues, atoms:        1      124      946
+read_mo_298_> Segment:        1     1   124      946
+randomi_498_> Atoms,selected atoms,random_seed,amplitude:      946      946        1        4.0000
+randomi_496_> Amplitude is > 0; randomization is done.
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4070
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4212
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4246
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4286
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4393
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4509
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4551
+
+Dynamically allocated memory at  amaxrestraints [B,KiB,MiB]:      1896116    1851.676     1.808
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4551
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4551
+pick_re_612_> Number of MODEL atoms, selected restraints;      946     4551
+iupac_m_486_> OE1/2 will be swapped:     -123.8171       21    21
+iupac_m_485_> OD1/2 will be swapped:      147.7599       29    29
+iupac_m_485_> OD1/2 will be swapped:      126.8688       47    47
+iupac_m_486_> OE1/2 will be swapped:     -170.3199       55    55
+iupac_m_486_> OE1/2 will be swapped:      172.2858       56    56
+iupac_m_485_> OD1/2 will be swapped:      154.1408       59    59
+iupac_m_485_> OD1/2 will be swapped:     -174.8503       62    62
+iupac_m_486_> OE1/2 will be swapped:      134.9563       74    74
+iupac_m_486_> OE1/2 will be swapped:      176.4866       92    92
+iupac_m_485_> OD1/2 will be swapped:      169.6624      119   119
+
+
+>> ENERGY; Differences between the model's features and restraints:
+Number of all residues in MODEL                   :      124
+Number of all, selected real atoms                :      946     946
+Number of all, selected pseudo atoms              :        0       0
+Number of all static, selected restraints         :     4551    4551
+COVALENT_CYS                                      :        F
+NONBONDED_SEL_ATOMS                               :        1
+Number of non-bonded pairs (excluding 1-2,1-3,1-4):     1099
+Dynamic pairs routine                             : 2, NATM x NATM cell sorting
+Atomic shift for contacts update (UPDATE_DYNAMIC) :    0.390
+LENNARD_JONES_SWITCH                              :    6.500   7.500
+COULOMB_JONES_SWITCH                              :    6.500   7.500
+RESIDUE_SPAN_RANGE                                :        0   99999
+NLOGN_USE                                         :       15
+CONTACT_SHELL                                     :    4.000
+DYNAMIC_PAIRS,_SPHERE,_COULOMB,_LENNARD,_MODELLER :        T       T       F       F       F
+SPHERE_STDV                                       :    0.050
+RADII_FACTOR                                      :    0.820
+Current energy                                    :         635.4292
+
+
+
+
+
+Summary of the restraint violations: 
+
+   NUM     ... number of restraints.
+   NUMVI   ... number of restraints with RVIOL > VIOL_REPORT_CUT[i].
+   RVIOL   ... relative difference from the best value.
+   NUMVP   ... number of restraints with -Ln(pdf) > VIOL_REPORT_CUT2[i].
+   RMS_1   ... RMS(feature, minimally_violated_basis_restraint, NUMB).
+   RMS_2   ... RMS(feature, best_value, NUMB).
+   MOL.PDF ... scaled contribution to -Ln(Molecular pdf).
+
+ #                     RESTRAINT_GROUP      NUM   NUMVI  NUMVP   RMS_1   RMS_2         MOL.PDF     S_i
+------------------------------------------------------------------------------------------------------
+ 1 Bond length potential              :     961       0      0   0.003   0.003      1.9867       1.000
+ 2 Bond angle potential               :    1298       0      1   1.251   1.251      38.143       1.000
+ 3 Stereochemical cosine torsion poten:     586       0     29  52.249  52.249      266.22       1.000
+ 4 Stereochemical improper torsion pot:     391       0      0   0.749   0.749      4.8408       1.000
+ 5 Soft-sphere overlap restraints     :    1099       0      0   0.002   0.002     0.34427       1.000
+ 6 Lennard-Jones 6-12 potential       :       0       0      0   0.000   0.000      0.0000       1.000
+ 7 Coulomb point-point electrostatic p:       0       0      0   0.000   0.000      0.0000       1.000
+ 8 H-bonding potential                :       0       0      0   0.000   0.000      0.0000       1.000
+ 9 Distance restraints 1 (CA-CA)      :     243       0      0   0.906   0.906      27.117       1.000
+10 Distance restraints 2 (N-O)        :     333       0      4   0.942   0.942      60.132       1.000
+11 Mainchain Phi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+12 Mainchain Psi dihedral restraints  :       0       0      0   0.000   0.000      0.0000       1.000
+13 Mainchain Omega dihedral restraints:     123       1      0  15.894  15.894      11.234       1.000
+14 Sidechain Chi_1 dihedral restraints:     103       0      1  96.831  96.831      40.464       1.000
+15 Sidechain Chi_2 dihedral restraints:      68       0      0  71.078  71.078      23.273       1.000
+16 Sidechain Chi_3 dihedral restraints:      36       0      0 115.314 115.314      32.909       1.000
+17 Sidechain Chi_4 dihedral restraints:      14       0      0  59.435  59.435      5.9372       1.000
+18 Disulfide distance restraints      :       0       0      0   0.000   0.000      0.0000       1.000
+19 Disulfide angle restraints         :       0       0      0   0.000   0.000      0.0000       1.000
+20 Disulfide dihedral angle restraints:       0       0      0   0.000   0.000      0.0000       1.000
+21 Lower bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+22 Upper bound distance restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+23 Distance restraints 3 (SDCH-MNCH)  :     260       0      0   0.640   0.640      5.7568       1.000
+24 Sidechain Chi_5 dihedral restraints:       0       0      0   0.000   0.000      0.0000       1.000
+25 Phi/Psi pair of dihedral restraints:     122      82     13  30.566 144.493      116.11       1.000
+26 Distance restraints 4 (SDCH-SDCH)  :      13       0      0   1.046   1.046     0.96270       1.000
+27 Distance restraints 5 (X-Y)        :       0       0      0   0.000   0.000      0.0000       1.000
+28 NMR distance restraints 6 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+29 NMR distance restraints 7 (X-Y)    :       0       0      0   0.000   0.000      0.0000       1.000
+30 Minimal distance restraints        :       0       0      0   0.000   0.000      0.0000       1.000
+31 Non-bonded restraints              :       0       0      0   0.000   0.000      0.0000       1.000
+32 Atomic accessibility restraints    :       0       0      0   0.000   0.000      0.0000       1.000
+33 Atomic density restraints          :       0       0      0   0.000   0.000      0.0000       1.000
+34 Absolute position restraints       :       0       0      0   0.000   0.000      0.0000       1.000
+35 Dihedral angle difference restraint:       0       0      0   0.000   0.000      0.0000       1.000
+36 GBSA implicit solvent potential    :       0       0      0   0.000   0.000      0.0000       1.000
+37 EM density fitting potential       :       0       0      0   0.000   0.000      0.0000       1.000
+38 SAXS restraints                    :       0       0      0   0.000   0.000      0.0000       1.000
+39 Symmetry restraints                :       0       0      0   0.000   0.000      0.0000       1.000
+
+
+
+openf___224_> Open           T0579.V99990001
+# Heavy relative violation of each residue is written to: T0579.V99990001
+# The profile is NOT normalized by the number of restraints.
+# The profiles are smoothed over a window of residues:    1
+# The sum of all numbers in the file:   23444.3535
+
+
+
+List of the violated restraints:
+   A restraint is violated when the relative difference
+   from the best value (RVIOL) is larger than CUTOFF.
+
+   ICSR   ... index of a restraint in the current set.
+   RESNO  ... residue numbers of the first two atoms.
+   ATM    ... IUPAC atom names of the first two atoms.
+   FEAT   ... the value of the feature in the model.
+   restr  ... the mean of the basis restraint with the smallest
+              difference from the model (local minimum).
+   viol   ... difference from the local minimum.
+   rviol  ... relative difference from the local minimum.
+   RESTR  ... the best value (global minimum).
+   VIOL   ... difference from the best value.
+   RVIOL  ... relative difference from the best value.
+
+
+-------------------------------------------------------------------------------------------------
+
+Feature 13                           : Mainchain Omega dihedral restraints     
+List of the RVIOL violations larger than   :       4.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   3392  34V  34V CA  C     241  245   -5.38 -179.18  173.81   40.39 -179.18  173.81   40.39
+
+-------------------------------------------------------------------------------------------------
+
+Feature 25                           : Phi/Psi pair of dihedral restraints     
+List of the RVIOL violations larger than   :       6.5000
+
+    #   ICSR  RESNO1/2 ATM1/2   INDATM1/2    FEAT   restr    viol   rviol   RESTR    VIOL   RVIOL
+    1   3237   1M   2K C   N       7    9  -76.96  -70.20    6.81    0.52  -62.90 -179.82   24.19
+    1          2K   2K N   CA      9   10  139.57  140.40                  -40.80
+    2   3241   5S   6Q C   N      33   35  -94.47 -121.10   42.36    1.45  -63.80  150.22   20.60
+    2          6Q   6Q N   CA     35   36  106.75  139.70                  -40.30
+    3   3244   8I   9I C   N      57   59  -65.56  -63.40    2.24    0.38 -120.60 -178.12    8.39
+    3          9I   9I N   CA     59   60  -43.05  -43.60                  130.30
+    4   3247  11T  12S C   N      80   82  -90.33  -72.40   30.89    1.41  -64.10  149.75   12.59
+    4         12S  12S N   CA     82   83  177.56  152.40                  -35.00
+    5   3259  23T  24V C   N     164  166  175.36 -125.40   73.67    1.94  -62.40  178.81   29.70
+    5         24V  24V N   CA    166  167 -172.91  143.30                  -42.40
+    6   3260  24V  25T C   N     171  173 -163.39 -124.80   42.69    1.73  -63.20 -174.48   30.14
+    6         25T  25T N   CA    173  174  161.76  143.50                  -42.10
+    7   3261  25T  26G C   N     178  180  151.39 -167.20   46.80    1.47   82.20  160.02   10.93
+    7         26G  26G N   CA    180  181  152.79  174.60                    8.50
+    8   3270  34V  35V C   N     245  247  179.61 -125.40   58.90    1.70  -62.40 -166.64   31.48
+    8         35V  35V N   CA    247  248  164.41  143.30                  -42.40
+    9   3271  35V  36S C   N     252  254  -88.55  -72.40   38.02    1.78  -64.10  140.32   11.79
+    9         36S  36S N   CA    254  255 -173.18  152.40                  -35.00
+   10   3272  36S  37Y C   N     258  260 -128.99 -124.30   21.10    0.93  -63.50  173.46   30.79
+   10         37Y  37Y N   CA    260  261  155.97  135.40                  -43.40
+   11   3275  39P  40T C   N     284  286  -71.16  -78.10   14.97    0.49  -63.20  178.82   22.42
+   11         40T  40T N   CA    286  287  136.54  149.80                  -42.10
+   12   3276  40T  41N C   N     291  293 -125.41 -119.90   22.14    0.87  -63.20  172.10   25.05
+   12         41N  41N N   CA    293  294  158.44  137.00                  -41.10
+   13   3277  41N  42G C   N     299  301  116.77   78.70   38.25    2.01   82.20  174.34    6.73
+   13         42G  42G N   CA    301  302 -162.37 -166.10                    8.50
+   14   3278  42G  43G C   N     303  305   88.04   78.70   31.17    0.54   82.20  155.77    7.86
+   14         43G  43G N   CA    305  306  164.16 -166.10                    8.50
+   15   3279  43G  44Q C   N     307  309 -133.77 -121.10   16.32    0.51  -63.80 -176.42   30.68
+   15         44Q  44Q N   CA    309  310  149.98  139.70                  -40.30
+   16   3280  44Q  45R C   N     316  318 -135.91 -125.20   13.59    0.40  -63.00 -175.09   29.98
+   16         45R  45R N   CA    318  319  148.97  140.60                  -41.10
+   17   3282  46V  47D C   N     334  336 -105.26  -96.50   76.31    3.20  -63.30   88.92    9.43
+   17         47D  47D N   CA    336  337   38.40  114.20                  -40.00
+   18   3283  47D  48H C   N     342  344 -172.27 -125.60   48.19    1.44  -63.20 -160.61   31.89
+   18         48H  48H N   CA    344  345  150.79  138.80                  -42.30
+   19   3284  48H  49H C   N     352  354 -154.43 -125.60   28.90    1.05  -63.20 -158.93   21.40
+   19         49H  49H N   CA    354  355  136.88  138.80                  -42.30
+   20   3285  49H  50K C   N     362  364 -116.62 -118.00   25.05    1.20  -62.90  163.94   19.08
+   20         50K  50K N   CA    364  365  114.09  139.10                  -40.80
+   21   3286  50K  51W C   N     371  373 -119.98 -124.90   43.47    1.99  -63.00  155.24   17.11
+   21         51W  51W N   CA    373  374  100.21  143.40                  -44.20
+   22   3289  53I  54Q C   N     400  402 -128.24 -121.10    7.27    0.25  -63.80 -170.12   31.34
+   22         54Q  54Q N   CA    402  403  141.09  139.70                  -40.30
+   23   3290  54Q  55E C   N     409  411 -177.26 -117.80   65.65    1.93  -63.60 -167.73   31.75
+   23         55E  55E N   CA    411  412  164.62  136.80                  -40.30
+   24   3291  55E  56E C   N     418  420 -104.41 -117.80   24.85    0.92  -63.60  161.42   19.57
+   24         56E  56E N   CA    420  421  115.87  136.80                  -40.30
+   25   3293  57I  58K C   N     435  437 -125.88 -118.00    8.75    0.29  -62.90 -172.80   28.07
+   25         58K  58K N   CA    437  438  142.91  139.10                  -40.80
+   26   3294  58K  59D C   N     444  446 -106.68  -96.50   29.27    1.23  -63.30 -176.45   25.44
+   26         59D  59D N   CA    446  447  141.65  114.20                  -40.00
+   27   3295  59D  60A C   N     452  454 -112.04 -134.00   23.47    0.54  -62.50 -173.68   28.54
+   27         60A  60A N   CA    454  455  138.72  147.00                  -40.90
+   28   3296  60A  61G C   N     457  459 -173.44 -167.20   74.51    2.98   82.20  139.01   10.77
+   28         61G  61G N   CA    459  460  100.35  174.60                    8.50
+   29   3297  61G  62D C   N     461  463 -114.43  -96.50   19.79    0.82  -63.30  170.43   18.57
+   29         62D  62D N   CA    463  464  122.58  114.20                  -40.00
+   30   3298  62D  63K C   N     469  471  -78.66  -70.20    9.19    0.59  -62.90  175.90   23.74
+   30         63K  63K N   CA    471  472  144.01  140.40                  -40.80
+   31   3299  63K  64T C   N     478  480  -98.52 -124.80   38.42    1.23  -63.20  161.49   18.59
+   31         64T  64T N   CA    480  481  115.48  143.50                  -42.10
+   32   3300  64T  65L C   N     485  487 -136.90 -108.50   32.58    1.44  -63.50 -174.53   30.30
+   32         65L  65L N   CA    487  488  148.47  132.50                  -41.20
+   33   3301  65L  66Q C   N     493  495 -114.71 -121.10    7.84    0.39  -63.80 -177.30   29.58
+   33         66Q  66Q N   CA    495  496  144.24  139.70                  -40.30
+   34   3303  67P  68G C   N     509  511   97.09   78.70   49.72    0.77   82.20  140.00    7.54
+   34         68G  68G N   CA    511  512  147.71 -166.10                    8.50
+   35   3304  68G  69D C   N     513  515 -121.58  -70.90   98.79    3.33  -63.30  102.99   16.40
+   35         69D  69D N   CA    515  516 -124.91  150.30                  -40.00
+   36   3305  69D  70Q C   N     521  523  -62.06  -73.00   12.71    0.99  -63.80  172.53   25.28
+   36         70Q  70Q N   CA    523  524  147.17  140.70                  -40.30
+   37   3308  72I  73L C   N     545  547 -122.41 -108.50   14.33    0.65  -63.50 -173.31   23.29
+   37         73L  73L N   CA    547  548  135.95  132.50                  -41.20
+   38   3309  73L  74E C   N     553  555 -127.90 -117.80   10.10    0.37  -63.60 -171.74   22.27
+   38         74E  74E N   CA    555  556  136.64  136.80                  -40.30
+   39   3310  74E  75A C   N     562  564 -129.29 -134.00    7.52    0.26  -62.50 -169.91   34.72
+   39         75A  75A N   CA    564  565  141.13  147.00                  -40.90
+   40   3311  75A  76S C   N     567  569 -149.11 -136.60   35.03    1.47  -64.10  164.71   18.06
+   40         76S  76S N   CA    569  570 -176.08  151.20                  -35.00
+   41   3312  76S  77H C   N     573  575 -110.39 -125.60   26.65    1.21  -63.20  163.95   23.59
+   41         77H  77H N   CA    575  576  160.69  138.80                  -42.30
+   42   3313  77H  78M C   N     583  585 -106.89 -125.60   19.87    0.63  -63.40  179.66   23.80
+   42         78M  78M N   CA    585  586  133.81  140.50                  -40.50
+   43   3314  78M  79K C   N     591  593 -123.99 -118.00   21.16    0.93  -62.90  171.08   25.87
+   43         79K  79K N   CA    593  594  159.40  139.10                  -40.80
+   44   3315  79K  80G C   N     600  602  151.61 -167.20   41.44    0.90   82.20  175.80   11.75
+   44         80G  80G N   CA    602  603  170.02  174.60                    8.50
+   45   3316  80G  81M C   N     604  606 -139.50 -125.60   18.47    0.55  -63.40 -176.63   33.37
+   45         81M  81M N   CA    606  607  152.67  140.50                  -40.50
+   46   3317  81M  82K C   N     612  614 -132.44 -118.00   18.55    0.63  -62.90 -177.77   27.83
+   46         82K  82K N   CA    614  615  150.75  139.10                  -40.80
+   47   3318  82K  83G C   N     621  623   96.98   78.70   40.31    0.60   82.20  150.19    8.03
+   47         83G  83G N   CA    623  624  157.97 -166.10                    8.50
+   48   3319  83G  84A C   N     625  627 -102.28 -134.00   34.69    0.79  -62.50  178.34   27.56
+   48         84A  84A N   CA    627  628  132.95  147.00                  -40.90
+   49   3320  84A  85T C   N     630  632  -72.05  -78.10   19.12    0.65  -63.20  173.99   21.74
+   49         85T  85T N   CA    632  633  131.66  149.80                  -42.10
+   50   3321  85T  86A C   N     637  639 -120.11 -134.00   14.95    0.71  -62.50  176.23   31.96
+   50         86A  86A N   CA    639  640  152.55  147.00                  -40.90
+   51   3322  86A  87E C   N     642  644  -62.26  -69.30    7.43    0.48  -63.60  179.57   23.87
+   51         87E  87E N   CA    644  645  140.13  142.50                  -40.30
+   52   3324  88I  89D C   N     659  661 -115.11  -96.50   33.43    1.38  -63.30  136.63   14.61
+   52         89D  89D N   CA    661  662   86.43  114.20                  -40.00
+   53   3325  89D  90S C   N     667  669 -141.83 -136.60    9.46    0.54  -64.10 -165.49   12.14
+   53         90S  90S N   CA    669  670  143.31  151.20                  -35.00
+   54   3326  90S  91A C   N     673  675 -150.02 -134.00   16.57    0.41  -62.50 -170.65   35.71
+   54         91A  91A N   CA    675  676  151.20  147.00                  -40.90
+   55   3327  91A  92E C   N     678  680 -140.77 -117.80   22.99    0.87  -63.60 -167.71   22.46
+   55         92E  92E N   CA    680  681  135.82  136.80                  -40.30
+   56   3328  92E  93K C   N     687  689 -175.81 -118.00   60.48    2.04  -62.90 -162.26   32.35
+   56         93K  93K N   CA    689  690  156.86  139.10                  -40.80
+   57   3329  93K  94T C   N     696  698 -137.76 -124.80   14.76    0.57  -63.20 -176.81   28.38
+   57         94T  94T N   CA    698  699  150.57  143.50                  -42.10
+   58   3330  94T  95T C   N     703  705 -130.20 -124.80   21.22    0.76  -63.20  167.83   25.92
+   58         95T  95T N   CA    705  706  164.02  143.50                  -42.10
+   59   3332  96V  97Y C   N     717  719 -107.15  -98.40   23.19    2.27  -63.50  156.53   22.78
+   59         97Y  97Y N   CA    719  720  106.92  128.40                  -43.40
+   60   3333  97Y  98M C   N     729  731 -140.74 -125.60   15.14    0.61  -63.40 -164.61   35.28
+   60         98M  98M N   CA    731  732  140.07  140.50                  -40.50
+   61   3335  99V 100D C   N     744  746 -119.34  -96.50   23.26    0.95  -63.30  159.99   17.21
+   61        100D 100D N   CA    746  747  109.85  114.20                  -40.00
+   62   3336 100D 101Y C   N     752  754 -132.89 -124.30   14.14    0.58  -63.50 -176.41   32.59
+   62        101Y 101Y N   CA    754  755  146.63  135.40                  -43.40
+   63   3337 101Y 102T C   N     764  766  -91.44  -78.10   24.42    1.48  -63.20  173.76   20.54
+   63        102T 102T N   CA    766  767  129.35  149.80                  -42.10
+   64   3338 102T 103S C   N     771  773 -128.01 -136.60   12.73    0.71  -64.10  176.39   17.30
+   64        103S 103S N   CA    773  774  160.60  151.20                  -35.00
+   65   3339 103S 104T C   N     777  779 -125.16 -124.80    7.74    0.32  -63.20  177.81   26.90
+   65        104T 104T N   CA    779  780  151.23  143.50                  -42.10
+   66   3340 104T 105T C   N     784  786  -84.22  -78.10   20.02    0.69  -63.20  150.51   20.70
+   66        105T 105T N   CA    786  787  168.87  149.80                  -42.10
+   67   3341 105T 106S C   N     791  793  -67.51  -72.40   10.29    0.47  -64.10  178.39   12.73
+   67        106S 106S N   CA    793  794  143.35  152.40                  -35.00
+   68   3342 106S 107G C   N     797  799  -74.25  -80.20   31.82    0.97   82.20 -153.79    7.05
+   68        107G 107G N   CA    799  800  142.84  174.10                    8.50
+   69   3343 107G 108E C   N     801  803 -136.49 -117.80   21.08    0.62  -63.60 -172.13   29.15
+   69        108E 108E N   CA    803  804  146.55  136.80                  -40.30
+   70   3344 108E 109K C   N     810  812  -69.18  -70.20    8.17    0.62  -62.90  170.81   22.53
+   70        109K 109K N   CA    812  813  148.50  140.40                  -40.80
+   71   3346 110V 111K C   N     826  828   59.96   56.60   10.87    0.57  -62.90  140.94   24.62
+   71        111K 111K N   CA    828  829   28.26   38.60                  -40.80
+   72   3347 111K 112N C   N     835  837  -94.54 -119.90   35.34    1.03  -63.20  156.64   18.03
+   72        112N 112N N   CA    837  838  112.38  137.00                  -41.10
+   73   3348 112N 113H C   N     843  845  173.83 -125.60   70.87    1.80  -63.20 -172.07   31.10
+   73        113H 113H N   CA    845  846  175.58  138.80                  -42.30
+   74   3349 113H 114K C   N     853  855  -75.05  -70.20    8.12    0.49  -62.90  172.72   23.11
+   74        114K 114K N   CA    855  856  146.91  140.40                  -40.80
+   75   3350 114K 115W C   N     862  864 -117.12 -124.90   24.64    1.00  -63.00  172.91   19.22
+   75        115W 115W N   CA    864  865  120.02  143.40                  -44.20
+   76   3352 116V 117T C   N     883  885 -116.78 -124.80   18.02    0.57  -63.20  177.73   19.75
+   76        117T 117T N   CA    885  886  127.36  143.50                  -42.10
+   77   3353 117T 118E C   N     890  892  -95.27 -117.80   22.58    0.79  -63.60  178.41   22.20
+   77        118E 118E N   CA    892  893  135.27  136.80                  -40.30
+   78   3354 118E 119D C   N     899  901  -65.64  -96.50   31.14    1.27  -63.30  158.43   19.41
+   78        119D 119D N   CA    901  902  118.41  114.20                  -40.00
+   79   3355 119D 120E C   N     907  909  -73.06  -69.30   18.99    1.57  -63.60  164.47   21.42
+   79        120E 120E N   CA    909  910  123.89  142.50                  -40.30
+   80   3356 120E 121L C   N     916  918 -108.50 -108.50   18.55    1.00  -63.50  173.68   26.88
+   80        121L 121L N   CA    918  919  151.05  132.50                  -41.20
+   81   3357 121L 122S C   N     924  926  -69.32  -72.40    3.08    0.23  -64.10  172.48   12.81
+   81        122S 122S N   CA    926  927  152.60  152.40                  -35.00
+   82   3358 122S 123A C   N     930  932 -120.44 -134.00   13.58    0.48  -62.50 -179.16   32.73
+   82        123A 123A N   CA    932  933  147.80  147.00                  -40.90
+
+
+report______> Distribution of short non-bonded contacts:
+
+
+DISTANCE1:  0.00 2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40
+DISTANCE2:  2.10 2.20 2.30 2.40 2.50 2.60 2.70 2.80 2.90 3.00 3.10 3.20 3.30 3.40 3.50
+FREQUENCY:     0    0    0    0    0    5    6   26   32   58   55   60   53   75   67
+
+
+<< end of ENERGY.
+openf___224_> Open           T0579.B99990001.pdb
+wrpdb___568_> Residues, atoms, selected atoms:      124      946      946
+
+>> Summary of successfully produced models:
+Filename                          molpdf
+----------------------------------------
+T0579.B99990001.pdb            635.42920
+
+
+Dynamically allocated memory at          finish [B,KiB,MiB]:      1896116    1851.676     1.808
+Starting time                                            : 2018/04/15 18:55:46
+Closing time                                             : 2018/04/15 18:55:51
+Total CPU time [seconds]                                 :       5.00

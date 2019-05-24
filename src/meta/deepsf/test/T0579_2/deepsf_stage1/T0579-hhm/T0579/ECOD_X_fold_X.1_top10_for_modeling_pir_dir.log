@@ -1,0 +1,72 @@
+Start Time:date
+Starting DeepSF modeling..
+
+
+##################### Start modeling </home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir/>
+
+Total number of templates used for initial model generation is 7.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 5395.3784
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//ECOD_X_fold_X.1_top10_for_modeling_hhalign.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 576.7038
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e1ddgA3_glob.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 579.5615
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e1ep3B1.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 595.8863
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e2eixB4.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 573.1986
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e2yujA1.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 526.8705
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e3d30A1_glob.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 616.1747
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e3khdA4.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 555.7269
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.1_top10_for_modeling_pir_dir//T0579_e3qtgA3_glob.pdb is generated!
+
+-----------------------------------------
+
+DeepSF modeling: 0 minutes and 58 seconds elapsed.
+Sun Apr 15 18:55:59 UTC 2018

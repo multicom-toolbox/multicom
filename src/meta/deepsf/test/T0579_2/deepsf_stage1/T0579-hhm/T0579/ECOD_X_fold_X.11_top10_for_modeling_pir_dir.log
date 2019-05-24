@@ -1,0 +1,48 @@
+Start Time:date
+Starting DeepSF modeling..
+
+
+##################### Start modeling </home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir/>
+
+Total number of templates used for initial model generation is 4.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 2390.1895
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir//ECOD_X_fold_X.11_top10_for_modeling_hhalign.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 515.3091
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir//T0579_e1ctoA1.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 639.0200
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir//T0579_e2x10A7_glob.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 697.3777
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir//T0579_e3csbA1_glob.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 675.0335
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/ECOD_X_fold_X.11_top10_for_modeling_pir_dir//T0579_e4ak1A5_glob.pdb is generated!
+
+-----------------------------------------
+
+DeepSF modeling: 0 minutes and 37 seconds elapsed.
+Sun Apr 15 18:55:28 UTC 2018

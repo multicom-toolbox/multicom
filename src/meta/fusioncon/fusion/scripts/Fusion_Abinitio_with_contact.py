@@ -24,7 +24,7 @@
 #
 ############################################################################
 import sys
-project_root = '/home/casp14/MULTICOM_TS/jie_github/multicom/tools/Fusion/'
+project_root = '/data/jh7x3/multicom_github/jie_test/multicom/tools/Fusion/'
 sys.path.insert(0, project_root)
 
 from fusion_lib import *

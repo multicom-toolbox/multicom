@@ -110,3 +110,6 @@ src/meta/rosettacon/rosettacon_option
 
 #fusicon
 src/meta/fusioncon/fusioncon_option
+
+#deepsf
+src/meta/deepsf/deepsf_option

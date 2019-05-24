@@ -7,10 +7,10 @@
 #Date: 5/11/2010
 #############################domain combination########################################
 $cm_model_num = 5; 
-$modeller_dir = "/home/casp14/MULTICOM_TS/jie_github/multicom/tools/modeller9v7/"; 
-$prosys_dir = "/home/casp14/MULTICOM_TS/jie_github/multicom/src/prosys/";
+$modeller_dir = "/data/jh7x3/multicom_github/jie_test/multicom/tools/modeller9v7/"; 
+$prosys_dir = "/data/jh7x3/multicom_github/jie_test/multicom/src/prosys/";
 $final_model_num = 5; 
-$pdb2casp2 = "/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/script/pdb2casp.pl";
+$pdb2casp2 = "/data/jh7x3/multicom_github/jie_test/multicom/src/meta/script/pdb2casp.pl";
 
 if (@ARGV < 5)
 {
@@ -187,8 +187,8 @@ for ($m = 0; $m < @servers; $m++)
 		{
 			print "A combined model $comb_dir/$server$idx.pdb is generated.\n";
 
-			system("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/scwrl4/Scwrl4 -i $comb_dir/$server$idx.pdb -o $comb_dir/$server$idx.pdb.scw >/dev/null");
-			system("/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $comb_dir/$server$idx.pdb.scw > $comb_dir/$server-clash$idx.txt");
+			system("/data/jh7x3/multicom_github/jie_test/multicom/tools/scwrl4/Scwrl4 -i $comb_dir/$server$idx.pdb -o $comb_dir/$server$idx.pdb.scw >/dev/null");
+			system("/data/jh7x3/multicom_github/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $comb_dir/$server$idx.pdb.scw > $comb_dir/$server-clash$idx.txt");
 
 
 #			print("$pdb2casp2 $comb_dir/$server$idx.pdb.scw $idx $query_name $comb_dir/$server-casp$idx.pdb");	

@@ -1,0 +1,35 @@
+Query file is in HHM format
+Read in HMM T0579 with 124 match states and effective number of sequences = 3.4
+Query file is in HHM format
+Read in HMM e5vebY1 with 107 match states and effective number of sequences = 8.3
+Using Viterbi algorithm ...
+Realigning using HMM-HMM Maximum Accuracy algorithm
+
+Query         T0579
+Match_columns 124
+No_of_seqs    160 out of 402
+Neff          3.4 
+Searched_HMMs 1
+Date          Sun Apr 15 18:34:46 2018
+Command       /home/casp13/deepsf_3d/deepsf3d_tools/hhsuite-2.0.16-linux-x86_64//bin/hhalign -i /home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm//T0579.hhm -t /home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm//T0579/e5vebY1.hhm -glob -o /home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-alignment//T0579/hhalign/T0579_e5vebY1_glob.hhr 
+
+ No Hit                             Prob E-value P-value  Score    SS Cols Query HMM  Template HMM
+  1 e5vebY1                          0.0       1       1   -2.1   3.8    1    1-1      72-72  (107)
+
+No 1  
+>e5vebY1
+Probab=0.01  E-value=1  Score=-2.07  Aligned_cols=1  Identities=0%  Similarity=-0.197  Sum_probs=0.0
+
+Q ss_pred             C
+Q T0579             1 M    1 (124)
+Q Consensus         1 f    1 (124)
+                      +
+T Consensus        72 ~   72 (107)
+T e5vebY1          72 T   72 (107)
+T ss_pred             e
+Confidence            0
+
+
+
+Aligned T0579 with e5vebY1: Score = -2.07    P-value = 1      
+Done

@@ -27,7 +27,7 @@ if(!(defined($contact_file)))
 
 $Rosetta_starttime = time();
 
-$rosetta_install_dir='/home/casp14/MULTICOM_TS/jie_github/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle';
+$rosetta_install_dir='/data/jh7x3/multicom_github/jie_test/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle';
 $output_prefix_name='Rosetta_dncon2';
 $final_model_number=5;
 if(!defined($contact_file))
@@ -65,7 +65,7 @@ if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 	print "$ren_dncon2_features/$targetname.dncon2.rr generated!\n\n";
 }else{
    
-   $cmd = "/home/casp14/MULTICOM_TS/jie_github/multicom/tools/DNCON2/dncon2-v1.0.sh  $fasta_seq  $ren_dncon2_features";
+   $cmd = "/data/jh7x3/multicom_github/jie_test/multicom/tools/DNCON2/dncon2-v1.0.sh  $fasta_seq  $ren_dncon2_features";
    $OUT = new FileHandle ">$res";
    print $OUT "1. generating dncon2 score\n   $cmd \n\n";
    print  "1. generating dncon2 score\n   $cmd \n\n";
@@ -116,24 +116,24 @@ chdir($ren_rosetta_dir);
 #goto EVA;
 if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 {
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
+	print "1. Filtering dncon2 \nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
+	print "1. Filtering dncon2 \nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
+	print "1. Filtering dncon2 \nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
 
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
+	print "2. Generating dncon2 constraints\nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
-	`perl /home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
+	`perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
 
 
 
@@ -153,13 +153,13 @@ if(-e "$ren_rosetta_dir/abini/aaabini03_05.200_v1_3" and -e "$ren_rosetta_dir/ab
 {
 	print "4. Found existing rosetta fragments\n\n";
 }else{
-	print "4. Generating rosetta fragments\n/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/script/make_rosetta_fragment.sh $fasta_seq abini $ren_rosetta_dir 100  &>> $dir_output/runRosetta_LongMediumShortLby5.log\n\n";
-	`/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/script/make_rosetta_fragment.sh $fasta_seq abini $ren_rosetta_dir 100  &>> $dir_output/runRosetta_LongMediumShortLby5.log`;
+	print "4. Generating rosetta fragments\n/data/jh7x3/multicom_github/jie_test/multicom/src/meta/script/make_rosetta_fragment.sh $fasta_seq abini $ren_rosetta_dir 100  &>> $dir_output/runRosetta_LongMediumShortLby5.log\n\n";
+	`/data/jh7x3/multicom_github/jie_test/multicom/src/meta/script/make_rosetta_fragment.sh $fasta_seq abini $ren_rosetta_dir 100  &>> $dir_output/runRosetta_LongMediumShortLby5.log`;
 }
 #(need discuss which nr database use in make_fragment.pl)
 
-print "5. Running rosetta with contact constraints\n/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_rosetta_no_fragment_withContact.sh $fasta_seq abini $ren_rosetta_dir   100 $ren_rosetta_dir/$targetname.rr.LongMediumShortLby5.contact.cst $weight &>> $dir_output/runRosetta_LongMediumShortLby5.log\n\n";
-`/home/casp14/MULTICOM_TS/jie_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_rosetta_no_fragment_withContact.sh $fasta_seq abini $ren_rosetta_dir   100 $ren_rosetta_dir/$targetname.rr.LongMediumShortLby5.contact.cst $weight &>> $dir_output/runRosetta_LongMediumShortLby5.log`;
+print "5. Running rosetta with contact constraints\n/data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_rosetta_no_fragment_withContact.sh $fasta_seq abini $ren_rosetta_dir   100 $ren_rosetta_dir/$targetname.rr.LongMediumShortLby5.contact.cst $weight &>> $dir_output/runRosetta_LongMediumShortLby5.log\n\n";
+`/data/jh7x3/multicom_github/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_rosetta_no_fragment_withContact.sh $fasta_seq abini $ren_rosetta_dir   100 $ren_rosetta_dir/$targetname.rr.LongMediumShortLby5.contact.cst $weight &>> $dir_output/runRosetta_LongMediumShortLby5.log`;
 
 EVA:
 
@@ -195,7 +195,7 @@ if($modelnum == 0)
 
 
 $SBROD_starttime = time();
-chdir("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/SBROD");
+chdir("/data/jh7x3/multicom_github/jie_test/multicom/tools/SBROD");
 $cmd = "./assess_protein $ren_rosetta_dir/abini/*pdb &> $ren_rosetta_dir/SBROD_ranking.txt";
 
 print "generating SBROD score\n   $cmd \n\n";
@@ -248,8 +248,8 @@ if(-d "$ren_rosetta_dir/maxcluster")
 }
 $clusternum = int($modelnum/5);
 $maxcluster_score_file = $ren_rosetta_dir.'/maxcluster/'.$targetname.'.maxcluster_results';
-print("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/UniCon3D/maxcluster64bit -l  $ren_rosetta_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file\n");
-system("/home/casp14/MULTICOM_TS/jie_github/multicom/tools/UniCon3D/maxcluster64bit -l  $ren_rosetta_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file"); 
+print("/data/jh7x3/multicom_github/jie_test/multicom/tools/UniCon3D/maxcluster64bit -l  $ren_rosetta_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file\n");
+system("/data/jh7x3/multicom_github/jie_test/multicom/tools/UniCon3D/maxcluster64bit -l  $ren_rosetta_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file"); 
 
 if(!(-e $maxcluster_score_file))
 {

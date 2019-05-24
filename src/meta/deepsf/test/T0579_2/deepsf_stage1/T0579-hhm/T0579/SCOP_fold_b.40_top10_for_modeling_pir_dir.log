@@ -1,0 +1,32 @@
+Start Time:date
+Starting DeepSF modeling..
+
+
+##################### Start modeling </home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/SCOP_fold_b.40_top10_for_modeling_pir_dir/>
+
+Total number of templates used for initial model generation is 2.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 751.9489
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/SCOP_fold_b.40_top10_for_modeling_pir_dir//SCOP_fold_b.40_top10_for_modeling_hhalign.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 601.5344
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/SCOP_fold_b.40_top10_for_modeling_pir_dir//T0579_d1c4qa_.pdb is generated!
+
+-----------------------------------------
+
+Total number of templates used for initial model generation is 1.
+Structures are generated in iteration:1
+
+the energy of the selected model 1 = 621.2165
+/home/casp13/MULTICOM_package/casp8/deepsf/test/T0579_2/deepsf_stage1/T0579-hhm/T0579/SCOP_fold_b.40_top10_for_modeling_pir_dir//T0579_d2c35b1_glob.pdb is generated!
+
+-----------------------------------------
+
+DeepSF modeling: 0 minutes and 22 seconds elapsed.
+Sun Apr 15 18:55:28 UTC 2018
