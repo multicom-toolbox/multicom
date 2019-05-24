@@ -32,7 +32,7 @@ sh ./P4_install_scwrl4.sh
 sh ./P5_python_virtual.sh
 ```
 
-# check installation
+#### (5) check installation
 
 ```
 cd installation/MULTICOM_test_codes
