@@ -1,5 +1,6 @@
 # multicom main scripts
 src/multicom_ve.pl
+src/run_multicom.sh
 src/meta/script/multicom_server_hard_ve.pl
 src/meta/script/multicom_server_ve.pl
 

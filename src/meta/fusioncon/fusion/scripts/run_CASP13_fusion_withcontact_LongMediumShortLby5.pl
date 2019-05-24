@@ -60,7 +60,7 @@ if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 	print "$ren_dncon2_features/$targetname.dncon2.rr generated!\n\n";
 }else{
    
-   $cmd = "/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/dncon2-v1.0.sh  $fasta_seq  $ren_dncon2_features";
+   $cmd = "/home/casp14/MULTICOM_TS/jie_test/multicom/tools/DNCON2/dncon2-v1.0.sh  $fasta_seq  $ren_dncon2_features";
    $OUT = new FileHandle ">$res";
    print $OUT "1. generating dncon2 score\n   $cmd \n\n";
    print  "1. generating dncon2 score\n   $cmd \n\n";
@@ -105,24 +105,24 @@ chdir($ren_fusion_dir);
 
 if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 {
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
 
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
+	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
 
-	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
-	`perl /home/casp14/MULTICOM_TS/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
+	`perl /home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
 
 
 
@@ -139,8 +139,8 @@ if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 }
 chdir($ren_fusion_dir);
 
-print "5. Running fusion with contact constraints\n/home/casp14/MULTICOM_TS/multicom/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh  --target  $targetname  --fasta $fasta_seq  --email jh7x3\@mail.missouri.edu --dir $ren_fusion_dir  --timeout  $max_wait_time  --constraint $ren_fusion_dir/$targetname.rr.LongMediumShortLby5.contact.cst --cpu 5 --decoy 1000 --model  5 &> $dir_output/runFusion_LongMediumShortLby5.log\n\n";
-`/home/casp14/MULTICOM_TS/multicom/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh  --target  $targetname  --fasta $fasta_seq  --email jh7x3\@mail.missouri.edu --dir $ren_fusion_dir  --timeout  $max_wait_time  --constraint $ren_fusion_dir/$targetname.rr.LongMediumShortLby5.contact.cst --cpu 5 --decoy 1000 --model  5 &> $dir_output/runFusion_LongMediumShortLby5.log`;
+print "5. Running fusion with contact constraints\n/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh  --target  $targetname  --fasta $fasta_seq  --email jh7x3\@mail.missouri.edu --dir $ren_fusion_dir  --timeout  $max_wait_time  --constraint $ren_fusion_dir/$targetname.rr.LongMediumShortLby5.contact.cst --cpu 5 --decoy 1000 --model  5 &> $dir_output/runFusion_LongMediumShortLby5.log\n\n";
+`/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh  --target  $targetname  --fasta $fasta_seq  --email jh7x3\@mail.missouri.edu --dir $ren_fusion_dir  --timeout  $max_wait_time  --constraint $ren_fusion_dir/$targetname.rr.LongMediumShortLby5.contact.cst --cpu 5 --decoy 1000 --model  5 &> $dir_output/runFusion_LongMediumShortLby5.log`;
 
 
 
@@ -182,8 +182,8 @@ if(-d "$ren_fusion_dir/maxcluster")
 }
 $clusternum = int($modelnum/5);
 $maxcluster_score_file = $ren_fusion_dir.'/maxcluster/'.$targetname.'.maxcluster_results';
-print("/home/casp14/MULTICOM_TS/multicom/tools/maxcluster64bit -l  $ren_fusion_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file\n");
-system("/home/casp14/MULTICOM_TS/multicom/tools/maxcluster64bit -l  $ren_fusion_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file"); 
+print("/home/casp14/MULTICOM_TS/jie_test/multicom/tools/maxcluster64bit -l  $ren_fusion_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file\n");
+system("/home/casp14/MULTICOM_TS/jie_test/multicom/tools/maxcluster64bit -l  $ren_fusion_dir/model.list -ms 5 -C 5 -is $clusternum  > $maxcluster_score_file"); 
 
 if(!(-e $maxcluster_score_file))
 {

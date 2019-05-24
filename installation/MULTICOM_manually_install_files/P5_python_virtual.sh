@@ -3,11 +3,11 @@
 echo " Start install python virtual environment (will take ~1 min)
 "
 
-cd /home/casp14/MULTICOM_TS/multicom//tools
+cd /home/casp14/MULTICOM_TS/jie_test/multicom//tools
 
 virtualenv python_virtualenv
 
-source /home/casp14/MULTICOM_TS/multicom//tools/python_virtualenv/bin/activate
+source /home/casp14/MULTICOM_TS/jie_test/multicom//tools/python_virtualenv/bin/activate
 
 pip install --upgrade pip
 
@@ -25,5 +25,5 @@ NOW=$(date +"%m-%d-%Y")
 
 cp ~/.keras/keras.json ~/.keras/keras.json.$NOW.$RANDOM
 
-cp /home/casp14/MULTICOM_TS/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
+cp /home/casp14/MULTICOM_TS/jie_test/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
 

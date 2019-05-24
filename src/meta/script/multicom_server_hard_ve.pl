@@ -4,7 +4,7 @@
 #Inputs: option file, query file(fasta), output dir
 #New version: starte date: 1/10/2009
 #########################################################################
-$GLOBAL_PATH="/home/casp14/MULTICOM_TS/multicom/";
+$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_test/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -667,7 +667,7 @@ chdir $output_dir;
 #@servers = ("hhsearch", "compass", "sp3", "csiblast", "sam", "hmmer", "psiblast", "hhsearch15", "prc", "rosetta", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "construct"); 
 #@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "msa", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
 #@servers_incasp13 = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "novel", "deepsf", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
-@servers =           ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "rosetta2", "novel", "deepsf", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
+@servers =           ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "unicon3d", "rosetta2", "novel", "deepsf", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
 
 $post_process = 0; 
 

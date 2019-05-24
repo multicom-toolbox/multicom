@@ -186,6 +186,11 @@ system("chmod +x $install_dir/installation/MULTICOM_test_codes/*sh");
 
 
 
+system("cp $install_dir/src/run_multicom.sh $install_dir/bin/run_multicom.sh");
+system("chmod +x $install_dir/bin/run_multicom.sh");
+
+
+
 print "#########  Setting up pspro2\n";
 $ssprodir = $install_dir.'/tools/pspro2/';
 chdir $ssprodir;

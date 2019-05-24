@@ -15,7 +15,7 @@
 #
 #########################################################################
 
-$GLOBAL_PATH="/home/casp14/MULTICOM_TS/multicom/";
+$GLOBAL_PATH="/home/casp14/MULTICOM_TS/jie_test/multicom/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 

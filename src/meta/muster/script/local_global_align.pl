@@ -31,7 +31,7 @@ $output_name = shift @ARGV;
 
 open(OPTION, $align_option) || die "can't read $align_option file.\n";
 
-$align_dir="/home/casp14/MULTICOM_TS/multicom/src/meta/hhpred/script/"; 
+$align_dir="/home/casp14/MULTICOM_TS/jie_test/multicom/src/meta/hhpred/script/"; 
 
 while (<OPTION>)
 {
