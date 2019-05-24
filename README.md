@@ -78,6 +78,11 @@ sh T17-run-prc.sh
 
 sh T20-run-raptorx.sh
 
+sh T27-run-confold.sh
+
+sh T28-run-unicon3d.sh
+
+
 ```
 
 **(6) Run MULTICOM for structure predicton**
