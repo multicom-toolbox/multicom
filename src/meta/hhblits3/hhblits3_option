@@ -6,55 +6,55 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
-prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys/
+prosys_dir = /home/casp14/MULTICOM_TS/multicom/src/prosys/
 
 #blast tool dir
 #blast_dir = /home/jianlinc/pspro/blast2.2.8/
 #blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
-blast_dir = /data/jh7x3/multicom_github/multicom/tools/blast-2.2.17/bin
+blast_dir = /home/casp14/MULTICOM_TS/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
 #modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
 #modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
-modeller_dir = /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/
+modeller_dir = /home/casp14/MULTICOM_TS/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
 #pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
 #pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
-pdb_db_dir = /data/jh7x3/multicom_github/multicom/databases/cm_lib/
+pdb_db_dir = /home/casp14/MULTICOM_TS/multicom/databases/cm_lib/
 
 #nr database used by hhblits to generate profiles
 #nr_db = /home/casp13/MULTICOM_package/nr20/nr20
-nr_db = /data/jh7x3/multicom_github/multicom/databases/hhblits3_dbs/nr20/nr20
+nr_db = /home/casp14/MULTICOM_TS/multicom/databases/hhblits3_dbs/nr20/nr20
 #nr_db = /home/casp13/MULTICOM_package/casp8/hhsuite_db/nr20
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhblits dir
 #hhblits3_dir = /home/casp13/MULTICOM_package/software/hhsuite-3.0-beta.1/
-hhblits3_dir = /data/jh7x3/multicom_github/multicom/tools/hhsuite-3.0-beta.1/
+hhblits3_dir = /home/casp14/MULTICOM_TS/multicom/tools/hhsuite-3.0-beta.1/
 #hhblits3_seq_db = /home/casp13/MULTICOM_package/software/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
-hhblits3_seq_db = /data/jh7x3/multicom_github/multicom/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
+hhblits3_seq_db = /home/casp14/MULTICOM_TS/multicom/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
 #hhblits3_pdb_hmm_db = /home/tools/hhsuite-3.0-beta.1/databases/pdb70/pdb70
 #hhblits3_pdb_hmm_db = /home/casp13/MULTICOM_package/casp8/hhpred/update_db/pdb70/pdb70
-hhblits3_pdb_hmm_db = /data/jh7x3/multicom_github/multicom/databases/hhpred_dbs/update_db/pdb70/pdb70
+hhblits3_pdb_hmm_db = /home/casp14/MULTICOM_TS/multicom/databases/hhpred_dbs/update_db/pdb70/pdb70
 
 #hhblits_dir=/home/casp13/MULTICOM_package/casp8/hhblits/hhblits/
-hhblits_dir=/data/jh7x3/multicom_github/multicom/tools/hhblits/
+hhblits_dir=/home/casp14/MULTICOM_TS/multicom/tools/hhblits/
 
 #psipred dir
 #psipred_dir=/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/
-psipred_dir=/data/jh7x3/multicom_github/multicom/tools/psipred-2.61/
+psipred_dir=/home/casp14/MULTICOM_TS/multicom/tools/psipred-2.61/
 
 #hhsearchdb 
 #all current templates
 #hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/hhsearchdb, 
 #this database is used by hhblits too
 #hhsearchdb=/home/casp13/MULTICOM_package/casp8/hhpred/hhpreddb_new
-hhsearchdb=/data/jh7x3/multicom_github/multicom/databases/hhpred_dbs/hhpreddb_new
+hhsearchdb=/home/casp14/MULTICOM_TS/multicom/databases/hhpred_dbs/hhpreddb_new
 #hhsearch pdb dir 
 #atom_dir=/home/casp13/MULTICOM_package/casp8/hhpred/pdb/
-atom_dir=/data/jh7x3/multicom_github/multicom/databases/hhpred_dbs/pdb/
+atom_dir=/home/casp14/MULTICOM_TS/multicom/databases/hhpred_dbs/pdb/
 
 #templates built before May 10, 2007 (CASP7 starts)
 #hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/casp7_hhsearchdb
@@ -62,11 +62,11 @@ atom_dir=/data/jh7x3/multicom_github/multicom/databases/hhpred_dbs/pdb/
 #meta dir for hhblits
 #meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
 #meta_dir=/home/casp13/MULTICOM_package/casp8/hhblits3/
-meta_dir=/data/jh7x3/multicom_github/multicom/src/meta/hhblits3/
+meta_dir=/home/casp14/MULTICOM_TS/multicom/src/meta/hhblits3/
 
 #meta common dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
-meta_common_dir=/data/jh7x3/multicom_github/multicom/src/meta/
+meta_common_dir=/home/casp14/MULTICOM_TS/multicom/src/meta/
 
 ###############################################################################
 
@@ -182,7 +182,7 @@ cm_evalue_diff=10
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
 #chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
-chain_stx_info=/data/jh7x3/multicom_github/multicom/databases/cm_lib/chain_stx_info
+chain_stx_info=/home/casp14/MULTICOM_TS/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

@@ -2,37 +2,37 @@
 ### Manually install dncon2
 
 ### install boost-1.55 
-cd /data/jh7x3/multicom_github/multicom/tools
+cd /home/casp14/MULTICOM_TS/multicom/tools
 tar -zxvf boost_1_55_0.tar.gz
 cd boost_1_55_0
-./bootstrap.sh  --prefix=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0
+./bootstrap.sh  --prefix=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0
 ./b2  (will take ~20 min)
 ./b2 install
 
 
 #### install OpenBlas
-cd /data/jh7x3/multicom_github/multicom/tools
+cd /home/casp14/MULTICOM_TS/multicom/tools
 git clone https://github.com/xianyi/OpenBLAS.git
 cd OpenBLAS
 make
-make PREFIX=/data/jh7x3/multicom_github/multicom/tools/OpenBLAS install
+make PREFIX=/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS install
 
-	
-export PATH=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/include/:$PATH
-export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/include/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/lib/:$LD_LIBRARY_PATH
-export BOOST_ROOT=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0
-export BOOST_INCLUDEDIR=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/include
-export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
-export PATH=/data/jh7x3/multicom_github/multicom/tools/OpenBLAS:$PATH
 
-cd /data/jh7x3/multicom_github/multicom/tools/DNCON2/
+export PATH=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/include/:$PATH
+export LD_LIBRARY_PATH=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/include/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/lib/:$LD_LIBRARY_PATH
+export BOOST_ROOT=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0
+export BOOST_INCLUDEDIR=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/include
+export LD_LIBRARY_PATH=/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
+export PATH=/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS:$PATH
+
+cd /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/
 tar -xvf freecontact_1.0.21.orig.tar.xz 
 cd freecontact-1.0.21
 
 
 autoreconf -f -i
-./configure --prefix=/data/jh7x3/multicom_github/multicom/tools/DNCON2/freecontact-1.0.21 LDFLAGS="-L/data/jh7x3/multicom_github/multicom/tools/OpenBLAS/lib -L/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/lib" CFLAGS="-I/data/jh7x3/multicom_github/multicom/tools/OpenBLAS/include -I/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/include"  CPPFLAGS="-I/data/jh7x3/multicom_github/multicom/tools/OpenBLAS/include -I/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/include " --with-boost=/data/jh7x3/multicom_github/multicom/tools/boost_1_55_0/
+./configure --prefix=/home/casp14/MULTICOM_TS/multicom/tools/DNCON2/freecontact-1.0.21 LDFLAGS="-L/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS/lib -L/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/lib" CFLAGS="-I/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS/include -I/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/include"  CPPFLAGS="-I/home/casp14/MULTICOM_TS/multicom/tools/OpenBLAS/include -I/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/include " --with-boost=/home/casp14/MULTICOM_TS/multicom/tools/boost_1_55_0/
 make
 make install
 
@@ -41,8 +41,8 @@ make install
 
 
 # install python environment using python2.7
-virtualenv /data/jh7x3/multicom_github/multicom/tools/python_virtualenv
-source /data/jh7x3/multicom_github/multicom/tools/python_virtualenv/bin/activate
+virtualenv /home/casp14/MULTICOM_TS/multicom/tools/python_virtualenv
+source /home/casp14/MULTICOM_TS/multicom/tools/python_virtualenv/bin/activate
 
 (a) Install keras,theano:
 export LC_ALL=C

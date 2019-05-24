@@ -230,6 +230,20 @@ if(-f 'configure.pl')
 	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
+print "\n\n#########  Setting up betapro-1.0\n";
+$ssprodir = $install_dir.'/tools/betapro-1.0/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
 
 ######
 print "\n\n#########  Setting up disorder\n"; 
@@ -350,13 +364,6 @@ system("cp $deep_mod9v16 $addr_mod9v16");
 print "Done\n";
 
 
-print "\n#########  Setting up scwrl4 \n";
-
-#/data/jh7x3/multicom_github/multicom/tools/scwrl4/
-#./install_Scwrl4_Linux
-
-
-
 ####### update prc database 
 $prc_db = "$install_dir/databases/prc_db/";
 if(!(-d $prc_db))
@@ -377,6 +384,61 @@ foreach $prcfile (@prcfiles)
 	
 }
 close PRCLIB;
+
+
+
+
+####### tools compilation 
+
+### install boost-1.55 
+open(OUT,">$install_dir/installation/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/P1_install_boost.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile boost (will take ~20 min)\n\"\n\n";
+print OUT "cd $install_dir/tools\n\n";
+print OUT "cd boost_1_55_0\n\n";
+print OUT "./bootstrap.sh  --prefix=$install_dir/tools/boost_1_55_0\n\n";
+print OUT "./b2\n\n";
+print OUT "./b2 install\n\n";
+close OUT;
+
+#### install OpenBlas
+open(OUT,">$install_dir/installation/P2_install_OpenBlas.sh") || die "Failed to open file $install_dir/installation/P2_install_OpenBlas.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile OpenBlas (will take ~5 min)\n\"\n\n";
+print OUT "cd $install_dir/tools\n\n";
+print OUT "cd OpenBLAS\n\n";
+print OUT "make clean\n\n";
+print OUT "make\n\n";
+print OUT "make PREFIX=$install_dir/tools/OpenBLAS install\n\n";
+close OUT;
+
+
+#### install freecontact
+
+open(OUT,">$install_dir/installation/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/P3_install_freecontact.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
+print OUT "cd $install_dir/tools/DNCON2\n\n";
+print OUT "cd freecontact-1.0.21\n\n";
+print OUT "autoreconf -f -i\n\n";
+print OUT "make clean\n\n";
+print OUT "./configure --prefix=$install_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$install_dir/tools/OpenBLAS/lib -L$install_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$install_dir/tools/OpenBLAS/include -I$install_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$install_dir/tools/OpenBLAS/include -I$install_dir/tools/boost_1_55_0/include\" --with-boost=$install_dir/tools/boost_1_55_0/\n\n";
+print OUT "make\n\n";
+print OUT "make install\n\n";
+close OUT;
+
+#### install scwrl4
+
+open(OUT,">$install_dir/installation/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/P4_install_scwrl4.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile freecontact (will take ~1 min)\n\"\n\n";
+print OUT "echo \" Setting installation path to <${install_dir}tools/scwrl4>\"\n\n";
+print OUT "cd $install_dir/tools\n\n";
+print OUT "cd scwrl4\n\n";
+print OUT "./install_Scwrl4_Linux\n\n";
+close OUT;
+
+
 
 
 

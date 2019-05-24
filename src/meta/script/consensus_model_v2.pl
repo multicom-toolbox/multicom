@@ -13,7 +13,7 @@ $consensus_name = shift @ARGV;
 
 -d $target_dir || die "hybrid: $target_dir doesn't exist.\n";
 
-$tm_score_program = "/data/jh7x3/multicom_github/multicom/tools/tm_score/TMscore_32";
+$tm_score_program = "/home/casp14/MULTICOM_TS/multicom/tools/tm_score/TMscore_32";
 -f $tm_score_program || die "can't find $tm_score_program.\n";
 
 
@@ -189,7 +189,7 @@ for ($i = 1; $i <= 5; $i++)
 	print "Final model $i: ",  $sorted_gdt[0]{"name"}, " score = ", $sorted_gdt[0]{"gdt"} / 5,  "\n"; 
 	print FINAL $sorted_gdt[0]{"name"}, " score = ", $sorted_gdt[0]{"gdt"} / 5,  "\n"; 
 	#$pdb2casp2 = "/home/casp13/MULTICOM_package//casp8/meta/script/pdb2casp.pl";
-	$pdb2casp2 = "/data/jh7x3/multicom_github/multicom/src/meta/script/pdb2casp.pl";
+	$pdb2casp2 = "/home/casp14/MULTICOM_TS/multicom/src/meta/script/pdb2casp.pl";
 
 	$model_file = $sorted_gdt[0]{"name"}; 
 
@@ -201,11 +201,11 @@ for ($i = 1; $i <= 5; $i++)
 	if (-f $model_file)
 	{
 		#system("/home/casp13/MULTICOM_package//software/scwrl4/Scwrl4 -i $model_file -o $consensus_dir/$model_name-$i.pdb.scw >/dev/null");
-		system("/data/jh7x3/multicom_github/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $consensus_dir/$model_name-$i.pdb.scw >/dev/null");
+		system("/home/casp14/MULTICOM_TS/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $consensus_dir/$model_name-$i.pdb.scw >/dev/null");
 		
 		
 		#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/clash_check.pl $model_dir/$target_name.FASTA $consensus_dir/$model_name-$i.pdb.scw > $consensus_dir/clash$i.txt");
-		system("/data/jh7x3/multicom_github/multicom/src/meta/model_cluster/script/clash_check.pl $model_dir/$target_name.FASTA $consensus_dir/$model_name-$i.pdb.scw > $consensus_dir/clash$i.txt");
+		system("/home/casp14/MULTICOM_TS/multicom/src/meta/model_cluster/script/clash_check.pl $model_dir/$target_name.FASTA $consensus_dir/$model_name-$i.pdb.scw > $consensus_dir/clash$i.txt");
 		system("$pdb2casp2 $consensus_dir/$model_name-$i.pdb.scw $i $target_name $consensus_dir/casp$i.pdb");	
 	}
 	else

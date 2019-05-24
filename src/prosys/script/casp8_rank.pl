@@ -41,7 +41,7 @@ $out_dir = shift @ARGV;
 #1. call multicom-cm
 #system("/home/casp13/MULTICOM_package/casp8/hhsearch/script/tm_hhsearch_main.pl $cm_option $seq_file $out_dir");
 #system("/home/casp13/MULTICOM_package/casp8/hhsearch/script/tm_hhsearch_main.pl $cm_option $seq_file $out_dir 1>out.log 2>err.log");
-system("/data/jh7x3/multicom_github/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option $seq_file $out_dir 1>out.log 2>err.log");
+system("/home/casp14/MULTICOM_TS/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option $seq_file $out_dir 1>out.log 2>err.log");
 
 #check if some significant templates are found by hhsearch
 `cp $out_dir/$name.rank $out_dir/$name.hh.rank`;
@@ -54,7 +54,7 @@ if (@hhrank < 2)
 	print "No significant templates are found by hhsearch. Redo hhsearch using a large nr.\n";
 	`rm $out_dir/*`;
 	#system("/home/casp13/MULTICOM_package/casp8/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
-	system("/data/jh7x3/multicom_github/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
+	system("/home/casp14/MULTICOM_TS/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
 }
 else
 {
@@ -66,13 +66,13 @@ else
 		print "No significant templates are found by hhsearch. Redo hhsearch using a large nr.\n";
 		`rm $out_dir/*`;
 		#system("/home/casp13/MULTICOM_package/casp8/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
-		system("/data/jh7x3/multicom_github/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
+		system("/home/casp14/MULTICOM_TS/multicom/src/meta/hhsearch/script/tm_hhsearch_main.pl $cm_option_nr $seq_file $out_dir");
 	}
 }
 
 #2. evaluate multicom-cm
 #$cm_sel = `/home/casp13/MULTICOM_package/software/prosys/script/evaluate_cm_hh_models.pl /home/casp13/MULTICOM_package/software/prosys/ $out_dir $name $out_dir/$name.hh.eva`;
-$cm_sel = `/data/jh7x3/multicom_github/multicom/src/prosys/script/evaluate_cm_hh_models.pl /data/jh7x3/multicom_github/multicom/src/prosys/ $out_dir $name $out_dir/$name.hh.eva`;
+$cm_sel = `/home/casp14/MULTICOM_TS/multicom/src/prosys/script/evaluate_cm_hh_models.pl /home/casp14/MULTICOM_TS/multicom/src/prosys/ $out_dir $name $out_dir/$name.hh.eva`;
 
 @models = ();
 @select = split(/\n+/, $cm_sel); 
@@ -93,31 +93,31 @@ print "HH models: ", join(" ", @models), "\n";
 if (@models < 5)
 {
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/multicom_fr_jury.pl $fr_option $seq_file $out_dir");
-	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/multicom_fr_jury.pl $fr_option $seq_file $out_dir");
+	system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/multicom_fr_jury.pl $fr_option $seq_file $out_dir");
 }
 else
 {
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
-	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
+	system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
-	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
+	system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
 
 	if (! -f "$out_dir/$name.fasta")
 	{
 		`cp $seq_file $out_dir/$name.fasta`;
 	}
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/evaluate_models_nofr.pl /home/casp13/MULTICOM_package/software/prosys/ $out_dir $name $out_dir/$name.fr.eva");
-	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/evaluate_models_nofr.pl /data/jh7x3/multicom_github/multicom/src/prosys/ $out_dir $name $out_dir/$name.fr.eva");
+	system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/evaluate_models_nofr.pl /home/casp14/MULTICOM_TS/multicom/src/prosys/ $out_dir $name $out_dir/$name.fr.eva");
 	goto CM;
 }
 
 #4. evaluate all models
 #system("/home/casp13/MULTICOM_package/software/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
-system("/data/jh7x3/multicom_github/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
+system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
 #system("/home/casp13/MULTICOM_package/software/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
-system("/data/jh7x3/multicom_github/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
+system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
 #system("/home/casp13/MULTICOM_package/software/prosys/script/evaluate_models.pl /home/casp13/MULTICOM_package/software/prosys/ $out_dir $seq_file $out_dir/$name.fr.eva");
-system("/data/jh7x3/multicom_github/multicom/src/prosys/script/evaluate_models.pl /data/jh7x3/multicom_github/multicom/src/prosys/ $out_dir $seq_file $out_dir/$name.fr.eva");
+system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/evaluate_models.pl /home/casp14/MULTICOM_TS/multicom/src/prosys/ $out_dir $seq_file $out_dir/$name.fr.eva");
 
 #5. select more models in addition to selected cm models if available
 open(FR, "$out_dir/$name.fr.eva") || die "can't read $out_dir/$name.fr.eva\n";
@@ -179,7 +179,7 @@ for ($i = 0; $i < 5; $i++)
 #	system("/home/casp13/MULTICOM_package/software/prosys/script/pdb2casp.pl $out_dir/$name-$idx.pdb $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
 
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/pdb2casp.pl $out_dir/$model $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
-	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/pdb2casp.pl $out_dir/$model $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
+	system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/pdb2casp.pl $out_dir/$model $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
 
 	print SEL $model, "\n";
 }

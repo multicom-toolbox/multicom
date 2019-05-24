@@ -192,7 +192,7 @@ $cur_dir = `pwd`;
 chomp $cur_dir;
 
 #do modeling
-system("/data/jh7x3/multicom_github/multicom/src/prosys/script/pir2ts_energy.pl /data/jh7x3/multicom_github/multicom/tools/modeller7v7 $cur_dir/atomtmp $cur_dir/outtmp $output_pir 5");
+system("/home/casp14/MULTICOM_TS/multicom/src/prosys/script/pir2ts_energy.pl /home/casp14/MULTICOM_TS/multicom/tools/modeller7v7 $cur_dir/atomtmp $cur_dir/outtmp $output_pir 5");
 
 `cp $cur_dir/outtmp/$name.pdb $output_pdb`;
 

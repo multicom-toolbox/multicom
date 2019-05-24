@@ -4,7 +4,7 @@
 #Inputs: option file, query file(fasta), output dir
 #New version: starte date: 1/10/2009
 #########################################################################
-$GLOBAL_PATH="/data/jh7x3/multicom_github/multicom/";
+$GLOBAL_PATH="/home/casp14/MULTICOM_TS/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -579,8 +579,8 @@ while (<OPTION>)
 -f $hhblits3_option || die "can't find $hhblits3_option.\n";
 -d $hhsuite_dir || die "can't find $hhsuite_dir.\n";
 -f $hhsuite_option || die "can't find $hhsuite_option.\n";
-#-d $hhsuite3_dir || die "can't find $hhsuite3_dir.\n";
-#-f $hhsuite3_option || die "can't find $hhsuite3_option.\n";
+-d $hhsuite3_dir || die "can't find $hhsuite3_dir.\n";
+-f $hhsuite3_option || die "can't find $hhsuite3_option.\n";
 -d $confold_dir || die "can't find $confold_dir.\n";
 -f $confold_option || die "can't find $confold_option.\n";
 -d $rosettacon_dir || die "can't find $rosettacon_dir.\n";
@@ -600,10 +600,10 @@ while (<OPTION>)
 -d $hmmer3_dir || die "can't find $hmmer3_dir.\n";
 -f $hmmer3_option || die "can't find $hmmer3_option.\n";
 
-#-d $deepsf_dir || die "can't find $deepsf_dir.\n";
-#-f $deepsf_option || die "can't find $deepsf_option.\n";
-#-d $novel_dir || die "can't find $novel_dir.\n";
-#-f $novel_option || die "can't find $novel_option.\n";
+-d $deepsf_dir || die "can't find $deepsf_dir.\n";
+-f $deepsf_option || die "can't find $deepsf_option.\n";
+-d $novel_dir || die "can't find $novel_dir.\n";
+-f $novel_option || die "can't find $novel_option.\n";
 
 -d $csblast_dir || die "can't find $csblast_dir.\n";
 -f $csblast_option || die "can't find $csblast_option.\n";
@@ -620,8 +620,8 @@ while (<OPTION>)
 -f $multicom_option || die "can't find $multicom_option.\n";
 -d $construct_dir || die "can't find $construct_dir.\n";
 -f $construct_option || die "can't find $construct_option.\n";
-#-d $confoldtemp_dir || die "can't find $confoldtemp_dir.\n";
-#-f $confoldtemp_option || die "can't find $confoldtemp_option.\n";
+-d $confoldtemp_dir || die "can't find $confoldtemp_dir.\n";
+-f $confoldtemp_option || die "can't find $confoldtemp_option.\n";
 -d $msa_dir || die "can't find $msa_dir.\n";
 -f $msa_option || die "can't find $msa_option.\n";
 -d $rosetta_dir || die "can't find $rosetta_dir.\n";
