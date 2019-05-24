@@ -15,13 +15,13 @@ wget MULTICOM_db_tools.tar.gz (contact us)
 ```
 #### (3) Configure MULTICOM system
 
+```
 a. edit configure.pl
 
 b. set the path of variable '$multicom_db_tools_dir' for multicom databases and tools (i.e., /home/casp13/MULTICOM_db_tools/).
 
 c. save configure.pl
 
-```
 perl configure.pl
 ```
 
