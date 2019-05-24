@@ -1,0 +1,23 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime/
+
+mkdir prc
+perl SOFTWARE_PATH/src/meta/prc/script/tm_prc_main_v2.pl SOFTWARE_PATH/src/meta/prc/prc_option SOFTWARE_PATH/examples/T0967.fasta prc  2>&1 | tee  SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime.log
+
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime/prc/prc1.pdb" ]];then 
+	printf "!!!!! Failed to run prc, check the installation <SOFTWARE_PATH/src/meta/prc/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-prc-$dtime/prc/prc1.pdb\n\n"
+fi
+

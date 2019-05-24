@@ -1,2 +1,92 @@
 working dir: /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch15-2019-May-24/hhsearch15
 Generate alignments from the nr database...
+convert alignment to HMM...
+T0967.a3m is in A2M, A3M or FASTA format
+Read T0967.a3m with 2037 sequences
+Alignment in T0967.a3m contains 81 match states
+110 out of 2035 sequences passed filter (up to 30% position-dependent max pairwise sequence identity)
+Effective number of sequences exp(entropy) = 7.6 
+Writing HMM to T0967.hhm
+Done
+calibrate HMM model...
+Search results will be written to T0967.hhr
+Query file is in HHM format
+Read in HMM T0967 with 81 match states and effective number of sequences = 7.6
+.................................................. 1000 HMMs searched
+.........................................
+Fitting scores with EVD (first round) ...
+Fitting scores with EVD (second round) ...
+Realigning 10 query-template alignments with maximum accuracy (MAC) algorithm ...
+
+Query         T0967
+Match_columns 81
+No_of_seqs    110 out of 2037
+Neff          7.6 
+Searched_HMMs 1835
+Date          Fri May 24 14:19:20 2019
+Command       /home/casp14/MULTICOM_TS/multicom/tools/hhsearch1.5.0//hhsearch -cal -i T0967.hhm -d /home/casp14/MULTICOM_TS/multicom/tools/hhsearch1.5.0//cal.hhm 
+
+ No Hit                             Prob E-value P-value  Score    SS Cols Query HMM  Template HMM
+  1 d1dqaa1 d.58.20.1 (A:587-703)   89.3    0.68 0.00037   18.2  11.2   70    3-72     28-97  (117)
+  2 d1th5a1 d.52.8.1 (A:154-226) N  62.8    0.21 0.00011   21.2   1.7   60    3-72     11-71  (73)
+  3 d1ghha_ d.57.1.1 (A:) DNA dama  39.1     4.4  0.0024   13.6   5.3   41   34-74      3-44  (81)
+  4 d1ib8a2 d.52.4.1 (A:1-90) Hypo  34.4     8.4  0.0046   12.0   6.2   59    3-62     10-70  (90)
+  5 d1mlia_ d.58.4.1 (A:) Muconala  29.0     4.5  0.0025   13.5   4.0   29   31-59      2-30  (96)
+  6 d2i52a1 d.316.1.1 (A:1-120) Hy  27.0     2.2  0.0012   15.3   2.2   32   45-77     38-69  (120)
+  7 d1j27a_ d.58.50.1 (A:) Hypothe  25.2     9.9  0.0054   11.6   5.2   33   34-68      8-40  (98)
+  8 d1qd1a1 d.58.34.1 (A:2-180) Fo  22.8      51   0.028    7.5   8.5   62    2-64     17-118 (179)
+  9 d1amua_ e.23.1.1 (A:) Phenylal  20.8      69   0.037    6.7   8.9   56    4-66    426-481 (514)
+ 10 d1rq2a2 d.79.2.1 (A:206-312) C  19.7     7.3   0.004   12.3   3.7   27   36-62     54-80  (107)
+
+
+Recording calibration coefficients in T0967.hhm
+Done
+search HMM against HMM database...
+Search results will be written to T0967.hhr
+Query file is in HHM format
+Read in HMM T0967 with 81 match states and effective number of sequences = 7.6
+.................................................. 1000 HMMs searched
+.................................................. 2000 HMMs searched
+.................................................. 3000 HMMs searched
+.................................................. 4000 HMMs searched
+.................................................. 5000 HMMs searched
+.................................................. 6000 HMMs searched
+.................................................. 7000 HMMs searched
+.................................................. 8000 HMMs searched
+.................................................. 9000 HMMs searched
+.................................................. 10000 HMMs searched
+.................................................. 11000 HMMs searched
+.................................................. 12000 HMMs searched
+.................................................. 13000 HMMs searched
+.................................................. 14000 HMMs searched
+.................................................. 15000 HMMs searched
+.................................................. 16000 HMMs searched
+.................................................. 17000 HMMs searched
+.................................................. 18000 HMMs searched
+.................................................. 19000 HMMs searched
+.................................................. 20000 HMMs searched
+.................................................. 21000 HMMs searched
+.................................................. 22000 HMMs searched
+.................................................. 23000 HMMs searched
+.................................................. 24000 HMMs searched
+.................................................. 25000 HMMs searched
+.................................................. 26000 HMMs searched
+.................................................. 27000 HMMs searched
+.................................................. 28000 HMMs searched
+.................................................. 29000 HMMs searched
+.................................................. 30000 HMMs searched
+.................................................. 31000 HMMs searched
+.................................................. 32000 HMMs searched
+.................................................. 33000 HMMs searched
+.................................................. 34000 HMMs searched
+.................................................. 35000 HMMs searched
+.................................................. 36000 HMMs searched
+.................................................. 37000 HMMs searched
+.................................................. 38000 HMMs searched
+.................................................. 39000 HMMs searched
+.................................................. 40000 HMMs searched
+.................................................. 41000 HMMs searched
+.................................................. 42000 HMMs searched
+.................................................. 43000 HMMs searched
+.................................................. 44000 HMMs searched
+.....................

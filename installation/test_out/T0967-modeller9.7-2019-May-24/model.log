@@ -23,7 +23,7 @@
 Kind, OS, HostName, Kernel, Processor: 4, Linux violet.rnet.missouri.edu 2.6.32-696.23.1.el6.x86_64 x86_64
 Date and time of compilation         : 2009/06/12 12:03:00
 MODELLER executable type             : x86_64-intel8
-Job starting time (YY/MM/DD HH:MM:SS): 2019/05/24 12:08:26
+Job starting time (YY/MM/DD HH:MM:SS): 2019/05/24 13:50:50
 
 openf___224_> Open           $(LIB)/restyp.lib
 openf___224_> Open           ${MODINSTALL9v7}/modlib/resgrp.lib
@@ -1091,6 +1091,6 @@ T0967.B99990005.pdb            397.28394
 
 
 Dynamically allocated memory at          finish [B,KiB,MiB]:      5658367    5525.749     5.396
-Starting time                                            : 2019/05/24 12:08:26
-Closing time                                             : 2019/05/24 12:08:51
-Total CPU time [seconds]                                 :      24.75
+Starting time                                            : 2019/05/24 13:50:50
+Closing time                                             : 2019/05/24 13:51:15
+Total CPU time [seconds]                                 :      23.93

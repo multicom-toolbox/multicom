@@ -5,11 +5,6 @@ Generate alignment...
 
 [blastpgp] WARNING: posReadCheckpoint: Data recovered successfully
 
-rm: missing operand
-Try `rm --help' for more information.
-rm: cannot remove `/home/casp14/MULTICOM_TS/multicom/examples/T0967.fasta.tmp': No such file or directory
-rm: cannot remove `/home/casp14/MULTICOM_TS/multicom/examples/T0967.fasta.chk': No such file or directory
-rm: cannot remove `/home/casp14/MULTICOM_TS/multicom/examples/T0967.fasta.blastpgp': No such file or directory
 done
 Predict secondary structure...done
 Predict solvent accessibility...can't create temporary file for conpro.

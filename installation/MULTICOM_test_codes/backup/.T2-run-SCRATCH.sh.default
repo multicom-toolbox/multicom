@@ -1,0 +1,19 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime/
+SOFTWARE_PATH/tools/SCRATCH-1D_1.1/bin/run_SCRATCH-1D_predictors.sh SOFTWARE_PATH/examples/T0967.fasta  SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime/T0967 2>&1 | tee  SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime.log
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime/T0967.ss" ]];then 
+	printf "\n!!!!! Failed to run SCRATCH, check the installation <SOFTWARE_PATH/tools/SCRATCH-1D_1.1/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-SCRATCH-$dtime/T0967.ss\n\n"
+fi

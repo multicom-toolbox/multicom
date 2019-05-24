@@ -24,3 +24,66 @@ installation/MULTICOM_test_codes/T8-run-hhsearch15.sh
 
 # hhsearch151
 installation/MULTICOM_test_codes/T9-run-hhsearch151.sh
+
+# csblast
+installation/MULTICOM_test_codes/T10-run-csblast.sh
+
+# hhsuite
+installation/MULTICOM_test_codes/T11-run-hhsuite.sh
+
+# csiblast
+installation/MULTICOM_test_codes/T12-run-csiblast.sh
+
+# blast
+installation/MULTICOM_test_codes/T13-run-blast.sh
+
+# psiblast
+installation/MULTICOM_test_codes/T14-run-psiblast.sh
+
+# compass
+installation/MULTICOM_test_codes/T15-run-compass.sh
+
+# sam
+installation/MULTICOM_test_codes/T16-run-sam.sh
+
+# prc
+installation/MULTICOM_test_codes/T17-run-prc.sh
+
+# hmmer
+installation/MULTICOM_test_codes/T18-run-hmmer.sh
+
+# hmmer3
+installation/MULTICOM_test_codes/T19-run-hmmer3.sh
+
+# raptorx
+installation/MULTICOM_test_codes/T20-run-raptorx.sh
+
+# newblast
+installation/MULTICOM_test_codes/T21-run-newblast.sh
+
+# hhpred
+installation/MULTICOM_test_codes/T22-run-hhpred.sh
+
+# hhblits
+installation/MULTICOM_test_codes/T23-run-hhblits.sh
+
+# hhblits3
+installation/MULTICOM_test_codes/T24-run-hhblits3.sh
+
+# muster
+installation/MULTICOM_test_codes/T25-run-muster.sh
+
+# ffas
+installation/MULTICOM_test_codes/T26-run-ffas.sh
+
+# confold
+installation/MULTICOM_test_codes/T27-run-confold.sh
+
+# unicon3d
+installation/MULTICOM_test_codes/T28-run-unicon3d.sh
+
+# rosetta
+installation/MULTICOM_test_codes/T29-run-rosetta.sh
+
+# rosettacon
+installation/MULTICOM_test_codes/T30-run-rosettacon.sh

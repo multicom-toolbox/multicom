@@ -1,0 +1,23 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime/
+
+mkdir hhpred
+perl SOFTWARE_PATH/src/meta/hhpred//script/tm_hhpred_main.pl SOFTWARE_PATH/src/meta/hhpred/hhpred_option SOFTWARE_PATH/examples/T0967.fasta hhpred  2>&1 | tee  SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime.log
+
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime/hhpred/hp1.pdb" ]];then 
+	printf "!!!!! Failed to run hhpred, check the installation <SOFTWARE_PATH/src/meta/hhpred/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-hhpred-$dtime/hhpred/hp1.pdb\n\n"
+fi
+

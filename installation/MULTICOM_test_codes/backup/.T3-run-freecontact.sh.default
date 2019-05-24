@@ -1,0 +1,21 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/OpenBLAS:$LD_LIBRARY_PATH
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-freecontact-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-freecontact-$dtime/
+SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/bin/freecontact < SOFTWARE_PATH/examples/T0967.aln > SOFTWARE_PATH/installation/test_out/T0967-freecontact-$dtime/T0967.freecontact.rr
+
+col_num=$(head -1 SOFTWARE_PATH/installation/test_out/T0967-freecontact-$dtime/T0967.freecontact.rr | tr ' ' '\n' | wc -l)
+
+if [[ $col_num != 6 ]]
+then 
+	printf "\n!!!!! Failed to run freecontact, check the installation <SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-freecontact-$dtime/T0967.freecontact.rr\n\n"
+fi

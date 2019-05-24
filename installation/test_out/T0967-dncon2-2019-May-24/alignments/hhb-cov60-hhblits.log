@@ -51,7 +51,7 @@ Match_columns 81
 No_of_seqs    3233 out of 3355
 Neff          8.9 
 Searched_HMMs 932
-Date          Fri May 24 12:14:18 2019
+Date          Fri May 24 14:07:53 2019
 Command       /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/hhsuite-2.0.16-linux-x86_64/bin/hhblits -i T0967.fasta -d /home/casp14/MULTICOM_TS/multicom/databases/hhsuite3_dbs/uniprot20_2016_02/uniprot20_2016_02 -oa3m hhb-cov60.a3m -cpu 2 -n 3 -maxfilt 500000 -diff inf -e 0.001 -id 99 -cov 60 
 
  No Hit                             Prob E-value P-value  Score    SS Cols Query HMM  Template HMM

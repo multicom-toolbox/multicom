@@ -3,7 +3,7 @@ Match_columns 81
 No_of_seqs    3233 out of 3355
 Neff          8.9 
 Searched_HMMs 932
-Date          Fri May 24 12:14:18 2019
+Date          Fri May 24 14:07:53 2019
 Command       /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/hhsuite-2.0.16-linux-x86_64/bin/hhblits -i T0967.fasta -d /home/casp14/MULTICOM_TS/multicom/databases/hhsuite3_dbs/uniprot20_2016_02/uniprot20_2016_02 -oa3m hhb-cov60.a3m -cpu 2 -n 3 -maxfilt 500000 -diff inf -e 0.001 -id 99 -cov 60 
 
  No Hit                             Prob E-value P-value  Score    SS Cols Query HMM  Template HMM
@@ -498,8 +498,8 @@ Command       /home/casp14/MULTICOM_TS/multicom/tools/DNCON2/hhsuite-2.0.16-linu
 489 tr|W7L9M1|W7L9M1_BACFI Cation   96.9 4.4E-05   2E-10   42.6   0.0   70    8-79     11-82  (88)
 490 tr|X1MDX6|X1MDX6_9ZZZZ Unchara  96.9 4.4E-05   2E-10   49.0   0.0   73    6-78    139-211 (230)
 491 tr|X1MDX6|X1MDX6_9ZZZZ Unchara  96.9 4.4E-05   2E-10   49.0   0.0   73    6-78    139-211 (230)
-492 tr|X1C9L2|X1C9L2_9ZZZZ Unchara  96.9 4.4E-05   2E-10   46.9   0.0   76    3-78     79-156 (164)
-493 tr|X1C9L2|X1C9L2_9ZZZZ Unchara  96.9 4.4E-05   2E-10   46.9   0.0   53   25-77      3-55  (164)
+492 tr|X1C9L2|X1C9L2_9ZZZZ Unchara  96.9 4.4E-05   2E-10   46.9   0.0   53   25-77      3-55  (164)
+493 tr|X1C9L2|X1C9L2_9ZZZZ Unchara  96.9 4.4E-05   2E-10   46.9   0.0   76    3-78     79-156 (164)
 494 tr|Q9YCJ5|Q9YCJ5_AERPE Cation   96.9 4.1E-05   2E-10   52.6   0.0   71    4-79    198-269 (286)
 495 tr|A0A067PF67|A0A067PF67_9HOMO  96.8 4.5E-05 2.1E-10   54.8   0.0   66   15-80    473-538 (543)
 496 tr|B8BT33|B8BT33_THAPS Cation   96.8 4.9E-05 2.2E-10   54.6   0.0   67    2-68    340-406 (534)
@@ -2754,7 +2754,7 @@ Confidence            4677888887766544577888999999999999999999999999999999999999
 
 No 184
 >tr|M4F226|M4F226_BRARP Uncharacterized protein OS=Brassica rapa subsp. pekinensis GN=Bra035123 PE=4 SV=1
-Probab=98.75  E-value=3.4e-11  Score=82.99  Aligned_cols=76  Identities=13%  Similarity=0.274  Sum_probs=67.1
+Probab=98.75  E-value=3.4e-11  Score=82.99  Aligned_cols=76  Identities=13%  Similarity=0.274  Sum_probs=67.2
 
 Q T0967             1 EDYIEAIANVLE-KTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAA   77 (81)
 Q Consensus         1 ~e~~~~I~~~i~-~~~~V~~v~~l~~~~~G~~~~v~~hi~v~~~~~~~~~h~i~~~ie~~l~~~~~~v~~v~vh~ep~   77 (81)
@@ -2766,7 +2766,7 @@ Confidence            455666666663 468899999999999999999999999999999999999999999
 
 No 185
 >tr|M4F226|M4F226_BRARP Uncharacterized protein OS=Brassica rapa subsp. pekinensis GN=Bra035123 PE=4 SV=1
-Probab=98.75  E-value=3.4e-11  Score=82.99  Aligned_cols=76  Identities=13%  Similarity=0.274  Sum_probs=67.2
+Probab=98.75  E-value=3.4e-11  Score=82.99  Aligned_cols=76  Identities=13%  Similarity=0.274  Sum_probs=67.1
 
 Q T0967             1 EDYIEAIANVLE-KTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAA   77 (81)
 Q Consensus         1 ~e~~~~I~~~i~-~~~~V~~v~~l~~~~~G~~~~v~~hi~v~~~~~~~~~h~i~~~ie~~l~~~~~~v~~v~vh~ep~   77 (81)
@@ -6474,18 +6474,6 @@ Confidence            3566778889999999999999999999999999999999999999999999999999
 
 No 492
 >tr|X1C9L2|X1C9L2_9ZZZZ Uncharacterized protein OS=marine sediment metagenome GN=S01H4_38208 PE=4 SV=1
-Probab=96.85  E-value=4.4e-05  Score=46.86  Aligned_cols=76  Identities=14%  Similarity=0.258  Sum_probs=62.9
-
-Q T0967             3 YIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIV--DRKSTVKVRLFAAQ   78 (81)
-Q Consensus         3 ~~~~I~~~i~~~~~V~~v~~l~~~~~G~~~~v~~hi~v~~~~~~~~~h~i~~~ie~~l~~~~--~~v~~v~vh~ep~~   78 (81)
-                      ..+.+...+.++|.|++.|.+..|..-+...+++|+-+.+.+..+..|-+..++++.+++-.  .+...+..|-+|..
-T Consensus        79 iqdslssllksipevkgyhglelwaaldfcilelhiffkgalnisrvhiltteveqqikkiikidnltevilhseple  156 (164)
-T tr|X1C9L2|X1C9   79 IQDSLSSLLKSIPEVKGYHGLELWAALDFCILELHIFFKGALNISRVHILTTEVEQQIKKIIKIDNLTEVILHSEPLE  156 (164)
-Confidence            34455566678999999999999999899999999999999999999999999998887543  34467888888864
-
-
-No 493
->tr|X1C9L2|X1C9L2_9ZZZZ Uncharacterized protein OS=marine sediment metagenome GN=S01H4_38208 PE=4 SV=1
 Probab=96.85  E-value=4.4e-05  Score=46.86  Aligned_cols=53  Identities=8%  Similarity=0.117  Sum_probs=47.8
 
 Q T0967            25 ARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIVDRKSTVKVRLFAA   77 (81)
@@ -6494,6 +6482,18 @@ Q Consensus        25 ~~~~G~~~~v~~hi~v~~~~~~~~~h~i~~~ie~~l~~~~~~v~~v~vh~ep~   77
 T Consensus         3 vfrienkyflslaivvddslslekahelsslfesqlkeqipfiariithlesk   55 (164)
 T tr|X1C9L2|X1C9    3 VFRIENKYFLSLAIVVDDSLSLEKAHELSSLFESQLKEQIPFIARIITHLESK   55 (164)
 Confidence            45567889999999999999999999999999999999999999998888754
+
+
+No 493
+>tr|X1C9L2|X1C9L2_9ZZZZ Uncharacterized protein OS=marine sediment metagenome GN=S01H4_38208 PE=4 SV=1
+Probab=96.85  E-value=4.4e-05  Score=46.86  Aligned_cols=76  Identities=14%  Similarity=0.258  Sum_probs=62.9
+
+Q T0967             3 YIEAIANVLEKTPSISDVKDIIARELGQVLEFEIDLYVPPDITVTTGERIKKEVNQIIKEIV--DRKSTVKVRLFAAQ   78 (81)
+Q Consensus         3 ~~~~I~~~i~~~~~V~~v~~l~~~~~G~~~~v~~hi~v~~~~~~~~~h~i~~~ie~~l~~~~--~~v~~v~vh~ep~~   78 (81)
+                      ..+.+...+.++|.|++.|.+..|..-+...+++|+-+.+.+..+..|-+..++++.+++-.  .+...+..|-+|..
+T Consensus        79 iqdslssllksipevkgyhglelwaaldfcilelhiffkgalnisrvhiltteveqqikkiikidnltevilhseple  156 (164)
+T tr|X1C9L2|X1C9   79 IQDSLSSLLKSIPEVKGYHGLELWAALDFCILELHIFFKGALNISRVHILTTEVEQQIKKIIKIDNLTEVILHSEPLE  156 (164)
+Confidence            34455566678999999999999999899999999999999999999999999998887543  34467888888864
 
 
 No 494

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime/
+
+mkdir rosettacon
+perl SOFTWARE_PATH/src/meta/rosettacon/script/tm_rosettacon_main.pl SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option SOFTWARE_PATH/examples/T0967.fasta rosettacon  2>&1 | tee  SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime.log
+
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime/rosettacon/rocon1.pdb" ]];then 
+	printf "!!!!! Failed to run rosettacon, check the installation <SOFTWARE_PATH/src/meta/rosettacon/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-rosettacon-$dtime/rosettacon/rocon1.pdb\n\n"
+fi
+

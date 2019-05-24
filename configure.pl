@@ -182,7 +182,7 @@ if (! -f $option_list)
 configure_file2($option_list,'installation');
 print "#########  Configuring examples, done\n\n\n";
 
-
+system("chmod +x $install_dir/installation/MULTICOM_test_codes/*sh");
 
 
 

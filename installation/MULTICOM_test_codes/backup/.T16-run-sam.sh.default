@@ -1,0 +1,23 @@
+#!/bin/bash
+
+dtime=$(date +%Y-%b-%d)
+
+
+mkdir -p SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime/
+cd SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime/
+
+mkdir sam
+perl SOFTWARE_PATH/src/meta/sam/script/tm_sam_main_v2.pl SOFTWARE_PATH/src/meta/sam/sam_option_nr SOFTWARE_PATH/examples/T0967.fasta sam  2>&1 | tee  SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime.log
+
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime/sam/sam1.pdb" ]];then 
+	printf "!!!!! Failed to run sam, check the installation <SOFTWARE_PATH/src/meta/sam/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/installation/test_out/T0967-sam-$dtime/sam/sam1.pdb\n\n"
+fi
+

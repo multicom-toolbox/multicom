@@ -14,10 +14,10 @@ printf "\nFinished.."
 printf "\nCheck log file </home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch151-$dtime.log>..\n\n"
 
 
-if [[ ! -f "/home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch151-$dtime/hg1.pdb" ]];then 
-	printf "!!!!! Failed to run hhsearch15, check the installation </home/casp14/MULTICOM_TS/multicom/src/meta/hhsearch151/>."
+if [[ ! -f "/home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch151-$dtime/hhsearch151/hg1.pdb" ]];then 
+	printf "!!!!! Failed to run hhsearch151, check the installation </home/casp14/MULTICOM_TS/multicom/src/meta/hhsearch151/>."
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch151-$dtime/hg1.pdb\n\n"
+	printf "\nResults: /home/casp14/MULTICOM_TS/multicom/installation/test_out/T0967-hhsearch151-$dtime/hhsearch151/hg1.pdb\n\n"
 fi
 
