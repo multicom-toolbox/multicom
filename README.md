@@ -30,11 +30,17 @@ perl configure.pl
 ```
 cd installation/MULTICOM_manually_install_files
 # one-time installation. If the path is same as before, the configurations can be skipped.
-sh ./P1_install_boost.sh (take ~20 min)
-sh ./P2_install_OpenBlas.sh  (take ~1 min)
-sh ./P3_install_freecontact.sh (take ~1 min)
-sh ./P4_install_scwrl4.sh (take ~1 min)
-sh ./P5_python_virtual.sh (take ~1 min)
+
+
+$ sh ./P1_install_boost.sh (take ~20 min)
+
+$ sh ./P2_install_OpenBlas.sh  (take ~1 min)
+
+$ sh ./P3_install_freecontact.sh (take ~1 min)
+
+$ sh ./P4_install_scwrl4.sh (take ~1 min)
+
+$ sh ./P5_python_virtual.sh (take ~1 min)
 ```
 
 #### (5) Testing the MULTICOM tools (recommended)
