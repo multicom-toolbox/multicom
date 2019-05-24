@@ -1,9 +1,0 @@
-C;template; converted from global alignment
->P1;e4kzxE1
-structureX:e4kzxE1: 1: : 88: : : : : 
--DTGNLCMVTGGANLG-------------RIGVITNRERHPGSF------------------------DVVHVKD--------ANGNSFATRLSNIFVIGKG---------NKPWISLPRGKGIRLTIAEERDKRLAAKQSSG*
-
-C;query; converted from global alignment
->P1;T0579
- : : : : : : : : : 
-MKVGSQVIINTSHMKGMKGAEATVTGAYDTTAYVVSYTPTNGGQRVDHHKWVIQEEIKDAGDKTLQPGDQVILEASHMKGMKGATAEIDSAEKTTVYMVDYTSTTSGEKVKNHKWVTEDE---------------LSAK----*

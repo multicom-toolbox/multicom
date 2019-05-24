@@ -1,9 +1,0 @@
-C;template; converted from global alignment
->P1;d3bmva1
-structureX:d3bmva1: 1: : 83: : : : : 
-----------------------------SNSPLIGHVGPTMT-----------------------KAGQTITIDGRGFGTTSGQVLFGSTAGTIVSWDDTEVKVK--VPSVTPGKYNISLKTSSGATSNTYNNINI*
-
-C;query; converted from global alignment
->P1;T0579
- : : : : : : : : : 
-MKVGSQVIINTSHMKGMKGAEATVTGAYDTTAYVVSYTPTNGGQRVDHHKWVIQEEIKDAGDKTLQPGDQVILEASHMKG------MKGATAEIDSAEKTTVYMVDYTSTTSGEKVKNHKWVTEDELSAK------*

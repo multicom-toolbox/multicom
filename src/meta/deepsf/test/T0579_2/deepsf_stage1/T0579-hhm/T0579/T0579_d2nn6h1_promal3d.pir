@@ -1,9 +1,0 @@
-C;template; converted from global alignment
->P1;d2nn6h1
-structureX:d2nn6h1: 1: : 82: : : : : 
-KTRYIGEVGDIVV-------------GRITEVQ-------------------QKRWKV--ETNSR--------LDSVLLLSSMNELAMRGFLQEGDLISAEVQAVFSDGAVSLHTRSLKYGK------------LG--*
-
-C;query; converted from global alignment
->P1;T0579
- : : : : : : : : : 
------MKVGSQVIINTSHMKGMKGAEATVTGAYDTTAYVVSYTPTNGGQRVDHHKWVIQEEIKDAGDKTLQPGDQVILEASHMKGMKG---------ATAEIDSAEKTTVYMVDYTSTTSGEKVKNHKWVTEDELSAK*
