@@ -11,10 +11,13 @@ cd multicom
 
 #### (2) Download the database
 ```
-mv /home/casp14/MULTICOM_TS/jie_test/multicom/databases/ ./
-mv /home/casp14/MULTICOM_TS/jie_test/multicom/tools/ ./
+wget MULTICOM_db_tools.tar.gz (contact us)
 ```
 #### (3) Configure MULTICOM system
+
+edit configure.pl: 
+set the multicom_database_tool path (i.e., /home/casp13/MULTICOM_db_tools/).
+
 ```
 perl configure.pl
 ```
