@@ -12,7 +12,7 @@ tool_dir = SOFTWARE_PATH/tools/UniCon3D/
 metapsicov_dir = SOFTWARE_PATH/tools/metapsicov-pipeline-2.0/
 
 #SCRATCH tool dir
-SCRATCH_dir = SOFTWARE_PATH/tools/DNCON2/SCRATCH-1D_1.1/
+SCRATCH_dir = SOFTWARE_PATH/tools/SCRATCH-1D_1.1/
 
 #decoy_model_number
 decoy_model_number = 30

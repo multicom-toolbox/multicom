@@ -84,6 +84,9 @@ src/meta/muster/muster_option_version4
 src/meta/hhsuite/hhsuite_option
 src/meta/hhsuite/super_option
 
+#hhsuite3
+src/meta/hhsuite3/hhsuite3_option
+
 #fugue
 src/meta/fugue/fugue_option
 
@@ -95,6 +98,9 @@ src/meta/newblast/newblast_option
 
 #CONFOLD
 src/meta/confold2/CONFOLD_option
+
+#CONFOLDtemplate
+src/meta/confoldtemp/confoldtemp_option
 
 #UNICON3d
 src/meta/unicon3d/Unicon3D_option

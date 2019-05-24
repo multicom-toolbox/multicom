@@ -17,9 +17,9 @@ weight=1 #
 
 
 
-source /home/casp13/python_virtualenv/bin/activate
-export LD_LIBRARY_PATH=/home/casp13/tools/rosetta_bin_linux_2018.09.60072_bundle/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/static/:$LD_LIBRARY_PATH
+source /data/jh7x3/multicom_github/multicom/tools/python_virtualenv/bin/activate
+export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/static/:$LD_LIBRARY_PATH
 
 if [ -z $contact_file ]; then contact_file='None'; else echo "Setting contact file to $contact_file" ; fi
-echo "perl /home/casp13/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $fragmentdir $lbound $ubound $weight"
-perl /home/casp13/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $fragmentdir $lbound $ubound $weight
+echo "perl /data/jh7x3/multicom_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $fragmentdir $lbound $ubound $weight"
+perl /data/jh7x3/multicom_github/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $fragmentdir $lbound $ubound $weight

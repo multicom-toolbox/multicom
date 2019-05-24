@@ -62,7 +62,7 @@ prc_dir= /data/jh7x3/multicom_github/multicom/tools/prc1.5.6
 
 #meta dir
 #meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
-meta_dir=/home/casp13/MULTICOM_package/casp8/prc/
+meta_dir=/data/jh7x3/multicom_github/multicom/src/meta/prc/
 
 #meta common dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/

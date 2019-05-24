@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE protein SYSTEM "/home/msweredo/pxml.dtd">
+<protein name = "T0967_fastaalg" length = "0">
+<amino_acids>
+	
+</amino_acids>
+<secondary_structure>
+	<predicted>
+		
+	</predicted>
+</secondary_structure>
+<solvent_acc>
+	<predicted>
+		
+	</predicted>
+</solvent_acc>
+<contact_map threshold = "12" type = "full">
+	<predicted>
+	</predicted>
+</contact_map>
+</protein>

@@ -483,13 +483,15 @@ print "parse hhsearch output...\n";
 system("$meta_dir/script/parse_hhsearch.pl $name.ss.hhr $fasta_file.local");
 
 #remove templates whose pdb files do not exist (to do)******************************
-system("$meta_dir/script/filter_alignments.pl $meta_dir/database/add.list $fasta_file.local $fasta_file.local.fil");
+#system("$meta_dir/script/filter_alignments.pl $meta_dir/database/add.list $fasta_file.local $fasta_file.local.fil");
+system("$meta_dir/script/filter_alignments.pl /data/jh7x3/multicom_github/multicom/databases/hhblits3_dbs/database/add.list $fasta_file.local $fasta_file.local.fil");
 
 `cp $fasta_file.local $fasta_file.local.org`;
 `mv $fasta_file.local.fil $fasta_file.local`; 
 
 #remove templates from rank file
-system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/add.list $work_dir/$name.rank $work_dir/$name.rank.fil");
+#system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/add.list $work_dir/$name.rank $work_dir/$name.rank.fil");
+system("$meta_dir/script/filter_rank_file.pl /data/jh7x3/multicom_github/multicom/databases/hhblits3_dbs/database/add.list $work_dir/$name.rank $work_dir/$name.rank.fil");
 `cp $work_dir/$name.rank $work_dir/$name.rank.org`;
 `cp $work_dir/$name.rank.fil $work_dir/$name.rank`; 
 

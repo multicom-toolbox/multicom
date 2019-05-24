@@ -16,6 +16,7 @@
 #########################################################################
 
 $GLOBAL_PATH="/data/jh7x3/multicom_github/multicom/";
+
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 
 if (@ARGV != 3)
@@ -203,13 +204,13 @@ if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
 {
 	#generate full-length model
 	#system("$multicom_dir/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
-	print("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir\n"); 
-	#system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
+	#print("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir\n"); 
+	system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
 	# /data/jh7x3/multicom_github/multicom/src/meta/
 	# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 }
 #########################################################################################################
-exit;
+
 
 ##############################################################################
 

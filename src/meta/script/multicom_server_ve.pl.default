@@ -5,7 +5,7 @@
 #New version: starte date: 1/10/2009
 #second version: add construct predictor
 #########################################################################
-$GLOBAL_PATH="/data/jh7x3/multicom_github/multicom/";
+$GLOBAL_PATH="SOFTWARE_PATH";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -588,7 +588,7 @@ chdir $output_dir;
 #@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
 #@servers = ("hhsearch", "compass", "multicom", "sp3", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "construct", "hhpred", "ffas", "hhblits", "muster", "hhsearch151", "msa"); 
 #@servers_incasp13 = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
-@servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa"); 
+@servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
 
 
 
@@ -723,7 +723,7 @@ for ($i = 0; $i < @servers; $i++)
 			chdir $output_dir; 
 			### add domain analysis and disorder prediction, need reset hard code path
 			system("perl $hhsearch15_dir/script/domain_identification_from_hhsearch15.pl $query_file $server");
-			system("/home/casp13/MULTICOM_package/software/disorder_new/bin/predict_diso.sh $query_file $output_dir/$server/$query_name.fasta.disorder");
+			system("$GLOBAL_PATH/tools/disorder_new/bin/predict_diso.sh $query_file $output_dir/$server/$query_name.fasta.disorder");
 			
 		}
 
@@ -908,7 +908,8 @@ if ($i == $thread_num && $post_process == 0)
 	#copy files into one common directory
 	#@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
 	#@servers = ("hhsearch", "compass", "multicom", "sp3", "sp3_add", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "ffas", "muster", "hhsearch151", "hhsuite", "fugue", "msa"); 
-	@servers = ("hhsearch", "compass", "multicom", "raptorx", "newblast", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "msa", "hhsuite3", "deepsf", "novel"); 
+	#@servers_incasp13 = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
+	@servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa"); 
 	for ($i = 0; $i < @servers; $i++)
 	{
 		$server_dir = "$output_dir/$servers[$i]";

@@ -46,7 +46,7 @@ chomp $cur_dir;
 
 #do modeling
 #system("/home/casp13/MULTICOM_package/software/prosys/script/pir2ts_energy.pl /home/casp13/MULTICOM_package/software/modeller9v7 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 3");
-system("/data/jh7x3/multicom_github/multicom/src/prosys/script/pir2ts_energy.pl /data/jh7x3/multicom_github/multicom/tools/modeller9v7 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 8");
+system("/data/jh7x3/multicom_github/multicom/src/prosys/script/pir2ts_energy.pl /data/jh7x3/multicom_github/multicom/tools/modeller-9.16 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 8");
 
 `cp $cur_dir/outtmp/$name.pdb $name.pdb`;
 

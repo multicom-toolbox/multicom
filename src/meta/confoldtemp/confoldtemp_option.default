@@ -1,0 +1,16 @@
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = SOFTWARE_PATH/src/meta/
+
+#confoldtemp program
+confoldtemp_program = SOFTWARE_PATH/src/meta/confoldtemp/script/run_confold2_template.sh
+
+#final_model_number
+final_model_number = 5
+
+#confold2 prefix
+output_prefix_name = contemp 
+
+#waiting time in seconds
+wait_time = 14400 
+

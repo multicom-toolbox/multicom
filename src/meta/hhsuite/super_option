@@ -49,7 +49,7 @@ psipred_dir=/data/jh7x3/multicom_github/multicom/tools/psipred-2.61/
 #this database is used by hhblits too
 #hhsearchdb=/home/casp13/MULTICOM_package/casp8/hhpred/hhpreddb
 #hhsuitedb=/home/casp13/MULTICOM_package/hhsuite/a3m/hhsuitedb
-hhsuitedb=/data/jh7x3/multicom_github/multicom/tools/hhsuite_dbs/a3m/hhsuitedb
+hhsuitedb=/data/jh7x3/multicom_github/multicom/databases/hhsuite_dbs/a3m/hhsuitedb
 
 #hhsearch pdb dir 
 #atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/

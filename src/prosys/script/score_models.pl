@@ -94,7 +94,6 @@ chdir $work_dir;
 `mkdir model_check`; 
 print "generate 1D and 2D features for model check...\n";
 system("$betacon_dir/bin/beta_contact_map.sh $fasta_file model_check >/dev/null 2>/dev/null");
-
 print "evaluate models...\n";
 @files = sort @files;
 open(SCORE, ">$name.mch");

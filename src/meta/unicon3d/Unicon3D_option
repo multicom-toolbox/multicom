@@ -12,7 +12,7 @@ tool_dir = /data/jh7x3/multicom_github/multicom/tools/UniCon3D/
 metapsicov_dir = /data/jh7x3/multicom_github/multicom/tools/metapsicov-pipeline-2.0/
 
 #SCRATCH tool dir
-SCRATCH_dir = /data/jh7x3/multicom_github/multicom/tools/DNCON2/SCRATCH-1D_1.1/
+SCRATCH_dir = /data/jh7x3/multicom_github/multicom/tools/SCRATCH-1D_1.1/
 
 #decoy_model_number
 decoy_model_number = 30

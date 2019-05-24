@@ -188,19 +188,27 @@ $temp_num = @atom_names - 1;
 for ($i = 0; $i < $temp_num; $i++) 
 {
 	$name = $atom_names[$i]; 
-	$src_name = "$atom_dir/" . $name . ".atom.gz";
-	if (! -f $src_name)
+	$src_name1 = "$atom_dir/" . $name;
+	$src_name2 = "$atom_dir/" . $name . ".atom.gz";
+	if(-e $src_name1)
+	{
+		#copy the file to here
+		`cp $src_name1 $name.atm`; 
+	}elsif(-e $src_name2)
+	{
+		#copy the file to here
+		`cp $src_name2 .`; 
+		#unzip it
+		`gunzip -f $name.atom.gz`; 
+		#change name
+		`mv $name.atom $name.atm`; 
+	}else
 	{
 		#`cd $cur_dir`; 
 		chdir $cur_dir; 
-		die "can't find the source template file: $src_name\n"; 
+		die "can't find the source template file: $src_name1\n"; 
 	}
-	#copy the file to here
-	`cp $src_name .`; 
-	#unzip it
-	`gunzip -f $name.atom.gz`; 
-	#change name
-	`mv $name.atom $name.atm`; 
+
 
 	#read sequence from atom file
 	$atom_seq = &get_seq_from_atom("$name.atm"); 

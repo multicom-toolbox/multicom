@@ -15,7 +15,8 @@
 #
 #########################################################################
 
-$GLOBAL_PATH="/data/jh7x3/multicom_github/multicom/";
+$GLOBAL_PATH="SOFTWARE_PATH";
+
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 
 if (@ARGV != 3)
@@ -209,7 +210,7 @@ if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
 	# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 }
 #########################################################################################################
-exit;
+
 
 ##############################################################################
 

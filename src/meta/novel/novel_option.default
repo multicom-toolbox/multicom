@@ -1,0 +1,13 @@
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = SOFTWARE_PATH/src/meta
+
+#novel prediction program
+novel_program = SOFTWARE_PATH/tools/MULTICOM_NOVEL/run_novel_3d.sh 
+
+#final_model_number (a fixed number determined by run_novel_3d.sh
+final_model_number = 5
+
+#novel model prefix
+output_prefix_name = novel
+

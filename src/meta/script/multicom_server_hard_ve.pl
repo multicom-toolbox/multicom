@@ -5,6 +5,7 @@
 #New version: starte date: 1/10/2009
 #########################################################################
 $GLOBAL_PATH="/data/jh7x3/multicom_github/multicom/";
+
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
 {
@@ -619,8 +620,8 @@ while (<OPTION>)
 -f $multicom_option || die "can't find $multicom_option.\n";
 -d $construct_dir || die "can't find $construct_dir.\n";
 -f $construct_option || die "can't find $construct_option.\n";
--d $confoldtemp_dir || die "can't find $confoldtemp_dir.\n";
--f $confoldtemp_option || die "can't find $confoldtemp_option.\n";
+#-d $confoldtemp_dir || die "can't find $confoldtemp_dir.\n";
+#-f $confoldtemp_option || die "can't find $confoldtemp_option.\n";
 -d $msa_dir || die "can't find $msa_dir.\n";
 -f $msa_option || die "can't find $msa_option.\n";
 -d $rosetta_dir || die "can't find $rosetta_dir.\n";
@@ -666,7 +667,7 @@ chdir $output_dir;
 #@servers = ("hhsearch", "compass", "sp3", "csiblast", "sam", "hmmer", "psiblast", "hhsearch15", "prc", "rosetta", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "construct"); 
 #@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "msa", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
 #@servers_incasp13 = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "novel", "deepsf", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
-@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
+@servers =           ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "rosetta2", "novel", "deepsf", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
 
 $post_process = 0; 
 
@@ -1196,7 +1197,9 @@ if ($i == $thread_num && $post_process == 0)
 	#@servers = ("hhsearch", "compass", "sp3", "sp3_add", "csiblast", "sam", "hmmer", "psiblast", "hhsearch15", "prc", "rosetta", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "ffas", "muster", "hhsearch151", "hhsuite", "fugue", "msa"); 
 	#@servers = ("hhsearch", "compass", "sp3", "sp3_add", "csiblast", "sam", "hmmer", "psiblast", "blast", "hhsearch15", "prc", "rosetta", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "ffas", "muster", "hhsearch151", "hhsuite", "fugue", "msa"); 
 	#@servers = ("hhsearch", "compass", "csiblast", "sam", "hmmer", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "raptorx", "msa"); 
-	@servers = ("hhsearch", "compass", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "hhsuite3", "raptorx", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "deepsf", "novel", "confoldtemp"); 
+	#@servers_incasp13 = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "novel", "deepsf", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
+	@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7"); 
+
 	for ($i = 0; $i < @servers; $i++)
 	{
 		$server_dir = "$output_dir/$servers[$i]";

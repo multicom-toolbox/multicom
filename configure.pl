@@ -7,7 +7,7 @@
 #																					#
 # Set installation directory of multicom to your unzipped multicom directory            #
      
- $install_dir = "/your_path/multicom";
+$install_dir = "/your_path/multicom";
 ######################## !!! End of customize settings !!! ##########################
 
 if($install_dir eq "/your_path/multicom")
@@ -187,8 +187,69 @@ if(-f 'configure.pl')
 	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
+print "#########  Setting up nncon1.0\n";
+$ssprodir = $install_dir.'/tools/nncon1.0/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for nncon1.0 doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
 
-print "#########  Setting up raptorx\n";
+
+print "\n\n#########  Setting up modeleva\n";
+$ssprodir = $install_dir.'/tools/model_eva1.0/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
+print "\n\n#########  Setting up betacon\n";
+$ssprodir = $install_dir.'/tools/betacon/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for sspro doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
+
+######
+print "\n\n#########  Setting up disorder\n"; 
+$ssprodir = $install_dir.'/tools/disorder_new/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for disorder doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
+
+
+
+print "\n\n#########  Setting up raptorx\n";
 $ssprodir = $install_dir.'/tools/RaptorX4/CNFsearch1.66/';
 chdir $ssprodir;
 if(-f 'setup.pl')
@@ -287,6 +348,39 @@ $OUT->close();
 system("chmod 755 $modeller_conf");
 system("cp $deep_mod9v16 $addr_mod9v16");
 print "Done\n";
+
+
+print "\n#########  Setting up scwrl4 \n";
+
+#/data/jh7x3/multicom_github/multicom/tools/scwrl4/
+#./install_Scwrl4_Linux
+
+
+
+####### update prc database 
+$prc_db = "$install_dir/databases/prc_db/";
+if(!(-d $prc_db))
+{
+	die "PRC database $prc_db is not found\n";
+}
+opendir(PRCDIR,"$prc_db") || die "Failed to open directory $prc_db\n";
+@prcfiles = readdir(PRCDIR);
+closedir(PRCDIR);
+open(PRCLIB,">$prc_db/prcdb.lib")  || die "Failed to write $prc_db/prcdb.lib\n";
+foreach $prcfile (@prcfiles)
+{
+	if($prcfile eq '.' or $prcfile eq '..' or substr($prcfile,length($prcfile)-4) ne '.mod')
+	{
+		next;
+	}
+	print PRCLIB "$prc_db/$prcfile\n";
+	
+}
+close PRCLIB;
+
+
+
+
 
 
 sub prompt_yn {

@@ -42,3 +42,13 @@
 
 
 /home/casp13/MULTICOM_package/hhsuite/  ---> /data/jh7x3/multicom_github/multicom/databases_packages/hhsuite3_dbs/
+
+
+/home/casp13/MULTICOM_package/casp8/ffas/blast/ ---> /data/jh7x3/multicom_github/multicom/tools/ffas_soft/blast/
+
+
+/home/casp13/MULTICOM_package/software/prosys_database/MULTICOM_sort90_hhblists_db/ ----> /data/jh7x3/multicom_github/multicom/databases/MULTICOM_sort90_hhblists_db
+
+
+
+

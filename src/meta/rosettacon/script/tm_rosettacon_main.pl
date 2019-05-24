@@ -36,9 +36,9 @@ $local_model_num = 50;
 
 #$contact_file = "";
 
-$tm_score = "/home/casp13/MULTICOM_package/software/tm_score/TMscore_32";
+$tm_score = "/data/jh7x3/multicom_github/multicom/tools/tm_score/TMscore_32";
 
-$q_score = "/home/casp13/MULTICOM_package/software/pairwiseQA/q_score";
+$q_score = "/data/jh7x3/multicom_github/multicom/tools/pairwiseQA/q_score";
 
 while (<OPTION>)
 {

@@ -1,3 +1,9 @@
+# multicom main scripts
+src/multicom_ve.pl
+src/meta/script/multicom_server_hard_ve.pl
+src/meta/script/multicom_server_ve.pl
+
+
 # common scripts
 src/meta/script/local_global_align.pl
 src/meta/script/combine_domains.pl
@@ -45,6 +51,9 @@ src/prosys/script/casp8_rank_orginal.pl
 src/prosys/script/casp8_server1.pl
 src/prosys/script/pir2ts_energy_common.pl
 src/prosys/script/pir2ts_energy.pl
+src/meta/script/get_ss_sa_score.pl
+src/meta/script/global_local_human_noscwrl.pl
+src/meta/script/iqa_v2.pl
 
 
 
@@ -61,6 +70,7 @@ src/meta/hhsearch151/script/alignhits.pl
 src/meta/newblast//script/local_global_align.pl
 
 ## hhpred
+src/meta/hhpred/script/tm_hhpred_main.pl
 src/meta/hhpred/script/alignhits.pl
 src/meta/hhpred/script/align_option
 src/meta/hhpred/script/buildali.pl
@@ -71,11 +81,67 @@ src/meta/hhblits/script/align_option
 src/meta/hhblits/script/buildali.pl
 src/meta/hhblits/script/filter_identical_hhblits.pl
 src/meta/hhblits/script/local_global_align.pl
+src/meta/hhblits/database/get_pdb_list.pl
 
 
 ## hhblits3
+src/meta/hhblits3/script/tm_hhblits3_main.pl
 src/meta/hhblits3/script/align_option
 src/meta/hhblits3/script/filter_identical_hhblits.pl
 src/meta/hhblits3/script/local_global_align.pl
 src/meta/hhblits3/script/buildali.pl
 
+## hhsuite
+src/meta/hhsuite/script/filter_identical_hhsuite.pl
+
+
+## ffas
+src/meta/ffas/script/tm_ffas_main.pl
+
+
+## construct
+src/meta/construct/script/construct_v9.pl
+src/meta/construct//script/construct_hard_v9.pl
+
+## confold2
+src/meta/confold2/script/tm_confold2_main.sh
+
+## confoldtemplate
+src/meta/confoldtemp/script/run_confold2_template.sh
+src/meta/confoldtemp/script/run_confold2_template.pl
+src/meta/confoldtemp/script/CONFOLD_Template_option
+
+## rosettacon
+src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortL5.sh
+src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortLby5.pl
+src/meta/rosettacon/dncon2-Rosetta/scripts/make_rosetta_fragment.sh
+src/meta/rosettacon/dncon2-Rosetta/scripts/run_rosetta_no_fragment_withContact.sh
+src/meta/rosettacon/script/tm_rosettacon_main.pl
+
+## multicom 
+src/meta/script/multicom.pl
+
+
+## muster
+src/meta/muster/script/alignhits.pl
+src/meta/muster/script/buildali.pl
+src/meta/muster/script/local_global_align.pl
+
+#raptorx
+src/meta/raptorx/script/alignhits.pl
+src/meta/raptorx/script/buildali.pl
+src/meta/raptorx/script/local_global_align.pl
+src/meta/raptorx/script/filter_identical_hhsuite.pl
+
+## msa
+src/meta/msa/script/construct_hard_v6.pl
+src/meta/msa/script/construct_v6.pl
+
+## fusicon
+src/meta/fusioncon/script/tm_fusioncon_main.pl
+src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
+src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl
+src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh
+src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.py
+src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
+src/meta/fusioncon/fusion/scripts/P2_run_SBROD_eva.pl

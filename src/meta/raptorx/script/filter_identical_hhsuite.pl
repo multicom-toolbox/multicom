@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #filter out identical muster, nnnd, lomets models 
-$tm_score = "/home/casp13/MULTICOM_package/software/tm_score2/TMscore"; 
+$tm_score = "/data/jh7x3/multicom_github/multicom/tools/tm_score2/TMscore"; 
 if (@ARGV !=1)
 {
 	die "need one parameters: hhsuite model dir.\n";

@@ -106,7 +106,7 @@ while ($count <= 5)
 
 	#hard coded
 	#system("$meta_dir/script/pir2ts_energy_9v7.pl /home/casp13/MULTICOM_package/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
-	system("$meta_dir/script/pir2ts_energy_9v7.pl /data/jh7x3/multicom_github/multicom/tools/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
+	system("/data/jh7x3/multicom_github/multicom/src/prosys/script/pir2ts_energy.pl /data/jh7x3/multicom_github/multicom/tools/modeller-9.16/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
 
 		
 

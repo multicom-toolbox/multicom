@@ -56,7 +56,7 @@ close SCORE;
 
 #call iterative qa
 print "Generate iterative QA from meta.eva...\n";
-$cluster_dir = "/home/casp13/MULTICOM_package/casp8/model_cluster/script/"; 
+$cluster_dir = "/data/jh7x3/multicom_github/multicom/src/meta/model_cluster/script/"; 
 
 use Cwd 'abs_path';
 `cp $fasta_file $name.tfasta`;

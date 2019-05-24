@@ -89,7 +89,7 @@ while ($count <= 5)
 	}
 
 	print "generate model...\n";
-	system("SOFTWARE_PATH/src/meta/model_cluster/script/pir2ts_energy.pl SOFTWARE_PATH/tools/prosys/modeller7v7/ $casp_model_dir $output_dir $output_dir/$name.pir 3");
+	system("SOFTWARE_PATH/src/prosys/script/pir2ts_energy.pl SOFTWARE_PATH/tools/modeller-9.16/ $casp_model_dir $output_dir $output_dir/$name.pir 3");
 
 		
 

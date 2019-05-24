@@ -1,0 +1,20 @@
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = SOFTWARE_PATH/src/meta/confoldtemp/script/
+
+#confold2 tool dir
+tool_dir =SOFTWARE_PATH/tools/confold2/confold-v2.0
+
+#metapsicov tool dir
+dncon_program = SOFTWARE_PATH/tools/DNCON2/dncon2-v1.0.sh
+
+#final_model_number
+final_model_number = 5
+
+#confold2 prefix
+output_prefix_name = confoldpro
+
+
+
+
+

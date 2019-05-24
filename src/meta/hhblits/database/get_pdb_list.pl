@@ -5,7 +5,7 @@
 #2018 version
 
 #$pdb_dir = "/home/chengji/casp8/hhpred/pdb";
-$pdb_dir = "/home/casp13/MULTICOM_package/casp8/hhpred/pdb";
+$pdb_dir = "/data/jh7x3/multicom_github/multicom/src/meta/hhpred/pdb";
 
 if (@ARGV == 1)
 {

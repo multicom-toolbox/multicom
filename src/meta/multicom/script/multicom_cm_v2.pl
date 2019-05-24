@@ -239,6 +239,7 @@ if (-f "$query_file.local")
 #query_file.pir (combined pir alignment file)
 #query_name.pdb (model)
 print "Do comparative modeling using multicom...\n";
+print("$script_dir/cm_main_comb_join_v2.pl $cm_option $query_file $output_dir\n\n");
 system("$script_dir/cm_main_comb_join_v2.pl $cm_option $query_file $output_dir");
 
 MULTICOM:

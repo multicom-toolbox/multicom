@@ -21,7 +21,7 @@ $output_prefix_name='fusion';
 
 $fusion_starttime = time();
 $SBROD_starttime = time();
-chdir("/home/casp13/deepsf_3d/deepsf3d_tools/SBROD");
+chdir("/data/jh7x3/multicom_github/multicom/tools/SBROD");
 
 if(!(-e "$outputdir/SBROD_ranking.txt"))
 {
