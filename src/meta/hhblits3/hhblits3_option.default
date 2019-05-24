@@ -31,12 +31,8 @@ nr_db = SOFTWARE_PATH/databases/hhblits3_dbs/nr20/nr20
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhblits dir
-#hhblits3_dir = /home/casp13/MULTICOM_package/software/hhsuite-3.0-beta.1/
 hhblits3_dir = SOFTWARE_PATH/tools/hhsuite-3.0-beta.1/
-#hhblits3_seq_db = /home/casp13/MULTICOM_package/software/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
-hhblits3_seq_db = SOFTWARE_PATH/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
-#hhblits3_pdb_hmm_db = /home/tools/hhsuite-3.0-beta.1/databases/pdb70/pdb70
-#hhblits3_pdb_hmm_db = /home/casp13/MULTICOM_package/casp8/hhpred/update_db/pdb70/pdb70
+hhblits3_seq_db = SOFTWARE_PATH/databases/hhsuite3_dbs/uniprot20_2016_02/uniprot20_2016_02
 hhblits3_pdb_hmm_db = SOFTWARE_PATH/databases/hhpred_dbs/update_db/pdb70/pdb70
 
 #hhblits_dir=/home/casp13/MULTICOM_package/casp8/hhblits/hhblits/

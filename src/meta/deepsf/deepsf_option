@@ -1,9 +1,9 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/casp13/MULTICOM_package/casp8/
+prosys_dir = /data/jh7x3/multicom_github/jie_test/multicom/src/meta
 
 #novel prediction program
-deepsf_program = /home/casp13/deepsf_3d/run_deepsf_3d.sh 
+deepsf_program = /data/jh7x3/multicom_github/jie_test/multicom/tools/deepsf/run_deepsf_3d.sh 
 
 final_model_number = 5
 
