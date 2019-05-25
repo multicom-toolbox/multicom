@@ -27,5 +27,5 @@ NOW=$(date +"%m-%d-%Y")
 
 cp ~/.keras/keras.json ~/.keras/keras.json.$NOW.$RANDOM
 
-cp /data/jh7x3/multicom_github/jie_test/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
+cp /home/jh7x3/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
 

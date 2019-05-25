@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #filter out identical muster, nnnd, lomets models 
-$tm_score = "/data/jh7x3/multicom_github/jie_test/multicom/tools/tm_score2/TMscore"; 
+$tm_score = "/home/jh7x3/multicom/tools/tm_score2/TMscore"; 
 if (@ARGV !=1)
 {
 	die "need one parameters: hhblits model dir.\n";

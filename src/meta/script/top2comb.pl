@@ -33,7 +33,7 @@ $mname .= ".atm";
 -f $mname || die "can't find $mname\n";
 
 #compare the model with casp1.pdb (the combined model)
-$tm_score = "/data/jh7x3/multicom_github/jie_test/multicom/tools/tm_score/TMscore_32";		
+$tm_score = "/home/jh7x3/multicom/tools/tm_score/TMscore_32";		
 system("$tm_score $mname casp1.pdb > casp1_$mname");
 #get GDT-TS score of two cores		
 open(RES, "casp1_$mname") || die "can't read casp1_$mname.\n";
@@ -62,8 +62,8 @@ if ($sim_score < $threshold)
 	
 	`mv casp1.pdb casp1.pdb.comb`; 
 
-	`/data/jh7x3/multicom_github/jie_test/multicom/tools/scwrl4/Scwrl4 -i $mname -o $mname.scw`;
-	`/data/jh7x3/multicom_github/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $mname.scw 1 $tname casp1.pdb`;
+	`/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $mname -o $mname.scw`;
+	`/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $mname.scw 1 $tname casp1.pdb`;
 }
 else
 {

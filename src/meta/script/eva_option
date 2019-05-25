@@ -1,13 +1,13 @@
-prosys_dir=/data/jh7x3/multicom_github/jie_test/multicom/src/prosys/
+prosys_dir=/home/jh7x3/multicom/src/prosys/
 
-model_check_dir=/data/jh7x3/multicom_github/jie_test/multicom/tools/model_eva1.0/
+model_check_dir=/home/jh7x3/multicom/tools/model_eva1.0/
 
-betacon_dir=/data/jh7x3/multicom_github/jie_test/multicom/tools/betacon/
+betacon_dir=/home/jh7x3/multicom/tools/betacon/
 
-pspro_dir=/data/jh7x3/multicom_github/jie_test/multicom/tools/pspro2/
+pspro_dir=/home/jh7x3/multicom/tools/pspro2/
 
-model_energy_dir=/data/jh7x3/multicom_github/jie_test/multicom/tools/energy/
+model_energy_dir=/home/jh7x3/multicom/tools/energy/
 
-betapro_dir=/data/jh7x3/multicom_github/jie_test/multicom/tools/betapro-1.0/
+betapro_dir=/home/jh7x3/multicom/tools/betapro-1.0/
 
 thread_num=12

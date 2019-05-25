@@ -5,7 +5,7 @@
 #New version: starte date: 1/10/2009
 #second version: add construct predictor
 #########################################################################
-$GLOBAL_PATH="/data/jh7x3/multicom_github/jie_test/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)

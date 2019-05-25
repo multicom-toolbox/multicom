@@ -1,15 +1,15 @@
 ###############################Software and Data Settings####################
 #prosys script dir
 #prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
-prosys_dir = /data/jh7x3/multicom_github/jie_test/multicom/src/prosys/
+prosys_dir = /home/jh7x3/multicom/src/prosys/
 
 #confold2 tool dir
 #tool_dir =/home/casp13/MULTICOM_package/software/confold2/confold-v2.0
-tool_dir =/data/jh7x3/multicom_github/jie_test/multicom/tools/confold2/confold-v2.0
+tool_dir =/home/jh7x3/multicom/tools/confold2/confold-v2.0
 
 #metapsicov tool dir
 #dncon_program = /home/casp13/DNCON2/dncon2-v1.0.sh
-dncon_program = /data/jh7x3/multicom_github/jie_test/multicom/tools/DNCON2/dncon2-v1.0.sh
+dncon_program = /home/jh7x3/multicom/tools/DNCON2/dncon2-v1.0.sh
 
 #final_model_number
 final_model_number = 5
@@ -20,7 +20,7 @@ output_prefix_name = confold2
 
 #unicon3d refinement program
 #unicon3d_refine_program = /home/casp13/Confold2-Unicon3D/CONFOLD-UNICON3D/scripts/run_CASP13_Confold_Unicon3d_withcontact_LongMediumShortL5.sh
-unicon3d_refine_program = /data/jh7x3/multicom_github/jie_test/multicom/tools/CONFOLD-UNICON3D/scripts/run_CASP13_Confold_Unicon3d_withcontact_LongMediumShortL5.sh
+unicon3d_refine_program = /home/jh7x3/multicom/tools/CONFOLD-UNICON3D/scripts/run_CASP13_Confold_Unicon3d_withcontact_LongMediumShortL5.sh
 
 #perform unicon3d refinement (1:yes or 0:no)
 refine_model = 1

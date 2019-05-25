@@ -13,12 +13,12 @@ outputfolder=$4
 contact_file=$5
 ss_file=$6
 
-source /data/jh7x3/multicom_github/jie_test/multicom/tools/python_virtualenv/bin/activate
+source /home/jh7x3/multicom/tools/python_virtualenv/bin/activate
 
 
 if [ -z $contact_file ]; then contact_file='None'; else echo "Setting contact file to $contact_file" ; fi
 if [ -z $ss_file ]; then ss_file='None'; else echo "Setting contact file to $ss_file" ; fi
 
-echo "perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/confoldtemp/script/run_confold2_template.pl $targetid   $fasta /data/jh7x3/multicom_github/jie_test/multicom/src/meta/confoldtemp/script/CONFOLD_Template_option   $outputfolder   $contact_file  $ss_file\n"
-perl /data/jh7x3/multicom_github/jie_test/multicom/src/meta/confoldtemp/script/run_confold2_template.pl $targetid   $fasta /data/jh7x3/multicom_github/jie_test/multicom/src/meta/confoldtemp/script/CONFOLD_Template_option $multicom_full_length_hard  $outputfolder   $contact_file   $ss_file
+echo "perl /home/jh7x3/multicom/src/meta/confoldtemp/script/run_confold2_template.pl $targetid   $fasta /home/jh7x3/multicom/src/meta/confoldtemp/script/CONFOLD_Template_option   $outputfolder   $contact_file  $ss_file\n"
+perl /home/jh7x3/multicom/src/meta/confoldtemp/script/run_confold2_template.pl $targetid   $fasta /home/jh7x3/multicom/src/meta/confoldtemp/script/CONFOLD_Template_option $multicom_full_length_hard  $outputfolder   $contact_file   $ss_file
 

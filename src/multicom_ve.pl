@@ -15,7 +15,7 @@
 #
 #########################################################################
 
-$GLOBAL_PATH="/data/jh7x3/multicom_github/jie_test/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 
