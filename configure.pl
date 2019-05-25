@@ -150,6 +150,29 @@ system("chmod +x $install_dir/bin/run_multicom.sh");
 
 
 
+print "#########  (5) Check the tools\n";
+
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_tools_packages.list";
+
+if (! -f $option_list)
+{
+        die "\nOption file $option_list not exists.\n";
+}
+open(IN,$option_list) || die "Failed to open file $option_list\n";
+$file_indx=0;
+while(<IN>)
+{
+	$file = $_;
+	chomp $file;
+	$tool_path = "${install_dir}/$file";
+	if(!(-e "$tool_path"))
+	{
+		die "The tool <$tool_path> is not found. Please check the tool package or contact us\n";
+	}
+	
+}
+close IN;
+
 print "#########  Setting up pspro2\n";
 $ssprodir = $multicom_db_tools_dir.'/tools/pspro2/';
 chdir $ssprodir;
