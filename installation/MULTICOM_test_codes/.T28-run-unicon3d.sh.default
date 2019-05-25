@@ -3,6 +3,9 @@
 dtime=$(date +%m%d%y)
 
 
+source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
+export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:SOFTWARE_PATH/tools/OpenBLAS:$LD_LIBRARY_PATH
+
 mkdir -p SOFTWARE_PATH/test_out/T0993s2_unicon3d_$dtime/
 cd SOFTWARE_PATH/test_out/T0993s2_unicon3d_$dtime/
 
