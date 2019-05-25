@@ -18,12 +18,15 @@ installation/MULTICOM_test_codes/T6-run-modeller9.7.sh
 
 # hhsearch
 installation/MULTICOM_test_codes/T7-run-hhsearch.sh
+installation/MULTICOM_test_codes/T7-run-hhsearch-hard.sh
 
 # hhsearch15
 installation/MULTICOM_test_codes/T8-run-hhsearch15.sh
+installation/MULTICOM_test_codes/T8-run-hhsearch15-hard.sh
 
 # hhsearch151
 installation/MULTICOM_test_codes/T9-run-hhsearch151.sh
+installation/MULTICOM_test_codes/T9-run-hhsearch151-hard.sh
 
 # csblast
 installation/MULTICOM_test_codes/T10-run-csblast.sh
@@ -33,24 +36,30 @@ installation/MULTICOM_test_codes/T11-run-hhsuite.sh
 
 # csiblast
 installation/MULTICOM_test_codes/T12-run-csiblast.sh
+installation/MULTICOM_test_codes/T12-run-csiblast-hard.sh
 
 # blast
 installation/MULTICOM_test_codes/T13-run-blast.sh
 
 # psiblast
 installation/MULTICOM_test_codes/T14-run-psiblast.sh
+installation/MULTICOM_test_codes/T14-run-psiblast-hard.sh
 
 # compass
 installation/MULTICOM_test_codes/T15-run-compass.sh
+installation/MULTICOM_test_codes/T15-run-compass-hard.sh
 
 # sam
 installation/MULTICOM_test_codes/T16-run-sam.sh
+installation/MULTICOM_test_codes/T16-run-sam-hard.sh
 
 # prc
 installation/MULTICOM_test_codes/T17-run-prc.sh
+installation/MULTICOM_test_codes/T17-run-prc-hard.sh
 
 # hmmer
 installation/MULTICOM_test_codes/T18-run-hmmer.sh
+installation/MULTICOM_test_codes/T18-run-hmmer-hard.sh
 
 # hmmer3
 installation/MULTICOM_test_codes/T19-run-hmmer3.sh
@@ -63,6 +72,7 @@ installation/MULTICOM_test_codes/T21-run-newblast.sh
 
 # hhpred
 installation/MULTICOM_test_codes/T22-run-hhpred.sh
+installation/MULTICOM_test_codes/T22-run-hhpred-hard.sh
 
 # hhblits
 installation/MULTICOM_test_codes/T23-run-hhblits.sh
