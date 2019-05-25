@@ -1,7 +1,7 @@
 # multicom
 updating
 
-**(1) Download MULTICOM package**
+**(1) Download MULTICOM package (short path is recommended)**
 
 ```
 cd /home/MULTICOM_TS
