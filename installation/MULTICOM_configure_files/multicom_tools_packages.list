@@ -15,7 +15,6 @@ tools/DNCON2
 tools/dssp
 tools/energy
 tools/ffas_soft
-tools/freecontact-1.0.21
 tools/Fusion
 tools/hhblits
 tools/hhsearch
