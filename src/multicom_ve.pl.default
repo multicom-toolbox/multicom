@@ -1511,7 +1511,7 @@ MODEL_SELECTION:
 ###################################################
 #Convert models in mcomb and cluster directory  into CASP format (the code needs to be executed at the end of the model selection.
 #The code needs to be updated as well.
-
+#Convert deep learning models in qa directory into CASP format
 
 if ($full_length_dir =~ /hard/)
 {

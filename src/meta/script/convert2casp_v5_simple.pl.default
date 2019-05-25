@@ -54,7 +54,7 @@ for ($i = 1; $i <= $count; $i++)
 	}
 } 
 
-
+=pod
 #convert models ranked by deep learning into casp format
 print "Convert top models ranked by deep learning into CASP format...\n";
 $rank_file = "$model_dir/qa/deep.full";
@@ -110,6 +110,7 @@ while ($i <= $count && @eva)
 	$i++; 
 	
 }
+=cut
 ############################################################################
 
 

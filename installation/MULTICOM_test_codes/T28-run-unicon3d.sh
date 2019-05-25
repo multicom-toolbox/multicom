@@ -17,10 +17,10 @@ printf "\nFinished.."
 printf "\nCheck log file </home/jh7x3/multicom/test_out/T0993s2_unicon3d_$dtime.log>\n\n"
 
 
-if [[ ! -f "/home/jh7x3/multicom/test_out/T0993s2_unicon3d_$dtime/unicon3d/ss1.pdb" ]];then 
+if [[ ! -f "/home/jh7x3/multicom/test_out/T0993s2_unicon3d_$dtime/unicon3d/Unicon3d-1.pdb" ]];then 
 	printf "!!!!! Failed to run unicon3d, check the installation </home/jh7x3/multicom/src/meta/unicon3d/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: /home/jh7x3/multicom/test_out/T0993s2_unicon3d_$dtime/unicon3d/ss1.pdb\n\n"
+	printf "\nResults: /home/jh7x3/multicom/test_out/T0993s2_unicon3d_$dtime/unicon3d/Unicon3d-1.pdb\n\n"
 fi
 

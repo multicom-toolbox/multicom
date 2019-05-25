@@ -62,10 +62,8 @@ if ($sim_score < $threshold)
 	
 	`mv casp1.pdb casp1.pdb.comb`; 
 
-	print "/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $mname -o $mname.scw\n";
 	`/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $mname -o $mname.scw`;
-	print "/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $mname.scw 1 $tname casp1.pdb\n";
-	`/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $mname.scw 1 $tname casp1.pdb`;
+	`/home/jh7x3/multicom/src/meta/script/pdb2casp.pl $mname.scw 1 $tname casp1.pdb`;
 }
 else
 {
