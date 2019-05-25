@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dtime=$(date +%Y-%b-%d)
+dtime=$(date +%m%d%y)
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dtime=$(date +%Y-%b-%d)
+dtime=$(date +%m%d%y)
 
 
 mkdir -p /data/jh7x3/multicom_github/jie_test/multicom/test_out/T0993s2-raptorx-$dtime/

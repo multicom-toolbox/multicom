@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dtime=$(date +%Y-%b-%d)
+dtime=$(date +%m%d%y)
 
 
 mkdir -p SOFTWARE_PATH/test_out/T0993s2-hhsearch-$dtime/

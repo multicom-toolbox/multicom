@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dtime=$(date +%Y-%b-%d)
+dtime=$(date +%m%d%y)
 
 
 source /data/jh7x3/multicom_github/jie_test/multicom/tools/python_virtualenv/bin/activate

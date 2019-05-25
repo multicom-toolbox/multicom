@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dtime=$(date +%Y-%b-%d)
+dtime=$(date +%m%d%y)
 
 
 export LD_LIBRARY_PATH=/data/jh7x3/multicom_github/jie_test/multicom/tools/boost_1_55_0/lib/:$LD_LIBRARY_PATH
