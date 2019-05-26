@@ -187,6 +187,19 @@ if(-f 'configure.pl')
 	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
+$ssprodir = $multicom_db_tools_dir.'/tools/pspro2_lite/';
+chdir $ssprodir;
+if(-f 'configure.pl')
+{
+	$status = system("perl configure.pl");
+	if($status){
+		die "Failed to run perl configure.pl \n";
+		exit(-1);
+	}
+}else{
+	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+}
+
 print "#########  Setting up nncon1.0\n";
 $ssprodir = $multicom_db_tools_dir.'/tools/nncon1.0/';
 chdir $ssprodir;

@@ -7,6 +7,7 @@ tools/psipred-2.61/runpsipred
 
 # pspro2
 tools/pspro2/configure.pl
+tools/pspro2_lite/configure.pl
 
 # nncon
 tools/nncon1.0/configure.pl
