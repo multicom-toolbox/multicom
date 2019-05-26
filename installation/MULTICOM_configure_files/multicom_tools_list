@@ -106,6 +106,7 @@ tools/deepsf/scripts/deepsf_fr.pl
 tools/deepsf/scripts/fr_option_adv_for_deepsf
 tools/deepsf/lib/library.py
 tools/deepsf/scripts/P2_alignment_generation/gen_query_temp_align_proc.pl
+tools/deepsf/scripts/P2_alignment_generation/summary_alignment_method.pl
 tools/deepsf/scripts/P1_run_fold_recognition/Analyze_top5_folds.py
 tools/deepsf/scripts/P1_run_fold_recognition/run_DeepSF_fr.pl
 tools/deepsf/scripts/P1_run_fold_recognition/generate_pssm.py
