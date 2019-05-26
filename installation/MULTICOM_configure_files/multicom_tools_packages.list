@@ -12,6 +12,7 @@ tools/csblast-2.1.0-linux32
 tools/deepsf
 tools/disorder_new
 tools/DNCON2
+tools/Domain_assembly
 tools/dssp
 tools/energy
 tools/ffas_soft

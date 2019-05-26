@@ -99,6 +99,9 @@ tools/MULTICOM_NOVEL/scripts/hhsuite/align_option
 tools/MULTICOM_NOVEL/scripts/hhsearch/hhsearch_option12
 tools/MULTICOM_NOVEL/scripts/hhsearch/hhsearch_option15
 tools/MULTICOM_NOVEL/scripts/formatCASPmodel.pl
+tools/MULTICOM_NOVEL/scripts/alignment_check_easy_V1.pl
+tools/MULTICOM_NOVEL/scripts/alignment_check_hard_V1.pl
+tools/MULTICOM_NOVEL/scripts/alignment_check_medium_V2.pl
 
 ## deepsf
 tools/deepsf/run_deepsf_3d.sh
