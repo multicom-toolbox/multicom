@@ -18,10 +18,10 @@ printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_fusioncon_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_fusioncon_$dtime/fusioncon/fusioncon1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_fusioncon_$dtime/fusioncon/fusicon1.pdb" ]];then 
 	printf "!!!!! Failed to run fusioncon, check the installation <SOFTWARE_PATH/src/meta/fusioncon/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_fusioncon_$dtime/fusioncon/fusioncon1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_fusioncon_$dtime/fusioncon/fusicon1.pdb\n\n"
 fi
 
