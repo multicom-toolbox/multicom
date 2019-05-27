@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-echo " Start compile freecontact (will take ~1 min)
-"
+echo " Start compile freecontact (will take ~1 min)"
 
 cd /data/commons/MULTICOM_db_tools//tools/DNCON2
 

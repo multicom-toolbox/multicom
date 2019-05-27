@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-echo " Start install python2.6 library (will take ~5 min)
-"
+echo " Start install python2.6 library (will take ~5 min)"
 
 cd /data/commons/MULTICOM_db_tools//tools
 

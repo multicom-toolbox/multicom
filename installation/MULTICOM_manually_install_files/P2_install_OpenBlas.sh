@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-echo " Start compile OpenBlas (will take ~5 min)
-"
+echo " Start compile OpenBlas (will take ~5 min)"
 
 cd /data/commons/MULTICOM_db_tools//tools
 

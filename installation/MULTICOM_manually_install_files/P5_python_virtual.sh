@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-echo " Start install python virtual environment (will take ~1 min)
-"
+echo " Start install python virtual environment (will take ~1 min)"
 
 cd /data/commons/MULTICOM_db_tools//tools
 

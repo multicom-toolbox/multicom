@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-echo " Start compile boost (will take ~20 min)
-"
+echo " Start compile boost (will take ~20 min)"
 
 cd /data/commons/MULTICOM_db_tools//tools
 

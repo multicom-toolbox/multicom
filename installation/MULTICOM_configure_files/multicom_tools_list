@@ -120,6 +120,11 @@ tools/deepsf/scripts/P1_run_fold_recognition/combine_top10_hidden_for_5folds_ECO
 
 ## fusion
 tools/Fusion/fusion_lib/mover.py
+tools/Fusion/fusion_lib/protocols.py
+tools/Fusion/fusion_lib/protocols_plus.py
+tools/Fusion/fusion_lib/sampler.py
+tools/Fusion/fusion_lib/util.py
+tools/Fusion/fusion_lib/cluster.py
 tools/Fusion/fusion_lib/raptorx-ss3-ss8/bin/run_raptorx-ss3.pl
 tools/Fusion/Fusion_Hybrid.sh
 
