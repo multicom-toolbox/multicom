@@ -490,6 +490,22 @@ print OUT "cp $install_dir/installation/MULTICOM_configure_files/keras_multicom.
 close OUT;
 
 
+#### create python2.6 library
+
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P6_python2.6_library.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P6_python2.6_library.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start install python2.6 library (will take ~5 min)\n\"\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
+print OUT "#wget http://www.python.org/ftp/python/2.6.8/Python-2.6.8.tgz\n\n";
+print OUT "#tar xzf Python-2.6.8.tgz\n\n";
+print OUT "cd Python-2.6.8\n\n";
+print OUT "make clean\n\n";
+print OUT "./configure --prefix=$multicom_db_tools_dir/tools/Python-2.6.8 --with-threads --enable-shared --with-zlib=/usr/include\n\n";
+print OUT "make\n\n";
+print OUT "make install\n\n";
+close OUT;
+
+
 
 
 

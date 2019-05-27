@@ -106,3 +106,6 @@ installation/MULTICOM_test_codes/T32-run-novel.sh
 
 # hhsuite3
 installation/MULTICOM_test_codes/T33-run-hhsuite3.sh
+
+# fusioncon
+installation/MULTICOM_test_codes/T34-run-fusioncon.sh
