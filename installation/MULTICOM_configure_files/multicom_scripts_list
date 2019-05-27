@@ -142,6 +142,8 @@ src/meta/msa/script/construct_v6.pl
 src/meta/fusioncon/script/tm_fusioncon_main.pl
 src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
 src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl
+src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6
+src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7
 src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh
 src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.py
 src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
