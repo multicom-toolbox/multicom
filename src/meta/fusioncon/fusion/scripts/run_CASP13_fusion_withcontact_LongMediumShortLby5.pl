@@ -105,24 +105,24 @@ chdir($ren_fusion_dir);
 
 if(-e "$ren_dncon2_features/$targetname.dncon2.rr")
 {
-	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5\n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 24 -smax 10000 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5\n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 12 -smax 23 -top L5`;
 
-	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
+	print "1. Filtering dncon2 \nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5\n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/convea_range_resultv2.pl -rr $targetname.dncon2.rr  -fasta $fasta_seq  -smin 6 -smax 11 -top L5`;
 
 
-	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst  $lbound  $ubound\n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Long-range-L5.rr.raw  $fasta_seq $targetname.rr.longL5.contact.cst $lbound  $ubound`;
 
-	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
+	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst  $lbound  $ubound \n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Short-range-L5.rr.raw  $fasta_seq $targetname.rr.shortL5.contact.cst $lbound  $ubound `;
 
-	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
-	`perl /home/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
+	print "2. Generating dncon2 constraints\nperl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound\n\n";
+	`perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/P1_convert_dncon2constraints.pl $targetname-Medium-range-L5.rr.raw  $fasta_seq $targetname.rr.mediumL5.contact.cst $lbound  $ubound`;
 
 
 
