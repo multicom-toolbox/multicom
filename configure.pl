@@ -174,8 +174,8 @@ while(<IN>)
 close IN;
 
 print "#########  Setting up pspro2\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/pspro2/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/pspro2/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -183,12 +183,13 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
-$ssprodir = $multicom_db_tools_dir.'/tools/pspro2_lite/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/pspro2_lite/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -196,27 +197,29 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up pspro2\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/Domain_assembly/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/Domain_assembly/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
-	$status = system("perl configure.pl $ssprodir");
+	$status = system("perl configure.pl $tooldir");
 	if($status){
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up nncon1.0\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/nncon1.0/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/nncon1.0/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -224,14 +227,15 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
 print "\n\n#########  Setting up modeleva\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/model_eva1.0/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/model_eva1.0/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -239,13 +243,14 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up betacon\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/betacon/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/betacon/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -253,13 +258,14 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n\n#########  Setting up betapro-1.0\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/betapro-1.0/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/betapro-1.0/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -267,15 +273,16 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
 ######
 print "\n\n#########  Setting up disorder\n"; 
-$ssprodir = $multicom_db_tools_dir.'/tools/disorder_new/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/disorder_new/';
+chdir $tooldir;
 if(-f 'configure.pl')
 {
 	$status = system("perl configure.pl");
@@ -283,16 +290,17 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
 
 
 print "\n\n#########  Setting up raptorx\n";
-$ssprodir = $multicom_db_tools_dir.'/tools/RaptorX4/CNFsearch1.66/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/RaptorX4/CNFsearch1.66/';
+chdir $tooldir;
 if(-f 'setup.pl')
 {
 	$status = system("perl setup.pl");
@@ -300,13 +308,14 @@ if(-f 'setup.pl')
 		die "Failed to run perl setup.pl\n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The setup.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The setup.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 print "\n#########  Setting up SCRATCH \n";
-$ssprodir = $multicom_db_tools_dir.'/tools/SCRATCH-1D_1.1/';
-chdir $ssprodir;
+$tooldir = $multicom_db_tools_dir.'/tools/SCRATCH-1D_1.1/';
+chdir $tooldir;
 if(-f 'install.pl')
 {
 	$status = system("perl install.pl");
@@ -314,8 +323,9 @@ if(-f 'install.pl')
 		die "Failed to run perl install.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $tooldir`;
 }else{
-	die "The configure.pl file for $ssprodir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
 
@@ -344,13 +354,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 755 $deep_mod9v7");
+system("chmod -R 777 $deep_mod9v7");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller9v7/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller9v7/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 755 $modeller_conf");
+system("chmod -R 777 $modeller_conf");
 system("cp $deep_mod9v7 $addr_mod9v7");
 print "Done\n";
 
@@ -380,13 +390,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 755 $deep_mod9v16");
+system("chmod -R 777 $deep_mod9v16");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller-9.16/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller-9.16/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 755 $modeller_conf");
+system("chmod -R 777 $modeller_conf");
 system("cp $deep_mod9v16 $addr_mod9v16");
 print "Done\n";
 
@@ -411,7 +421,7 @@ foreach $prcfile (@prcfiles)
 	
 }
 close PRCLIB;
-
+`chmod -R 777 $prc_db/prcdb.lib`;
 
 
 
@@ -511,7 +521,7 @@ if(!(-e "/usr/bin/python2.6"))
 }else{
 	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
 }
-
+`chmod -R 777 $install_dir/installation/`;
 
 
 
