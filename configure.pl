@@ -183,9 +183,9 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod -R 777 $tooldir/bin`;
-	`chmod -R 777 $tooldir/server`;
-	`chmod -R 777 $tooldir/configure.pl`;
+	`chmod 777 $tooldir/bin`;
+	`chmod 777 $tooldir/server`;
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
