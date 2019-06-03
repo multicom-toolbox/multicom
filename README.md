@@ -52,7 +52,7 @@ $ sh ./P5_python_virtual.sh
 
 **(5) Set theano as backend for keras (required)**
 
-Change the contents in '~/.keras/keras.json'. DNCON2 is currently running based theano-compiled models.
+Change the contents in '~/.keras/keras.json'. DNCON2 is currently running based on theano-compiled models.
 ```
 $ vi ~/.keras/keras.json
 
@@ -100,7 +100,7 @@ sh T28-run-unicon3d.sh
 
 ```
 
-**(6) Run MULTICOM for structure predicton**
+**(7) Run MULTICOM for structure predicton**
 
 ```
    Usage:
