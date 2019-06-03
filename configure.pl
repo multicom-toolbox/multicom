@@ -413,7 +413,7 @@ foreach $prcfile (@prcfiles)
 	
 }
 close PRCLIB;
-`chmod -R 777 $prc_db/$prcfile`;
+`chmod -R 777 $prc_db/prcdb.lib`;
 
 
 
