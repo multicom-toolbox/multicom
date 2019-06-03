@@ -183,6 +183,8 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/bin`;
+	`chmod 777 $tooldir/server`;
 	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
@@ -197,12 +199,14 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/bin`;
+	`chmod 777 $tooldir/server`;
 	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
 
-print "\n\n#########  Setting up pspro2\n";
+print "\n\n#########  Setting up Domain_assembly\n";
 $tooldir = $multicom_db_tools_dir.'/tools/Domain_assembly/';
 chdir $tooldir;
 if(-f 'configure.pl')
@@ -213,8 +217,6 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 	`chmod 777 $tooldir/configure.pl`;
-	`chmod 777 $tooldir/bin`;
-	`chmod 777 $tooldir/server`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
