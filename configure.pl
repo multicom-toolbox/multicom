@@ -344,13 +344,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 777 $deep_mod9v7");
+#system("chmod 777 $deep_mod9v7");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller9v7/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller9v7/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 777 $modeller_conf");
+#system("chmod 777 $modeller_conf");
 system("cp $deep_mod9v7 $addr_mod9v7");
 print "Done\n";
 
@@ -380,13 +380,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 777 $deep_mod9v16");
+#system("chmod 777 $deep_mod9v16");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller-9.16/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller-9.16/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 777 $modeller_conf");
+#system("chmod 777 $modeller_conf");
 system("cp $deep_mod9v16 $addr_mod9v16");
 print "Done\n";
 
