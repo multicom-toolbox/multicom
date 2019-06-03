@@ -213,6 +213,8 @@ if(-f 'configure.pl')
 		exit(-1);
 	}
 	`chmod 777 $tooldir/configure.pl`;
+	`chmod 777 $tooldir/bin`;
+	`chmod 777 $tooldir/server`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
