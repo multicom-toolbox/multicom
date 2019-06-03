@@ -183,7 +183,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -197,7 +196,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -212,7 +210,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -227,7 +224,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -243,7 +239,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -258,7 +253,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -273,7 +267,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -290,7 +283,6 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
-	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -308,7 +300,6 @@ if(-f 'setup.pl')
 		die "Failed to run perl setup.pl\n";
 		exit(-1);
 	}
-	`chmod -R 777 $multicom_db_tools_dir/tools/RaptorX4/CNFsearch1.66/util/`;
 }else{
 	die "The setup.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -323,7 +314,6 @@ if(-f 'install.pl')
 		die "Failed to run perl install.pl \n";
 		exit(-1);
 	}
-	`chmod -R 777 $multicom_db_tools_dir/tools/SCRATCH-1D_1.1/bin/`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -421,7 +411,6 @@ foreach $prcfile (@prcfiles)
 	
 }
 close PRCLIB;
-`chmod -R 777 $prc_db/prcdb.lib`;
 
 
 
