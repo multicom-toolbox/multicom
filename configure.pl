@@ -183,6 +183,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -196,6 +197,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -210,6 +212,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -224,6 +227,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -239,6 +243,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -253,6 +258,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -267,6 +273,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -283,6 +290,7 @@ if(-f 'configure.pl')
 		die "Failed to run perl configure.pl \n";
 		exit(-1);
 	}
+	`chmod 777 $tooldir/configure.pl`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
