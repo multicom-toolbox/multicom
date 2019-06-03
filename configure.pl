@@ -300,6 +300,7 @@ if(-f 'setup.pl')
 		die "Failed to run perl setup.pl\n";
 		exit(-1);
 	}
+	`chmod -R 777 $multicom_db_tools_dir/tools/RaptorX4/CNFsearch1.66/util/`;
 }else{
 	die "The setup.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -314,6 +315,7 @@ if(-f 'install.pl')
 		die "Failed to run perl install.pl \n";
 		exit(-1);
 	}
+	`chmod -R 777 $multicom_db_tools_dir/tools/SCRATCH-1D_1.1/bin/`;
 }else{
 	die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 }
@@ -344,13 +346,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 755 $deep_mod9v7");
+system("chmod 777 $deep_mod9v7");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller9v7/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller9v7/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 755 $modeller_conf");
+system("chmod 777 $modeller_conf");
 system("cp $deep_mod9v7 $addr_mod9v7");
 print "Done\n";
 
@@ -380,13 +382,13 @@ while(defined($line=<$IN>))
 }
 $IN->close();
 $OUT->close();
-system("chmod 755 $deep_mod9v16");
+system("chmod 777 $deep_mod9v16");
 $modeller_conf = $multicom_db_tools_dir."/tools/modeller-9.16/modlib/modeller/config.py";
 $OUT = new FileHandle ">$modeller_conf";
 print $OUT "install_dir = r\'$multicom_db_tools_dir/tools/modeller-9.16/\'\n";
 print $OUT "license = \'MODELIRANJE\'";
 $OUT->close();
-system("chmod 755 $modeller_conf");
+system("chmod 777 $modeller_conf");
 system("cp $deep_mod9v16 $addr_mod9v16");
 print "Done\n";
 
@@ -411,7 +413,7 @@ foreach $prcfile (@prcfiles)
 	
 }
 close PRCLIB;
-
+`chmod -R 777 $prc_db/$prcfile`;
 
 
 
