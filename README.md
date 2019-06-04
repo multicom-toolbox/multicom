@@ -50,7 +50,22 @@ $ sh ./P5_python_virtual.sh
 (** take ~1 min)
 ```
 
-**(5) Testing the MULTICOM tools (recommended)**
+**(5) Set theano as backend for keras (required)**
+
+Change the contents in '~/.keras/keras.json'. DNCON2 is currently running based on theano-compiled models.
+```
+$ vi ~/.keras/keras.json
+
+
+{
+    "epsilon": 1e-07,
+    "floatx": "float32",
+    "image_data_format": "channels_last",
+    "backend": "theano"
+}
+```
+
+**(6) Testing the MULTICOM tools (recommended)**
 
 
 ```
@@ -85,7 +100,7 @@ sh T28-run-unicon3d.sh
 
 ```
 
-**(6) Run MULTICOM for structure predicton**
+**(7) Run MULTICOM for structure predicton**
 
 ```
    Usage:
