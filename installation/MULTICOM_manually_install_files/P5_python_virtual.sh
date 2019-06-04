@@ -24,6 +24,8 @@ pip install --upgrade matplotlib
 
 NOW=$(date +"%m-%d-%Y")
 
+mkdir -p ~/.keras
+
 cp ~/.keras/keras.json ~/.keras/keras.json.$NOW.$RANDOM
 
 cp /home/jh7x3/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json

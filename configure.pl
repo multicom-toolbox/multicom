@@ -484,6 +484,7 @@ print OUT "pip install --upgrade theano==0.9.0\n\n";
 print OUT "pip install --upgrade h5py\n\n";
 print OUT "pip install --upgrade matplotlib\n\n";
 print OUT "NOW=\$(date +\"%m-%d-%Y\")\n\n";
+print OUT "mkdir -p ~/.keras\n\n";
 print OUT "cp ~/.keras/keras.json ~/.keras/keras.json.\$NOW.\$RANDOM\n\n";
 print OUT "cp $install_dir/installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json\n\n";
 close OUT;
