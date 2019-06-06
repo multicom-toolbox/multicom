@@ -513,7 +513,9 @@ if(!(-e "/usr/bin/python2.6"))
 }
 
 
-
+### compress benchmark dataset
+chdir("$install_dir/installation");
+`tar -zxf benchmark.tar.gz`;
 
 
 sub prompt_yn {
