@@ -97,10 +97,15 @@ sh T27-run-confold.sh
 
 sh T28-run-unicon3d.sh
 
-
 ```
 
-**(7) Run MULTICOM for structure predicton**
+**(7) Validate predictons**
+```
+cd installation/MULTICOM_test_codes
+sh T99-run-validation.sh
+```
+
+**(8) Run MULTICOM for structure predicton**
 
 ```
    Usage:
