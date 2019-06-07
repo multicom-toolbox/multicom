@@ -150,7 +150,19 @@ system("chmod +x $install_dir/bin/run_multicom.sh");
 
 
 
-print "#########  (5) Check the tools\n";
+print "#########  (5) Configuring database update scripts\n";
+
+$option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_db_list";
+
+if (! -f $option_list)
+{
+        die "\nOption file $option_list not exists.\n";
+}
+configure_file2($option_list,'src');
+print "#########  Configuring database update scripts, done\n\n\n";
+
+
+print "#########  (6) Check the tools\n";
 
 $option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_tools_packages.list";
 

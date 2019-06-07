@@ -1,0 +1,30 @@
+
+### update databases
+src/update_db/bin/CASP12_update_once.sh
+src/update_db/scripts/casp12_update_once.pl
+src/prosys/script/update_nr_lock.pl
+
+## hhsearch1.5
+src/update_db/tools/hhsearch1.5/make_hhsearch1.5_db.sh
+
+##prc
+src/update_db/tools/prc/make_prc_db.sh
+
+## ffas
+src/update_db/tools/ffas/build_db_update.pl
+src/update_db/tools/ffas/profile.sh
+
+
+## compass
+src/update_db/tools/compass/update_compass_db_v2.sh
+
+
+## hhsuite
+src/update_db/tools/hhsuite/gen_db.sh
+
+## nr database
+src/update_db/bin/update_nr.sh
+
+## option
+src/update_db/options/db_option
+
