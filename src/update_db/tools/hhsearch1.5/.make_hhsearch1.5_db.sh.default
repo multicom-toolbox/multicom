@@ -1,0 +1,4 @@
+#!/bin/sh
+
+SOFTWARE_PATH/src/update_db/tools/hhsearch1.5/make_hhsearch15_db.pl SOFTWARE_PATH/src/update_db/tools/hhsearch1.5/ SOFTWARE_PATH/databases/ SOFTWARE_PATH/tools/hhsearch1.5.0/ SOFTWARE_PATH/databases/databases/hhsearch1.5_db hhsearch15db 
+

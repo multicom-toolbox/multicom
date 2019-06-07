@@ -1,0 +1,169 @@
+####################This is database option file#####################
+
+###############################Global Options########################
+#database status dir: hold all kinds of information regarding database
+#prosys_db_stat_dir = /home/jianlinc/prosys/database/dbstat
+prosys_db_stat_dir = SOFTWARE_PATH/databases/dbstat
+###############################End of Global Options#################
+
+############################PDB download options#####################
+#prosys dir
+prosys_dir = SOFTWARE_PATH/src/prosys
+
+#main pdb repository
+main_pdb_dir = SOFTWARE_PATH/databases/pdb05_2004
+
+#pdb download dir
+pdb_download_dir = SOFTWARE_PATH/databases/pdb
+
+#pdb index file: a list of pdb files downloaded so far
+#should contains all files listed in $main_pdb_dir
+# and pdb_download_dir
+#this file should exist in prosys_db_stat_dir
+#if not, it need to be reconstructed.
+pdb_index_file = pdb_index
+
+#the file to record newly downloaded pdb files since the last download
+pdb_index_new = pdb_new
+
+#the file to record bad pdb entries that no dssp files can be generated
+pdb_bad_list = pdb_bad_list
+
+
+#non-redundant protein database
+nr_dir = SOFTWARE_PATH/databases/nr_latest
+
+#########################End of PDB download optons##################
+
+############################Dataset generation option################
+#dssp program path
+dssp_program_dir = SOFTWARE_PATH/tools/dssp/
+
+#pdb source dir, it usually the same as pdb download dir
+set_pdb_source_dir = SOFTWARE_PATH/databases/pdb
+
+#dssp dir to store dssp file
+set_dssp_dir = SOFTWARE_PATH/databases/dssp
+
+#seq dir to store new seq 
+set_seq_dir = SOFTWARE_PATH/databases/seq
+
+#atom dir to store new atom file
+set_atom_dir = SOFTWARE_PATH/databases/atom
+
+#working dir for both dataset generation and library building.
+#if this directory doesn't exist, the script will create one.
+set_work_dir = SOFTWARE_PATH/databases/work
+
+#dataset file name generated from all new dssp files
+#this file is stored in set_work_dir
+#the previous one is baked up by adding date 
+set_dssp_new_file = dssp_all_new.set
+
+#dataset file name for adjusted new dataset
+#this is adjust the dataset according to coordinates for
+#each residue. Thus it can be used to generate models
+#by Modeller. This file is stored in set_work_dir too.
+#the previous one will be backed up by adding date
+set_adjust_new_file = adjust_all_new.set
+
+#release date. 
+#this option controls which pdb file is used to generate dataset.
+#Usually it should be set to all_new. 
+#but for testing, it can be set to date
+#data format: xx-xx-xxxx (day-month-year)
+#for instance: 04-10-2005
+set_pdb_release_date = all_new
+#set_pdb_release_date = 15-08-2017
+#set_pdb_release_date = 15-03-2016
+#set_pdb_release_date = 26-04-2016
+#set_pdb_release_date = 30-12-2015
+#set_pdb_release_date = 30-01-2015
+#set_pdb_release_date = 20-12-2006 
+#set_pdb_release_date = 20-11-2009 
+#set_pdb_release_date = 15-09-2007 
+#set_pdb_release_date = 31-10-2007 
+############################End of Dataset generation option#########
+
+
+###########################CM library option#########################
+#directory to store cm library (fasta file and formated blast file)
+cm_library_dir = SOFTWARE_PATH/databases/cm_lib
+
+#cm database file name (name of fasta file and prefix of formated
+#blast file. this file is put in cm_library_dir
+cm_database_name = pdb_cm
+
+#cm selected dataset name (it has exactly same sequences in cm database
+#file. but it include other information such as resolution, coordindates
+#secondary stx, solvent accessibility (Not used so far)
+cm_dataset_name = pdb_cm.set
+
+#minimum length to keep a chain in the cm database
+cm_filter_length = 30
+
+#lowest resolution to keep a chain in the cm database
+cm_filter_resolution = 8
+
+#lowest match ratio used to keep a chain in the cm database
+cm_filter_ratio = 0.9
+
+#blast dir
+#blast_dir = /home/chengji/software/prosys/blast-2.2.9
+blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
+
+###########################End of CM library option##################
+
+
+###########################FR library option#########################
+#clustalw dir
+clustalw_dir=SOFTWARE_PATH/tools/clustalw1.83
+
+#palign dir
+palign_dir=SOFTWARE_PATH/tools/palign/linux
+
+#tcoffee dir
+tcoffee_dir=SOFTWARE_PATH/tools/tcoffee2.03
+
+#hmmer dir
+hmmer_dir=SOFTWARE_PATH/tools/hmmer2.3.2
+
+#hhm prc dir
+prc_dir=SOFTWARE_PATH/tools/prchmm1.5.2
+
+#hhsearch dir
+hhsearch_dir=SOFTWARE_PATH/tools/hhsearch
+
+#lobster dir
+lobster_dir=SOFTWARE_PATH/tools/lobster
+
+#compass dir
+compass_dir=SOFTWARE_PATH/tools/compass1.24
+
+#pspro dir 
+pspro_dir=SOFTWARE_PATH/tools/pspro2
+
+#betapro dir 
+betapro_dir=SOFTWARE_PATH/tools/betapro-1.0
+
+#fr template dir of holding template related files
+fr_template_dir=SOFTWARE_PATH/databases/library
+
+#fr template  dir of holding profile files.
+fr_template_library_dir = SOFTWARE_PATH/databases/fr_lib
+
+#fr template fasta file
+#this file must be put in fr_template_library_dir
+fr_template_library_file = sort90
+
+#cutoff identity threshold of choosing templates
+fr_identity_threshold = 0.9
+###########################End of FR library option##################
+
+
+###########################Web server online update options##########
+###########################End of web server online update options###
+
+
+
+

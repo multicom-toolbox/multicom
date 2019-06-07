@@ -1,0 +1,4 @@
+#!/bin/sh
+
+SOFTWARE_PATH/src/update_db/tools/prc/make_prc_db.pl SOFTWARE_PATH/databases SOFTWARE_PATH/tools/sam3.5.i686-linux/ SOFTWARE_PATH/databases/prc_db/ prcdb.lib
+
