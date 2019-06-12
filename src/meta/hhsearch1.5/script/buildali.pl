@@ -16,9 +16,6 @@ use lib ".";
 use lib "/home/jh7x3/multicom/src/meta/hhsearch1.5/script/";
 use Align;
 # CUSTOMIZE
-#my $dbbase="/home/casp13/MULTICOM_package/cheng_group/hhsearch_dbs/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
-#my $dbbase="/home/casp13/MULTICOM_package/casp8/hhpred/nr_latest/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
-#my $dbbase="/home/casp13/MULTICOM_package/casp8/hhsearch_db/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
 my $dbbase="/home/jh7x3/multicom/databases/nr70_90/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
                                    # It is recommended to use nre = nr + env. 
                                    # 90: filtered with CD-HIT to 90% maximum pairwise sequence identity
