@@ -5,48 +5,29 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-#prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
 prosys_dir = /home/jh7x3/multicom/src/prosys/
 
 #blast tool dir
-#blast_dir = /home/jianlinc/pspro/blast2.2.8/
-#blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
 blast_dir = /home/jh7x3/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
-#modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
 modeller_dir = /home/jh7x3/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
-#pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
-#pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
 pdb_db_dir = /home/jh7x3/multicom/databases/cm_lib/
 
 #use non-redundant db dir (should always use non-redundant database)
-#nr_dir = /home/jianlinc/pspro/data/nr/
-#nr_dir = /var/preserve/nr/
-#nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr/
-#nr_dir = /home/casp13/MULTICOM_package/software/prosys_database/nr_latest/
-#not use nr (should never choose this option. its performance is worse)
-#nr_dir = none
-#nr_dir = /home/casp13/MULTICOM_package//uniref/
 nr_dir = /home/jh7x3/multicom/databases/uniref/
 nrdb = uniref90
 
 #atom files dir
-#atom_dir = /home/jianlinc/prosys/database/atom/
-#atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
 atom_dir = /home/jh7x3/multicom/databases/atom/
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsearch dir
-#hhsearch_dir=/home/casp13/MULTICOM_package/software/hhsearch1.2/linux32/
 hhsearch_dir=/home/jh7x3/multicom/tools/hhsearch1.2/linux32/
 
 #psipred dir
-#psipred_dir=/home/casp13/MULTICOM_package/software/psipred/
 psipred_dir=/home/jh7x3/multicom/tools/psipred/
 
 #hhsearchdb 

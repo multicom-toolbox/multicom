@@ -114,5 +114,5 @@ installation/MULTICOM_test_codes/T34-run-fusioncon.sh
 installation/scripts/validate_predictions.pl
 installation/scripts/evaluate_two_pdbs.pl
 installation/MULTICOM_test_codes/T99-run-validation.sh
-
+installation/scripts/cmap/coneva-camp.pl
 
