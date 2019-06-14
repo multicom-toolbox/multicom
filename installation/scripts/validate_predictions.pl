@@ -13,7 +13,7 @@ $GLOBAL_PATH="/home/jh7x3/multicom/";
 opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";
 @subdirs = readdir(DIR);
 closedir(DIR);
-=pod
+
 foreach $subdir (@subdirs)
 {
 	if($subdir eq '.' or $subdir eq '..' or index($subdir,$targetid) < 0)
@@ -65,7 +65,7 @@ foreach $subdir (@subdirs)
 	print "---------------------------------------------------------------------------------------------------\n\n";
 	sleep(1);
 }
-=cut 
+
 
 foreach $subdir (@subdirs)
 {
