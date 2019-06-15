@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-#perl /home/jh7x3/multicom/installation/scripts/validate_predictions.pl  T0993s2  /home/jh7x3/multicom/test_out/T0993s2_csiblast_052419 /home/jh7x3/multicom//installation/benchmark
+
 if (@ARGV != 3) {
   print "Usage: structure1  structure2\n";
   exit;

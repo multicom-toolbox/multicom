@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-#perl /home/jh7x3/multicom/installation/scripts/validate_predictions.pl  T0993s2  /home/jh7x3/multicom/test_out/T0993s2_csiblast_052419 /home/jh7x3/multicom//installation/benchmark
+
 if (@ARGV != 3) {
   print "Usage: structure1  structure2\n";
   exit;
@@ -8,7 +8,7 @@ $targetid = $ARGV[0];
 $test_dir = $ARGV[1];
 $benchmark_dir = $ARGV[2];
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="SOFTWARE_PATH";
 
 opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";
 @subdirs = readdir(DIR);
