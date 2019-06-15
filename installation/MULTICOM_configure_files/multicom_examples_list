@@ -1,5 +1,6 @@
 # multicom
 installation/MULTICOM_test_codes/T0-run-multicom.sh
+installation/MULTICOM_test_codes/T0-run-multicom-hard.sh
 
 # pspro2
 installation/MULTICOM_test_codes/T1-run-pspro2.sh
