@@ -3,17 +3,17 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime/
-SOFTWARE_PATH/tools/SCRATCH-1D_1.1/bin/run_SCRATCH-1D_predictors.sh SOFTWARE_PATH/examples/T0993s2.fasta  SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime/T0993s2 2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime.log
+mkdir -p SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime/
+SOFTWARE_PATH/tools/SCRATCH-1D_1.1/bin/run_SCRATCH-1D_predictors.sh SOFTWARE_PATH/examples/T1006.fasta  SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime/T1006 2>&1 | tee  SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime.log
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime/T0993s2.ss" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime/T1006.ss" ]];then 
 	printf "\n!!!!! Failed to run SCRATCH, check the installation <SOFTWARE_PATH/tools/SCRATCH-1D_1.1/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_SCRATCH_$dtime/T0993s2.ss\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_SCRATCH_$dtime/T1006.ss\n\n"
 fi

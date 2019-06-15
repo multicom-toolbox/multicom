@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd SOFTWARE_PATH/test_out/ 
-perl SOFTWARE_PATH/installation/scripts/validate_predictions.pl  T0993s2  SOFTWARE_PATH/test_out/ SOFTWARE_PATH/installation/benchmark
+perl SOFTWARE_PATH/installation/scripts/validate_predictions.pl  T1006  SOFTWARE_PATH/test_out/ SOFTWARE_PATH/installation/benchmark

@@ -7,16 +7,16 @@ export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/OpenBLAS/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/lib:$LD_LIBRARY_PATH
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_freecontact_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_freecontact_$dtime/
-SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/bin/freecontact < SOFTWARE_PATH/examples/T0993s2.aln > SOFTWARE_PATH/test_out/T0993s2_freecontact_$dtime/T0993s2.freecontact.rr
+mkdir -p SOFTWARE_PATH/test_out/T1006_freecontact_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_freecontact_$dtime/
+SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/bin/freecontact < SOFTWARE_PATH/examples/T1006.aln > SOFTWARE_PATH/test_out/T1006_freecontact_$dtime/T1006.freecontact.rr
 
-col_num=$(head -1 SOFTWARE_PATH/test_out/T0993s2_freecontact_$dtime/T0993s2.freecontact.rr | tr ' ' '\n' | wc -l)
+col_num=$(head -1 SOFTWARE_PATH/test_out/T1006_freecontact_$dtime/T1006.freecontact.rr | tr ' ' '\n' | wc -l)
 
 if [[ $col_num != 6 ]]
 then 
 	printf "\n!!!!! Failed to run freecontact, check the installation <SOFTWARE_PATH/tools/DNCON2/freecontact-1.0.21/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_freecontact_$dtime/T0993s2.freecontact.rr\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_freecontact_$dtime/T1006.freecontact.rr\n\n"
 fi

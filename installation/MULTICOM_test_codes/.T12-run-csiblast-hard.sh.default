@@ -3,21 +3,21 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/
 
 mkdir csiblast
-perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard SOFTWARE_PATH/examples/T0993s2.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime.log
+perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard SOFTWARE_PATH/examples/T1006.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.log
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime/csiblast/csiblast1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/csiblast/csiblast1.pdb" ]];then 
 	printf "!!!!! Failed to run csiblast, check the installation <SOFTWARE_PATH/src/meta/csblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_csiblast_hard_$dtime/csiblast/csiblast1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/csiblast/csiblast1.pdb\n\n"
 fi
 

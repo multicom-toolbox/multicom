@@ -3,21 +3,21 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime/
 
 mkdir hhsuite3
-perl SOFTWARE_PATH/src/meta/hhsuite3/script/tm_hhsuite3_main.pl SOFTWARE_PATH/src/meta/hhsuite3/hhsuite3_option SOFTWARE_PATH/examples/T0993s2.fasta hhsuite3  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime.log
+perl SOFTWARE_PATH/src/meta/hhsuite3/script/tm_hhsuite3_main.pl SOFTWARE_PATH/src/meta/hhsuite3/hhsuite3_option SOFTWARE_PATH/examples/T1006.fasta hhsuite3  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime.log
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime/hhsuite3/hhsu1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime/hhsuite3/hhsu1.pdb" ]];then 
 	printf "!!!!! Failed to run hhsuite3, check the installation <SOFTWARE_PATH/src/meta/hhsuite3/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_hhsuite3_$dtime/hhsuite3/hhsu1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhsuite3_$dtime/hhsuite3/hhsu1.pdb\n\n"
 fi
 

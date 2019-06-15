@@ -3,21 +3,21 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/
 
 mkdir hmmer
-perl SOFTWARE_PATH/src/meta/hmmer/script/tm_hmmer_main_v2.pl SOFTWARE_PATH/src/meta/hmmer/hmmer_option SOFTWARE_PATH/examples/T0993s2.fasta hmmer  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime.log
+perl SOFTWARE_PATH/src/meta/hmmer/script/tm_hmmer_main_v2.pl SOFTWARE_PATH/src/meta/hmmer/hmmer_option SOFTWARE_PATH/examples/T1006.fasta hmmer  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.log
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime/hmmer/hmmer1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/hmmer/hmmer1.pdb" ]];then 
 	printf "!!!!! Failed to run hmmer, check the installation <SOFTWARE_PATH/src/meta/hmmer/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_hmmer_$dtime/hmmer/hmmer1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/hmmer/hmmer1.pdb\n\n"
 fi
 

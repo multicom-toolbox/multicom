@@ -3,20 +3,20 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime/
-cd SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime/
+cd SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime/
 
-perl SOFTWARE_PATH/src/prosys/script/pir2ts_energy.pl SOFTWARE_PATH/tools/modeller-9.16/ SOFTWARE_PATH/examples/ SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime/ SOFTWARE_PATH/examples/T0993s2.pir 5  2>&1 | tee  SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime.log
+perl SOFTWARE_PATH/src/prosys/script/pir2ts_energy.pl SOFTWARE_PATH/tools/modeller-9.16/ SOFTWARE_PATH/examples/ SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime/ SOFTWARE_PATH/examples/T1006.pir 5  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime.log
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime/T0993s2.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime/T1006.pdb" ]];then 
 	printf "!!!!! Failed to run modeller-9.16, check the installation <SOFTWARE_PATH/tools/modeller-9.16/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T0993s2_modeller9.16_$dtime/T0993s2.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_modeller9.16_$dtime/T1006.pdb\n\n"
 fi
 
