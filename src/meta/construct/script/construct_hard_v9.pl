@@ -213,7 +213,9 @@ $time_out >= $TIME_OUT_FREQUENCY || die "time out is too short.\n";
 
 
 #@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch151", "hhblits", "muster", "hhpred", "hhsuite"); #six are based pdb_cm, four are based on sort90
-@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "raptorx", "ffas", "hhsearch151", "hhblits", "hhblits3", "muster", "hhpred", "hhsuite", "hhsuite3"); #six are based pdb_cm, four are based on sort90
+#@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "raptorx", "ffas", "hhsearch151", "hhblits", "hhblits3", "muster", "hhpred", "hhsuite", "hhsuite3"); #six are based pdb_cm, four are based on sort90
+#hhblit3 removed from list due to failure for some targets
+@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "raptorx", "ffas", "hhsearch151", "hhblits", "muster", "hhpred", "hhsuite", "hhsuite3"); #six are based pdb_cm, four are based on sort90
 
 #$rm_dir = $work_dir . "/sp3"; # I think, we don't need to remove templates from sp3
 

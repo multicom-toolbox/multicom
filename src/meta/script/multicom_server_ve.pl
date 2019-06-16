@@ -588,7 +588,7 @@ chdir $output_dir;
 #@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
 #@servers = ("hhsearch", "compass", "multicom", "sp3", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "construct", "hhpred", "ffas", "hhblits", "muster", "hhsearch151", "msa"); 
 #@servers_incasp13 = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
-@servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
+@servers =           ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
 
 
 
@@ -909,7 +909,7 @@ if ($i == $thread_num && $post_process == 0)
 	#@servers = ("hhsearch", "compass", "multicom", "sp2", "sp3", "rosetta", "rosetta2", "rosetta3"); 
 	#@servers = ("hhsearch", "compass", "multicom", "sp3", "sp3_add", "csblast", "csiblast", "sam", "hmmer", "blast", "psiblast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "ffas", "muster", "hhsearch151", "hhsuite", "fugue", "msa"); 
 	#@servers_incasp13 = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
-	@servers = ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa"); 
+	@servers =           ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf");
 	for ($i = 0; $i < @servers; $i++)
 	{
 		$server_dir = "$output_dir/$servers[$i]";

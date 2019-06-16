@@ -219,7 +219,11 @@ $time_out >= $TIME_OUT_FREQUENCY || die "time out is too short.\n";
 #@source_dir = ("blast", "csblast", "psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch12"); #six are based pdb_cm, four are based on sort90
 #@source_dir = ("blast", "csblast", "psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch12", "hhsearch151", "hhblits", "muster", "hhpred", "hhsuite", "fugue"); #six are based pdb_cm, four are based on sort90
 #@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "compass", "sam", "prc", "sp3", "ffas", "hhsearch151", "hhblits", "muster", "hhpred", "hhsuite", "fugue"); #six are based pdb_cm, four are based on sort90
-@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "ffas", "hhsearch151", "hhblits", "hhblits3", "muster", "hhpred", "hhsuite", "hhsuite3", "raptorx"); #six are based pdb_cm, four are based on sort90
+
+#@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "ffas", "hhsearch151", "hhblits", "hhblits3", "muster", "hhpred", "hhsuite", "hhsuite3", "raptorx"); #six are based pdb_cm, four are based on sort90
+
+#hhblit3 removed from list due to failure for some targets
+@source_dir = ("psiblast", "csiblast", "hhsearch", "hhsearch15", "hmmer", "hmmer3", "compass", "sam", "prc", "ffas", "hhsearch151", "hhblits",  "muster", "hhpred", "hhsuite", "hhsuite3", "raptorx"); #six are based pdb_cm, four are based on sort90
 
 
 $rounds = int($time_out / $TIME_OUT_FREQUENCY); 
