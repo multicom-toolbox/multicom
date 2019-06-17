@@ -25,6 +25,7 @@ src/meta/script/consensus_model_v2.pl
 src/meta/script/consensus_qa_global.pl
 src/meta/script/convert2casp_v5.pl
 src/meta/script/convert2casp_v6.pl
+src/meta/script/convert2casp_v6_simple.pl
 src/meta/script/iqa_v2.pl
 src/meta/script/top2comb.pl
 src/meta/script/top2comb_v2.pl

@@ -37,8 +37,8 @@ for ($i = 1; $i <= $count; $i++)
 	$model_file = "$mdir/comb$i.pdb";	
 	if (-f $model_file)
 	{
-		system("/data/jh7x3/multicom_github/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-		system("/data/jh7x3/multicom_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
+		system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+		system("/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
 		system("$pdb2casp2 $model_file.scw $i $target_name $mdir/casp$i.pdb");	
 	}
 } 
@@ -51,13 +51,13 @@ for ($i = 1; $i <= $count; $i++)
 	`mv $model_file $model_file.org`; 
 	if (-f "$model_file.org")
 	{
-		system("/data/jh7x3/multicom_github/multicom/tools/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
-		system("/data/jh7x3/multicom_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $mdir/casp$i.scw > $mdir/clash$i.txt");
+		system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
+		system("/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $mdir/casp$i.scw > $mdir/clash$i.txt");
 		system("$pdb2casp2 $mdir/casp$i.scw $i $target_name $mdir/casp$i.pdb");	
 	}
 } 
 
-
+=pod
 #convert models ranked by deep learning into casp format
 print "Convert top models ranked by deep learning into CASP format...\n";
 $rank_file = "$model_dir/qa/deep.full";
@@ -98,8 +98,8 @@ while ($i <= $count && @eva)
 	}
 
 	#repack the side chains 
-	system("/data/jh7x3/multicom_github/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
-	system("/data/jh7x3/multicom_github/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/clash$i.txt");
+	system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
+	system("/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/clash$i.txt");
 	#if ($method eq "cm" || $method eq "fr")
 	if (-f $pir_file)
 	{
@@ -113,6 +113,7 @@ while ($i <= $count && @eva)
 	$i++; 
 	
 }
+=cut
 ############################################################################
 
 
