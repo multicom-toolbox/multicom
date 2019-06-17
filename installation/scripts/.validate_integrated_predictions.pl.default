@@ -25,7 +25,7 @@ printf "%-20s\t", 'Predicted (GDT-TS)';
 printf "%-20s\t", 'Benchmark (GDT-TS)';
 printf "%-20s\n", 'Difference (GDT-TS)';
 
-foreach $file (@files)
+foreach $file (sort @files)
 {
 	if($file eq '.' or $file eq '..' or index($file,'.pdb') < 0)
 	{
