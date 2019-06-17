@@ -1,5 +1,0 @@
-[Executing cp C0008.dncon2.rr input.rr]
-[Executing rm -f /tmp/x4pmeKZz2q]
-[Executing sed -i '/^[A-Z]/d' input.rr]
-[Executing sed -i '/^-]/d' input.rr]
-[Executing sed -i 's/^ *//' input.rr]
