@@ -20,6 +20,7 @@ if(!(-d $outputdir))
 chdir($outputdir);
 `mkdir $outputdir/full_length/`;
 `mkdir $outputdir/full_length/Top5_aln/`;
+`mkdir $outputdir/Final_models/`;
 
 $full_length_dir = 'full_length';
 if(-d "$workdir/full_length_hard")
@@ -27,9 +28,9 @@ if(-d "$workdir/full_length_hard")
 	$full_length_dir = 'full_length_hard';
 }
 ###### copy basic information
-if(!(-e "$workdir/$targetid.fasta"))
+if(!(-e "$workdir/full_length/hhsearch15/$targetid.fasta"))
 {
-	print "Warning: 0. Failed to find $workdir/$targetid.fasta\n";
+	print "Warning: 0. Failed to find $workdir/full_length/hhsearch15/$targetid.fasta\n";
 }else{
 	`cp $workdir/full_length/hhsearch15/$targetid.fasta $outputdir/query.fasta`;
 	`cp $workdir/full_length/hhsearch15/$targetid.fasta $outputdir/$targetid.fasta`;
@@ -100,9 +101,11 @@ if(-e "$workdir/comb/casp1.pdb")
 	print "This is multi-domain proteins, copy...\n";
 	print "cp $workdir/comb/casp1.pdb $outputdir/full_length/$targetid.casp1.pdb\n";
 	`cp $workdir/comb/casp1.pdb $outputdir/full_length/$targetid.casp1.pdb`;
+	`cp $workdir/comb/casp1.pdb $outputdir/Final_models/$targetid-1.pdb`;
 }elsif(-e "$workdir/mcomb/casp1.pdb")
 {
 	`cp $workdir/mcomb/casp1.pdb $outputdir/full_length/$targetid.casp1.pdb`;
+	`cp $workdir/mcomb/casp1.pdb $outputdir/Final_models/$targetid-1.pdb`;
 }else
 {
 	print "Warning: 5. Failed to find $workdir/comb/casp1.pdb or $workdir/mcomb/casp1.pdb\n";
@@ -113,9 +116,11 @@ if(-e "$workdir/comb/casp2.pdb")
 	print "This is multi-domain proteins, copy...\n";
 	print "cp $workdir/comb/casp2.pdb $outputdir/full_length/$targetid.casp2.pdb\n";
 	`cp $workdir/comb/casp2.pdb $outputdir/full_length/$targetid.casp2.pdb`;
+	`cp $workdir/comb/casp2.pdb $outputdir/Final_models/$targetid-2.pdb`;
 }elsif(-e "$workdir/mcomb/casp2.pdb")
 {
 	`cp $workdir/mcomb/casp2.pdb $outputdir/full_length/$targetid.casp2.pdb`;
+	`cp $workdir/mcomb/casp2.pdb $outputdir/Final_models/$targetid-2.pdb`;
 }else
 {
 	print "Warning: 5. Failed to find $workdir/comb/casp2.pdb or $workdir/mcomb/casp2.pdb\n";
@@ -126,9 +131,11 @@ if(-e "$workdir/comb/casp3.pdb")
 	print "This is multi-domain proteins, copy...\n";
 	print "cp $workdir/comb/casp3.pdb $outputdir/full_length/$targetid.casp3.pdb\n";
 	`cp $workdir/comb/casp3.pdb $outputdir/full_length/$targetid.casp3.pdb`;
+	`cp $workdir/comb/casp3.pdb $outputdir/Final_models/$targetid-3.pdb`;
 }elsif(-e "$workdir/mcomb/casp3.pdb")
 {
 	`cp $workdir/mcomb/casp3.pdb $outputdir/full_length/$targetid.casp3.pdb`;
+	`cp $workdir/mcomb/casp3.pdb $outputdir/Final_models/$targetid-3.pdb`;
 }else
 {
 	print "Warning: 5. Failed to find $workdir/comb/casp2.pdb or $workdir/mcomb/casp2.pdb\n";
@@ -139,9 +146,11 @@ if(-e "$workdir/comb/casp4.pdb")
 	print "This is multi-domain proteins, copy...\n";
 	print "cp $workdir/comb/casp4.pdb $outputdir/full_length/$targetid.casp4.pdb\n";
 	`cp $workdir/comb/casp4.pdb $outputdir/full_length/$targetid.casp4.pdb`;
+	`cp $workdir/comb/casp4.pdb $outputdir/Final_models/$targetid-4.pdb`;
 }elsif(-e "$workdir/mcomb/casp4.pdb")
 {
 	`cp $workdir/mcomb/casp4.pdb $outputdir/full_length/$targetid.casp4.pdb`;
+	`cp $workdir/mcomb/casp4.pdb $outputdir/Final_models/$targetid-4.pdb`;
 }else
 {
 	print "Warning: 5. Failed to find $workdir/comb/casp4.pdb or $workdir/mcomb/casp4.pdb\n";
@@ -152,9 +161,11 @@ if(-e "$workdir/comb/casp5.pdb")
 	print "This is multi-domain proteins, copy...\n";
 	print "cp $workdir/comb/casp5.pdb $outputdir/full_length/$targetid.casp5.pdb\n";
 	`cp $workdir/comb/casp5.pdb $outputdir/full_length/$targetid.casp5.pdb`;
+	`cp $workdir/comb/casp5.pdb $outputdir/Final_models/$targetid-5.pdb`;
 }elsif(-e "$workdir/mcomb/casp5.pdb")
 {
 	`cp $workdir/mcomb/casp5.pdb $outputdir/full_length/$targetid.casp5.pdb`;
+	`cp $workdir/mcomb/casp5.pdb $outputdir/Final_models/$targetid-5.pdb`;
 }else
 {
 	print "Warning: 5. Failed to find $workdir/comb/casp5.pdb or $workdir/mcomb/casp5.pdb\n";
