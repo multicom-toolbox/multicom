@@ -27,7 +27,7 @@ printf "%-20s\n", 'Difference (GDT-TS)';
 
 foreach $file (sort @files)
 {
-	if($file eq '.' or $file eq '..' or index($file,'.pdb') < 0 or index($file,'casp') < 0)
+	if($file eq '.' or $file eq '..' or substr($file,length($file)-4) ne '.pdb' or index($file,'casp') < 0)
 	{
 		next;
 	}	
