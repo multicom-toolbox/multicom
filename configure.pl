@@ -530,7 +530,7 @@ system("chmod +x $install_dir/bin/run_multicom.sh");
 
 
 system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-T1006.sh $install_dir/examples");
-system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-T0957s2.sh $install_dir/examples");
+system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-hard-T0957s2.sh $install_dir/examples");
 system("chmod +x $install_dir/examples/*.sh");
 
 sub prompt_yn {
