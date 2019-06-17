@@ -22,6 +22,8 @@ pip install --upgrade h5py
 
 pip install --upgrade matplotlib
 
+pip install --upgrade pillow
+
 NOW=$(date +"%m-%d-%Y")
 
 mkdir -p ~/.keras

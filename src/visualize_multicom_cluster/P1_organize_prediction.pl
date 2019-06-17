@@ -211,8 +211,6 @@ if(!(-e "$workdir/$full_length_dir/meta/$targetid.gdt"))
 			#print "perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir  $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa\n";
 			`perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir  $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa`;
 
-			`source /home/casp13/python_virtualenv/bin/activate`;
-
 			#print "python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker.jpeg\n";
 			`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker.jpeg`;
 
