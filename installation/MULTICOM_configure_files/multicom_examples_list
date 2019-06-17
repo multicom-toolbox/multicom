@@ -121,6 +121,7 @@ installation/MULTICOM_test_codes/T33-run-hhsuite3.sh
 installation/MULTICOM_test_codes/T34-run-fusioncon.sh
 
 # validation scripts
+installation/scripts/generate_benchmark_sh.pl
 installation/scripts/validate_predictions.pl
 installation/scripts/validate_integrated_predictions.pl
 installation/scripts/validate_integrated_predictions_final.pl
