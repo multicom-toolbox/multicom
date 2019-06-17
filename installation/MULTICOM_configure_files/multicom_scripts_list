@@ -150,3 +150,7 @@ src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
 src/meta/fusioncon/fusion/scripts/P2_run_SBROD_eva.pl
 
 
+## visualization
+src/visualize_multicom_cluster/P1_organize_prediction.pl
+src/visualize_multicom_cluster/P1_organize_prediction.sh
+src/visualize_multicom_cluster/cmap/coneva-camp.pl

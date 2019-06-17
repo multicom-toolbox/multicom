@@ -27,8 +27,8 @@ while(<IN>)
 		next;
 	}
 	
-	print "Generating $outputdir/run-$targetid.sh\n";
-	open(OUT,">$outputdir/run-$targetid.sh") || die "Failed to write $outputdir/run-$targetid.sh\n";
+	print "Generating $outputdir/$targetid.sh\n";
+	open(OUT,">$outputdir/$targetid.sh") || die "Failed to write $outputdir/$targetid.sh\n";
 	print OUT "#!/bin/sh\n\n";
 	print OUT "sh $GLOBAL_PATH/bin/run_multicom.sh  $seq $outputdir/$targetid  &> $seq $outputdir/$targetid.log  & \n\n";
 	close OUT;

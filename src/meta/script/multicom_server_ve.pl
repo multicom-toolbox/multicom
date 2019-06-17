@@ -596,6 +596,15 @@ $model_dir = "$output_dir/meta";
 -d $model_dir || die "can't create $model_dir.\n";
 
 
+`mkdir dncon2`; 
+if(-e "$output_dir/dncon2/$query_name.dncon2.rr")
+{
+	print "$output_dir/dncon2/$query_name.dncon2.rr generated!\n\n";
+}else{
+	system("$GLOBAL_PATH/tools/DNCON2/dncon2-v1.0.sh  $query_file  $output_dir/dncon2 &> $output_dir/dncon2/run_dncon2.log &");
+}
+
+system("$confold_dir/script/tm_confold2_main.sh $confold_option $query_file confold &> confold/run_local.log &"); 
 
 $thread_num = @servers;
 
