@@ -1,0 +1,30 @@
+#!/bin/bash
+
+mkdir -p SOFTWARE_PATH/test_out/T0951_multicom/
+cd SOFTWARE_PATH/test_out/T0951_multicom/
+
+source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
+export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:SOFTWARE_PATH/tools/OpenBLAS:$LD_LIBRARY_PATH
+
+SOFTWARE_PATH/src/multicom_ve.pl SOFTWARE_PATH/src/multicom_system_option_casp13 SOFTWARE_PATH/examples/T0951.fasta  SOFTWARE_PATH/test_out/T0951_multicom/   2>&1 | tee  SOFTWARE_PATH/test_out/T0951_multicom.log
+
+
+printf "\nFinished.."
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T0951_multicom.log>\n\n"
+
+
+if [[ ! -f "SOFTWARE_PATH/test_out/T0951_multicom/mcomb/casp1.pdb" ]];then 
+	printf "!!!!! Failed to run multicom, check the installation <SOFTWARE_PATH/src/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	printf "\nResults: SOFTWARE_PATH/test_out/T0951_multicom/mcomb/casp1.pdb\n\n"
+fi
+
+
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/
+
+
+printf "\nCheck final predictions.."
+
+
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/mcomb SOFTWARE_PATH/installation/benchmark/TBM/

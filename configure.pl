@@ -141,13 +141,6 @@ if (! -f $option_list)
 configure_file2($option_list,'installation');
 print "#########  Configuring examples, done\n\n\n";
 
-system("chmod +x $install_dir/installation/MULTICOM_test_codes/*sh");
-
-
-
-system("cp $install_dir/src/run_multicom.sh $install_dir/bin/run_multicom.sh");
-system("chmod +x $install_dir/bin/run_multicom.sh");
-
 
 
 print "#########  (5) Configuring database update scripts\n";
@@ -529,6 +522,16 @@ if(!(-e "/usr/bin/python2.6"))
 chdir("$install_dir/installation");
 `tar -zxf benchmark.tar.gz`;
 
+
+system("chmod +x $install_dir/installation/MULTICOM_test_codes/*sh");
+
+system("cp $install_dir/src/run_multicom.sh $install_dir/bin/run_multicom.sh");
+system("chmod +x $install_dir/bin/run_multicom.sh");
+
+
+system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-T1006.sh $install_dir/examples");
+system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-T0957s2.sh $install_dir/examples");
+system("chmod +x $install_dir/examples/*.sh");
 
 sub prompt_yn {
   my ($query) = @_;
