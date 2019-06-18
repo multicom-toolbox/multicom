@@ -138,6 +138,7 @@ if (! -f $option_list)
 {
         die "\nOption file $option_list not exists.\n";
 }
+system("rm $install_dir/installation/MULTICOM_test_codes/*.sh");
 configure_file2($option_list,'installation');
 print "#########  Configuring examples, done\n\n\n";
 

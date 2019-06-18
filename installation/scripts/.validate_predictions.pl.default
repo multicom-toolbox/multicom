@@ -15,9 +15,6 @@ opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";
 closedir(DIR);
 
 
-$avg_gdt_predict = 0;
-$avg_gdt2_benchmark = 0;
-$model_num = 0;
 
 foreach $subdir (@subdirs)
 {
@@ -43,6 +40,11 @@ foreach $subdir (@subdirs)
 	opendir(FILES,"$modeldir") || die "Failed to open directory $modeldir\n";
 	@files = readdir(FILES);
 	closedir(FILES);
+	
+	
+	$avg_gdt_predict = 0;
+	$avg_gdt2_benchmark = 0;
+	$model_num = 0;
 	foreach $file (@files)
 	{
 		if($file eq '.' or $file eq '..' or index($file,'.pdb') < 0)
@@ -76,12 +78,33 @@ foreach $subdir (@subdirs)
 		
 		$diff = $gdttsscore2 - $gdttsscore1;
 		
+		printf "\n%-20s\t", 'Model';
+		printf "%-20s\t", 'Predicted (GDT-TS)';
+		printf "%-20s\t", 'Benchmark (GDT-TS)';
+		printf "%-20s\n", 'Difference (GDT-TS)';
+
 		printf "%-20s\t", $file;
 		printf "%-20f\t", $gdttsscore1;
 		printf "%-20f\t", $gdttsscore2;
 		printf "%-20f\n", $diff;
 	}
 	
+	print "\n";
+	$avg_gdt_predict = sprintf("%.5f",$avg_gdt_predict/$model_num);
+	$avg_gdt2_benchmark = sprintf("%.5f",$avg_gdt2_benchmark/$model_num);
+
+	$diff = $avg_gdt2_benchmark - $avg_gdt_predict;
+
+	printf "\n%-20s\t", 'Model';
+	printf "%-20s\t", 'Predicted (GDT-TS)';
+	printf "%-20s\t", 'Benchmark (GDT-TS)';
+	printf "%-20s\n", 'Difference (GDT-TS)';
+
+	printf "%-20s\t", 'Average';
+	printf "%-20f\t", $avg_gdt_predict;
+	printf "%-20f\t", $avg_gdt2_benchmark;
+	printf "%-20f\n\n", $diff;
+
 	print "done\n";
 	print "---------------------------------------------------------------------------------------------------\n\n";
 	sleep(1);
@@ -114,7 +137,8 @@ foreach $subdir (@subdirs)
 		$psicov_benchmark_file = "$benchmark_dir/$targetid/dncon2/psicov/${targetid}.psicov.rr";
 		
 		$ccmpred_rr = "$test_dir/$subdir/ccmpred/${targetid}.ccmpred";
-		$ccmpred_benchmark_file = "$benchmark_dir/$targetid/dncon2/ccmpred/${targetid}.ccmpred";
+		$ccmpred_rr2 = "$test_dir/$subdir/ccmpred/${targetid}.ccmpred.rr";
+		$ccmpred_benchmark_file = "$benchmark_dir/$targetid/dncon2/ccmpred/${targetid}.ccmpred.rr";
 		
 		$native_pdb = "$benchmark_dir/$targetid.pdb";
 		$native_seq = "$benchmark_dir/$targetid.fasta";
@@ -187,11 +211,25 @@ foreach $subdir (@subdirs)
 			print "Evaluating contact prediction for ccmpred\n";
 
 			`python $GLOBAL_PATH/installation/scripts/cmap2rr.py $ccmpred_rr $ccmpred_rr.rr`;
-			`python $GLOBAL_PATH/installation/scripts/cmap2rr.py $ccmpred_benchmark_file $ccmpred_benchmark_file.rr`;
 			
 			
 			
 			
+			## ccmpred
+			print  "\n\tLong-Range Precision\n";	
+			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
+			print  "\tBenchmark-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_benchmark_file.rr",$native_pdb,"$test_dir/$subdir");
+			print  "\tPredicted-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			
+			print "done\n";
+			print "---------------------------------------------------------------------------------------------------\n\n";
+			sleep(1);
+	
+		}elsif(-e $ccmpred_rr2)
+		{
+			print "\n---------------------------------------------------------------------------------------------------\n";
+			print "Evaluating contact prediction for ccmpred\n";
 			## ccmpred
 			print  "\n\tLong-Range Precision\n";	
 			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
@@ -210,25 +248,6 @@ foreach $subdir (@subdirs)
 }
 
 
-
-$avg_gdt_predict = sprintf("%.5f",$avg_gdt_predict/$model_num);
-$avg_gdt2_benchmark = sprintf("%.5f",$avg_gdt2_benchmark/$model_num);
-
-$diff = $avg_gdt2_benchmark - $avg_gdt_predict;
-
-printf "\n%-20s\t", 'Model';
-printf "%-20s\t", 'Predicted (GDT-TS)';
-printf "%-20s\t", 'Benchmark (GDT-TS)';
-printf "%-20s\n", 'Difference (GDT-TS)';
-
-printf "%-20s\t", 'Average';
-printf "%-20f\t", $avg_gdt_predict;
-printf "%-20f\t", $avg_gdt2_benchmark;
-printf "%-20f\n\n", $diff;
-
-print "done\n";
-print "---------------------------------------------------------------------------------------------------\n\n";
-sleep(1);
 
 sub cal_sim
 {
