@@ -1,0 +1,30 @@
+#!/usr/local/bin/python2.7
+
+
+test_script_dir = 'SOFTWARE_PATH/installation/MULTICOM_test_codes'
+
+import os
+import sys
+import re
+
+
+if not os.path.isdir(test_script_dir):
+    print(test_script_dir, " does not exist.")
+    sys.exit(1)
+
+
+input_files = []
+for r, d, f in os.walk(test_script_dir):
+    for file in f:
+        if file.find('.sh') == len(file) - 3:
+            input_files.append(os.path.join(r, file))
+
+input_files.sort()
+
+for file in input_files:
+    print("run test: " + file)
+    os.system('sh ' + file)
+    #print(file)
+
+
+

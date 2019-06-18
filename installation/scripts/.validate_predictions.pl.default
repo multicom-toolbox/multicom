@@ -10,12 +10,13 @@ $benchmark_dir = $ARGV[2];
 
 $GLOBAL_PATH="SOFTWARE_PATH";
 
+
 opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";
 @subdirs = readdir(DIR);
 closedir(DIR);
 
 
-
+%check_list = ();
 foreach $subdir (@subdirs)
 {
 	if($subdir eq '.' or $subdir eq '..' or index($subdir,$targetid) < 0)
@@ -104,6 +105,9 @@ foreach $subdir (@subdirs)
 	printf "%-20f\t", $avg_gdt_predict;
 	printf "%-20f\t", $avg_gdt2_benchmark;
 	printf "%-20f\n\n", $diff;
+	
+	
+	$check_list{$server} = $diff;
 
 	print "done\n";
 	print "---------------------------------------------------------------------------------------------------\n\n";
@@ -152,11 +156,47 @@ foreach $subdir (@subdirs)
 		
 			## dncon2
 			print  "\n\tLong-Range Precision\n";	
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$dncon2_rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tBenchmark-contact (${targetid}.dncon2.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$dncon2_benchmark_file",$native_pdb,"$test_dir/$subdir");
-			print  "\tPredicted-contact (${targetid}.dncon2.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
-				
+			($Predicted_TopL5,$Predicted_TopL2,$Predicted_TopL,$Predicted_Top2L) = get_coneva($native_seq,"$dncon2_rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tBenchmark-contact (${targetid}.dncon2.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($benchmark_TopL5,$benchmark_TopL2,$benchmark_TopL,$benchmark_Top2L) = get_coneva($native_seq,"$dncon2_benchmark_file",$native_pdb,"$test_dir/$subdir");
+			#print  "\tPredicted-contact (${targetid}.dncon2.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			
+			
+			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
+			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
+			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
+
+			printf "\n%-20s\t", 'Contact';
+			printf "\n%-20s\t", 'Threshold';
+			printf "%-20s\t", 'Predicted (Precision)';
+			printf "%-20s\t", 'Benchmark (Precision)';
+			printf "%-20s\n", 'Difference (Precision)';
+
+			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", 'Top L/5';
+			printf "%-20f\t", $Predicted_TopL5;
+			printf "%-20f\t", $benchmark_TopL5;
+			printf "%-20f\n", $TopL5_diff;
+
+			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", 'Top L/2';
+			printf "%-20f\t", $Predicted_TopL2;
+			printf "%-20f\t", $benchmark_TopL2;
+			printf "%-20f\n", $TopL2_diff;
+
+			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", 'Top L';
+			printf "%-20f\t", $Predicted_TopL;
+			printf "%-20f\t", $benchmark_TopL;
+			printf "%-20f\n", $TopL_diff;
+
+			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", 'Top 2L';
+			printf "%-20f\t", $Predicted_Top2L;
+			printf "%-20f\t", $benchmark_Top2L;
+			printf "%-20f\n", $Top2L_diff;
+	
 			print "done\n";
 			print "---------------------------------------------------------------------------------------------------\n\n";
 			sleep(1);
@@ -175,12 +215,48 @@ foreach $subdir (@subdirs)
 			## freecontact
 			chdir("$test_dir/$subdir");
 			print  "\n\tLong-Range Precision\n";		
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"${freecontact_benchmark_file}.tmp",$native_pdb,"$test_dir/$subdir");
-			print  "\tBenchmark-contact (${targetid}.freecontact.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($benchmark_TopL5,$benchmark_TopL2,$benchmark_TopL,$benchmark_Top2L) = get_coneva($native_seq,"${freecontact_benchmark_file}.tmp",$native_pdb,"$test_dir/$subdir");
+			#print  "\tBenchmark-contact (${targetid}.freecontact.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
 			
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"${freecontact_rr}.tmp",$native_pdb,"$test_dir/$subdir");
-			print  "\tPredicted-contact (${targetid}.freecontact.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			($Predicted_TopL5,$Predicted_TopL2,$Predicted_TopL,$Predicted_Top2L) = get_coneva($native_seq,"${freecontact_rr}.tmp",$native_pdb,"$test_dir/$subdir");
+			#print  "\tPredicted-contact (${targetid}.freecontact.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
 				
+			
+			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
+			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
+			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
+
+			printf "\n%-20s\t", 'Contact';
+			printf "\n%-20s\t", 'Threshold';
+			printf "%-20s\t", 'Predicted (Precision)';
+			printf "%-20s\t", 'Benchmark (Precision)';
+			printf "%-20s\n", 'Difference (Precision)';
+
+			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", 'Top L/5';
+			printf "%-20f\t", $Predicted_TopL5;
+			printf "%-20f\t", $benchmark_TopL5;
+			printf "%-20f\n", $TopL5_diff;
+
+			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", 'Top L/2';
+			printf "%-20f\t", $Predicted_TopL2;
+			printf "%-20f\t", $benchmark_TopL2;
+			printf "%-20f\n", $TopL2_diff;
+
+			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", 'Top L';
+			printf "%-20f\t", $Predicted_TopL;
+			printf "%-20f\t", $benchmark_TopL;
+			printf "%-20f\n", $TopL_diff;
+
+			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", 'Top 2L';
+			printf "%-20f\t", $Predicted_Top2L;
+			printf "%-20f\t", $benchmark_Top2L;
+			printf "%-20f\n", $Top2L_diff;
+	
 			print "done\n";
 			print "---------------------------------------------------------------------------------------------------\n\n";
 			sleep(1);
@@ -194,11 +270,46 @@ foreach $subdir (@subdirs)
 		
 			## psicov
 			print  "\n\tLong-Range Precision\n";	
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$psicov_rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tBenchmark-contact (${targetid}.psicov.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$psicov_benchmark_file",$native_pdb,"$test_dir/$subdir");
-			print  "\tPredicted-contact (${targetid}.psicov.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
-				
+			($Predicted_TopL5,$Predicted_TopL2,$Predicted_TopL,$Predicted_Top2L) = get_coneva($native_seq,"$psicov_rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tBenchmark-contact (${targetid}.psicov.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($benchmark_TopL5,$benchmark_TopL2,$benchmark_TopL,$benchmark_Top2L) = get_coneva($native_seq,"$psicov_benchmark_file",$native_pdb,"$test_dir/$subdir");
+			#print  "\tPredicted-contact (${targetid}.psicov.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			
+			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
+			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
+			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
+
+			printf "\n%-20s\t", 'Contact';
+			printf "\n%-20s\t", 'Threshold';
+			printf "%-20s\t", 'Predicted (Precision)';
+			printf "%-20s\t", 'Benchmark (Precision)';
+			printf "%-20s\n", 'Difference (Precision)';
+
+			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", 'Top L/5';
+			printf "%-20f\t", $Predicted_TopL5;
+			printf "%-20f\t", $benchmark_TopL5;
+			printf "%-20f\n", $TopL5_diff;
+
+			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", 'Top L/2';
+			printf "%-20f\t", $Predicted_TopL2;
+			printf "%-20f\t", $benchmark_TopL2;
+			printf "%-20f\n", $TopL2_diff;
+
+			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", 'Top L';
+			printf "%-20f\t", $Predicted_TopL;
+			printf "%-20f\t", $benchmark_TopL;
+			printf "%-20f\n", $TopL_diff;
+
+			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", 'Top 2L';
+			printf "%-20f\t", $Predicted_Top2L;
+			printf "%-20f\t", $benchmark_Top2L;
+			printf "%-20f\n", $Top2L_diff;
+	
 			print "done\n";
 			print "---------------------------------------------------------------------------------------------------\n\n";
 			sleep(1);
@@ -211,17 +322,48 @@ foreach $subdir (@subdirs)
 			print "Evaluating contact prediction for ccmpred\n";
 
 			`python $GLOBAL_PATH/installation/scripts/cmap2rr.py $ccmpred_rr $ccmpred_rr.rr`;
-			
-			
-			
-			
 			## ccmpred
 			print  "\n\tLong-Range Precision\n";	
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tBenchmark-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_benchmark_file.rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tPredicted-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			($Predicted_TopL5,$Predicted_TopL2,$Predicted_TopL,$Predicted_Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tBenchmark-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($benchmark_TopL5,$benchmark_TopL2,$benchmark_TopL,$benchmark_Top2L) = get_coneva($native_seq,"$ccmpred_benchmark_file.rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tPredicted-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
 			
+			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
+			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
+			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
+
+			printf "\n%-20s\t", 'Contact';
+			printf "\n%-20s\t", 'Threshold';
+			printf "%-20s\t", 'Predicted (Precision)';
+			printf "%-20s\t", 'Benchmark (Precision)';
+			printf "%-20s\n", 'Difference (Precision)';
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L/5';
+			printf "%-20f\t", $Predicted_TopL5;
+			printf "%-20f\t", $benchmark_TopL5;
+			printf "%-20f\n", $TopL5_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L/2';
+			printf "%-20f\t", $Predicted_TopL2;
+			printf "%-20f\t", $benchmark_TopL2;
+			printf "%-20f\n", $TopL2_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L';
+			printf "%-20f\t", $Predicted_TopL;
+			printf "%-20f\t", $benchmark_TopL;
+			printf "%-20f\n", $TopL_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top 2L';
+			printf "%-20f\t", $Predicted_Top2L;
+			printf "%-20f\t", $benchmark_Top2L;
+			printf "%-20f\n", $Top2L_diff;
+	
 			print "done\n";
 			print "---------------------------------------------------------------------------------------------------\n\n";
 			sleep(1);
@@ -232,11 +374,46 @@ foreach $subdir (@subdirs)
 			print "Evaluating contact prediction for ccmpred\n";
 			## ccmpred
 			print  "\n\tLong-Range Precision\n";	
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tBenchmark-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
-			($TopL5,$TopL2,$TopL,$Top2L) = get_coneva($native_seq,"$ccmpred_benchmark_file.rr",$native_pdb,"$test_dir/$subdir");
-			print  "\tPredicted-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
+			($Predicted_TopL5,$Predicted_TopL2,$Predicted_TopL,$Predicted_Top2L) = get_coneva($native_seq,"$ccmpred_rr.rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tBenchmark-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n";
+			($benchmark_TopL5,$benchmark_TopL2,$benchmark_TopL,$benchmark_Top2L) = get_coneva($native_seq,"$ccmpred_benchmark_file.rr",$native_pdb,"$test_dir/$subdir");
+			#print  "\tPredicted-contact (${targetid}.ccmpred.rr) vs Native -> TopL/5: $TopL5\tTopL/2: $TopL2\tTopL: $TopL\tTop2L: $Top2L\n\n";
 			
+			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
+			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
+			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
+
+			printf "\n%-20s\t", 'Contact';
+			printf "\n%-20s\t", 'Threshold';
+			printf "%-20s\t", 'Predicted (Precision)';
+			printf "%-20s\t", 'Benchmark (Precision)';
+			printf "%-20s\n", 'Difference (Precision)';
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L/5';
+			printf "%-20f\t", $Predicted_TopL5;
+			printf "%-20f\t", $benchmark_TopL5;
+			printf "%-20f\n", $TopL5_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L/2';
+			printf "%-20f\t", $Predicted_TopL2;
+			printf "%-20f\t", $benchmark_TopL2;
+			printf "%-20f\n", $TopL2_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top L';
+			printf "%-20f\t", $Predicted_TopL;
+			printf "%-20f\t", $benchmark_TopL;
+			printf "%-20f\n", $TopL_diff;
+
+			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", 'Top 2L';
+			printf "%-20f\t", $Predicted_Top2L;
+			printf "%-20f\t", $benchmark_Top2L;
+			printf "%-20f\n", $Top2L_diff;
+	
 			print "done\n";
 			print "---------------------------------------------------------------------------------------------------\n\n";
 			sleep(1);
@@ -248,6 +425,16 @@ foreach $subdir (@subdirs)
 }
 
 
+foreach $server (sort keys %check_list)
+{
+	$diff= sprintf("%05f",$check_list{$server});
+	if($diff > 0.1)
+	{
+		print "$server\t$diff\tFailed\n";
+	}else{
+		print "$server\t$diff\tSuccess\n";
+	}
+}
 
 sub cal_sim
 {
