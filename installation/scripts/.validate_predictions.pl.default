@@ -14,6 +14,11 @@ opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";
 @subdirs = readdir(DIR);
 closedir(DIR);
 
+
+$avg_gdt_predict = 0;
+$avg_gdt2_benchmark = 0;
+$model_num = 0;
+
 foreach $subdir (@subdirs)
 {
 	if($subdir eq '.' or $subdir eq '..' or index($subdir,$targetid) < 0)
@@ -55,16 +60,34 @@ foreach $subdir (@subdirs)
 		}
 		
 		### evaluate two pdb
-		($tmscore,$gdttsscore,$rmsd) = cal_sim($benchmark_file,$native_file);
-		print "\n\tBenchmark-structure ($file) vs Native -> GDT-TS: $gdttsscore	TM-score: $tmscore	RMSD: $rmsd\n";
-		($tmscore,$gdttsscore,$rmsd) = cal_sim($predict_file,$native_file);
-		print "\tPredicted-structure ($file) vs Native -> GDT-TS: $gdttsscore	TM-score: $tmscore	RMSD: $rmsd\n\n";
+		#($tmscore,$gdttsscore,$rmsd) = cal_sim($benchmark_file,$native_file);
+		#print "\n\tBenchmark-structure ($file) vs Native -> GDT-TS: $gdttsscore	TM-score: $tmscore	RMSD: $rmsd\n";
+		#($tmscore,$gdttsscore,$rmsd) = cal_sim($predict_file,$native_file);
+		#print "\tPredicted-structure ($file) vs Native -> GDT-TS: $gdttsscore	TM-score: $tmscore	RMSD: $rmsd\n\n";、、
+		
+		### evaluate two pdb
+		$model_num ++;
+		
+		($gdttsscore1,$rmsd1) = cal_sim($predict_file,$native_file);
+		$avg_gdt_predict += $gdttsscore1;
+		
+		($gdttsscore2,$rmsd2) = cal_sim($benchmark_file,$native_file);
+		$avg_gdt2_benchmark += $gdttsscore2;
+		
+		$diff = $gdttsscore2 - $gdttsscore1;
+		
+		printf "%-20s\t", $file;
+		printf "%-20f\t", $gdttsscore1;
+		printf "%-20f\t", $gdttsscore2;
+		printf "%-20f\n", $diff;
 	}
 	
 	print "done\n";
 	print "---------------------------------------------------------------------------------------------------\n\n";
 	sleep(1);
 }
+
+
 
 
 foreach $subdir (@subdirs)
@@ -187,6 +210,26 @@ foreach $subdir (@subdirs)
 }
 
 
+
+$avg_gdt_predict = sprintf("%.5f",$avg_gdt_predict/$model_num);
+$avg_gdt2_benchmark = sprintf("%.5f",$avg_gdt2_benchmark/$model_num);
+
+$diff = $avg_gdt2_benchmark - $avg_gdt_predict;
+
+printf "\n%-20s\t", 'Model';
+printf "%-20s\t", 'Predicted (GDT-TS)';
+printf "%-20s\t", 'Benchmark (GDT-TS)';
+printf "%-20s\n", 'Difference (GDT-TS)';
+
+printf "%-20s\t", 'Average';
+printf "%-20f\t", $avg_gdt_predict;
+printf "%-20f\t", $avg_gdt2_benchmark;
+printf "%-20f\n\n", $diff;
+
+print "done\n";
+print "---------------------------------------------------------------------------------------------------\n\n";
+sleep(1);
+
 sub cal_sim
 {
 	my ($file,$native) = (@_);
@@ -221,7 +264,7 @@ sub cal_sim
 			$gdttsscore=1*$s1;
 		}
 	}
-	return ($tmscore,$gdttsscore,$rmsd);
+	return ($gdttsscore,$rmsd);
 
 	
 }
