@@ -438,10 +438,12 @@ foreach $server (sort keys %check_list)
 	}else{
 		printf "%-20s\t", $server;
 		printf "%-20f\t", $diff;
-		printf "%-20s\n\n", 'Success';
+		printf "%-20s\n", 'Success';
 	}
 }
-
+print "done\n";
+print "---------------------------------------------------------------------------------------------------\n\n";
+sleep(1);
 sub cal_sim
 {
 	my ($file,$native) = (@_);
