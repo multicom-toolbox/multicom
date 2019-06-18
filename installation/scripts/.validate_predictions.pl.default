@@ -164,7 +164,7 @@ foreach $subdir (@subdirs)
 			
 			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
 			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
-			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$TopL_diff = $benchmark_TopL - $Predicted_TopL;
 			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
 
 			printf "\n%-20s\t", 'Contact';
@@ -224,7 +224,7 @@ foreach $subdir (@subdirs)
 			
 			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
 			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
-			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$TopL_diff = $benchmark_TopL - $Predicted_TopL;
 			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
 
 			printf "\n%-20s\t", 'Contact';
@@ -277,7 +277,7 @@ foreach $subdir (@subdirs)
 			
 			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
 			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
-			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$TopL_diff = $benchmark_TopL - $Predicted_TopL;
 			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
 
 			printf "\n%-20s\t", 'Contact';
@@ -331,7 +331,7 @@ foreach $subdir (@subdirs)
 			
 			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
 			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
-			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$TopL_diff = $benchmark_TopL - $Predicted_TopL;
 			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
 
 			printf "\n%-20s\t", 'Contact';
@@ -381,7 +381,7 @@ foreach $subdir (@subdirs)
 			
 			$TopL5_diff = $benchmark_TopL5 - $Predicted_TopL5;
 			$TopL2_diff = $benchmark_TopL2 - $Predicted_TopL2;
-			$TopLL_diff = $benchmark_TopL - $Predicted_TopL;
+			$TopL_diff = $benchmark_TopL - $Predicted_TopL;
 			$Top2L_diff = $benchmark_Top2L - $Predicted_Top2L;
 
 			printf "\n%-20s\t", 'Contact';
@@ -424,15 +424,21 @@ foreach $subdir (@subdirs)
 	}
 }
 
-
+printf "\n%-20s\t", 'Method';
+printf "\n%-20s\t", 'Difference';
+printf "%-20s\n", 'Status';
 foreach $server (sort keys %check_list)
 {
 	$diff= sprintf("%05f",$check_list{$server});
 	if($diff > 0.1)
 	{
-		print "$server\t$diff\tFailed\n";
+		printf "%-20f\t", $server;
+		printf "%-20f\t", $diff;
+		printf "%-20f\n", 'Failed';
 	}else{
-		print "$server\t$diff\tSuccess\n";
+		printf "%-20f\t", $server;
+		printf "%-20f\t", $diff;
+		printf "%-20f\n\n", 'Success';
 	}
 }
 
