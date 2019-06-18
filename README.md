@@ -100,9 +100,9 @@ sh T0-run-multicom-hard-T0957s2.sh
 
 ```
    Usage:
-   $ sh bin/run_multicom.sh <file name>.fasta  <output folder>
+   $ sh bin/run_multicom.sh <target id> <file name>.fasta  <output folder>
 
    Example:
-   $ sh bin/run_multicom.sh examples/T0993s2.fasta test_out/T0993s2_out
+   $ sh bin/run_multicom.sh T0993s2 examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
