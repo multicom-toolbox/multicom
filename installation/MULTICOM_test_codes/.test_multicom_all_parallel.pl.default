@@ -49,7 +49,7 @@ foreach $file_path (sort @running_files)
 		@out_files = readdir(DIR);
 		closedir(DIR);
 		
-		$running_num = 0;
+		$running_num = 1;
 		foreach $check_file (sort @out_files)
 		{
 			if($check_file eq '.' or $check_file eq '..' or substr($check_file,length($check_file)-8) ne '.running')
