@@ -29,3 +29,6 @@ printf "\nCheck final predictions.."
 
 
 perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0957s2  SOFTWARE_PATH/test_out/T0957s2_multicom/mcomb SOFTWARE_PATH/installation/benchmark/FM/    2>&1 | tee -a SOFTWARE_PATH/test_out/T0957s2_multicom.log
+
+SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.sh SOFTWARE_PATH/test_out/T0957s2_multicom/  T0957s2  SOFTWARE_PATH/test_out/T0957s2_multicom/multicom_results
+
