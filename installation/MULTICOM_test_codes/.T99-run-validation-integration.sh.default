@@ -1,4 +1,5 @@
 #!/bin/bash
 
-cd SOFTWARE_PATH/test_out/ 
+cd SOFTWARE_PATH/test_out/
+source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
 perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/
