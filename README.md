@@ -26,7 +26,7 @@ perl configure.pl
 ```
 
 **(4) Mannally configure tools (required)**
-# one-time installation. If the path is same as before, the configurations can be skipped.
+ one-time installation. If the path is same as before, the configurations can be skipped.
 ```
 cd installation/MULTICOM_manually_install_files
 
