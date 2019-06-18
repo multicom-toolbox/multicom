@@ -7,6 +7,7 @@ $proc_num = 4;
 
 -d $test_script_dir || die "$test_script_dir does not exist.\n";
 
+-d || `mkdir $test_out_dir`;
 
 opendir(DIR,"$test_script_dir") || die "Failed to open directory $test_script_dir\n";
 @input_files = readdir(DIR);
