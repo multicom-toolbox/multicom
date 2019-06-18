@@ -530,8 +530,7 @@ system("cp $install_dir/src/run_multicom.sh $install_dir/bin/run_multicom.sh");
 system("chmod +x $install_dir/bin/run_multicom.sh");
 
 
-system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-T1006.sh $install_dir/examples");
-system("cp $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-hard-T0957s2.sh $install_dir/examples");
+system("mv $install_dir/installation/MULTICOM_test_codes/T0-run-multicom-*.sh $install_dir/examples");
 system("chmod +x $install_dir/examples/*.sh");
 system("chmod +x $install_dir/src/visualize_multicom_cluster/*.sh");
 
@@ -698,7 +697,6 @@ database downloading
 /home/casp13/MULTICOM_package/software/prosys_database/atom.tar.gz
 
 /home/casp13/MULTICOM_package/software/prosys_database/nr_latest/
-
 
 
 =cut
