@@ -58,7 +58,7 @@ foreach $file_path (sort @running_files)
 	}
 	
 	print "run test $file_path\n";
-	system("sh $file_path")
+	system("sh $file_path > /dev/null 2>&1 &")
 }
 
 
