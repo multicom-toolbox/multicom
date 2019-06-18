@@ -12,7 +12,7 @@ opendir(DIR,"$test_script_dir") || die "Failed to open directory $test_script_di
 @input_files = readdir(DIR);
 closedir(DIR);
 
-foreach $file (sort @files)
+foreach $file (sort @input_files)
 {
 	if($file eq '.' or $file eq '..' or substr($file,length($file)-3) ne '.sh')
 	{
