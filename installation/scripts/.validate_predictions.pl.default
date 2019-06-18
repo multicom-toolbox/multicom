@@ -173,25 +173,25 @@ foreach $subdir (@subdirs)
 			printf "%-20s\t", 'Benchmark (Precision)';
 			printf "%-20s\n", 'Difference (Precision)';
 
-			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", "${targetid}.dncon2.rr";
 			printf "%-20s\t", 'Top L/5';
 			printf "%-20f\t", $Predicted_TopL5;
 			printf "%-20f\t", $benchmark_TopL5;
 			printf "%-20f\n", $TopL5_diff;
 
-			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", "${targetid}.dncon2.rr";
 			printf "%-20s\t", 'Top L/2';
 			printf "%-20f\t", $Predicted_TopL2;
 			printf "%-20f\t", $benchmark_TopL2;
 			printf "%-20f\n", $TopL2_diff;
 
-			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", "${targetid}.dncon2.rr";
 			printf "%-20s\t", 'Top L';
 			printf "%-20f\t", $Predicted_TopL;
 			printf "%-20f\t", $benchmark_TopL;
 			printf "%-20f\n", $TopL_diff;
 
-			printf "%-20s\t", '${targetid}.dncon2.rr';
+			printf "%-20s\t", "${targetid}.dncon2.rr";
 			printf "%-20s\t", 'Top 2L';
 			printf "%-20f\t", $Predicted_Top2L;
 			printf "%-20f\t", $benchmark_Top2L;
@@ -233,25 +233,25 @@ foreach $subdir (@subdirs)
 			printf "%-20s\t", 'Benchmark (Precision)';
 			printf "%-20s\n", 'Difference (Precision)';
 
-			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", "${targetid}.freecontact.rr";
 			printf "%-20s\t", 'Top L/5';
 			printf "%-20f\t", $Predicted_TopL5;
 			printf "%-20f\t", $benchmark_TopL5;
 			printf "%-20f\n", $TopL5_diff;
 
-			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", "${targetid}.freecontact.rr";
 			printf "%-20s\t", 'Top L/2';
 			printf "%-20f\t", $Predicted_TopL2;
 			printf "%-20f\t", $benchmark_TopL2;
 			printf "%-20f\n", $TopL2_diff;
 
-			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", "${targetid}.freecontact.rr";
 			printf "%-20s\t", 'Top L';
 			printf "%-20f\t", $Predicted_TopL;
 			printf "%-20f\t", $benchmark_TopL;
 			printf "%-20f\n", $TopL_diff;
 
-			printf "%-20s\t", '${targetid}.freecontact.rr';
+			printf "%-20s\t", "${targetid}.freecontact.rr";
 			printf "%-20s\t", 'Top 2L';
 			printf "%-20f\t", $Predicted_Top2L;
 			printf "%-20f\t", $benchmark_Top2L;
@@ -286,25 +286,25 @@ foreach $subdir (@subdirs)
 			printf "%-20s\t", 'Benchmark (Precision)';
 			printf "%-20s\n", 'Difference (Precision)';
 
-			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", "${targetid}.psicov.rr";
 			printf "%-20s\t", 'Top L/5';
 			printf "%-20f\t", $Predicted_TopL5;
 			printf "%-20f\t", $benchmark_TopL5;
 			printf "%-20f\n", $TopL5_diff;
 
-			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", "${targetid}.psicov.rr";
 			printf "%-20s\t", 'Top L/2';
 			printf "%-20f\t", $Predicted_TopL2;
 			printf "%-20f\t", $benchmark_TopL2;
 			printf "%-20f\n", $TopL2_diff;
 
-			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", "${targetid}.psicov.rr";
 			printf "%-20s\t", 'Top L';
 			printf "%-20f\t", $Predicted_TopL;
 			printf "%-20f\t", $benchmark_TopL;
 			printf "%-20f\n", $TopL_diff;
 
-			printf "%-20s\t", '${targetid}.psicov.rr';
+			printf "%-20s\t", "${targetid}.psicov.rr";
 			printf "%-20s\t", 'Top 2L';
 			printf "%-20f\t", $Predicted_Top2L;
 			printf "%-20f\t", $benchmark_Top2L;
@@ -340,25 +340,25 @@ foreach $subdir (@subdirs)
 			printf "%-20s\t", 'Benchmark (Precision)';
 			printf "%-20s\n", 'Difference (Precision)';
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L/5';
 			printf "%-20f\t", $Predicted_TopL5;
 			printf "%-20f\t", $benchmark_TopL5;
 			printf "%-20f\n", $TopL5_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L/2';
 			printf "%-20f\t", $Predicted_TopL2;
 			printf "%-20f\t", $benchmark_TopL2;
 			printf "%-20f\n", $TopL2_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L';
 			printf "%-20f\t", $Predicted_TopL;
 			printf "%-20f\t", $benchmark_TopL;
 			printf "%-20f\n", $TopL_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top 2L';
 			printf "%-20f\t", $Predicted_Top2L;
 			printf "%-20f\t", $benchmark_Top2L;
@@ -390,25 +390,25 @@ foreach $subdir (@subdirs)
 			printf "%-20s\t", 'Benchmark (Precision)';
 			printf "%-20s\n", 'Difference (Precision)';
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L/5';
 			printf "%-20f\t", $Predicted_TopL5;
 			printf "%-20f\t", $benchmark_TopL5;
 			printf "%-20f\n", $TopL5_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L/2';
 			printf "%-20f\t", $Predicted_TopL2;
 			printf "%-20f\t", $benchmark_TopL2;
 			printf "%-20f\n", $TopL2_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top L';
 			printf "%-20f\t", $Predicted_TopL;
 			printf "%-20f\t", $benchmark_TopL;
 			printf "%-20f\n", $TopL_diff;
 
-			printf "%-20s\t", '${targetid}.ccmpred.rr';
+			printf "%-20s\t", "${targetid}.ccmpred.rr";
 			printf "%-20s\t", 'Top 2L';
 			printf "%-20f\t", $Predicted_Top2L;
 			printf "%-20f\t", $benchmark_Top2L;
@@ -432,13 +432,13 @@ foreach $server (sort keys %check_list)
 	$diff= sprintf("%05f",$check_list{$server});
 	if($diff > 0.1)
 	{
-		printf "%-20f\t", $server;
+		printf "%-20s\t", $server;
 		printf "%-20f\t", $diff;
-		printf "%-20f\n", 'Failed';
+		printf "%-20s\n", 'Failed';
 	}else{
-		printf "%-20f\t", $server;
+		printf "%-20s\t", $server;
 		printf "%-20f\t", $diff;
-		printf "%-20f\n\n", 'Success';
+		printf "%-20s\n\n", 'Success';
 	}
 }
 
