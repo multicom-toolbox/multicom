@@ -1,5 +1,8 @@
-# multicom
-updating 
+# The MULTICOM protein structure system. 
+This repository include the source code and documents of both template-based and template-free modeling of the MULTICOM protein structure prediction system. 1D feature prediction, contact prediction, and clustering-based model ranking programs are also included.
+
+Web service: http://sysbio.rnet.missouri.edu/multicom_cluster/
+
 
 **(1) Download MULTICOM package (short path is recommended)**
 
