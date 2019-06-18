@@ -127,7 +127,7 @@ installation/scripts/validate_integrated_predictions.pl
 installation/scripts/validate_integrated_predictions_final.pl
 installation/scripts/evaluate_two_pdbs.pl
 installation/MULTICOM_test_codes/test_multicom_all.py
-installation/MULTICOM_test_codes/test_multicom_all.pl
+installation/MULTICOM_test_codes/test_multicom_all_parallel.pl
 installation/MULTICOM_test_codes/T99-run-validation.sh
 #installation/MULTICOM_test_codes/T99-run-validation-integration.sh
 installation/scripts/cmap/coneva-camp.pl
