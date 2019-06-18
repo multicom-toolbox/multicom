@@ -7,7 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/
 
 mkdir hhsearch15
-perl SOFTWARE_PATH/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl SOFTWARE_PATH/src/meta/hhsearch1.5/hhsearch1.5_option SOFTWARE_PATH/examples/T1006.fasta hhsearch15  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.log
+
+touch SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/hhsearch15/ss1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl SOFTWARE_PATH/src/meta/hhsearch1.5/hhsearch1.5_option SOFTWARE_PATH/examples/T1006.fasta hhsearch15  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.log
+fi
 
 
 printf "\nFinished.."
@@ -21,3 +25,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/hhsearch15/ss1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.running

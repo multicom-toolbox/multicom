@@ -6,8 +6,11 @@ dtime=$(date +%m%d%y)
 mkdir -p SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/
 
-perl SOFTWARE_PATH/src/prosys/script/pir2ts_energy.pl SOFTWARE_PATH/tools/modeller9v7/ SOFTWARE_PATH/examples/ SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/ SOFTWARE_PATH/examples/T1006.pir 5  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/T1006.pdb" ]];then 
+	perl SOFTWARE_PATH/src/prosys/script/pir2ts_energy.pl SOFTWARE_PATH/tools/modeller9v7/ SOFTWARE_PATH/examples/ SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/ SOFTWARE_PATH/examples/T1006.pir 5  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime.log>\n\n"
@@ -20,3 +23,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime/T1006.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_modeller9.7_$dtime.running
