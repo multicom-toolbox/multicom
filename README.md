@@ -1,5 +1,5 @@
 # multicom
-updating
+updating 
 
 **(1) Download MULTICOM package (short path is recommended)**
 
@@ -27,11 +27,9 @@ perl configure.pl
 
 **(4) Mannally configure tools (required)**
 
+***one-time installation. If the path is same as before, the configurations can be skipped.
 ```
 cd installation/MULTICOM_manually_install_files
-
-# one-time installation. If the path is same as before, the configurations can be skipped.
-
 
 $ sh ./P1_install_boost.sh 
 (** may take ~20 min)
@@ -65,53 +63,46 @@ $ vi ~/.keras/keras.json
 }
 ```
 
-**(6) Testing the MULTICOM tools (recommended)**
-
+**(6) Testing the individual tools in MULTICOM (recommended)**
 
 ```
 cd installation/MULTICOM_test_codes
 
-ls
+   
+a. Sequential testing 
+    perl test_multicom_all_parallel.pl
+  
+b. Parallel tesing up to 5 jobs at same time
+    perl test_multicom_all_parallel.pl 5
+    
+```
 
-sh T1-run-pspro2.sh
-
-sh T2-run-SCRATCH.sh
-
-sh T4-run-dncon2.sh 
-
-sh T5-run-modeller9.16.sh
-
-sh T7-run-hhsearch.sh
-
-sh T11-run-hhsuite.sh
-
-sh T14-run-psiblast.sh
-
-sh T15-run-compass.sh
-
-sh T17-run-prc.sh
-
-sh T20-run-raptorx.sh
-
-sh T27-run-confold.sh
-
-sh T28-run-unicon3d.sh
+**(7) Validate the individual predictons**
 
 ```
 
-**(7) Validate predictons**
-```
 cd installation/MULTICOM_test_codes
 sh T99-run-validation.sh
+
 ```
 
-**(8) Run MULTICOM for structure predicton**
+**(8) Testing the integrated MULTICOM system (recommended)**
+
+```
+
+cd examples
+sh T0-run-multicom-T1006.sh
+sh T0-run-multicom-hard-T0957s2.sh
+
+```
+
+**(9) Run MULTICOM for structure predicton**
 
 ```
    Usage:
-   $ sh bin/run_multicom.sh <file name>.fasta  <output folder>
+   $ sh bin/run_multicom.sh <target id> <file name>.fasta  <output folder>
 
    Example:
-   $ sh bin/run_multicom.sh examples/T0993s2.fasta test_out/T0993s2_out
+   $ sh bin/run_multicom.sh T0993s2 examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
