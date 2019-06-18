@@ -59,6 +59,7 @@ foreach $file_path (sort @running_files)
 	system("sh $file_path > /dev/null 2>&1 &");
 	$remain_jobs = @running_files-$running_num;
 	print "Current running jobs ($running_num), remaining jobs ($remain_jobs)\n\n";
+	sleep(5);
 }
 
 
