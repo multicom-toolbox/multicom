@@ -3,6 +3,7 @@ This repository include the source code and documents of both template-based and
 
 Web service: http://sysbio.rnet.missouri.edu/multicom_cluster/
 
+(We are currently updating mutlicom2.0)
 
 **(1) Download MULTICOM package (short path is recommended)**
 
