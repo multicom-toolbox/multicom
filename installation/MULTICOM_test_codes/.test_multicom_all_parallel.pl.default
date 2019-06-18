@@ -3,7 +3,22 @@
 $test_script_dir= 'SOFTWARE_PATH/installation/MULTICOM_test_codes';
 $test_out_dir= 'SOFTWARE_PATH/test_out';
 
-$proc_num = 4;
+$num = @ARGV;
+if($num ==0)
+{
+	$proc_num = 1;
+}elsif($num ==1)
+{
+	$proc_num = $ARGV[0];
+	if($proc_num > 5)
+	{
+		die "5 maximum jobs are reccommended for parallel testing\n";
+	}
+}else{
+	die "usage: perl test_multicom_all_parallel.pl <optional: numebr of parallel jobs>";
+}
+
+
 
 -d $test_script_dir || die "$test_script_dir does not exist.\n";
 
