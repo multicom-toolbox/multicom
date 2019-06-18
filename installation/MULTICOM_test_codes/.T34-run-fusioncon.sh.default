@@ -11,8 +11,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime/
 
 mkdir fusioncon
-perl SOFTWARE_PATH/src/meta/fusioncon/script/tm_fusioncon_main.pl SOFTWARE_PATH/src/meta/fusioncon/fusioncon_option SOFTWARE_PATH/examples/T1006.fasta fusioncon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime.log
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime/fusioncon/fusicon1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/fusioncon/script/tm_fusioncon_main.pl SOFTWARE_PATH/src/meta/fusioncon/fusioncon_option SOFTWARE_PATH/examples/T1006.fasta fusioncon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime.log>\n\n"
@@ -25,3 +28,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime/fusioncon/fusicon1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_fusioncon_$dtime.log

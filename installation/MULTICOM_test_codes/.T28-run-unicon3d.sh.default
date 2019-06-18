@@ -10,8 +10,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime/
 
 mkdir unicon3d
-perl SOFTWARE_PATH/src/meta/unicon3d/script/tm_unicon3d_main.pl SOFTWARE_PATH/src/meta/unicon3d/Unicon3D_option SOFTWARE_PATH/examples/T1006.fasta unicon3d  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime/unicon3d/Unicon3d-1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/unicon3d/script/tm_unicon3d_main.pl SOFTWARE_PATH/src/meta/unicon3d/Unicon3D_option SOFTWARE_PATH/examples/T1006.fasta unicon3d  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime.log>\n\n"
@@ -24,3 +27,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime/unicon3d/Unicon3d-1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_unicon3d_$dtime.running

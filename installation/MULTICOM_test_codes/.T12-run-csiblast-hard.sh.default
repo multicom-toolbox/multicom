@@ -7,8 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/
 
 mkdir csiblast
-perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard SOFTWARE_PATH/examples/T1006.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/csiblast/csiblast1.pdb" ]];then
+	perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard SOFTWARE_PATH/examples/T1006.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.log>\n\n"
@@ -20,4 +23,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime/csiblast/csiblast1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_csiblast_hard_$dtime.running

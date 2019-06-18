@@ -7,7 +7,12 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/
 
 mkdir prc
-perl SOFTWARE_PATH/src/meta/prc/script/tm_prc_main_v2.pl SOFTWARE_PATH/src/meta/prc/prc_option_hard SOFTWARE_PATH/examples/T1006.fasta prc  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.log
+
+touch SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/prc/prc1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/prc/script/tm_prc_main_v2.pl SOFTWARE_PATH/src/meta/prc/prc_option_hard SOFTWARE_PATH/examples/T1006.fasta prc  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.log
+fi
+
 
 
 printf "\nFinished.."
@@ -20,4 +25,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/prc/prc1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.running

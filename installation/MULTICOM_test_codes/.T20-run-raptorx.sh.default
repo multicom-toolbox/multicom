@@ -7,7 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_raptorx_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_raptorx_$dtime/
 
 mkdir raptorx
-perl SOFTWARE_PATH/src/meta/raptorx/script/tm_raptorx_main.pl SOFTWARE_PATH/src/meta/raptorx/raptorx_option_version3 SOFTWARE_PATH/examples/T1006.fasta raptorx  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_raptorx_$dtime.log
+
+touch SOFTWARE_PATH/test_out/T1006_raptorx_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_raptorx_$dtime/raptorx/rapt1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/raptorx/script/tm_raptorx_main.pl SOFTWARE_PATH/src/meta/raptorx/raptorx_option_version3 SOFTWARE_PATH/examples/T1006.fasta raptorx  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_raptorx_$dtime.log
+fi
 
 
 printf "\nFinished.."
@@ -21,3 +25,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_raptorx_$dtime/raptorx/rapt1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_raptorx_$dtime.running

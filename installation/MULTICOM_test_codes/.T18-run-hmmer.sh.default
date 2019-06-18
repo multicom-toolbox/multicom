@@ -7,7 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/
 
 mkdir hmmer
-perl SOFTWARE_PATH/src/meta/hmmer/script/tm_hmmer_main_v2.pl SOFTWARE_PATH/src/meta/hmmer/hmmer_option SOFTWARE_PATH/examples/T1006.fasta hmmer  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.log
+
+touch SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/hmmer/hmmer1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hmmer/script/tm_hmmer_main_v2.pl SOFTWARE_PATH/src/meta/hmmer/hmmer_option SOFTWARE_PATH/examples/T1006.fasta hmmer  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.log
+fi
 
 
 printf "\nFinished.."
@@ -20,4 +24,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hmmer_$dtime/hmmer/hmmer1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_hmmer_$dtime.running

@@ -7,8 +7,13 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_blast_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_blast_$dtime/
 
 mkdir blast
-perl SOFTWARE_PATH/src/meta/blast//script/main_blast_v2.pl SOFTWARE_PATH/src/meta/blast/cm_option_adv SOFTWARE_PATH/examples/T1006.fasta blast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_blast_$dtime.log
-perl SOFTWARE_PATH/src/meta/hhsearch/script/tm_hhsearch_main_casp8.pl SOFTWARE_PATH/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8 SOFTWARE_PATH/examples/T1006.fasta blast
+
+touch  SOFTWARE_PATH/test_out/T1006_blast_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_blast_$dtime/blast/hs1.pdb" ]];then
+	perl SOFTWARE_PATH/src/meta/blast//script/main_blast_v2.pl SOFTWARE_PATH/src/meta/blast/cm_option_adv SOFTWARE_PATH/examples/T1006.fasta blast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_blast_$dtime.log
+	perl SOFTWARE_PATH/src/meta/hhsearch/script/tm_hhsearch_main_casp8.pl SOFTWARE_PATH/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8 SOFTWARE_PATH/examples/T1006.fasta blast
+fi
+
 
 
 printf "\nFinished.."
@@ -21,4 +26,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_blast_$dtime/blast/hs1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_blast_$dtime.running

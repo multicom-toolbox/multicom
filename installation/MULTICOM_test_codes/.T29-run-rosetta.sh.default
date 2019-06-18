@@ -8,9 +8,13 @@ cd SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/
 
 mkdir rosetta2
 mkdir rosetta_common
-sh SOFTWARE_PATH/src/meta/script/make_rosetta_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log
-cp -r rosetta_common/abini rosetta2
-sh SOFTWARE_PATH/src/meta/script/run_rosetta_no_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini rosetta2 100
+
+touch SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/rosetta2/abini/abini-1.pdb" ]];then 
+	sh SOFTWARE_PATH/src/meta/script/make_rosetta_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log
+	cp -r rosetta_common/abini rosetta2
+	sh SOFTWARE_PATH/src/meta/script/run_rosetta_no_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini rosetta2 100  2>&1 | tee  -a SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log
+fi
 
 
 printf "\nFinished.."
@@ -24,3 +28,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/rosetta2/abini/abini-1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.running

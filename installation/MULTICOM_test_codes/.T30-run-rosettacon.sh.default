@@ -10,8 +10,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/
 
 mkdir rosettacon
-perl SOFTWARE_PATH/src/meta/rosettacon/script/tm_rosettacon_main.pl SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option SOFTWARE_PATH/examples/T1006.fasta rosettacon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/rosettacon/rocon1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/rosettacon/script/tm_rosettacon_main.pl SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option SOFTWARE_PATH/examples/T1006.fasta rosettacon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.log>\n\n"
@@ -24,3 +27,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/rosettacon/rocon1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.running

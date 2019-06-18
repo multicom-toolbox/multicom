@@ -11,8 +11,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_deepsf_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_deepsf_$dtime/
 
 mkdir deepsf
-perl SOFTWARE_PATH/src/meta/deepsf/script/tm_deepsf_main.pl SOFTWARE_PATH/src/meta/deepsf/deepsf_option SOFTWARE_PATH/examples/T1006.fasta deepsf  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_deepsf_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_deepsf_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_deepsf_$dtime/deepsf/deepsf1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/deepsf/script/tm_deepsf_main.pl SOFTWARE_PATH/src/meta/deepsf/deepsf_option SOFTWARE_PATH/examples/T1006.fasta deepsf  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_deepsf_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_deepsf_$dtime.log>\n\n"
@@ -25,3 +28,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_deepsf_$dtime/deepsf/deepsf1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_deepsf_$dtime.running

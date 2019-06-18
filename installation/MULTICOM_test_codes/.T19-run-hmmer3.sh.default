@@ -7,7 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime/
 
 mkdir hmmer3
-perl SOFTWARE_PATH/src/meta/hmmer3/script/tm_hmmer3_main.pl SOFTWARE_PATH/src/meta/hmmer3/hmmer3_option SOFTWARE_PATH/examples/T1006.fasta hmmer3  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime/hmmer3/jackhmmer1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hmmer3/script/tm_hmmer3_main.pl SOFTWARE_PATH/src/meta/hmmer3/hmmer3_option SOFTWARE_PATH/examples/T1006.fasta hmmer3  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime.log
+fi
+
 
 
 printf "\nFinished.."
@@ -20,4 +24,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime/hmmer3/jackhmmer1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_hmmer3_$dtime.running

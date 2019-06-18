@@ -7,7 +7,13 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_csblast_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_csblast_$dtime/
 
 mkdir csblast
-perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csblast_option SOFTWARE_PATH/examples/T1006.fasta csblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csblast_$dtime.log
+
+
+touch SOFTWARE_PATH/test_out/T1006_csblast_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csblast_$dtime/csblast/csblast1.pdb" ]];then
+	perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csblast_option SOFTWARE_PATH/examples/T1006.fasta csblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csblast_$dtime.log
+fi
+
 
 
 printf "\nFinished.."
@@ -20,4 +26,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_csblast_$dtime/csblast/csblast1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_csblast_$dtime.running

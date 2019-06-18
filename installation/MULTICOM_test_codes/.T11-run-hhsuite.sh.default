@@ -7,13 +7,18 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime/
 
 mkdir hhsuite
-perl SOFTWARE_PATH/src/meta/hhsuite//script/tm_hhsuite_main.pl SOFTWARE_PATH/src/meta/hhsuite/hhsuite_option SOFTWARE_PATH/examples/T1006.fasta hhsuite  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime.log
-perl SOFTWARE_PATH/src/meta/hhsuite//script/tm_hhsuite_main_simple.pl SOFTWARE_PATH/src/meta/hhsuite/super_option SOFTWARE_PATH/test/T1006.fasta hhsuite
-perl SOFTWARE_PATH/src/meta/hhsuite//script/filter_identical_hhsuite.pl hhsuite
+
+touch SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime/hhsuite/hhsuite1.pdb" ]];then
+	perl SOFTWARE_PATH/src/meta/hhsuite//script/tm_hhsuite_main.pl SOFTWARE_PATH/src/meta/hhsuite/hhsuite_option SOFTWARE_PATH/examples/T1006.fasta hhsuite  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime.log
+	perl SOFTWARE_PATH/src/meta/hhsuite//script/tm_hhsuite_main_simple.pl SOFTWARE_PATH/src/meta/hhsuite/super_option SOFTWARE_PATH/test/T1006.fasta hhsuite
+	perl SOFTWARE_PATH/src/meta/hhsuite//script/filter_identical_hhsuite.pl hhsuite
+fi
+
+
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime.log>\n\n"
-
 
 if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime/hhsuite/hhsuite1.pdb" ]];then 
 	printf "!!!!! Failed to run hhsuite, check the installation <SOFTWARE_PATH/src/meta/hhsuite/>\n\n"
@@ -21,4 +26,5 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime/hhsuite/hhsuite1.pdb\n\n"
 fi
+rm SOFTWARE_PATH/test_out/T1006_hhsuite_$dtime.running
 

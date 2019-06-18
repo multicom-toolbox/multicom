@@ -5,8 +5,13 @@ dtime=$(date +%m%d%y)
 
 mkdir -p SOFTWARE_PATH/test_out/T1006_pspro_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_pspro_$dtime/
-#SOFTWARE_PATH/tools/pspro2/bin/predict_ss_sa_cm.sh SOFTWARE_PATH/examples/T1006.fasta SOFTWARE_PATH/test_out/T1006_pspro_$dtime/T1006.ssa &> SOFTWARE_PATH/test_out/T1006_pspro_$dtime.log
-SOFTWARE_PATH/tools/pspro2/bin/predict_ssa.sh SOFTWARE_PATH/examples/T1006.fasta SOFTWARE_PATH/test_out/T1006_pspro_$dtime/T1006.ssa  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_pspro_$dtime.log
+
+
+touch SOFTWARE_PATH/test_out/T1006_pspro_$dtime.running
+
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_pspro_$dtime/T1006.ssa" ]];then 
+	SOFTWARE_PATH/tools/pspro2/bin/predict_ssa.sh SOFTWARE_PATH/examples/T1006.fasta SOFTWARE_PATH/test_out/T1006_pspro_$dtime/T1006.ssa  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_pspro_$dtime.log
+fi
 
 
 printf "\nFinished.."
@@ -19,3 +24,5 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_pspro_$dtime/T1006_fasta.ssa\n\n"
 fi
+
+rm SOFTWARE_PATH/test_out/T1006_pspro_$dtime.running

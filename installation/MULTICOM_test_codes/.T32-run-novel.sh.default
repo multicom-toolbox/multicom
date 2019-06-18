@@ -11,8 +11,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_novel_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_novel_$dtime/
 
 mkdir novel
-perl SOFTWARE_PATH/src/meta/novel/script/tm_novel_main.pl SOFTWARE_PATH/src/meta/novel/novel_option SOFTWARE_PATH/examples/T1006.fasta novel  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_novel_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_novel_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_novel_$dtime/novel/novel1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/novel/script/tm_novel_main.pl SOFTWARE_PATH/src/meta/novel/novel_option SOFTWARE_PATH/examples/T1006.fasta novel  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_novel_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_novel_$dtime.log>\n\n"
@@ -25,3 +28,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_novel_$dtime/novel/novel1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_novel_$dtime.running

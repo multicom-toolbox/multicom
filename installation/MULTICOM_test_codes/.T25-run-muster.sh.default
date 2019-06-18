@@ -7,8 +7,13 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_muster_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_muster_$dtime/
 
 mkdir muster
-perl SOFTWARE_PATH/src/meta/muster//script/tm_muster_main.pl SOFTWARE_PATH/src/meta/muster/muster_option_version4 SOFTWARE_PATH/examples/T1006.fasta muster  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_muster_$dtime.log
-perl SOFTWARE_PATH/src/meta/muster//script/filter_identical_muster.pl muster
+
+touch SOFTWARE_PATH/test_out/T1006_muster_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_muster_$dtime/muster/muster1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/muster//script/tm_muster_main.pl SOFTWARE_PATH/src/meta/muster/muster_option_version4 SOFTWARE_PATH/examples/T1006.fasta muster  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_muster_$dtime.log
+	perl SOFTWARE_PATH/src/meta/muster//script/filter_identical_muster.pl muster   2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_muster_$dtime.log
+fi
+
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_muster_$dtime.log>\n\n"
@@ -21,3 +26,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_muster_$dtime/muster/muster1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_muster_$dtime.running

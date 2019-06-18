@@ -10,8 +10,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_confold_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_confold_$dtime/
 
 mkdir confold
-sh SOFTWARE_PATH/src/meta/confold2/script/tm_confold2_main.sh SOFTWARE_PATH/src/meta/confold2/CONFOLD_option SOFTWARE_PATH/examples/T1006.fasta confold  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_confold_$dtime.log
 
+touch SOFTWARE_PATH/test_out/T1006_confold_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_confold_$dtime/confold/confold2-1.pdb" ]];then 
+	sh SOFTWARE_PATH/src/meta/confold2/script/tm_confold2_main.sh SOFTWARE_PATH/src/meta/confold2/CONFOLD_option SOFTWARE_PATH/examples/T1006.fasta confold  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_confold_$dtime.log
+fi
 
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_confold_$dtime.log>\n\n"
@@ -24,3 +27,4 @@ else
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_confold_$dtime/confold/confold2-1.pdb\n\n"
 fi
 
+rm SOFTWARE_PATH/test_out/T1006_confold_$dtime.running

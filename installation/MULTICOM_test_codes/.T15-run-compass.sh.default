@@ -7,7 +7,11 @@ mkdir -p SOFTWARE_PATH/test_out/T1006_compass_$dtime/
 cd SOFTWARE_PATH/test_out/T1006_compass_$dtime/
 
 mkdir compass
-perl SOFTWARE_PATH/src/meta/compass/script/tm_compass_main_v2.pl SOFTWARE_PATH/src/meta/compass/compass_option SOFTWARE_PATH/examples/T1006.fasta compass  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_compass_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_compass_$dtime.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_compass_$dtime/compass/com1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/compass/script/tm_compass_main_v2.pl SOFTWARE_PATH/src/meta/compass/compass_option SOFTWARE_PATH/examples/T1006.fasta compass  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_compass_$dtime.log
+fi
+
 
 
 printf "\nFinished.."
@@ -20,4 +24,4 @@ else
 	printf "\nJob successfully completed!"
 	printf "\nResults: SOFTWARE_PATH/test_out/T1006_compass_$dtime/compass/com1.pdb\n\n"
 fi
-
+rm SOFTWARE_PATH/test_out/T1006_compass_$dtime.running
