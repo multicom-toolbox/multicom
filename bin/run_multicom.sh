@@ -1,12 +1,13 @@
 #!/bin/sh
-if [ $# -ne 2 ]
+if [ $# -ne 3 ]
 then
-        echo "need two parameters: input fasta file, output directory."
+        echo "need three parameters: target id, input fasta file, output directory."
         exit 1
 fi
 
-fastafile=$1
-outputdir=$2
+targetid=$1
+fastafile=$2
+outputdir=$3
 
 source /home/jh7x3/multicom/tools/python_virtualenv/bin/activate
 export LD_LIBRARY_PATH=/home/jh7x3/multicom/tools/boost_1_55_0/lib/:/home/jh7x3/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
@@ -16,4 +17,4 @@ if [ ! -d "$outputdir" ]; then
 fi
 
 /home/jh7x3/multicom/src/multicom_ve.pl /home/jh7x3/multicom/src/multicom_system_option_casp13 $fastafile $outputdir 
-
+/home/jh7x3/multicom/src/visualize_multicom_cluster/P1_organize_prediction.sh $outputdir  $targetid  $outputdir/multicom_results
