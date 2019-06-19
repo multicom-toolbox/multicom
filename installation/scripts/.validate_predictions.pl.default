@@ -24,7 +24,7 @@ foreach $subdir (@subdirs)
 		next;
 	}
 	@tmp = split(/\_/,$subdir);
-	if(@tmp <3)
+	if(@tmp <2)
 	{
 		next;
 	}
@@ -124,7 +124,7 @@ foreach $subdir (@subdirs)
 		next;
 	}
 	@tmp = split(/\_/,$subdir);
-	if(@tmp <3)
+	if(@tmp <2)
 	{
 		next;
 	}
