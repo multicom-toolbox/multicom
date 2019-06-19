@@ -3,29 +3,29 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_rosetta/
+cd SOFTWARE_PATH/test_out/T1006_rosetta/
 
 mkdir rosetta2
 mkdir rosetta_common
 
-touch SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/rosetta2/abini/abini-1.pdb" ]];then 
-	sh SOFTWARE_PATH/src/meta/script/make_rosetta_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_rosetta.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosetta/rosetta2/abini/abini-1.pdb" ]];then 
+	sh SOFTWARE_PATH/src/meta/script/make_rosetta_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosetta.log
 	cp -r rosetta_common/abini rosetta2
-	sh SOFTWARE_PATH/src/meta/script/run_rosetta_no_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini rosetta2 100  2>&1 | tee  -a SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log
+	sh SOFTWARE_PATH/src/meta/script/run_rosetta_no_fragment.sh SOFTWARE_PATH/examples/T1006.fasta abini rosetta2 100  2>&1 | tee  -a SOFTWARE_PATH/test_out/T1006_rosetta.log
 fi
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_rosetta.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/rosetta2/abini/abini-1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosetta/rosetta2/abini/abini-1.pdb" ]];then 
 	printf "!!!!! Failed to run rosetta, check the installation <SOFTWARE_PATH/src/meta/script/run_rosetta_no_fragment.sh>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosetta_$dtime/rosetta2/abini/abini-1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosetta/rosetta2/abini/abini-1.pdb\n\n"
 fi
 
-rm SOFTWARE_PATH/test_out/T1006_rosetta_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_rosetta.running

@@ -6,25 +6,25 @@ source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
 export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:SOFTWARE_PATH/tools/OpenBLAS:$LD_LIBRARY_PATH
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_rosettacon/
+cd SOFTWARE_PATH/test_out/T1006_rosettacon/
 
 mkdir rosettacon
 
-touch SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/rosettacon/rocon1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/rosettacon/script/tm_rosettacon_main.pl SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option SOFTWARE_PATH/examples/T1006.fasta rosettacon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_rosettacon.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosettacon/rosettacon/rocon1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/rosettacon/script/tm_rosettacon_main.pl SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option SOFTWARE_PATH/examples/T1006.fasta rosettacon  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_rosettacon.log
 fi
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_rosettacon.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/rosettacon/rocon1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_rosettacon/rosettacon/rocon1.pdb" ]];then 
 	printf "!!!!! Failed to run rosettacon, check the installation <SOFTWARE_PATH/src/meta/rosettacon/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime/rosettacon/rocon1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_rosettacon/rosettacon/rocon1.pdb\n\n"
 fi
 
-rm SOFTWARE_PATH/test_out/T1006_rosettacon_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_rosettacon.running

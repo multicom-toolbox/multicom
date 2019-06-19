@@ -3,27 +3,27 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_hhblits_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_hhblits_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_hhblits/
+cd SOFTWARE_PATH/test_out/T1006_hhblits/
 
 mkdir hhblits
 
-touch  SOFTWARE_PATH/test_out/T1006_hhblits_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhblits_$dtime/hhblits/blits1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/hhblits//script/tm_hhblits_main.pl SOFTWARE_PATH/src/meta/hhblits/hhblits_option SOFTWARE_PATH/examples/T1006.fasta hhblits  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhblits_$dtime.log
-	perl SOFTWARE_PATH/src/meta/hhblits//script/filter_identical_hhblits.pl hhblits  2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_hhblits_$dtime.log
+touch  SOFTWARE_PATH/test_out/T1006_hhblits.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhblits/hhblits/blits1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hhblits//script/tm_hhblits_main.pl SOFTWARE_PATH/src/meta/hhblits/hhblits_option SOFTWARE_PATH/examples/T1006.fasta hhblits  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhblits.log
+	perl SOFTWARE_PATH/src/meta/hhblits//script/filter_identical_hhblits.pl hhblits  2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_hhblits.log
 fi
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhblits_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhblits.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhblits_$dtime/hhblits/blits1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhblits/hhblits/blits1.pdb" ]];then 
 	printf "!!!!! Failed to run hhblits, check the installation <SOFTWARE_PATH/src/meta/hhblits/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhblits_$dtime/hhblits/blits1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhblits/hhblits/blits1.pdb\n\n"
 fi
 
-rm  SOFTWARE_PATH/test_out/T1006_hhblits_$dtime.running
+rm  SOFTWARE_PATH/test_out/T1006_hhblits.running

@@ -3,26 +3,26 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_hhsearch15/
+cd SOFTWARE_PATH/test_out/T1006_hhsearch15/
 
 mkdir hhsearch15
 
-touch SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/hhsearch15/ss1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl SOFTWARE_PATH/src/meta/hhsearch1.5/hhsearch1.5_option SOFTWARE_PATH/examples/T1006.fasta hhsearch15  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_hhsearch15.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsearch15/hhsearch15/ss1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl SOFTWARE_PATH/src/meta/hhsearch1.5/hhsearch1.5_option SOFTWARE_PATH/examples/T1006.fasta hhsearch15  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhsearch15.log
 fi
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhsearch15.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/hhsearch15/ss1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhsearch15/hhsearch15/ss1.pdb" ]];then 
 	printf "!!!!! Failed to run hhsearch15, check the installation <SOFTWARE_PATH/src/meta/hhsearch1.5/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime/hhsearch15/ss1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhsearch15/hhsearch15/ss1.pdb\n\n"
 fi
 
-rm SOFTWARE_PATH/test_out/T1006_hhsearch15_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_hhsearch15.running

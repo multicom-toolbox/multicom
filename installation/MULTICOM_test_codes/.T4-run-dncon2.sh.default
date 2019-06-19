@@ -7,23 +7,23 @@ source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
 export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/boost_1_55_0/lib/:SOFTWARE_PATH/tools/OpenBLAS:$LD_LIBRARY_PATH
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_dncon2/
+cd SOFTWARE_PATH/test_out/T1006_dncon2/
 
-touch SOFTWARE_PATH/test_out/T1006_dncon2_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/T1006.dncon2.rr" ]];then 
-	SOFTWARE_PATH/tools/DNCON2/dncon2-v1.0.sh SOFTWARE_PATH/examples/T1006.fasta SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_dncon2_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_dncon2.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_dncon2/T1006.dncon2.rr" ]];then 
+	SOFTWARE_PATH/tools/DNCON2/dncon2-v1.0.sh SOFTWARE_PATH/examples/T1006.fasta SOFTWARE_PATH/test_out/T1006_dncon2/  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_dncon2.log
 fi
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_dncon2_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_dncon2.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/T1006.dncon2.rr" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_dncon2/T1006.dncon2.rr" ]];then 
 	printf "!!!!! Failed to run DNCON2, check the installation <SOFTWARE_PATH/tools/DNCON2/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_dncon2_$dtime/T1006.dncon2.rr\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_dncon2/T1006.dncon2.rr\n\n"
 fi
 
-rm SOFTWARE_PATH/test_out/T1006_dncon2_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_dncon2.running

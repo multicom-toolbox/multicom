@@ -3,24 +3,24 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_hhpred_hard/
+cd SOFTWARE_PATH/test_out/T1006_hhpred_hard/
 
 mkdir hhpred
 
-touch SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime/hhpred/hp1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/hhpred//script/tm_hhpred_main.pl SOFTWARE_PATH/src/meta/hhpred/hhpred_option_hard SOFTWARE_PATH/examples/T1006.fasta hhpred  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_hhpred_hard.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhpred_hard/hhpred/hp1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/hhpred//script/tm_hhpred_main.pl SOFTWARE_PATH/src/meta/hhpred/hhpred_option_hard SOFTWARE_PATH/examples/T1006.fasta hhpred  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_hhpred_hard.log
 fi
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_hhpred_hard.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime/hhpred/hp1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_hhpred_hard/hhpred/hp1.pdb" ]];then 
 	printf "!!!!! Failed to run hhpred, check the installation <SOFTWARE_PATH/src/meta/hhpred/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime/hhpred/hp1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_hhpred_hard/hhpred/hp1.pdb\n\n"
 fi
-rm SOFTWARE_PATH/test_out/T1006_hhpred_hard_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_hhpred_hard.running

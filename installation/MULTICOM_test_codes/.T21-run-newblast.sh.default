@@ -3,25 +3,25 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_newblast_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_newblast_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_newblast/
+cd SOFTWARE_PATH/test_out/T1006_newblast/
 
 mkdir newblast
 
-touch SOFTWARE_PATH/test_out/T1006_newblast_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_newblast_$dtime/newblast/newblast1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/newblast/script/newblast.pl SOFTWARE_PATH/src/meta/newblast/newblast_option SOFTWARE_PATH/examples/T1006.fasta newblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_newblast_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_newblast.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_newblast/newblast/newblast1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/newblast/script/newblast.pl SOFTWARE_PATH/src/meta/newblast/newblast_option SOFTWARE_PATH/examples/T1006.fasta newblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_newblast.log
 fi
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_newblast_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_newblast.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_newblast_$dtime/newblast/newblast1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_newblast/newblast/newblast1.pdb" ]];then 
 	printf "!!!!! Failed to run newblast, check the installation <SOFTWARE_PATH/src/meta/newblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_newblast_$dtime/newblast/newblast1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_newblast/newblast/newblast1.pdb\n\n"
 fi
 
-rm SOFTWARE_PATH/test_out/T1006_newblast_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_newblast.running

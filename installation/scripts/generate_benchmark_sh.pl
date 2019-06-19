@@ -30,7 +30,7 @@ while(<IN>)
 	print "Generating $outputdir/$targetid.sh\n";
 	open(OUT,">$outputdir/$targetid.sh") || die "Failed to write $outputdir/$targetid.sh\n";
 	print OUT "#!/bin/sh\n\n";
-	print OUT "sh $GLOBAL_PATH/bin/run_multicom.sh  $seq $outputdir/$targetid  &> $outputdir/$targetid.log  & \n\n";
+	print OUT "sh $GLOBAL_PATH/bin/run_multicom.sh  $targetid  $seq $outputdir/$targetid  &> $outputdir/$targetid.log  & \n\n";
 	close OUT;
 
 }

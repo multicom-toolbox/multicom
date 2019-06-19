@@ -3,26 +3,26 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_prc_hard/
+cd SOFTWARE_PATH/test_out/T1006_prc_hard/
 
 mkdir prc
 
-touch SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/prc/prc1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/prc/script/tm_prc_main_v2.pl SOFTWARE_PATH/src/meta/prc/prc_option_hard SOFTWARE_PATH/examples/T1006.fasta prc  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_prc_hard.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_prc_hard/prc/prc1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/prc/script/tm_prc_main_v2.pl SOFTWARE_PATH/src/meta/prc/prc_option_hard SOFTWARE_PATH/examples/T1006.fasta prc  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_prc_hard.log
 fi
 
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_prc_hard.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/prc/prc1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_prc_hard/prc/prc1.pdb" ]];then 
 	printf "!!!!! Failed to run prc, check the installation <SOFTWARE_PATH/src/meta/prc/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime/prc/prc1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_prc_hard/prc/prc1.pdb\n\n"
 fi
-rm SOFTWARE_PATH/test_out/T1006_prc_hard_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_prc_hard.running

@@ -3,24 +3,24 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_sam_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_sam_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_sam/
+cd SOFTWARE_PATH/test_out/T1006_sam/
 
 mkdir sam
 
-touch SOFTWARE_PATH/test_out/T1006_sam_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_sam_$dtime/sam/sam1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/sam/script/tm_sam_main_v2.pl SOFTWARE_PATH/src/meta/sam/sam_option_nr SOFTWARE_PATH/examples/T1006.fasta sam  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_sam_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_sam.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_sam/sam/sam1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/sam/script/tm_sam_main_v2.pl SOFTWARE_PATH/src/meta/sam/sam_option_nr SOFTWARE_PATH/examples/T1006.fasta sam  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_sam.log
 fi
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_sam_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_sam.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_sam_$dtime/sam/sam1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_sam/sam/sam1.pdb" ]];then 
 	printf "!!!!! Failed to run sam, check the installation <SOFTWARE_PATH/src/meta/sam/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_sam_$dtime/sam/sam1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_sam/sam/sam1.pdb\n\n"
 fi
-rm SOFTWARE_PATH/test_out/T1006_sam_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_sam.running

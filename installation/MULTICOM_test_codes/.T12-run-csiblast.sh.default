@@ -3,25 +3,25 @@
 dtime=$(date +%m%d%y)
 
 
-mkdir -p SOFTWARE_PATH/test_out/T1006_csiblast_$dtime/
-cd SOFTWARE_PATH/test_out/T1006_csiblast_$dtime/
+mkdir -p SOFTWARE_PATH/test_out/T1006_csiblast/
+cd SOFTWARE_PATH/test_out/T1006_csiblast/
 
 mkdir csiblast
-touch SOFTWARE_PATH/test_out/T1006_csiblast_$dtime.running
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast_$dtime/csiblast/csiblast1.pdb" ]];then 
-	perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option SOFTWARE_PATH/examples/T1006.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csiblast_$dtime.log
+touch SOFTWARE_PATH/test_out/T1006_csiblast.running
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast/csiblast/csiblast1.pdb" ]];then 
+	perl SOFTWARE_PATH/src/meta/csblast/script/multicom_csiblast_v2.pl SOFTWARE_PATH/src/meta/csblast/csiblast_option SOFTWARE_PATH/examples/T1006.fasta csiblast  2>&1 | tee  SOFTWARE_PATH/test_out/T1006_csiblast.log
 fi
 
 
 
 printf "\nFinished.."
-printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_csiblast_$dtime.log>\n\n"
+printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_csiblast.log>\n\n"
 
 
-if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast_$dtime/csiblast/csiblast1.pdb" ]];then 
+if [[ ! -f "SOFTWARE_PATH/test_out/T1006_csiblast/csiblast/csiblast1.pdb" ]];then 
 	printf "!!!!! Failed to run csiblast, check the installation <SOFTWARE_PATH/src/meta/csblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
-	printf "\nResults: SOFTWARE_PATH/test_out/T1006_csiblast_$dtime/csiblast/csiblast1.pdb\n\n"
+	printf "\nResults: SOFTWARE_PATH/test_out/T1006_csiblast/csiblast/csiblast1.pdb\n\n"
 fi
-rm SOFTWARE_PATH/test_out/T1006_csiblast_$dtime.running
+rm SOFTWARE_PATH/test_out/T1006_csiblast.running
