@@ -110,3 +110,12 @@ sh T0-run-multicom-hard-T0957s2.sh
    $ sh bin/run_multicom.sh T0993s2 examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
+**(10) Benchmark CASP13 targets
+
+```
+ cd installation/scripts/
+ perl  generate_benchmark_sh.pl
+ 
+ cd  /home/test/multicom//test_out_casp13/
+ sh T0950.sh
+```
