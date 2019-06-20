@@ -119,3 +119,9 @@ sh T0-run-multicom-hard-T0957s2.sh
  cd  /home/test/multicom//test_out_casp13/
  sh T0950.sh
 ```
+
+**After the system passes the tests above, you can use the following command to make prediction**
+
+multicom_installation_path/bin/run_multicom.sh target_id input_fasta_sequence_file output_directory
+
+The predictions will be stored in the output directory. 
