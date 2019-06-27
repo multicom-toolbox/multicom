@@ -24,7 +24,7 @@ foreach $subdir (@subdirs)
 		next;
 	}
 	@tmp = split(/\_/,$subdir);
-	if(@tmp <3)
+	if(@tmp <2)
 	{
 		next;
 	}
@@ -90,6 +90,11 @@ foreach $subdir (@subdirs)
 		printf "%-20f\n", $diff;
 	}
 	
+	if($model_num == 0)
+	{
+		print "\nNo models are generated in $modeldir\n";
+		next;
+	}
 	print "\n";
 	$avg_gdt_predict = sprintf("%.5f",$avg_gdt_predict/$model_num);
 	$avg_gdt2_benchmark = sprintf("%.5f",$avg_gdt2_benchmark/$model_num);
@@ -124,7 +129,7 @@ foreach $subdir (@subdirs)
 		next;
 	}
 	@tmp = split(/\_/,$subdir);
-	if(@tmp <3)
+	if(@tmp <2)
 	{
 		next;
 	}
