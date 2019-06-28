@@ -277,10 +277,7 @@ elsif (-f $hhsearch_local_alignment)
 
 		if ($DEBUG == 0)
 		{
-			#system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 			system("$GLOBAL_PATH/src/meta/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
-			# /data/jh7x3/multicom_github/multicom/src/meta/
-			# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_hard_casp13
 		}
 		$full_length_dir = $full_length_dir_hard; 
 		goto MODEL_EVA; 
