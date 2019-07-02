@@ -6,6 +6,7 @@
 #Outputs: raptorx output file, pir alignment file, pdb models 
 #Author: Jianlin Cheng
 #Date: 4/9/2014
+#Date: 7/2/2019
 ##########################################################################
 
 if (@ARGV != 3)
