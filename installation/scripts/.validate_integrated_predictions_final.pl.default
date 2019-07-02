@@ -27,7 +27,10 @@ $model_num = 0;
 printf "\n%-20s\t", 'Model';
 printf "%-20s\t", 'Predicted (GDT-TS)';
 printf "%-20s\t", 'Benchmark (GDT-TS)';
-printf "%-20s\n", 'Difference (GDT-TS)';
+printf "%-20s\t", 'Difference (GDT-TS)';
+printf "%-20s\t", 'Predicted (RMSD)';
+printf "%-20s\t", 'Benchmark (RMSD)';
+printf "%-20s\n", 'Difference (RMSD)';
 
 foreach $file (sort @files)
 {
@@ -56,11 +59,15 @@ foreach $file (sort @files)
 	$avg_rmsd2_benchmark += $rmsd2;
 	
 	$diff = $gdttsscore2 - $gdttsscore1;
+	$rmsd_diff = $rmsd2 - $rmsd1;
 	
 	printf "%-20s\t", $file;
 	printf "%-20f\t", $gdttsscore1;
 	printf "%-20f\t", $gdttsscore2;
-	printf "%-20f\n", $diff;
+	printf "%-20f\t", $diff;
+	printf "%-20f\t", $rmsd1;
+	printf "%-20f\t", $rmsd2;
+	printf "%-20f\n", $rmsd_diff;
 	
 	
 	
