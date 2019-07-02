@@ -31,10 +31,10 @@ else
 fi
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/T0951  SOFTWARE_PATH/installation/benchmark/TBM/T0951.pdb 2>&1 | tee -a SOFTWARE_PATH/test_out/T0951_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/T0951  SOFTWARE_PATH/installation/benchmark/TBM/T0951.pdb  meta 2>&1 | tee -a SOFTWARE_PATH/test_out/T0951_multicom.log
 
 
 printf "\nCheck final predictions.."
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T0951/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T0951.pdb   2>&1 | tee -a SOFTWARE_PATH/test_out/T0951_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0951  SOFTWARE_PATH/test_out/T0951_multicom/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T0951/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T0951.pdb  casp 2>&1 | tee -a SOFTWARE_PATH/test_out/T0951_multicom.log

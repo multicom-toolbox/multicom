@@ -30,10 +30,10 @@ else
 fi
 
 
-perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T0957s2  /home/jh7x3/multicom/test_out/T0957s2_multicom/full_length_hard/meta /home/jh7x3/multicom/installation/benchmark/FM/T0957s2 /home/jh7x3/multicom/installation/benchmark/FM/T0957s2.pdb   2>&1 | tee -a /home/jh7x3/multicom/test_out/T0957s2_multicom.log
+perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T0957s2  /home/jh7x3/multicom/test_out/T0957s2_multicom/full_length_hard/meta /home/jh7x3/multicom/installation/benchmark/FM/T0957s2 /home/jh7x3/multicom/installation/benchmark/FM/T0957s2.pdb  meta  2>&1 | tee -a /home/jh7x3/multicom/test_out/T0957s2_multicom.log
 
 
 printf "\nCheck final predictions.."
 
 
-perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T0957s2  /home/jh7x3/multicom/test_out/T0957s2_multicom/mcomb /home/jh7x3/multicom/installation/benchmark/FM/T0957s2/mcomb /home/jh7x3/multicom/installation/benchmark/FM/T0957s2.pdb    2>&1 | tee -a /home/jh7x3/multicom/test_out/T0957s2_multicom.log
+perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T0957s2  /home/jh7x3/multicom/test_out/T0957s2_multicom/mcomb /home/jh7x3/multicom/installation/benchmark/FM/T0957s2/mcomb /home/jh7x3/multicom/installation/benchmark/FM/T0957s2.pdb  casp  2>&1 | tee -a /home/jh7x3/multicom/test_out/T0957s2_multicom.log

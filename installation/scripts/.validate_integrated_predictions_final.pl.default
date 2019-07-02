@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions.pl  T1006  /home/jh7x3/multicom/test_out/T1006_out/full_length/meta /home/jh7x3/multicom//installation/benchmark
-if (@ARGV != 4) {
+if (@ARGV != 5) {
   print "Usage: structure1  structure2\n";
   exit;
 }
@@ -8,6 +8,7 @@ $targetid = $ARGV[0];
 $test_dir = $ARGV[1]; 
 $benchmark_dir = $ARGV[2];
 $native_file = $ARGV[3];
+$prefix = $ARGV[4];
 
 $GLOBAL_PATH="SOFTWARE_PATH";
 
@@ -28,7 +29,7 @@ printf "%-20s\n", 'Difference (GDT-TS)';
 
 foreach $file (sort @files)
 {
-	if($file eq '.' or $file eq '..' or substr($file,length($file)-4) ne '.pdb' or index($file,'casp') < 0)
+	if($file eq '.' or $file eq '..' or substr($file,length($file)-4) ne '.pdb' or index($file,$prefix) < 0)
 	{
 		next;
 	}	

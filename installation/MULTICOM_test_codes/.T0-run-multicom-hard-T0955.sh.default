@@ -34,10 +34,10 @@ else
 fi
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0955  SOFTWARE_PATH/test_out/T0955_multicom/full_length_hard/meta SOFTWARE_PATH/installation/benchmark/FM/T0955 SOFTWARE_PATH/installation/benchmark/FM/T0955.pdb  2>&1 | tee -a SOFTWARE_PATH/test_out/T0955_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0955  SOFTWARE_PATH/test_out/T0955_multicom/full_length_hard/meta SOFTWARE_PATH/installation/benchmark/FM/T0955 SOFTWARE_PATH/installation/benchmark/FM/T0955.pdb  meta  2>&1 | tee -a SOFTWARE_PATH/test_out/T0955_multicom.log
 
 
 printf "\nCheck final predictions.."
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0955  SOFTWARE_PATH/test_out/T0955_multicom/mcomb SOFTWARE_PATH/installation/benchmark/FM/T0955/mcomb SOFTWARE_PATH/installation/benchmark/FM/T0955.pdb   2>&1 | tee -a SOFTWARE_PATH/test_out/T0955_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T0955  SOFTWARE_PATH/test_out/T0955_multicom/mcomb SOFTWARE_PATH/installation/benchmark/FM/T0955/mcomb SOFTWARE_PATH/installation/benchmark/FM/T0955.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T0955_multicom.log

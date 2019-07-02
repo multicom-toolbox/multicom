@@ -24,11 +24,11 @@ printf "\nCheck log file </home/jh7x3/multicom/test_out/T1006_multicom.log>\n\n"
 
 
 
-perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T1006  /home/jh7x3/multicom/test_out/T1006_multicom/full_length/meta /home/jh7x3/multicom/installation/benchmark/TBM/T1006  /home/jh7x3/multicom/installation/benchmark/TBM/T1006.pdb  2>&1 | tee -a /home/jh7x3/multicom/test_out/T1006_multicom.log
+perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T1006  /home/jh7x3/multicom/test_out/T1006_multicom/full_length/meta /home/jh7x3/multicom/installation/benchmark/TBM/T1006  /home/jh7x3/multicom/installation/benchmark/TBM/T1006.pdb  meta 2>&1 | tee -a /home/jh7x3/multicom/test_out/T1006_multicom.log
 
 
 
 printf "\nCheck final predictions.."
 
 
-perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T1006  /home/jh7x3/multicom/test_out/T1006_multicom/mcomb /home/jh7x3/multicom/installation/benchmark/TBM/T1006/mcomb /home/jh7x3/multicom/installation/benchmark/TBM/T1006.pdb  2>&1 | tee -a /home/jh7x3/multicom/test_out/T1006_multicom.log
+perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions_final.pl  T1006  /home/jh7x3/multicom/test_out/T1006_multicom/mcomb /home/jh7x3/multicom/installation/benchmark/TBM/T1006/mcomb /home/jh7x3/multicom/installation/benchmark/TBM/T1006.pdb casp 2>&1 | tee -a /home/jh7x3/multicom/test_out/T1006_multicom.log
