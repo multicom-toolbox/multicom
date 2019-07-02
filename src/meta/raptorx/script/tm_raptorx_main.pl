@@ -183,8 +183,42 @@ print "Generate models using raptorx...\n";
 use Cwd 'abs_path';
 $fasta_file = abs_path($fasta_file);
 #print("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $raptorx_dir $modeller_program $name $cm_model_num\n"); 
-system("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $raptorx_dir $modeller_program $name $cm_model_num"); 
 
+#system("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $raptorx_dir $modeller_program $name $cm_model_num"); 
+
+### link the software to output folder 
+
+chdir $work_dir; 
+
+if(-d "$work_dir/Raptorx")
+{
+	`rm $work_dir/Raptorx/*`;
+}else{
+	`mkdir $work_dir/Raptorx`;
+}
+
+
+`ln -s $raptorx_dir/buildFeature $work_dir/Raptorx/buildFeature`;
+`ln -s $raptorx_dir/build3Dmodel $work_dir/Raptorx/build3Dmodel`;
+`ln -s $raptorx_dir/buildTopModels $work_dir/Raptorx/buildTopModels`;
+`ln -s $raptorx_dir/CNFalign_lite $work_dir/Raptorx/CNFalign_lite`;
+`ln -s $raptorx_dir/CNFsearch $work_dir/Raptorx/CNFsearch`;
+`ln -s $raptorx_dir/runRaptorX.pl $work_dir/Raptorx/runRaptorX.pl`;
+`ln -s $raptorx_dir/databases $work_dir/Raptorx/databases`;
+`ln -s $raptorx_dir/TGT $work_dir/Raptorx/TGT`;
+`ln -s $raptorx_dir/setup.pl $work_dir/Raptorx/setup.pl`;
+
+`mkdir $work_dir/Raptorx/tmp`;
+`cp -ar  $raptorx_dir/util $work_dir/Raptorx/`;
+
+chdir("$work_dir/Raptorx/");
+`perl setup.pl`;
+
+chdir($work_dir);
+system("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $work_dir/Raptorx $modeller_program $name $cm_model_num"); 
+
+`rm $work_dir/Raptorx/*`;
+`rm -rf $work_dir/Raptorx/util`;
 
 ############Process template ranking file################
 

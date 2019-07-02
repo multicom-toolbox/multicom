@@ -1,4 +1,12 @@
 #!/bin/bash
+#SBATCH -J  T1006
+#SBATCH -o T1006-%j.out
+#SBATCH --partition Lewis,hpc5,hpc4
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=10G
+#SBATCH --time 2-00:00
 
 mkdir -p SOFTWARE_PATH/test_out/T1006_multicom/
 cd SOFTWARE_PATH/test_out/T1006_multicom/
@@ -16,14 +24,11 @@ printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_multicom.log>\n\n"
 
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/   2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/T1006  SOFTWARE_PATH/installation/benchmark/TBM/T1006.pdb  2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_multicom.log
 
 
 
 printf "\nCheck final predictions.."
 
 
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/mcomb SOFTWARE_PATH/installation/benchmark/TBM/   2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_multicom.log
-
-
-SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.sh SOFTWARE_PATH/test_out/T1006_multicom/  T1006  SOFTWARE_PATH/test_out/T1006_multicom/multicom_results
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T1006/mcomb SOFTWARE_PATH/installation/benchmark/TBM/T1006.pdb  2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_multicom.log

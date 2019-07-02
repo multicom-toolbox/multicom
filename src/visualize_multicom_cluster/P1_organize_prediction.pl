@@ -27,6 +27,7 @@ if(-d "$workdir/full_length_hard")
 {
 	$full_length_dir = 'full_length_hard';
 }
+
 ###### copy basic information
 if(!(-e "$workdir/full_length/hhsearch15/$targetid.fasta"))
 {
@@ -36,6 +37,22 @@ if(!(-e "$workdir/full_length/hhsearch15/$targetid.fasta"))
 	`cp $workdir/full_length/hhsearch15/$targetid.fasta $outputdir/$targetid.fasta`;
 	`cp $workdir/full_length/hhsearch15/$targetid.fasta $outputdir/full_length/$targetid.fasta`;
 }
+
+	
+if(-d "$workdir/full_length_hard" and !(-e "$workdir/domain_info"))
+{
+	#print out domain information
+	open(TMP,"$outputdir/query.fasta");
+	@content = <TMP>;
+	close TMP;
+	shift @content;
+	$seq = shift @content;
+	chomp $seq;
+	open(DOM_DEF, ">$workdir/domain_info");
+	print DOM_DEF "domain 0:1-".length($seq)."\n"; 
+	close DOM_DEF; 	
+}
+
 
 if(!(-e "$workdir/domain_info"))
 {

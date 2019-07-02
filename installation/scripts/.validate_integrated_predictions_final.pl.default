@@ -1,12 +1,13 @@
 #!/usr/bin/perl -w
 #perl /home/jh7x3/multicom/installation/scripts/validate_integrated_predictions.pl  T1006  /home/jh7x3/multicom/test_out/T1006_out/full_length/meta /home/jh7x3/multicom//installation/benchmark
-if (@ARGV != 3) {
+if (@ARGV != 4) {
   print "Usage: structure1  structure2\n";
   exit;
 }
 $targetid = $ARGV[0];
-$test_dir = $ARGV[1]; #$test_dir
+$test_dir = $ARGV[1]; 
 $benchmark_dir = $ARGV[2];
+$native_file = $ARGV[3];
 
 $GLOBAL_PATH="SOFTWARE_PATH";
 
@@ -33,8 +34,7 @@ foreach $file (sort @files)
 	}	
 	
 	$predict_file = "$test_dir/$file";
-	$benchmark_file = "$benchmark_dir/$targetid/mcomb/$file";
-	$native_file = "$benchmark_dir/$targetid.pdb";
+	$benchmark_file = "$benchmark_dir/$file";
 	
 	if(!(-e $benchmark_file))
 	{
