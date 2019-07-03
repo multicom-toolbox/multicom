@@ -22,7 +22,7 @@ fi
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1022s1_multicom.log>\n\n"
 
-
+SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.sh SOFTWARE_PATH/test_out/T1022s1_multicom/  T1022s1  SOFTWARE_PATH/test_out/T1022s1_multicom/multicom_results
 
 printf "\nCheck final predictions for full-length structure..\n"
 perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1022s1  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/comb/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log

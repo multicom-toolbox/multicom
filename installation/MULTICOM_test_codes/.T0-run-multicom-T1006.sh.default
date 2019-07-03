@@ -22,6 +22,7 @@ fi
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T1006_multicom.log>\n\n"
 
+SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.sh SOFTWARE_PATH/test_out/T1006_multicom/  T1006  SOFTWARE_PATH/test_out/T1006_multicom/multicom_results
 
 
 perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1006  SOFTWARE_PATH/test_out/T1006_multicom/full_length/meta SOFTWARE_PATH/installation/benchmark/TBM/T1006  SOFTWARE_PATH/installation/benchmark/TBM/T1006.pdb  meta 2>&1 | tee -a SOFTWARE_PATH/test_out/T1006_multicom.log

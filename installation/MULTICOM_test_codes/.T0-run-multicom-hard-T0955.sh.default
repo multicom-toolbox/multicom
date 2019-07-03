@@ -25,6 +25,9 @@ fi
 printf "\nFinished.."
 printf "\nCheck log file <SOFTWARE_PATH/test_out/T0955_multicom.log>\n\n"
 
+SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.sh SOFTWARE_PATH/test_out/T0955_multicom/  T0955  SOFTWARE_PATH/test_out/T0955_multicom/multicom_results
+
+
 
 if [[ ! -f "SOFTWARE_PATH/test_out/T0955_multicom/mcomb/casp1.pdb" ]];then 
 	printf "!!!!! Failed to run multicom, check the installation <SOFTWARE_PATH/src/>\n\n"
