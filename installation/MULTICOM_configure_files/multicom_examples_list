@@ -1,11 +1,11 @@
 # multicom
-#installation/MULTICOM_test_codes/T0-run-multicom-T0951.sh
-#installation/MULTICOM_test_codes/T0-run-multicom-T0967.sh
-#installation/MULTICOM_test_codes/T0-run-multicom-T0971.sh
+installation/MULTICOM_test_codes/T0-run-multicom-T0951.sh
+installation/MULTICOM_test_codes/T0-run-multicom-T0967.sh
+installation/MULTICOM_test_codes/T0-run-multicom-T0971.sh
 installation/MULTICOM_test_codes/T0-run-multicom-T1006.sh
-#installation/MULTICOM_test_codes/T0-run-multicom-hard-T0955.sh
+installation/MULTICOM_test_codes/T0-run-multicom-hard-T0955.sh
 installation/MULTICOM_test_codes/T0-run-multicom-hard-T0957s2.sh
-#installation/MULTICOM_test_codes/T0-run-multicom-hard-T1008.sh
+installation/MULTICOM_test_codes/T0-run-multicom-hard-T1008.sh
 installation/MULTICOM_test_codes/T0-run-multicom-2dom-T1022s1.sh
 
 # pspro2
