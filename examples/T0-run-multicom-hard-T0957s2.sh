@@ -21,6 +21,8 @@ fi
 printf "\nFinished.."
 printf "\nCheck log file </home/jh7x3/multicom/test_out/T0957s2_multicom.log>\n\n"
 
+/home/jh7x3/multicom/src/visualize_multicom_cluster/P1_organize_prediction.sh /home/jh7x3/multicom/test_out/T0957s2_multicom/  T0957s2  /home/jh7x3/multicom/test_out/T0957s2_multicom/multicom_results
+
 
 if [[ ! -f "/home/jh7x3/multicom/test_out/T0957s2_multicom/mcomb/casp1.pdb" ]];then 
 	printf "!!!!! Failed to run multicom, check the installation </home/jh7x3/multicom/src/>\n\n"
