@@ -1,73 +1,55 @@
 #prosys dir
-#prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
 prosys_dir = SOFTWARE_PATH/src/prosys/
 
 #modeller dir
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
 modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/
 
 #spem_dir 
-#spem_dir = /home/casp13/MULTICOM_package/software/spem-release/
 spem_dir = SOFTWARE_PATH/tools/spem-release/
 
 #compass dir
-#compass_dir = /home/casp13/MULTICOM_package/software/new_compass/
 compass_dir = SOFTWARE_PATH/tools/new_compass/
 
 #hhsearch dir (old hhsearch)
-#hhsearch_dir=/home/casp13/MULTICOM_package/software/prosys/hhsearch
 hhsearch_dir=SOFTWARE_PATH/tools/hhsearch
 
 #hhblits dir
-#hhblits_dir=/home/casp13/MULTICOM_package/casp8/hhblits/hhblits/
 hhblits_dir=SOFTWARE_PATH/tools/hhblits/
 
 #atom dir
-#atom_dir = /home/casp13/MULTICOM_package/software/prosys_database/atom/
 atom_dir = SOFTWARE_PATH/databases/atom/
 
 #muscle dir & lobster dir
-#lobster_dir = /home/casp13/MULTICOM_package/software/prosys/lobster/
 lobster_dir = SOFTWARE_PATH/tools/lobster/
 
 #meta dir
-#meta_dir = /home/casp13/MULTICOM_package/casp8/meta/
 meta_dir = SOFTWARE_PATH/src/meta/
 
 #construct dir
-#msa_dir = /home/casp13/MULTICOM_package/casp8/msa/
 msa_dir = SOFTWARE_PATH/src/meta/msa/
 
 #prc_dir
-#prc_dir = /home/casp13/MULTICOM_package/software/prc1.5.6/
 prc_dir = SOFTWARE_PATH/tools/prc1.5.6/
 
 #msacompro dir
-#msacompro_dir = /home/casp13/MULTICOM_package/msa/MSACompro_1.2.0
 msacompro_dir = SOFTWARE_PATH/tools/MSACompro_1.2.0
 
 #msaprobs dir
-#msaprobs_dir = /home/casp13/MULTICOM_package/msa/MSAProbs-0.9.4
 msaprobs_dir = SOFTWARE_PATH/tools/MSAProbs-0.9.4
 
 #promsals3d_dir 
 #promsals3d_dir = xxxx
 
 #tm align program
-#tm_align = /home/casp13/MULTICOM_package/software/tm_align/TMalign_32
 tm_align = SOFTWARE_PATH/tools/tm_align/TMalign_32
 
 #tm align program used by promsals
-#ptmalign = /home/casp13/MULTICOM_package/msa/promals/promals_package/TMalign
 ptmalign = SOFTWARE_PATH/tools/promals/promals_package/TMalign
 
 #promals program
-#promalsexe = /home/casp13/MULTICOM_package/msa/promals/promals_package/bin/promals 
 promalsexe = SOFTWARE_PATH/tools/promals/promals_package/bin/promals 
 
 #promals3d program
-#promals3d = /home/casp13/MULTICOM_package/msa/promals/promals_structure_MSA/src_abs/Run_promals3d.pl
 promals3d = SOFTWARE_PATH/tools/promals/promals_structure_MSA/src_abs/Run_promals3d.pl
 
 #number of templates to select (one model will be generate for each template)
@@ -85,38 +67,27 @@ thread_num  = 8
 ##############the following options are copied from sp3 option######################
 ##############many of them may not be useful########################################
 #blast dir
-#blast_dir=/home/jianlinc/pspro/blast2.2.8
-#blast_dir=/home/casp13/MULTICOM_package/software/prosys/blast-2.2.9
-#blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
 blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
 
 #clustalw dir
-#clustalw_dir=/home/casp13/MULTICOM_package/software/prosys/clustalw1.83
 clustalw_dir=SOFTWARE_PATH/tools/clustalw1.83
 
 #palign dir
-#palign_dir=/home/casp13/MULTICOM_package/software/prosys/palign/linux
 palign_dir=SOFTWARE_PATH/tools/palign/linux
 
 #tcoffee dir
-#tcoffee_dir=/home/casp13/MULTICOM_package/software/prosys/tcoffee2.03 ## failed on lewis
-#tcoffee_dir=/storage/htc/bdm/tools/MULTICOM_CLUSTER/MULTICOM_lite/tools/T-COFFEE_distribution_Version_2.03
 tcoffee_dir=SOFTWARE_PATH/tools/tcoffee2.03
 
 #hmmer dir
-#hmmer_dir=/home/casp13/MULTICOM_package/software/prosys/hmmer2.3.2
 hmmer_dir=SOFTWARE_PATH/tools/hmmer2.3.2
 
 #hhm prc dir
-#prc_dir=/home/casp13/MULTICOM_package/software/prosys/prchmm1.5.2
 prc_dir=SOFTWARE_PATH/tools/prchmm1.5.2
 
-#pspro dir (should use pspro2) 
-#pspro_dir=/home/casp13/MULTICOM_package/software/pspro2
+#pspro dir (should use pspro2)
 pspro_dir=SOFTWARE_PATH/tools/pspro2
 
-#betapro dir 
-#betapro_dir=/home/casp13/MULTICOM_package/software/betapro-1.0
+#betapro dir
 betapro_dir=SOFTWARE_PATH/tools/betapro-1.0
 
 ######################################################################
@@ -124,19 +95,10 @@ betapro_dir=SOFTWARE_PATH/tools/betapro-1.0
 ##############Fold Recogntion Option##################################
 #fr option: input dir1  (hold template related files such as profiles)
 #template_dir=/home/baldig/jianlin/library
-template_dir=/home/casp13/MULTICOM_package/software/prosys_database/library
+template_dir=SOFTWARE_PATH/databases/library
 
 #fr option: fold recognition template library file (fasta format)
-#fr_template_lib_file=/home/jianlinc/prosys/library/lib/fr_set1
-#fr_template_lib_file=/home/jianlinc/prosys/database/fr_lib/sort90
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort90
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/pdb_cm
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/pdb_cm_all_sel.fasta
 fr_template_lib_file=SOFTWARE_PATH/databases/cm_lib/pdb_cm_all_sel.fasta
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort30
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys/test/sort30
-#fr_template_lib_file=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/sort90
-#fr_template_lib_file=/var/preserve/eval/fr_lib/sort90
 
 #fr option: query dir: (hold query related files)
 #files needed: msa(align), chk, pssm, cm8a, cm12a, bcm8a, bcm12, bmap, hmm, set(9-line or more
@@ -242,8 +204,6 @@ num_model_simulate=5
 ##########################Options for sorting blast local alignment###########
 
 #The file containing resolution/method/match ratio for all chains
-#chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-#chain_stx_info=/home/casp13/MULTICOM_package/software/prosys_database/cm_lib/chain_stx_info
 chain_stx_info=SOFTWARE_PATH/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.

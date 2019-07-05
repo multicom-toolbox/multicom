@@ -1,0 +1,39 @@
+SOFTWARE_PATH/databases/nr_latest/:nr->uniref90
+SOFTWARE_PATH/databases/hhsearch_dbs/:nr90->uniref90
+SOFTWARE_PATH/databases/hhsearch_dbs/:nr70->uniref70
+SOFTWARE_PATH/databases/uniref/uniref50
+SOFTWARE_PATH/databases/uniref/uniref90
+
+
+## hhpred 
+SOFTWARE_PATH/databases/hhpred_dbs/nr:nr90->uniref90
+SOFTWARE_PATH/databases/hhpred_dbs/nr:nr70->uniref70
+SOFTWARE_PATH/databases/hhpred_dbs/nr:nr->uniref90
+SOFTWARE_PATH/databases/hhpred_dbs/nr_latest:nr90->uniref90
+SOFTWARE_PATH/databases/hhpred_dbs/nr_latest:nr70->uniref70
+SOFTWARE_PATH/databases/hhpred_dbs/update_db/pdb70:pdb70->pdb70
+
+
+
+
+## hhblit
+SOFTWARE_PATH/databases/uniprot30/uniclust30_2017_10:uniclust30_2017_10->uniclust30_2017_10
+
+
+(tools/hhblits/bin/.hhdefaults) SOFTWARE_PATH/databases/hhblits3_dbs/nr20:nr20_11Jan10
+
+
+##hhblit3
+SOFTWARE_PATH/databases/hhblits3_dbs/nr20:nr20->uniref20
+SOFTWARE_PATH/databases/hhsuite3_dbs/uniprot20_2016_02/uniprot20_2016_02
+
+
+## raptorx
+/data/commons/MULTICOM_db_tools/tools/RaptorX4/CNFsearch1.66/databases/NR_new:nr90->uniref90
+/data/commons/MULTICOM_db_tools/tools/RaptorX4/CNFsearch1.66/databases/NR_new:nr70->uniref70
+
+
+
+## ffas
+SOFTWARE_PATH/tools/ffas_soft/blast/db/:nr85s --> uniref90
+SOFTWARE_PATH/databases/ffas_dbs/blast/db/:nr85s --> uniref90

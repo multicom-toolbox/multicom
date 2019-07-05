@@ -3,191 +3,133 @@
 #MULTICOM option file for hard domain
 ########################################################################
 #meta directory
-#meta_dir = /data/jh7x3/multicom_github/multicom/src/meta
 meta_dir = SOFTWARE_PATH/src/meta
 
 #prosys dir
-#prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys
 prosys_dir = SOFTWARE_PATH/src/prosys
 
 #blast dir - server 1
-#blast_dir=/home/casp13/MULTICOM_package/casp8/blast/
 blast_dir=SOFTWARE_PATH/src/meta/blast/
 #blast option
-#blast_option = /home/casp13/MULTICOM_package/casp8/blast/cm_option_adv
 blast_option = SOFTWARE_PATH/src/meta/blast/cm_option_adv
 
 #psiblast dir - server 2
-#psiblast_dir = /home/casp13/MULTICOM_package/casp8/psiblast/
 psiblast_dir = SOFTWARE_PATH/src/meta/psiblast/
 #psiblast option
-#psiblast_option = /home/casp13/MULTICOM_package/casp8/psiblast/psiblast_option_hard
 psiblast_option = SOFTWARE_PATH/src/meta/psiblast/psiblast_option_hard
 
 #csblast dir - servers 3 and 4
-#csblast_dir = /home/casp13/MULTICOM_package/casp8/csblast
 csblast_dir = SOFTWARE_PATH/src/meta/csblast
 #csblast option file
-#csblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csblast_option
 csblast_option = SOFTWARE_PATH/src/meta/csblast/csblast_option
-#csiblast_option = /home/casp13/MULTICOM_package/casp8/csblast/csiblast_option_hard
 csiblast_option = SOFTWARE_PATH/src/meta/csblast/csiblast_option_hard
 
 #sam dir and option file - server 5
-#sam_dir = /home/casp13/MULTICOM_package/casp8/sam
 sam_dir = SOFTWARE_PATH/src/meta/sam
-#sam_option = /home/casp13/MULTICOM_package/casp8/sam/sam_option_hard
 sam_option = SOFTWARE_PATH/src/meta/sam/sam_option_hard
 
 #prc dir and option file - server 6
 #prc_dir = /home/casp13/MULTICOM_package/casp8/prc
 prc_dir = SOFTWARE_PATH/src/meta/prc
-#prc_option = /home/casp13/MULTICOM_package/casp8/prc/prc_option_hard
 prc_option = SOFTWARE_PATH/src/meta/prc/prc_option_hard
 
 #hmmer dir and option file - server 7
-#hmmer_dir = /home/casp13/MULTICOM_package/casp8/hmmer
 hmmer_dir = SOFTWARE_PATH/src/meta/hmmer
-#hmmer_option = /home/casp13/MULTICOM_package/casp8/hmmer/hmmer_option_hard
 hmmer_option = SOFTWARE_PATH/src/meta/hmmer/hmmer_option_hard
 
-#hmmer3 dir and option file 
-#hmmer3_dir = /home/casp13/MULTICOM_package/casp8/hmmer3
+#hmmer3 dir and option file
 hmmer3_dir = SOFTWARE_PATH/src/meta/hmmer3
-#hmmer3_option = /home/casp13/MULTICOM_package/casp8/hmmer3/hmmer3_option_hard
 hmmer3_option = SOFTWARE_PATH/src/meta/hmmer3/hmmer3_option_hard
 
 #sp3 and sp3 directory - server 8
-#sparks_dir = /home/casp13/MULTICOM_package/sparks
-#sparks_option = /home/casp13/MULTICOM_package/casp8/meta/script/sp3_option_adv_hard
+#sparks_dir = SOFTWARE_PATH/sparks
+#sparks_option = SOFTWARE_PATH/src/meta/script/sp3_option_adv_hard
 
 #hhsearch dir - server 9
-#hhsearch_dir = /home/casp13/MULTICOM_package/casp8/hhsearch
 hhsearch_dir = SOFTWARE_PATH/src/meta/hhsearch
-#hhsearch_option = /home/casp13/MULTICOM_package/casp8/hhsearch/hhsearch_option_hard
 hhsearch_option = SOFTWARE_PATH/src/meta/hhsearch/hhsearch_option_hard
 
 #hhsearch 1.5 dir - server 10
-#hhsearch15_dir = /home/casp13/MULTICOM_package/casp8/hhsearch1.5
 hhsearch15_dir = SOFTWARE_PATH/src/meta/hhsearch1.5
-#hhsearch15_option = /home/casp13/MULTICOM_package/casp8/hhsearch1.5/hhsearch1.5_option_hard
 hhsearch15_option = SOFTWARE_PATH/src/meta/hhsearch1.5/hhsearch1.5_option_hard
 
 #hhsearch 1.5.1
-#hhsearch151_dir = /home/casp13/MULTICOM_package/casp8/hhsearch151
 hhsearch151_dir = SOFTWARE_PATH/src/meta/hhsearch151
-#hhsearch151_option = /home/casp13/MULTICOM_package/casp8/hhsearch151/hhsearch151_option_hard
 hhsearch151_option = SOFTWARE_PATH/src/meta/hhsearch151/hhsearch151_option_hard
 
 #compass dir - server 11
-#compass_dir = /home/casp13/MULTICOM_package/casp8/compass
 compass_dir = SOFTWARE_PATH/src/meta/compass
-#compass_option = /home/casp13/MULTICOM_package/casp8/compass/compass_option_hard
 compass_option = SOFTWARE_PATH/src/meta/compass/compass_option_hard
 
 #multicom dir - server 12 
-#multicom_dir = /home/casp13/MULTICOM_package/casp8/multicom/
 multicom_dir = SOFTWARE_PATH/src/meta/multicom/
-#multicom_option = /home/casp13/MULTICOM_package/casp8/multicom/cm_option_adv
 multicom_option = SOFTWARE_PATH/src/meta/multicom/cm_option_adv
 
 #construct dir
-#construct_dir = /home/casp13/MULTICOM_package/casp8/construct/
 construct_dir = SOFTWARE_PATH/src/meta/construct/
-#construct_option = /home/casp13/MULTICOM_package/casp8/construct/construct_option
 construct_option = SOFTWARE_PATH/src/meta/construct/construct_option
 
 #msa dir
-#msa_dir = /home/casp13/MULTICOM_package/casp8/msa/
 msa_dir = SOFTWARE_PATH/src/meta/msa/
-#msa_option = /home/casp13/MULTICOM_package/casp8/msa/msa_option
 msa_option = SOFTWARE_PATH/src/meta/msa/msa_option
 
 #hhpred dir
-#hhpred_dir = /home/casp13/MULTICOM_package/casp8/hhpred/
 hhpred_dir = SOFTWARE_PATH/src/meta/hhpred/
-#hhpred_option = /home/casp13/MULTICOM_package/casp8/hhpred/hhpred_option_hard
 hhpred_option = SOFTWARE_PATH/src/meta/hhpred/hhpred_option_hard
 
 #ffas
-#ffas_dir = /home/casp13/MULTICOM_package/casp8/ffas/
 ffas_dir = SOFTWARE_PATH/src/meta/ffas/
-#ffas_option = /home/casp13/MULTICOM_package/casp8/ffas/ffas_option
 ffas_option = SOFTWARE_PATH/src/meta/ffas/ffas_option
 
 #hhblits
-#hhblits_dir = /home/casp13/MULTICOM_package/casp8/hhblits/
 hhblits_dir = SOFTWARE_PATH/src/meta/hhblits/
-#hhblits_option = /home/casp13/MULTICOM_package/casp8/hhblits/hhblits_option
 hhblits_option = SOFTWARE_PATH/src/meta/hhblits/hhblits_option
 
 #hhblits3
-#hhblits3_dir = /home/casp13/MULTICOM_package/casp8/hhblits3/
 hhblits3_dir = SOFTWARE_PATH/src/meta/hhblits3/
 hhblits3_option = SOFTWARE_PATH/src/meta/hhblits3/hhblits3_option
 
 #muster
-#muster_dir = /home/casp13/MULTICOM_package/casp8/muster/
 muster_dir = SOFTWARE_PATH/src/meta/muster/
-#muster_option = /home/casp13/MULTICOM_package/casp8/muster/muster_option_version4
 muster_option = SOFTWARE_PATH/src/meta/muster/muster_option_version4
 
 #hhsuite
-#hhsuite_dir = /home/casp13/MULTICOM_package/casp8/hhsuite/
 hhsuite_dir = SOFTWARE_PATH/src/meta/hhsuite/
-#hhsuite_option = /home/casp13/MULTICOM_package/casp8/hhsuite/hhsuite_option
 hhsuite_option = SOFTWARE_PATH/src/meta/hhsuite/hhsuite_option
 
 #hhsuite3
-#hhsuite3_dir = /home/casp13/MULTICOM_package/casp8/hhsuite3/
 hhsuite3_dir = SOFTWARE_PATH/src/meta/hhsuite3/
-#hhsuite3_option = /home/casp13/MULTICOM_package/casp8/hhsuite3/hhsuite3_option
 hhsuite3_option = SOFTWARE_PATH/src/meta/hhsuite3/hhsuite3_option
 
 #fugue
-#fugue_dir = /home/casp13/MULTICOM_package/casp8/fugue/
 fugue_dir = SOFTWARE_PATH/src/meta/fugue/
-#fugue_option = /home/casp13/MULTICOM_package/casp8/fugue/fugue_option
 fugue_option = SOFTWARE_PATH/src/meta/fugue/fugue_option
 
 #raptorx
-#raptorx_dir = /home/casp13/MULTICOM_package/casp8/raptorx/
 raptorx_dir = SOFTWARE_PATH/src/meta/raptorx/
-#raptorx_option = /home/casp13/MULTICOM_package/casp8/raptorx/raptorx_option_version3
 raptorx_option = SOFTWARE_PATH/src/meta/raptorx/raptorx_option_version3
 
 #newblast
-#newblast_dir = /home/casp13/MULTICOM_package/casp8/newblast/
 newblast_dir = SOFTWARE_PATH/src/meta/newblast/
-#newblast_option = /home/casp13/MULTICOM_package/casp8/newblast/newblast_option
 newblast_option = SOFTWARE_PATH/src/meta/newblast/newblast_option
 
 #rosetta dir
-#rosetta_dir = /home/casp13/MULTICOM_package/software/rosetta
 rosetta_dir = SOFTWARE_PATH/tools/rosetta
 
 #confold_dir
-#confold_dir = /home/casp13/MULTICOM_package/casp8/confold2
 confold_dir = SOFTWARE_PATH/src/meta/confold2
-#confold_option = /home/casp13/MULTICOM_package/casp8/confold2/CONFOLD_option
 confold_option = SOFTWARE_PATH/src/meta/confold2/CONFOLD_option
 
 #rosettacon
-#rosettacon_dir = /home/casp13/MULTICOM_package/casp8/rosettacon
 rosettacon_dir = SOFTWARE_PATH/src/meta/rosettacon
-#rosettacon_option = /home/casp13/MULTICOM_package/casp8/rosettacon/rosettacon_option
 rosettacon_option = SOFTWARE_PATH/src/meta/rosettacon/rosettacon_option
 
 #fusioncon
-#fusioncon_dir = /home/casp13/MULTICOM_package/casp8/fusioncon
 fusioncon_dir = SOFTWARE_PATH/src/meta/fusioncon
-#fusioncon_option = /home/casp13/MULTICOM_package/casp8/fusioncon/fusioncon_option
 fusioncon_option = SOFTWARE_PATH/src/meta/fusioncon/fusioncon_option
 
 #unicon3d dir
-#unicon3d_dir = /home/casp13/MULTICOM_package/casp8/unicon3d
 unicon3d_dir = SOFTWARE_PATH/src/meta/unicon3d
-#unicon3d_option = /home/casp13/MULTICOM_package/casp8/unicon3d/Unicon3D_option
 unicon3d_option = SOFTWARE_PATH/src/meta/unicon3d/Unicon3D_option
 
 
@@ -204,7 +146,6 @@ confoldtemp_dir = SOFTWARE_PATH/src/meta/confoldtemp
 confoldtemp_option = SOFTWARE_PATH/src/meta/confoldtemp/confoldtemp_option
 
 #scwrl_dir
-#scwrl_dir = /home/casp13/MULTICOM_package/software/scwrl4
 scwrl_dir = SOFTWARE_PATH/tools/scwrl4
 
 #########################################################################

@@ -6,11 +6,11 @@
 #################################################################
 
 #library dir
-$library_dir = "/home/jh7x3/multicom/databases/library";
-$input_file = "/home/jh7x3/multicom/databases/fr_lib/sort90";
-$output_db = "/home/jh7x3/multicom/databases/ffas_dbs/multicom_db/multicom_ffas_db";
-$db_profile_list = "/home/jh7x3/multicom/databases/ffas_dbs/multicom_db/profile_list"; 
-$ffas_dir = "/home/jh7x3/multicom/src/update_db/tools/ffas/";
+$library_dir = "/home/jh7x3/multicom_beta1.0/databases/library";
+$input_file = "/home/jh7x3/multicom_beta1.0/databases/fr_lib/sort90";
+$output_db = "/home/jh7x3/multicom_beta1.0/databases/ffas_dbs/multicom_db/multicom_ffas_db";
+$db_profile_list = "/home/jh7x3/multicom_beta1.0/databases/ffas_dbs/multicom_db/profile_list"; 
+$ffas_dir = "/home/jh7x3/multicom_beta1.0/src/update_db/tools/ffas/";
 
 if (! -f $output_db)
 {

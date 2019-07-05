@@ -1,14 +1,11 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-#prosys_dir = /home/casp13/MULTICOM_package/casp8/
 prosys_dir = SOFTWARE_PATH/src/meta/
 
 #Unicon3D tool dir
-#tool_dir = /home/casp13/Confold2-Unicon3D/UniCon3D/
 tool_dir = SOFTWARE_PATH/tools/UniCon3D/
 
 #metapsicov tool dir
-#metapsicov_dir = /home/casp13/tools/metapsicov-pipeline-2.0/
 metapsicov_dir = SOFTWARE_PATH/tools/metapsicov-pipeline-2.0/
 
 #SCRATCH tool dir

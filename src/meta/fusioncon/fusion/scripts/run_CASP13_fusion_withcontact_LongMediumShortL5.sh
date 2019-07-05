@@ -17,9 +17,9 @@ weight=1 #
 
 
 
-source /home/jh7x3/multicom/tools/python_virtualenv/bin/activate
+source /home/jh7x3/multicom_beta1.0/tools/python_virtualenv/bin/activate
 
 if [ -z $contact_file ]; then contact_file='None'; else echo "Setting contact file to $contact_file" ; fi
 if [ -z $max_wait_time ]; then max_wait_time=6; else echo "Setting running time to $max_wait_time hrs" ; fi
-echo "perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $max_wait_time $lbound $ubound $weight"
-perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $max_wait_time $lbound $ubound $weight
+echo "perl /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $max_wait_time $lbound $ubound $weight"
+perl /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $max_wait_time $lbound $ubound $weight

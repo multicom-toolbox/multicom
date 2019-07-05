@@ -1,0 +1,127 @@
+############# MULTICOM protein structure prediction system ############
+J. Hou, T. Wu, R. Cao, J. Cheng. Protein tertiary structure modeling driven by deep learning and contact distance prediction in CASP13. Proteins, accepted. (CASP13 invited paper).
+
+Web service http://sysbio.rnet.missouri.edu/multicom_cluster/
+
+
+
+### method 1
+hhsearch
+Söding J. Protein homology detection by HMM-HMM comparison. Bioinformatics. 2005;21(7):951-960.
+
+
+### method 2
+hhsearch15
+Söding J. Protein homology detection by HMM-HMM comparison. Bioinformatics. 2005;21(7):951-960.
+
+### method 3
+hhsearch151
+Söding J. Protein homology detection by HMM-HMM comparison. Bioinformatics. 2005;21(7):951-960.
+
+### method 4
+hhsuite
+Remmert M, Biegert A, Hauser A, Söding J. HHblits: lightning-fast iterative protein sequence searching by HMM-HMM alignment. Nat Methods. 2012;9(2):173-175.
+
+### method 5
+hhsuite3
+Remmert M, Biegert A, Hauser A, Söding J. HHblits: lightning-fast iterative protein sequence searching by HMM-HMM alignment. Nat Methods. 2012;9(2):173-175.
+
+### method 5
+hmmer
+Finn RD, Clements J, Eddy SR. HMMER web server: interactive sequence similarity searching. Nucleic Acids Res. 2011;39(suppl 2):W29-W37.
+
+### method 6
+hmmer3
+Johnson LS, Eddy SR, Portugaly E. Hidden Markov model speed heuristic and iterative HMM search procedure. BMC Bioinformatics. 2010;11(1):431.
+
+### method 7
+hhblits
+Remmert M, Biegert A, Hauser A, Söding J. HHblits: lightning-fast iterative protein sequence searching by HMM-HMM alignment. Nat Methods. 2012;9(2):173-175.
+
+### method 8
+hhblits3
+Remmert M, Biegert A, Hauser A, Söding J. HHblits: lightning-fast iterative protein sequence searching by HMM-HMM alignment. Nat Methods. 2012;9(2):173-175.
+
+### method 9
+hhpred
+Söding, Johannes, Andreas Biegert, and Andrei N. Lupas. "The HHpred interactive server for protein homology detection and structure prediction." Nucleic acids research 33.suppl_2 (2005): W244-W248.
+
+### method 10
+ffas
+Xu D, Jaroszewski L, Li Z, Godzik A. FFAS-3D: improving fold recognition by including optimized structural features and template re-ranking. Bioinformatics. 2013;30(5):660-667.
+
+### method 11
+compass. 
+Sadreyev R, Grishin N. COMPASS: a tool for comparison of multiple protein alignments with assessment of statistical significance. J Mol Biol. 2003;326(1):317-336.
+http://prodata.swmed.edu/compass/compass.php
+
+
+### method 12
+blast
+Altschul SF, Madden TL, Schäffer AA, et al. Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res. 1997;25(17):3389-3402.
+
+### method 13
+newblast
+Altschul SF, Madden TL, Schäffer AA, et al. Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res. 1997;25(17):3389-3402.
+
+### method 14
+csblast
+Biegert A, Söding J. Sequence context-specific profiles for homology searching. Proc Natl Acad Sci. 2009;106(10):3770-3775.
+
+### method 15
+csiblast
+Biegert A, Söding J. Sequence context-specific profiles for homology searching. Proc Natl Acad Sci. 2009;106(10):3770-3775.
+
+### method 16
+psiblast
+Altschul SF, Madden TL, Schäffer AA, et al. Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res. 1997;25(17):3389-3402.
+
+### method 17
+sam
+Hughey R, Krogh A. SAM: Sequence Alignment and Modeling Software System [technical report]. Santa Cruz, CA: University of California; 1995.
+
+### method 18
+prc
+Madera M. Profile comparer: a program for scoring and aligning profile hidden Markov models. Bioinformatics. 2008;24(22):2630-2631.
+
+### method 22
+raptorx
+Källberg M, Margaryan G, Wang S, Ma J, Xu J. RaptorX server: a resource for template-based protein structure modeling. Methods Mol Biol. 2014;1137:17-27.
+
+### method 23
+muster
+Wu S, Zhang YJPS. MUSTER: improving protein sequence profile-profile alignments by using multiple sources of structure information. Proteins. 2008;72(2):547-556.
+Roy A, Kucukural A, Zhang YJN p. I-TASSER: a unified platform for automated protein structure and function prediction. Nat Protoc. 2010;5(4):725.
+
+### method 24
+novel
+
+### method 25
+deepsf
+Hou J, Adhikari B, Cheng J. DeepSF: deep convolutional neural network for mapping protein sequences to folds. Bioinformatics. 2017;34(8):1295-1303.
+
+### method 26
+confold
+Adhikari B, Cheng J. CONFOLD2: improved contact-driven ab initio protein structure modeling. BMC Bioinformatics. 2018;19(1):22.
+
+
+### method 27
+rosettacon
+Leaver-Fay A, Tyka M, Lewis SM, et al. ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods Enzymol. 2011;487:545-574.
+
+### method 28
+unicon3d
+Bhattacharya D, Cao R, Cheng J. UniCon3D: de novo protein structure prediction using united-residue conformational search via stepwise, probabilistic sampling. Bioinformatics. 2016;32(18):2791-2799.
+
+
+### method 29
+rosetta
+Leaver-Fay A, Tyka M, Lewis SM, et al. ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods Enzymol. 2011;487:545-574.
+
+### method 30
+dncon2
+Adhikari B, Hou J, Cheng J. DNCON2: improved protein contact prediction using two-level deep convolutional neural networks. Bioinformatics. 2017;34(9):1466-1472.
+
+### method 31
+fusioncon
+Bhattacharya D, Cheng J. De novo protein conformational sampling using a probabilistic graphical model. Sci Rep. 2015;5:16332.

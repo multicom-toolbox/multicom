@@ -2,13 +2,13 @@
 
 echo " Start install python virtual environment (will take ~1 min)"
 
-cd /data/commons/MULTICOM_db_tools//tools
+cd /data/commons/MULTICOM_db_tools_v1.1//tools
 
 rm -rf python_virtualenv
 
 virtualenv python_virtualenv
 
-source /data/commons/MULTICOM_db_tools//tools/python_virtualenv/bin/activate
+source /data/commons/MULTICOM_db_tools_v1.1//tools/python_virtualenv/bin/activate
 
 pip install --upgrade pip
 
@@ -30,5 +30,5 @@ mkdir -p ~/.keras
 
 cp ~/.keras/keras.json ~/.keras/keras.json.$NOW.$RANDOM
 
-cp /home/jh7x3/multicom//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
+cp /home/jh7x3/multicom_beta1.0//installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json
 

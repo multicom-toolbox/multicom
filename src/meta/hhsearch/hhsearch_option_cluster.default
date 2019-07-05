@@ -32,19 +32,15 @@ psipred_dir=SOFTWARE_PATH/tools/psipred/
 
 #hhsearchdb 
 #all current templates
-#hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/hhsearchdb
 hhsearchdb=SOFTWARE_PATH/databases/fr_lib/hhsearchdb
 
 #templates built before May 10, 2007 (CASP7 starts)
-#hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/casp7_hhsearchdb
+#hhsearchdb=SOFTWARE_PATH/databases/casp7_hhsearchdb
 
 #meta dir
-#meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
-#meta_dir=/home/casp13/MULTICOM_package/casp8/hhsearch/
 meta_dir=SOFTWARE_PATH/src/meta/hhsearch/
 
 #meta common dir
-#meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
 meta_common_dir=SOFTWARE_PATH/src/meta/
 
 ###############################################################################

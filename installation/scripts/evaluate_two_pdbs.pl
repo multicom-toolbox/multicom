@@ -7,7 +7,7 @@ if (@ARGV != 2) {
 $pdb1 = $ARGV[0];
 $pdb2 = $ARGV[1];
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom_beta1.0/";
 
 if(-e $pdb1 and -e $pdb2)
 {

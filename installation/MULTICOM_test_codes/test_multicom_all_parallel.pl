@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-$test_script_dir= '/home/jh7x3/multicom/installation/MULTICOM_test_codes';
-$test_out_dir= '/home/jh7x3/multicom/test_out';
+$test_script_dir= '/home/jh7x3/multicom_beta1.0/installation/MULTICOM_test_codes';
+$test_out_dir= '/home/jh7x3/multicom_beta1.0/test_out';
 
 $num = @ARGV;
 if($num ==0)
@@ -38,8 +38,7 @@ foreach $file (sort @input_files)
 	$file_path = "$test_script_dir/$file";
 	push @running_files,$file_path;
 }
-
-$job_index = 0;
+	
 foreach $file_path (sort @running_files)
 {
 	## check the running jobs
@@ -73,9 +72,8 @@ foreach $file_path (sort @running_files)
 	
 	print "run test $file_path\n";
 	system("sh $file_path > /dev/null 2>&1 &");
-	$job_index ++;
-	$remain_jobs = @running_files-$job_index;
-	print "Processed jobs ($job_index), remaining jobs ($remain_jobs)\n\n";
+	$remain_jobs = @running_files-$running_num;
+	print "Current running jobs ($running_num), remaining jobs ($remain_jobs)\n\n";
 	sleep(5);
 }
 

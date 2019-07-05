@@ -9,14 +9,27 @@ Web service: http://sysbio.rnet.missouri.edu/multicom_cluster/
 
 ```
 cd /home/MULTICOM_TS
-git clone https://github.com/multicom-toolbox/multicom
-cd multicom
+git clone https://github.com/huge200890/multicom_beta1.0.git
+cd multicom_beta1.0
 ```
 
-**(2) Download the database (required)**
+**(2) Setup the tools and download the database (required)**
+
 ```
-wget MULTICOM_db_tools.tar.gz (contact us)
+a. edit method.list
+
+    uncomment the methods that you would like to run in MULTICOM system (i.e., DNCON2, HHsearch, CONFOLD) 
+
+b. edit setup_database.pl
+
+    set the path of variable '$multicom_db_tools_dir' for multicom databases and tools (i.e., /home/MULTICOM_db_tools/).
+
+c. perl setup_database.pl
 ```
+
+Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM system for publication. The tools can be also downloaded from their official websites.
+
+
 **(3) Configure MULTICOM system (required)**
 
 ```
@@ -30,8 +43,7 @@ perl configure.pl
 ```
 
 **(4) Mannally configure tools (required)**
-
-***one-time installation. If the path is same as before, the configurations can be skipped.
+*** one-time installation. If the path is same as before, the configurations can be skipped.
 ```
 cd installation/MULTICOM_manually_install_files
 
@@ -110,18 +122,23 @@ sh T0-run-multicom-hard-T0957s2.sh
    $ sh bin/run_multicom.sh T0993s2 examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
-**(10) Benchmark CASP13 targets**
+**(10) Run individual methods for structure predicton**
 
 ```
- cd installation/scripts/
- perl  generate_benchmark_sh.pl
- 
- cd  /home/test/multicom//test_out_casp13/
- sh T0950.sh
+Examples:
+   hhsearch:
+   $ sh bin/P1-run-hhsearch.sh <target id> <file name>.fasta  <output folder>
+   
+   dncon2:
+   $ sh bin/P4-run-dncon2.sh <target id> <file name>.fasta  <output folder>
+
+   hhsuite:
+   $ sh bin/P11-run-hhsuite.sh <target id> <file name>.fasta  <output folder>
+
+   hhblits3:
+   $ sh bin/P24-run-hhblits3.sh <target id> <file name>.fasta  <output folder>
+
+   confold:
+   $ sh bin/P27-run-confold.sh <target id> <file name>.fasta  <output folder>
+
 ```
-
-**After the system passes the tests above, you can use the following command to make prediction**
-
-multicom_installation_path/bin/run_multicom.sh target_id input_fasta_sequence_file output_directory
-
-The predictions will be stored in the output directory. 

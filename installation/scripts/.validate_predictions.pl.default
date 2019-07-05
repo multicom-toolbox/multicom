@@ -37,7 +37,7 @@ foreach $subdir (@subdirs)
 	}
 	
 	print "\n---------------------------------------------------------------------------------------------------\n";
-	print "Evaluating structure prediction for <$server>:\n";
+	print "Evaluating structure prediction for $server:\n";
 	opendir(FILES,"$modeldir") || die "Failed to open directory $modeldir\n";
 	@files = readdir(FILES);
 	closedir(FILES);

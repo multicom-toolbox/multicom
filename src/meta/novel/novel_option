@@ -1,9 +1,9 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/jh7x3/multicom/src/meta
+prosys_dir = /home/jh7x3/multicom_beta1.0/src/meta
 
 #novel prediction program
-novel_program = /home/jh7x3/multicom/tools/MULTICOM_NOVEL/run_novel_3d.sh 
+novel_program = /home/jh7x3/multicom_beta1.0/tools/MULTICOM_NOVEL/run_novel_3d.sh 
 
 #final_model_number (a fixed number determined by run_novel_3d.sh
 final_model_number = 5

@@ -5,63 +5,45 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-#prosys_dir = /home/casp13/MULTICOM_package/software/prosys/
 prosys_dir = SOFTWARE_PATH/src/prosys/
 
 #blast tool dir
-#blast_dir = /home/jianlinc/pspro/blast2.2.8/
-#blast_dir = /home/casp13/MULTICOM_package/software/prosys/blast-2.2.17/bin
 blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
-#modeller_dir = /home/casp13/MULTICOM_package/software/prosys/modeller7v7/
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller9v7/
-#modeller_dir = /home/casp13/MULTICOM_package/software/modeller-9.16/
 modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/
 
 #formated pdb database dir
-#pdb_db_dir = /home/jianlinc/prosys/database/cm_lib/
-#pdb_db_dir = /home/casp13/MULTICOM_package/software/prosys_database/cm_lib_casp7/
 pdb_db_dir = SOFTWARE_PATH/databases/cm_lib/
 
 #nr database used by hhblits to generate profiles
-#nr_db = /home/casp13/MULTICOM_package/nr20/nr20
-nr_db = SOFTWARE_PATH/databases/hhblits3_dbs/nr20/nr20
-#nr_db = /home/casp13/MULTICOM_package/casp8/hhsuite_db/nr20
+#nr_db = SOFTWARE_PATH/databases/hhblits3_dbs/nr20/nr20
+nr_db = SOFTWARE_PATH/databases/uniprot20/uniprot20_2016_02/uniprot20_2016_02
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhblits dir
 hhblits3_dir = SOFTWARE_PATH/tools/hhsuite-3.0-beta.1/
-hhblits3_seq_db = SOFTWARE_PATH/databases/hhsuite3_dbs/uniprot20_2016_02/uniprot20_2016_02
+hhblits3_seq_db = SOFTWARE_PATH/databases/uniprot20/uniprot20_2016_02/uniprot20_2016_02
 hhblits3_pdb_hmm_db = SOFTWARE_PATH/databases/hhpred_dbs/update_db/pdb70/pdb70
 
-#hhblits_dir=/home/casp13/MULTICOM_package/casp8/hhblits/hhblits/
 hhblits_dir=SOFTWARE_PATH/tools/hhblits/
 
 #psipred dir
-#psipred_dir=/home/casp13/MULTICOM_package/cheng_group/psipred-2.61/
 psipred_dir=SOFTWARE_PATH/tools/psipred-2.61/
 
 #hhsearchdb 
 #all current templates
-#hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/fr_lib/hhsearchdb, 
-#this database is used by hhblits too
-#hhsearchdb=/home/casp13/MULTICOM_package/casp8/hhpred/hhpreddb_new
 hhsearchdb=SOFTWARE_PATH/databases/hhpred_dbs/hhpreddb_new
 #hhsearch pdb dir 
-#atom_dir=/home/casp13/MULTICOM_package/casp8/hhpred/pdb/
 atom_dir=SOFTWARE_PATH/databases/hhpred_dbs/pdb/
 
 #templates built before May 10, 2007 (CASP7 starts)
-#hhsearchdb=/home/casp13/MULTICOM_package/software/prosys_database/casp7_hhsearchdb
+#hhsearchdb=SOFTWARE_PATH/databases/casp7_hhsearchdb
 
 #meta dir for hhblits
-#meta_dir=/home/casp13/MULTICOM_package/casp8/meta/
-#meta_dir=/home/casp13/MULTICOM_package/casp8/hhblits3/
 meta_dir=SOFTWARE_PATH/src/meta/hhblits3/
 
 #meta common dir
-#meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
 meta_common_dir=SOFTWARE_PATH/src/meta/
 
 ###############################################################################

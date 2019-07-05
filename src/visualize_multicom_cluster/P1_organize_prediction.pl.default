@@ -377,7 +377,7 @@ if($domain_num>1)
 		}else{
 			`cp $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder $outputdir/domain$domid/domain$domid.fasta.disorder`;
 		}
-=pod
+
 		if(!(-e "$workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa"))
 		{
 			print "Warning: 3. Failed to find $workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa\n";
@@ -393,7 +393,7 @@ if($domain_num>1)
 			#print "perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats\n";
 			`perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats`;
 		}
-=cut
+
 		####### copy top models
 		## check if alignment are found
 		if(!(-e "$workdir/domain$domid/meta/domain$domid.gdt"))
@@ -429,7 +429,7 @@ if($domain_num>1)
 					
 					`perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa`;
 
-					#`source /home/casp13/python_virtualenv/bin/activate`;
+					`source /home/casp13/python_virtualenv/bin/activate`;
 
 					`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker.jpeg`;
 
@@ -456,7 +456,7 @@ if($domain_num>1)
 			## get domain start 
 			## get domain align information domain1/Top5_aln/domain1.casp1.msa.marker
 		}
-=pod
+
 		##### generate contact information
 		for($indx = 1; $indx <=5; $indx++)
 		{
@@ -468,7 +468,6 @@ if($domain_num>1)
 			`perl $scripts_dir/cmap/coneva-camp.pl  -fasta domain$domid.fasta -rr domain$domid.dncon2.rr  -pdb domain$domid.casp$indx.pdb  -smin 24 -o ./`;
 			`perl $scripts_dir/cmap/P1_format_acc.pl long_Acc.txt  long_Acc_formated.txt`; 
 		}
-=cut
 	}
 }
 

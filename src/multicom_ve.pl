@@ -1,21 +1,24 @@
 #!/usr/bin/perl -w
-#########################################################################
+#################################################################################
 #
 #               MULTICOM Protein Structure Prediction System
-#                         Author: Jianlin Cheng
+#                         Author: Jianlin Cheng,Jie Hou
 #                         Start date: 1/13/2010
-#                         Current date: 3/6/2018
+#                         Current date: 06/01/2019
 #
-#########################################################################
+# 	J. Hou, et al. Protein tertiary structure modeling driven by deep learning 
+#				and contact distance prediction in CASP13. Proteins.
+#
+#################################################################################
 #                       Overall Strategy
 # 1. model generation using diverse techniques
 # 2. domain-based model generation
 # 3. model evaluation (full length and domain based)
 # 4. model combination
 #
-#########################################################################
+#################################################################################
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom_beta1.0/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 
@@ -24,7 +27,7 @@ if (@ARGV != 3)
 	die "need three parameters: multicom system option file, query file(fasta), output dir\n";
 }
 
-######################Process Inputs####################################
+######################Process Inputs############################################
 $system_option = shift @ARGV;
 $query_file = shift @ARGV;
 $output_dir = shift @ARGV;
@@ -49,10 +52,8 @@ $cm_model_num = 5;
 $prosys_dir = "";
 $modeller_dir = "";
 
-#$tm_score = "/home/casp13/MULTICOM_package//software/tm_score/TMscore_32";
 $tm_score = "$GLOBAL_PATH/tools/tm_score/TMscore_32";
 
-#$q_score = "/home/casp13/MULTICOM_package//software/pairwiseQA/q_score";
 $q_score = "$GLOBAL_PATH/tools/pairwiseQA/q_score";
 
 #$human_qa_program = "/home/casp13/Human_QA_package/HUMAN/run_CASP13_HumanQA.sh";
@@ -181,7 +182,7 @@ else
 {
 	die "fasta foramt error.\n"; 
 }
-####################################End of Process Inputs#################
+####################################End of Process Inputs##############################################
 #enter into the output directory
 chdir $output_dir; 
 
@@ -203,16 +204,12 @@ $hhsearch_local_alignment = "$full_length_dir/hhsearch15/$query_filename.local";
 if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
 {
 	#generate full-length model
-	#system("$multicom_dir/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
-	#print("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir\n"); 
 	system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
-	# /data/jh7x3/multicom_github/multicom/src/meta/
-	# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_casp13
 }
 #########################################################################################################
 
 
-##############################################################################
+#########################################################################################################
 
 #get query file name
 $pos = rindex($query_file, "/");
@@ -225,14 +222,14 @@ if ($pos >= 0)
 
 print "Step 2: identify domains of the protein...\n";
 
-#################################################################################
+#########################################################################################################
 #   A simple domain identification algorithm
 #  (1) hit left part, right is a missing domain
 #  (2) hit righ part, left is a missing domain
 #  (3) hit a little left, missing an insertion, hit right
 #  (4) hit left, missing an in sertioin, hit a little right
 #  (5) both left and right are missing. if the length of left and right
-#################################################################################
+#########################################################################################################
 
 #disable hmmer file for domain prediction
 $hmmer_local_alignment = "xxxx";
@@ -277,7 +274,10 @@ elsif (-f $hhsearch_local_alignment)
 
 		if ($DEBUG == 0)
 		{
+			#system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 			system("$GLOBAL_PATH/src/meta/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
+			# /data/jh7x3/multicom_github/multicom/src/meta/
+			# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_hard_casp13
 		}
 		$full_length_dir = $full_length_dir_hard; 
 		goto MODEL_EVA; 

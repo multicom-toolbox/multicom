@@ -1,22 +1,22 @@
 #meta directory
 #meta_dir = /data/jh7x3/multicom_github/multicom/src/meta
-meta_dir = /home/jh7x3/multicom/src/meta
+meta_dir = /home/jh7x3/multicom_beta1.0/src/meta
 
 #prosys dir
 #prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys
-prosys_dir = /home/jh7x3/multicom/src/prosys
+prosys_dir = /home/jh7x3/multicom_beta1.0/src/prosys
 
 #fusioncon+dncon2 directory
 #fusioncon_dir = /home/casp13/MULTICOM_package/casp8/fusioncon
-fusioncon_dir = /home/jh7x3/multicom/src/meta/fusioncon
+fusioncon_dir = /home/jh7x3/multicom_beta1.0/src/meta/fusioncon
 
 #fusioncon program of making predictions with contacts
 #fusioncon_program = /home/casp13/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
-fusioncon_program = /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
+fusioncon_program = /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortL5.sh
 
 #fusion ab intio program without contacts
 #fusion_program = /home/casp13/fusion/scripts/run_CASP13_fusion_abinitio.sh
-fusion_program = /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
+fusion_program = /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_abinitio.sh
 
 #number of models to be selected from this predictor
 local_model_num = 10

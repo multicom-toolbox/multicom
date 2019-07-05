@@ -33,7 +33,6 @@ psipred_dir=SOFTWARE_PATH/tools/psipred-2.61/
 #hhsearchdb 
 #all current template database (need to create it)
 #new database to reconstruct
-#hhsuitedb=/home/casp13/MULTICOM_package/casp8/hhsuite3/database/hhsuitedb
 #old database
 hhsuitedb=SOFTWARE_PATH/databases/MULTICOM_sort90_hhblists_db/hhblits_db/hhblits_sort90
 #############################################################

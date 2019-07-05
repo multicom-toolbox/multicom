@@ -326,7 +326,7 @@ while (<OPTION>)
 -d $ffas_soft_dir || die "can't find ffas dir.\n";
 -d $psipred_dir || die "can't find psipred dir.\n"; 
 -f $ffasdb || die "can't find ffas database.\n";
--d $nr_dir || die "can't find nr dir.\n";
+#-d $nr_dir || die "can't find nr dir.\n";
 -d $atom_dir || die "can't find atom dir.\n";
 -d $meta_dir || die "can't find meta_dir $meta_dir.\n";
 -d $meta_common_dir || die "can't find $meta_common_dir.\n";

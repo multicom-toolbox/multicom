@@ -36,9 +36,9 @@ $local_model_num = 50;
 
 #$contact_file = "";
 
-$tm_score = "/home/jh7x3/multicom/tools/tm_score/TMscore_32";
+$tm_score = "/home/jh7x3/multicom_beta1.0/tools/tm_score/TMscore_32";
 
-$q_score = "/home/jh7x3/multicom/tools/pairwiseQA/q_score";
+$q_score = "/home/jh7x3/multicom_beta1.0/tools/pairwiseQA/q_score";
 
 while (<OPTION>)
 {
