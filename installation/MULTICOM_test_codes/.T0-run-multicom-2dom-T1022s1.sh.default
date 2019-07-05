@@ -29,12 +29,12 @@ perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl
 
 
 printf "\nCheck final predictions for domain0..\n"
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1022s1  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/comb/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-D1.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain0  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/comb/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-D1.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
 
 
 
 printf "\nCheck final predictions for domain1..\n"
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  T1022s1  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/comb/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-D2.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain1  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/comb/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-D2.pdb casp  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
 
 
 
