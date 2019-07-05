@@ -37,9 +37,9 @@ perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl
 
 
 printf "\nCheck individual predictions for domain0..\n"
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain0  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/domain0/meta/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-1-167.pdb meta  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain0  SOFTWARE_PATH/test_out/T1022s1_multicom/domain0/meta SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/domain0/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-1-167.pdb meta  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
 
 
 printf "\nCheck individual predictions for domain1..\n"
-perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain1  SOFTWARE_PATH/test_out/T1022s1_multicom/comb SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/domain1/meta/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-163-229.pdb meta  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
+perl SOFTWARE_PATH/installation/scripts/validate_integrated_predictions_final.pl  domain1  SOFTWARE_PATH/test_out/T1022s1_multicom/domain1/meta SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1/domain1/ SOFTWARE_PATH/installation/benchmark/Two-domain/T1022s1-163-229.pdb meta  2>&1 | tee -a SOFTWARE_PATH/test_out/T1022s1_multicom.log
 
