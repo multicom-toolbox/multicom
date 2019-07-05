@@ -123,6 +123,7 @@ installation/MULTICOM_test_codes/T34-run-fusioncon.sh
 # validation scripts
 installation/scripts/generate_benchmark_sh.pl
 installation/scripts/validate_predictions.pl
+installation/scripts/validate_similarities.pl
 installation/scripts/validate_integrated_predictions.pl
 installation/scripts/validate_integrated_predictions_final.pl
 installation/scripts/evaluate_two_pdbs.pl
