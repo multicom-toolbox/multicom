@@ -44,7 +44,11 @@ print " OK!\n";
 
 if(!-d $multicom_db_tools_dir)
 {
-	`mkdir $multicom_db_tools_dir`;
+	$status = system("mkdir $multicom_db_tools_dir");
+	if($status)
+	{
+		die "Failed to create folder $multicom_db_tools_dir\n";
+	}
 }
 $multicom_db_tools_dir=abs_path($multicom_db_tools_dir);
 
