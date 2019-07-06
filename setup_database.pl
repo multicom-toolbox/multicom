@@ -9,7 +9,7 @@
 #																					#
 # Set directory of multicom databases and tools								        #
 
-$multicom_db_tools_dir = "/data/commons/MULTICOM_db_tools_v1.1/";							        
+$multicom_db_tools_dir = "/data/commons/MULTICOM_db_tools/";							        
 						        
 
 ######################## !!! End of customize settings !!! ##########################
