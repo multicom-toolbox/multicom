@@ -83,14 +83,6 @@ if(!-s $tools_dir)
 
 
 
-=pod
-nr_latest/nr
-nr70_90/nr90;nr70_90/nr70
-nr70_90/nr90;nr70_90/nr70
-uniref/uniref90
-uniref/uniref70
-=cut
-
 
 
 
@@ -133,6 +125,7 @@ print OUT "make\n\n";
 print OUT "make install\n\n";
 close OUT;
 
+=pod
 #### install scwrl4
 
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P4_install_scwrl4.sh\n";
@@ -146,7 +139,7 @@ print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd scwrl4\n\n";
 print OUT "./install_Scwrl4_Linux\n\n";
 close OUT;
-
+=cut
 
 #### create python virtual environment
 
@@ -220,6 +213,7 @@ foreach $db (@basic_db)
 		`tar -zxf $db`;
 		`echo 'done' > $dbname/download.done`;
 		`rm $db`;
+		`chmd -R 755 $dbname`;
 	}else{
 		die "Failed to download $db from http://sysbio.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
 	}
@@ -251,6 +245,7 @@ foreach $tool (@basic_tools)
 		`tar -zxf $tool`;
 		`echo 'done' > $toolname/download.done`;
 		`rm $tool`;
+		`chmd -R 755 $toolname`;
 	}else{
 		die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 	}
@@ -273,6 +268,7 @@ if(-e "uniref90.pal")
 {
 	print "\tuniref90.fasta is found, start formating......\n";
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref90.fasta -o T -t uniref90 -n uniref90`;
+		`chmd -R 755 uniref90*`;
 }else{
 	if(-e "uniref90.fasta.gz")
 	{
@@ -287,6 +283,7 @@ if(-e "uniref90.pal")
 	}
 	`gzip -d uniref90.fasta.gz`;
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref90.fasta -o T -t uniref90 -n uniref90`;
+		`chmd -R 755 uniref90*`;
 
 }
 
@@ -316,11 +313,12 @@ if(-e "uniref70.pal")
 	
 	chdir($uniref_dir);
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref70.fasta -o T -t uniref70 -n uniref70`;
+		`chmd -R 755 uniref70*`;
 
 }
 
 
-=pod
+
 #### (5) Download uniref50
 print("\n#### (5) Download uniref50\n\n");
 $uniref_dir = "$multicom_db_tools_dir/databases/uniref";
@@ -347,9 +345,10 @@ if(-e "uniref50.pal")
 	}
 	`gzip -d uniref50.fasta.gz`;
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
+		`chmd -R 755 uniref50*`;
 
 }
-
+=pod
 #### (6) Generating uniref20
 print("\n#### (6) Generating uniref20\n\n");
 chdir($uniref_dir);
@@ -427,6 +426,7 @@ foreach $file (@files)
 			close TMPOUT;
 		}else{
 			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix`;
+			`chmd -R 755 $database_dir/nr70_90/nr90.$subfix`;
 		}
 	}
 	
@@ -458,6 +458,7 @@ foreach $file (@files)
 			close TMPOUT;
 		}else{
 			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix`;
+			`chmd -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
 		
 	}
@@ -490,6 +491,7 @@ foreach $file (@files)
 			close TMPOUT;
 		}else{
 			`ln -s $uniref_dir/$file $database_dir/nr_latest/nr.$subfix`;
+			`chmd -R 755 $database_dir/nr_latest/nr.$subfix`;
 		}
 		
 	}
@@ -606,6 +608,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					chdir($tools_dir);
 					`echo 'done' > $toolname/download.done`;
 					`rm $tool`;
+					`chmd -R 755 $toolname`;
 				}else{
 					die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 				}
@@ -648,6 +651,7 @@ if(!(-e $method_file) or !(-e $method_info))
 							`tar -xf uniprot20_2016_02.tgz`;
 							`echo 'done' > uniprot20_2016_02/download.done`;
 							`rm uniprot20_2016_02.tgz`;
+						`chmd -R 755 uniprot20_2016_02`;
 						}else{
 							die "Failed to download uniprot20_2016_02.tgz from http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/\n";
 						}
@@ -662,6 +666,8 @@ if(!(-e $method_file) or !(-e $method_info))
 				
 					`ln -s uniprot20_2016_02_a3m.ffdata uniprot20_2016_02_a3m_db`;
 					`ln -s uniprot20_2016_02_hhm.ffdata uniprot20_2016_02_hhm_db`;
+					`chmd -R 755 uniprot20_2016_02_a3m_db`;
+					`chmd -R 755 uniprot20_2016_02_hhm_db`;
 					
 					next;
 				}
@@ -700,6 +706,7 @@ if(!(-e $method_file) or !(-e $method_info))
 							`tar -zxf uniclust30_2017_10_hhsuite.tar.gz`;
 							`echo 'done' > uniclust30_2017_10/download.done`;
 							`rm uniclust30_2017_10_hhsuite.tar.gz`;
+							`chmd -R 755 uniclust30_2017_10`;
 						}else{
 							die "Failed to download uniclust30_2017_10_hhsuite.tar.gz from http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/\n";
 						}
@@ -713,6 +720,8 @@ if(!(-e $method_file) or !(-e $method_info))
 				
 					`ln -s uniclust30_2017_10_a3m.ffdata uniclust30_2017_10_a3m_db`;
 					`ln -s uniclust30_2017_10_hhm.ffdata uniclust30_2017_10_hhm_db`;
+					`chmd -R 755 uniclust30_2017_10_a3m_db`;
+					`chmd -R 755 uniclust30_2017_10_hhm_db`;
 					
 					next;
 				}
@@ -731,6 +740,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					`tar -zxf $db`;
 					`echo 'done' > $dbname/download.done`;
 					`rm $db`;
+					`chmd -R 755 $dbname`;
 				}else{
 					die "Failed to download $db from http://sysbio.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
 				}
@@ -785,6 +795,7 @@ if(!(-e $method_file) or !(-e $method_info))
 							close TMPOUT;
 						}else{
 							`ln -s $uniref_dir/$file $raptorx_nr/nr90.$subfix`;
+							`chmd -R 755 $raptorx_nr/nr90.$subfix`;
 						}
 					}
 					
@@ -816,6 +827,7 @@ if(!(-e $method_file) or !(-e $method_info))
 							close TMPOUT;
 						}else{
 							`ln -s $uniref_dir/$file $raptorx_nr/nr70.$subfix`;
+							`chmd -R 755 $raptorx_nr/nr70.$subfix`;
 						}
 						
 					}
@@ -1117,6 +1129,35 @@ if(-d $prc_db)
 	close PRCLIB;
 }
 
+
+$addr_scwrl4 = $multicom_db_tools_dir."/tools/scwrl4";
+if(-d $addr_scwrl4)
+{
+	print "\n#########  Setting up scwrl4 \n";
+	$addr_scwrl_orig = $addr_scwrl4."/"."Scwrl4.ini";
+	$addr_scwrl_back = $addr_scwrl4."/"."Scwrl4.ini.back";
+	system("cp $addr_scwrl_orig $addr_scwrl_back");
+	@ttt = ();
+	$OUT = new FileHandle ">$addr_scwrl_orig";
+	$IN=new FileHandle "$addr_scwrl_back";
+	while(defined($line=<$IN>))
+	{
+		chomp($line);
+		@ttt = split(/\s+/,$line);
+		
+		if(@ttt>1 && $ttt[1] eq "FilePath")
+		{
+			print $OUT "\tFilePath\t=\t$addr_scwrl4/bbDepRotLib.bin\n"; 
+		}
+		else
+		{
+			print $OUT $line."\n";
+		}
+	}
+	$IN->close();
+	$OUT->close();
+	print "Done\n";
+}
 
 
 print "\n\n";
