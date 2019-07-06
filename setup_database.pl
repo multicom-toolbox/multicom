@@ -42,7 +42,7 @@ if (! -f $configure_file || $install_dir ne "$cur_dir/")
 print " OK!\n";
 
 
-if(!-s $multicom_db_tools_dir)
+if(!-d $multicom_db_tools_dir)
 {
 	`mkdir $multicom_db_tools_dir`;
 }
