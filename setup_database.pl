@@ -79,10 +79,12 @@ $tools_dir = "$multicom_db_tools_dir/tools";
 if(!-s $database_dir)
 {
 	`mkdir $database_dir`;
+	`chmod -R 755 $database_dir`;
 }
 if(!-s $tools_dir)
 {
 	`mkdir $tools_dir`;
+	`chmod -R 755 $tools_dir`;
 }
 
 
