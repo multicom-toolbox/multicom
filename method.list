@@ -1,86 +1,115 @@
-### method 1
+##################### method 1
+### use '#' to deactivate hhsearch method in multicom system 
 hhsearch
 
-### method 2
+##################### method 2
+### use '#' to deactivate hhsearch15 method in multicom system 
 hhsearch15
 
-### method 3
+##################### method 3
+### use '#' to deactivate hhsearch151 method in multicom system 
 hhsearch151
 
-### method 4
-#hhsuite
+##################### method 4
+### use '#' to deactivate hhsuite method in multicom system 
+hhsuite
 
-### method 5
-#hhsuite3
+##################### method 5
+### use '#' to deactivate hhsuite3 method in multicom system 
+hhsuite3
 
-### method 5
-#hmmer
+##################### method 5
+### use '#' to deactivate hmmer method in multicom system 
+hmmer
 
-### method 6
-#hmmer3
+##################### method 6
+### use '#' to deactivate hmmer3 method in multicom system 
+hmmer3
 
-### method 7
-#hhblits
+##################### method 7
+### use '#' to deactivate hhblits method in multicom system 
+hhblits
 
-### method 8
-#hhblits3
+##################### method 8
+### use '#' to deactivate hhblits3 method in multicom system 
+hhblits3
 
-### method 9
-#hhpred
+##################### method 9
+### use '#' to deactivate hhpred method in multicom system 
+hhpred
 
-### method 10
-#ffas
+##################### method 10
+### use '#' to deactivate ffas method in multicom system 
+ffas
 
-### method 11
-#compass
+##################### method 11
+### use '#' to deactivate compass method in multicom system 
+compass
 
-### method 12
-#blast
+##################### method 12
+### use '#' to deactivate blast method in multicom system 
+blast
 
-### method 13
-#newblast
+##################### method 13
+### use '#' to deactivate newblast method in multicom system 
+newblast
 
-### method 14
-#csblast
+##################### method 14
+### use '#' to deactivate csblast method in multicom system 
+csblast
 
-### method 15
-#csiblast
+##################### method 15
+### use '#' to deactivate csiblast method in multicom system 
+csiblast
 
-### method 16
-#psiblast
+##################### method 16
+### use '#' to deactivate psiblast method in multicom system 
+psiblast
 
-### method 17
-#sam
+##################### method 17
+### use '#' to deactivate sam method in multicom system
+sam
 
-### method 18
-#prc
+##################### method 18
+### use '#' to deactivate prc method in multicom system
+prc
 
-### method 22
-#raptorx
+##################### method 22
+### use '#' to deactivate raptorx method in multicom system
+raptorx
 
-### method 23
-#muster
+##################### method 23
+### use '#' to deactivate muster method in multicom system
+muster
 
-### method 24
-#novel
+##################### method 24
+### use '#' to deactivate novel method in multicom system
+novel
 
-### method 25
-#deepsf
+##################### method 25
+### use '#' to deactivate deepsf method in multicom system
+deepsf
 
-### method 26
+##################### method 26
+### use '#' to deactivate confold method in multicom system
 confold
 
-### method 27
-#rosettacon
+##################### method 27
+### use '#' to deactivate rosettacon method in multicom system
+rosettacon
 
-### method 28
-#unicon3d
+##################### method 28
+### use '#' to deactivate unicon3d method in multicom system
+unicon3d
 
-### method 29
-#rosetta
+##################### method 29
+### use '#' to deactivate rosetta method in multicom system
+rosetta
 
-### method 30
+##################### method 30
+### use '#' to deactivate dncon2 method in multicom system
 dncon2
 
-### method 30
-#fusioncon
+##################### method 31
+### use '#' to deactivate fusioncon method in multicom system
+fusioncon
