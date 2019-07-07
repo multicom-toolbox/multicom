@@ -1294,6 +1294,44 @@ if(-d $addr_sam)
 		close TMPO;
 		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf`;
 		
+		
+		open(TMPO,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.tmp");
+		open(TMPI,"$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model");
+		while(<TMPI>)
+		{
+			$li = $_;
+			chomp $li;
+			if(index($li,'$reg_lib_dir')==0)
+			{
+				print TMPO "\$reg_lib_dir = \"$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/lib/sam\";\n";
+			}else{
+				print TMPO "$li\n";
+			}
+			
+		}
+		close TMPI;
+		close TMPO;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model`;
+		
+		
+		open(TMPO,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.tmp");
+		open(TMPI,"$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5");
+		while(<TMPI>)
+		{
+			$li = $_;
+			chomp $li;
+			if(index($li,'$reg_lib_dir')==0)
+			{
+				print TMPO "\$reg_lib_dir = \"$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/lib/sam\";\n";
+			}else{
+				print TMPO "$li\n";
+			}
+			
+		}
+		close TMPI;
+		close TMPO;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5`;
+		
 	}else{
 		die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 	}
