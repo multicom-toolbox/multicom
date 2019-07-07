@@ -1311,6 +1311,7 @@ if(-d $addr_sam)
 		}
 		close TMPI;
 		close TMPO;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.old`;
 		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model`;
 		
 		
@@ -1330,6 +1331,7 @@ if(-d $addr_sam)
 		}
 		close TMPI;
 		close TMPO;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5 $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.old`;
 		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5`;
 		
 	}else{
