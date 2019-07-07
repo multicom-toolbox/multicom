@@ -1263,12 +1263,12 @@ if(-d $addr_scwrl4)
 	print "Done\n";
 }
 
-
+print "\nStart install tools in folder installation/MULTICOM_manually_install_files/\n\n";
 ### install boost-1.55 
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
 if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
 {
-	print "\nStart install boost, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
+	print "\nStart install boost in , may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
 	`sh P1_install_boost.sh &> P1_install_boost.log`;
 }else{
 	print "\nboost-1.55 is installed!\n\n";
