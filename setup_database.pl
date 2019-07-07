@@ -1311,8 +1311,9 @@ if(-d $addr_sam)
 		}
 		close TMPI;
 		close TMPO;
-		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.old`;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.old.$$`;
 		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model`;
+		`chmod 755 $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/build-weighted-model`;
 		
 		
 		open(TMPO,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.tmp");
@@ -1331,9 +1332,9 @@ if(-d $addr_sam)
 		}
 		close TMPI;
 		close TMPO;
-		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5 $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.old`;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5 $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.old.$$`;
 		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5`;
-		
+		`chmod 755 $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/w0.5`;
 	}else{
 		die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 	}
