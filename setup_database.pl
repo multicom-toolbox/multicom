@@ -1263,7 +1263,7 @@ if(-d $addr_scwrl4)
 	print "Done\n";
 }
 
-print "\nStart install tools in folder installation/MULTICOM_manually_install_files/\n\n";
+print "\n#########  Start install tools in folder 'installation/MULTICOM_manually_install_files/'\n\n";
 ### install boost-1.55 
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
 if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
