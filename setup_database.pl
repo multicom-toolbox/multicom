@@ -1268,7 +1268,7 @@ if(-d $addr_scwrl4)
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
 if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
 {
-	print "Start install boost, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
+	print "\nStart install boost, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
 	`sh P1_install_boost.sh &> P1_install_boost.log`;
 }else{
 	print "\nboost-1.55 is installed!\n\n";
@@ -1278,7 +1278,7 @@ if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
 
 if(! -e "$multicom_db_tools_dir/tools/OpenBLAS/install.done")
 {
-	print "Start install OpenBlas, may take ~1 min (sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log)\n\n";
+	print "\nStart install OpenBlas, may take ~1 min (sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log)\n\n";
 	`sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log`;
 }else{
 	print "\nOpenBLAS is installed!\n\n";
@@ -1289,7 +1289,7 @@ if(! -e "$multicom_db_tools_dir/tools/OpenBLAS/install.done")
 
 if(! -e "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done")
 {
-	print "Start install freecontact, may take ~1 min (sh P3_install_freecontact.sh &> P3_install_freecontact.log)\n\n";
+	print "\nStart install freecontact, may take ~1 min (sh P3_install_freecontact.sh &> P3_install_freecontact.log)\n\n";
 	`sh P3_install_freecontact.sh &> P3_install_freecontact.log`;
 }else{
 	print "\nfreecontact-1.0.21 is installed!\n\n";
@@ -1299,7 +1299,7 @@ if(! -e "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done")
 
 if(! -e "$multicom_db_tools_dir/tools/python_virtualenv/install.done")
 {
-	print "Start create python virtual environment, may take ~1 min (sh P4_python_virtual.sh &> P4_python_virtual.log)\n\n";
+	print "\nStart create python virtual environment, may take ~1 min (sh P4_python_virtual.sh &> P4_python_virtual.log)\n\n";
 	`sh P4_python_virtual.sh &> P4_python_virtual.log`;
 }else{
 	print "\npython virtual environment is installed!\n\n";
@@ -1312,7 +1312,7 @@ if(!(-e "/usr/bin/python2.6"))
 
 	if(! -e "$multicom_db_tools_dir/tools/Python-2.6.8/install.done")
 	{
-		print "Start install freecontact, may take ~1 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
+		print "\nStart install freecontact, may take ~1 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
 		`sh P5_python2.6_library.sh &> P5_python2.6_library.log`;
 	}else{
 		print "\nPython-2.6.8 is installed!\n\n";
