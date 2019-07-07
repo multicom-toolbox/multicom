@@ -731,8 +731,6 @@ if(!(-e $method_file) or !(-e $method_info))
 					chdir("$uniprot20_dir/uniprot20_2016_02/");
 					if(-l "uniprot20_2016_02_a3m_db")
 					{
-						`rm uniprot20_2016_02_a3m_db`; 
-						`rm uniprot20_2016_02_hhm_db`; 
 					
 						$status = system("rm uniprot20_2016_02_a3m_db");
 						if($status)
