@@ -16,3 +16,5 @@ make
 
 make install
 
+echo "installed" > /data/commons/MULTICOM_db_tools//tools/DNCON2/freecontact-1.0.21/install.done
+

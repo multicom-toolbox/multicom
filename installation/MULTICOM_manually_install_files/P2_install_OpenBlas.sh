@@ -12,3 +12,5 @@ make
 
 make PREFIX=/data/commons/MULTICOM_db_tools//tools/OpenBLAS install
 
+echo "installed" > /data/commons/MULTICOM_db_tools//tools/OpenBLAS/install.done
+
