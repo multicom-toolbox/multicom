@@ -11,7 +11,6 @@
 
 $multicom_db_tools_dir = "/data/commons/MULTICOM_db_tools/";							        
 						        
-
 ######################## !!! End of customize settings !!! ##########################
 
 ######################## !!! Don't Change the code below##############
