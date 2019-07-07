@@ -1275,6 +1275,24 @@ if(-d $addr_sam)
 			die "Failed to run perl install.pl \n";
 			exit(-1);
 		}
+		
+		open(TMPO,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf.tmp")
+		open(TMPI,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf")
+		while(<TMPI>)
+		{
+			$li = $_;
+			chomp $li;
+			if(index($li,'$::sam_bin_dir')==0)
+			{
+				print TMPO "$::sam_bin_dir = $addr_sam\n";
+			}else{
+				print TMPO "$li\n";
+			}
+			
+		}
+		close TMPI;
+		close TMPO;
+		
 	}else{
 		die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
 	}
