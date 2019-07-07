@@ -243,7 +243,7 @@ foreach $db (@basic_db)
 print("\n#### (2) Download basic tools\n\n");
 
 chdir($tools_dir);
-$basic_tools_list = "blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;blast-2.2.25.tar.gz;modeller-9.16.tar.gz;modeller9v7.tar.gz;tm_score.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz;mmseqs2.tar.gz;boost_1_55_0.tar.gz;OpenBLAS.tar.gz;scwrl4.tar.gz;DNCON2.tar.gz;pairwiseQA.tar.gz;pspro2.tar.gz;model_eva1.0.tar.gz;model_check2.tar.gz;MSACompro_1.2.0.tar.gz;MSAProbs-0.9.4.tar.gz;Domain_assembly.tar.gz;TMalign.tar.gz;TMscore.tar.gz;betacon.tar.gz;betapro-1.0.tar.gz;disorder_new.tar.gz;dssp.tar.gz;energy.tar.gz;maxcluster64bit.tar.gz;tm_align.tar.gz";
+$basic_tools_list = "blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;blast-2.2.25.tar.gz;modeller-9.16.tar.gz;modeller9v7.tar.gz;tm_score.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz;mmseqs2.tar.gz;boost_1_55_0.tar.gz;OpenBLAS.tar.gz;scwrl4.tar.gz;DNCON2.tar.gz;pairwiseQA.tar.gz;pspro2.tar.gz;model_eva1.0.tar.gz;model_check2.tar.gz;MSACompro_1.2.0.tar.gz;MSAProbs-0.9.4.tar.gz;Domain_assembly.tar.gz;TMalign.tar.gz;TMscore.tar.gz;betacon.tar.gz;betapro-1.0.tar.gz;disorder_new.tar.gz;dssp.tar.gz;energy.tar.gz;maxcluster64bit.tar.gz;tm_align.tar.gz;Python-2.6.8.tar.gz";
 @basic_tools = split(';',$basic_tools_list);
 foreach $tool (@basic_tools)
 {
