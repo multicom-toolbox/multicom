@@ -79,12 +79,20 @@ $tools_dir = "$multicom_db_tools_dir/tools";
 
 if(!-d $database_dir)
 {
-	`mkdir $database_dir`  || die "Failed to create folder, check permission or folder path\n";
+	$status = system("mkdir $database_dir");
+	if($status)
+	{
+		die "Failed to create folder ($database_dir), check permission or folder path\n";
+	}
 	`chmod -R 755 $database_dir`;
 }
 if(!-d $tools_dir)
-{
-	`mkdir $tools_dir` || die "Failed to create folder, check permission or folder path\n";
+{ 
+	$status = system("mkdir $tools_dir");
+	if($status)
+	{
+		die "Failed to create folder ($tools_dir), check permission or folder path\n";
+	}
 	`chmod -R 755 $tools_dir`;
 }
 
@@ -213,7 +221,8 @@ foreach $db (@basic_db)
 	{
 		`rm $db`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db` || die "Failed to download, check permission or file path\n";
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
+	
 	if(-e "$db")
 	{
 		print "\t$db is found, start extracting files......\n\n";
@@ -252,7 +261,7 @@ foreach $tool (@basic_tools)
 	{
 		`rm $tool`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool` || die "Failed to download, check permission or file path\n";
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
 	if(-e "$tool")
 	{
 		print "\n\t$tool is found, start extracting files......\n\n";
@@ -288,7 +297,7 @@ if(-e "uniref90.pal")
 	{
 		`rm uniref90.fasta.gz`;
 	}
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz` || die "Failed to download, check permission or file path\n";
+	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz`;
 	if(-e "uniref90.fasta.gz")
 	{
 		print "\tuniref90.fasta.gz is found, start extracting files\n";
@@ -350,7 +359,7 @@ if(-e "uniref50.pal")
 	print "\tuniref50.fasta is found, start formating......\n";
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
 }else{
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz` || die "Failed to download, check permission or file path\n";
+	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz`;
 	if(-e "uniref50.fasta.gz")
 	{
 		print "\tuniref50.fasta.gz is found, start extracting files......\n";
@@ -416,8 +425,12 @@ foreach $file (@files)
 	{
 		$subfix = substr($file,9);
 		if(-l "$database_dir/nr70_90/nr90.$subfix")
-		{
-			`rm $database_dir/nr70_90/nr90.$subfix` || die "Failed to remove file ($database_dir/nr70_90/nr90.$subfix), check the permission\n";
+		{	
+			$status = system("rm $database_dir/nr70_90/nr90.$subfix");
+			if($status)
+			{
+				die "Failed to remove file ($database_dir/nr70_90/nr90.$subfix), check the permission\n";
+			}
 		}
 		if($subfix eq 'pal')
 		{
@@ -439,7 +452,13 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix` || die "Failed to link database\n";
+			
+			$status = system("ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix");
+			if($status)
+			{
+				die "Failed to link database ($database_dir/nr70_90/nr90.$subfix), check the permission\n";
+			}
+			
 			`chmod -R 755 $database_dir/nr70_90/nr90.$subfix`;
 		}
 	}
@@ -449,7 +468,13 @@ foreach $file (@files)
 		$subfix = substr($file,9);
 		if(-l "$database_dir/nr70_90/nr70.$subfix")
 		{
-			`rm $database_dir/nr70_90/nr70.$subfix` || die "Failed to remove file ($database_dir/nr70_90/nr70.$subfix), check the permission\n";
+			
+			$status = system("rm $database_dir/nr70_90/nr70.$subfix");
+			if($status)
+			{
+				die "Failed to remove file ($database_dir/nr70_90/nr70.$subfix), check the permission\n";
+			}
+			
 		}
 		if($subfix eq 'pal')
 		{
@@ -471,7 +496,13 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix` || die "Failed to link database ($database_dir/nr70_90/nr70.$subfix), check the permission\n";
+			
+			$status = system("ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix");
+			if($status)
+			{
+				 die "Failed to link database ($database_dir/nr70_90/nr70.$subfix), check the permission\n";
+			}
+			
 			`chmod -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
 		
@@ -504,7 +535,13 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr_latest/nr.$subfix || die "Failed to link database\n"`;
+			
+			$status = system("ln -s $uniref_dir/$file $database_dir/nr_latest/nr.$subfix");
+			if($status)
+			{
+				 die "Failed to link database($database_dir/nr_latest/nr.$subfix), check the permission\n";
+			}
+			
 			`chmod -R 755 $database_dir/nr_latest/nr.$subfix`;
 		}
 		
@@ -616,7 +653,8 @@ if(!(-e $method_file) or !(-e $method_info))
 				{
 					`rm $tool`;
 				}				
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`  || die "Failed to download, check permission or file path\n";
+				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+				
 				if(-e "$tool")
 				{
 					print "\n\t\t$tool is found, start extracting files......\n\n";
@@ -674,7 +712,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						{
 							`rm uniprot20_2016_02.tgz`;
 						}
-						`wget http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz`  || die "Failed to download, check permission or file path\n";
+						`wget http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz`;
 						if(-e "uniprot20_2016_02.tgz")
 						{
 							print "\t\tuniprot20_2016_02.tgz is found, start extracting files......\n";
@@ -692,10 +730,30 @@ if(!(-e $method_file) or !(-e $method_info))
 					{
 						`rm uniprot20_2016_02_a3m_db`; 
 						`rm uniprot20_2016_02_hhm_db`; 
+					
+						$status = system("rm uniprot20_2016_02_a3m_db");
+						if($status)
+						{
+							 die "Failed to remove file (uniprot20_2016_02_a3m_db), check the permission\n";
+						}
+						$status = system("rm uniprot20_2016_02_hhm_db");
+						if($status)
+						{
+							 die "Failed to remove file (uniprot20_2016_02_hhm_db), check the permission\n";
+						}
 					}
-				
-					`ln -s uniprot20_2016_02_a3m.ffdata uniprot20_2016_02_a3m_db` || die "Failed to link database\n";
-					`ln -s uniprot20_2016_02_hhm.ffdata uniprot20_2016_02_hhm_db` || die "Failed to link database\n";
+					
+					$status = system("ln -s uniprot20_2016_02_a3m.ffdata uniprot20_2016_02_a3m_db");
+					if($status)
+					{
+						 die "Failed to link database(uniprot20_2016_02_a3m_db), check the permission\n";
+					}
+					$status = system("ln -s uniprot20_2016_02_hhm.ffdata uniprot20_2016_02_hhm_db");
+					if($status)
+					{
+						 die "Failed to link database(uniprot20_2016_02_hhm_db), check the permission\n";
+					}
+			
 					`chmod -R 755 uniprot20_2016_02_a3m_db`;
 					`chmod -R 755 uniprot20_2016_02_hhm_db`;
 					
