@@ -11,6 +11,7 @@
 
 $multicom_db_tools_dir = "/data/commons/MULTICOM_db_tools/";							        
 						        
+
 ######################## !!! End of customize settings !!! ##########################
 
 ######################## !!! Don't Change the code below##############
@@ -1283,7 +1284,7 @@ if(-d $addr_sam)
 			chomp $li;
 			if(index($li,'$::sam_bin_dir')==0)
 			{
-				print TMPO "\$::sam_bin_dir = $addr_sam\n";
+				print TMPO "\$::sam_bin_dir = \"$addr_sam\";\n";
 			}else{
 				print TMPO "$li\n";
 			}
