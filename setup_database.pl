@@ -417,7 +417,7 @@ foreach $file (@files)
 		$subfix = substr($file,9);
 		if(-l "$database_dir/nr70_90/nr90.$subfix")
 		{
-			`rm $database_dir/nr70_90/nr90.$subfix`|| die "Failed to remove file, check the permission\n";
+			`rm $database_dir/nr70_90/nr90.$subfix` || die "Failed to remove file ($database_dir/nr70_90/nr90.$subfix), check the permission\n";
 		}
 		if($subfix eq 'pal')
 		{
