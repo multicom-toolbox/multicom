@@ -42,29 +42,8 @@ c. save configure.pl
 perl configure.pl
 ```
 
-**(4) Mannally configure tools (required)**
-*** one-time installation. If the path is same as before, the configurations can be skipped.
-```
-cd installation/MULTICOM_manually_install_files
 
-$ sh ./P1_install_boost.sh 
-(** may take ~20 min)
-
-$ sh ./P2_install_OpenBlas.sh 
-(** take ~1 min)
-
-$ sh ./P3_install_freecontact.sh 
-(** take ~1 min)
-
-$ sh ./P4_install_scwrl4.sh 
-(** take ~1 min, after running this shell file, the installation path for scwrl will be reported in the second line. 
-Please copy the provided path for scwrl installation)
-
-$ sh ./P5_python_virtual.sh 
-(** take ~1 min)
-```
-
-**(5) Set theano as backend for keras (required)**
+**(4) Set theano as backend for keras (required)**
 
 Change the contents in '~/.keras/keras.json'. DNCON2 is currently running based on theano-compiled models.
 ```
@@ -79,7 +58,7 @@ $ vi ~/.keras/keras.json
 }
 ```
 
-**(6) Testing the individual tools in MULTICOM (recommended)**
+**(5) Testing the individual tools in MULTICOM (recommended)**
 
 ```
 cd installation/MULTICOM_test_codes
@@ -93,7 +72,7 @@ b. Parallel tesing up to 5 jobs at same time
     
 ```
 
-**(7) Validate the individual predictons**
+**(6) Validate the individual predictons**
 
 ```
 
@@ -102,7 +81,7 @@ sh T99-run-validation.sh
 
 ```
 
-**(8) Testing the integrated MULTICOM system (recommended)**
+**(7) Testing the integrated MULTICOM system (recommended)**
 
 ```
 
@@ -112,7 +91,7 @@ sh T0-run-multicom-hard-T0957s2.sh
 
 ```
 
-**(9) Run MULTICOM for structure predicton**
+**(8) Run MULTICOM for structure predicton**
 
 ```
    Usage:
@@ -122,7 +101,7 @@ sh T0-run-multicom-hard-T0957s2.sh
    $ sh bin/run_multicom.sh T0993s2 examples/T0993s2.fasta test_out/T0993s2_out
 ```
 
-**(10) Run individual methods for structure predicton**
+**(9) Run individual methods for structure predicton**
 
 ```
 Examples:
