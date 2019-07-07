@@ -471,7 +471,7 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix` || die "Failed to link database, check the permission\n";
+			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix` || die "Failed to link database ($database_dir/nr70_90/nr70.$subfix), check the permission\n";
 			`chmod -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
 		
