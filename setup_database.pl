@@ -1263,12 +1263,12 @@ if(-d $addr_scwrl4)
 	print "Done\n";
 }
 
-$addr_sam = $multicom_db_tools_dir."/tools/sam3.5.x86_64-linux/bin/sam-t-configure";
-if(-e $addr_sam)
+$addr_sam = $multicom_db_tools_dir."/tools/sam3.5.x86_64-linux/bin/";
+if(-d $addr_sam)
 {
 	print "\n#########  Setting up sam \n";
 	chdir "$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/";
-	if(-f 'install.pl')
+	if(-f 'sam-t-configure')
 	{
 		$status = system("./sam-t-configure `which perl`");
 		if($status){
