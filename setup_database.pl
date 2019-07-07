@@ -1263,6 +1263,24 @@ if(-d $addr_scwrl4)
 	print "Done\n";
 }
 
+$addr_sam = $multicom_db_tools_dir."/tools/sam3.5.x86_64-linux/bin/sam-t-configure";
+if(-e $addr_sam)
+{
+	print "\n#########  Setting up sam \n";
+	chdir "$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/";
+	if(-f 'install.pl')
+	{
+		$status = system("./sam-t-configure `which perl`");
+		if($status){
+			die "Failed to run perl install.pl \n";
+			exit(-1);
+		}
+	}else{
+		die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
+	}
+	print "Done\n";
+}
+
 print "\n#########  Start install tools in folder 'installation/MULTICOM_manually_install_files/'\n\n";
 ### install boost-1.55 
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
