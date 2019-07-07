@@ -1277,7 +1277,7 @@ if(-d $addr_sam)
 		}
 		
 		open(TMPO,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf.tmp");
-		open(TMPI,">$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf");
+		open(TMPI,"$multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf");
 		while(<TMPI>)
 		{
 			$li = $_;
