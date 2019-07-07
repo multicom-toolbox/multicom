@@ -102,7 +102,10 @@ if(!-d $tools_dir)
 
 
 ####### tools compilation 
-
+if(-e "$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh")
+{
+	`rm $install_dir/installation/MULTICOM_manually_install_files/*sh`;
+}
 ### install boost-1.55 
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh\n";
 print OUT "#!/bin/bash -e\n\n";
@@ -158,7 +161,7 @@ close OUT;
 
 #### create python virtual environment
 
-open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P5_python_virtual.sh\n";
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P4_python_virtual.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P4_python_virtual.sh\n";
 print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start install python virtual environment (will take ~1 min)\"\n\n";
 print OUT "cd $multicom_db_tools_dir/tools\n\n";
@@ -183,7 +186,7 @@ if(!(-e "/usr/bin/python2.6"))
 {
 	#### create python2.6 library
 
-	open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P6_python2.6_library.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P6_python2.6_library.sh\n";
+	open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P5_python2.6_library.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P5_python2.6_library.sh\n";
 	print OUT "#!/bin/bash -e\n\n";
 	print OUT "echo \" Start install python2.6 library (will take ~5 min)\"\n\n";
 	print OUT "cd $multicom_db_tools_dir/tools\n\n";

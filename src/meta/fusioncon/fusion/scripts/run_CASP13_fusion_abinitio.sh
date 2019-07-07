@@ -16,8 +16,8 @@ weight=1 #
 
 
 
-source /home/jh7x3/multicom_beta1.0/tools/python_virtualenv/bin/activate
+source /home/jh7x3/multicom/tools/python_virtualenv/bin/activate
 
 if [ -z $contact_file ]; then contact_file='None'; else echo "Setting contact file to $contact_file" ; fi
-echo "perl /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $lbound $ubound $weight"
-perl /home/jh7x3/multicom_beta1.0/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $lbound $ubound $weight
+echo "perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $lbound $ubound $weight"
+perl /home/jh7x3/multicom/src/meta/fusioncon/fusion/scripts/run_CASP13_fusion_withcontact_LongMediumShortLby5.pl $targetid   $fasta  $dir_output  $contact_file $lbound $ubound $weight

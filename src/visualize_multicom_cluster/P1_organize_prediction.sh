@@ -14,7 +14,7 @@ outputdir=$3 #
 
 
 
-source /home/jh7x3/multicom_beta1.0/tools/python_virtualenv/bin/activate
-perl /home/jh7x3/multicom_beta1.0/src/visualize_multicom_cluster/P1_organize_prediction.pl  $workdir $targetid  $outputdir
+source /home/jh7x3/multicom/tools/python_virtualenv/bin/activate
+perl /home/jh7x3/multicom/src/visualize_multicom_cluster/P1_organize_prediction.pl  $workdir $targetid  $outputdir
 
 

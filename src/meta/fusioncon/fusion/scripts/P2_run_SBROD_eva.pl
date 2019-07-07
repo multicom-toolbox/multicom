@@ -21,7 +21,7 @@ $output_prefix_name='fusion';
 
 $fusion_starttime = time();
 $SBROD_starttime = time();
-chdir("/home/jh7x3/multicom_beta1.0/tools/SBROD");
+chdir("/home/jh7x3/multicom/tools/SBROD");
 
 if(!(-e "$outputdir/SBROD_ranking.txt"))
 {

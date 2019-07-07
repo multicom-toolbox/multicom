@@ -10,7 +10,7 @@ $benchmark_dir = $ARGV[2];
 $native_file = $ARGV[3];
 $prefix = $ARGV[4];
 
-$GLOBAL_PATH="/home/jh7x3/multicom_beta1.0/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 
 print "\n---------------------------------------------------------------------------------------------------\n";

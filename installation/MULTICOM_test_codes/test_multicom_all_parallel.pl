@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-$test_script_dir= '/home/jh7x3/multicom_beta1.0/installation/MULTICOM_test_codes';
-$test_out_dir= '/home/jh7x3/multicom_beta1.0/test_out';
+$test_script_dir= '/home/jh7x3/multicom/installation/MULTICOM_test_codes';
+$test_out_dir= '/home/jh7x3/multicom/test_out';
 
 $num = @ARGV;
 if($num ==0)
@@ -24,6 +24,7 @@ if($num ==0)
 
 -d $test_out_dir || `mkdir $test_out_dir`;
 
+chdir($test_script_dir);
 opendir(DIR,"$test_script_dir") || die "Failed to open directory $test_script_dir\n";
 @input_files = readdir(DIR);
 closedir(DIR);

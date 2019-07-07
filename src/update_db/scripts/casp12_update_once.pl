@@ -83,7 +83,7 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		system("/home/jh7x3/multicom_beta1.0/src/update_db/tools/ffas/build_db_update.pl");
+		system("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";
@@ -114,7 +114,7 @@ if (-f "update.log")
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/home/jh7x3/multicom_beta1.0/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";	

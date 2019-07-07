@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-$GLOBAL_PATH="/home/jh7x3/multicom_beta1.0/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 
 $benchmark_list = "$GLOBAL_PATH/installation/benchmark/casp13_benchmark.txt";
