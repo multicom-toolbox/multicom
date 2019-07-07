@@ -77,14 +77,14 @@ $database_dir = "$multicom_db_tools_dir/databases";
 $tools_dir = "$multicom_db_tools_dir/tools";
 
 
-if(!-s $database_dir)
+if(!-d $database_dir)
 {
-	`mkdir $database_dir`;
+	`mkdir $database_dir`  || die "Failed to create folder, check permission or folder path\n";
 	`chmod -R 755 $database_dir`;
 }
-if(!-s $tools_dir)
+if(!-d $tools_dir)
 {
-	`mkdir $tools_dir`;
+	`mkdir $tools_dir` || die "Failed to create folder, check permission or folder path\n";
 	`chmod -R 755 $tools_dir`;
 }
 
@@ -213,7 +213,7 @@ foreach $db (@basic_db)
 	{
 		`rm $db`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db` || die "Failed to download, check permission or file path\n";
 	if(-e "$db")
 	{
 		print "\t$db is found, start extracting files......\n\n";
@@ -252,7 +252,7 @@ foreach $tool (@basic_tools)
 	{
 		`rm $tool`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool` || die "Failed to download, check permission or file path\n";
 	if(-e "$tool")
 	{
 		print "\n\t$tool is found, start extracting files......\n\n";
@@ -288,7 +288,7 @@ if(-e "uniref90.pal")
 	{
 		`rm uniref90.fasta.gz`;
 	}
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz`;
+	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz` || die "Failed to download, check permission or file path\n";
 	if(-e "uniref90.fasta.gz")
 	{
 		print "\tuniref90.fasta.gz is found, start extracting files\n";
@@ -350,7 +350,7 @@ if(-e "uniref50.pal")
 	print "\tuniref50.fasta is found, start formating......\n";
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
 }else{
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz`;
+	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz` || die "Failed to download, check permission or file path\n";
 	if(-e "uniref50.fasta.gz")
 	{
 		print "\tuniref50.fasta.gz is found, start extracting files......\n";
@@ -359,7 +359,7 @@ if(-e "uniref50.pal")
 	}
 	`gzip -d uniref50.fasta.gz`;
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
-		`chmod -R 755 uniref50*`;
+	`chmod -R 755 uniref50*`;
 
 }
 =pod
@@ -417,7 +417,7 @@ foreach $file (@files)
 		$subfix = substr($file,9);
 		if(-l "$database_dir/nr70_90/nr90.$subfix")
 		{
-			`rm $database_dir/nr70_90/nr90.$subfix`; 
+			`rm $database_dir/nr70_90/nr90.$subfix`|| die "Failed to remove file, check the permission\n";
 		}
 		if($subfix eq 'pal')
 		{
@@ -439,7 +439,7 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix`;
+			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix` || die "Failed to link database\n";
 			`chmod -R 755 $database_dir/nr70_90/nr90.$subfix`;
 		}
 	}
@@ -449,7 +449,7 @@ foreach $file (@files)
 		$subfix = substr($file,9);
 		if(-l "$database_dir/nr70_90/nr70.$subfix")
 		{
-			`rm $database_dir/nr70_90/nr70.$subfix`; 
+			`rm $database_dir/nr70_90/nr70.$subfix` || die "Failed to remove file, check the permission\n";
 		}
 		if($subfix eq 'pal')
 		{
@@ -471,7 +471,7 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix`;
+			`ln -s $uniref_dir/$file $database_dir/nr70_90/nr70.$subfix` || die "Failed to link database, check the permission\n";
 			`chmod -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
 		
@@ -504,7 +504,7 @@ foreach $file (@files)
 			close TMP;
 			close TMPOUT;
 		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr_latest/nr.$subfix`;
+			`ln -s $uniref_dir/$file $database_dir/nr_latest/nr.$subfix || die "Failed to link database\n"`;
 			`chmod -R 755 $database_dir/nr_latest/nr.$subfix`;
 		}
 		
@@ -616,7 +616,7 @@ if(!(-e $method_file) or !(-e $method_info))
 				{
 					`rm $tool`;
 				}				
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`  || die "Failed to download, check permission or file path\n";
 				if(-e "$tool")
 				{
 					print "\n\t\t$tool is found, start extracting files......\n\n";
@@ -674,7 +674,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						{
 							`rm uniprot20_2016_02.tgz`;
 						}
-						`wget http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz`;
+						`wget http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz`  || die "Failed to download, check permission or file path\n";
 						if(-e "uniprot20_2016_02.tgz")
 						{
 							print "\t\tuniprot20_2016_02.tgz is found, start extracting files......\n";
@@ -694,8 +694,8 @@ if(!(-e $method_file) or !(-e $method_info))
 						`rm uniprot20_2016_02_hhm_db`; 
 					}
 				
-					`ln -s uniprot20_2016_02_a3m.ffdata uniprot20_2016_02_a3m_db`;
-					`ln -s uniprot20_2016_02_hhm.ffdata uniprot20_2016_02_hhm_db`;
+					`ln -s uniprot20_2016_02_a3m.ffdata uniprot20_2016_02_a3m_db` || die "Failed to link database\n";
+					`ln -s uniprot20_2016_02_hhm.ffdata uniprot20_2016_02_hhm_db` || die "Failed to link database\n";
 					`chmod -R 755 uniprot20_2016_02_a3m_db`;
 					`chmod -R 755 uniprot20_2016_02_hhm_db`;
 					
@@ -729,7 +729,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						{
 							`rm uniclust30_2017_10_hhsuite.tar.gz`;
 						}
-						`wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz`;
+						`wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz`  || die "Failed to download, check permission or file path\n";
 						if(-e "uniclust30_2017_10_hhsuite.tar.gz")
 						{
 							print "\t\tuniclust30_2017_10_hhsuite.tar.gz is found, start extracting files......\n";
@@ -763,7 +763,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					print "\t\t$dbname is done!\n";
 					next;
 				}
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
+				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`  || die "Failed to download, check permission or file path\n";
 				if(-e "$db")
 				{
 					print "\t\t$db is found, start extracting files......\n\n";

@@ -2,11 +2,11 @@
 
 echo " Start compile boost (will take ~20 min)"
 
-cd /data/commons/MULTICOM_db_tools_v1.1//tools
+cd /data/commons/MULTICOM_db_tools//tools
 
 cd boost_1_55_0
 
-./bootstrap.sh  --prefix=/data/commons/MULTICOM_db_tools_v1.1//tools/boost_1_55_0
+./bootstrap.sh  --prefix=/data/commons/MULTICOM_db_tools//tools/boost_1_55_0
 
 ./b2
 
