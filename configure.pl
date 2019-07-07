@@ -194,6 +194,7 @@ $option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_prog
 
 $python_env = 0;
 $boost_enable = 0;
+open(OUT,">$install_dir/Method_tutorial.txt") || die "Failed to open file $install_dir/Method_tutorial.txt\n";
 if(!(-e $method_file) or !(-e $option_list))
 {
 	print "\nFailed to find method file ($method_file and $option_list), please contact us!\n\n";
@@ -272,6 +273,7 @@ if(!(-e $method_file) or !(-e $option_list))
 		$method_indx++;
 		
 		print  "\n################################################################# Method $method_indx: $method  #################################################################\n\n";
+		print  OUT "\n################################################################# Method $method_indx: $method  #################################################################\n\n";
 		if(exists($method_programs{"${method}"}))
 		{
 			$file = $method_programs{"${method}"};
@@ -279,8 +281,10 @@ if(!(-e $method_file) or !(-e $option_list))
 			$program_file = pop @tmp;
 			if(-e "$install_dir/bin/$program_file")
 			{
-				print "$install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print OUT "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
 				print "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_$method\n\n";
+				print OUT "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_$method\n\n";
 			}
 			
 		}
@@ -291,8 +295,10 @@ if(!(-e $method_file) or !(-e $option_list))
 			$program_file = pop @tmp;
 			if(-e "$install_dir/bin/$program_file")
 			{
-				print "$install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print OUT "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
 				print "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_$method\n\n";
+				print OUT "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_$method\n\n";
 			}
 		}
 		if(exists($method_programs{"${method}_hard"}))
@@ -302,8 +308,10 @@ if(!(-e $method_file) or !(-e $option_list))
 			$program_file = pop @tmp;
 			if(-e "$install_dir/bin/$program_file")
 			{
-				print "$install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
+				print OUT "Usage: $install_dir/bin/$program_file <target id> <fasta> <output-directory>\n\n";
 				print "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_${method}_hard\n\n";
+				print OUT "\t** Example: $install_dir/bin/$program_file T1006 $install_dir/examples/T1006.fasta $install_dir/test_out/T1006_${method}_hard\n\n";
 			}
 		}
 		
@@ -316,7 +324,7 @@ if(!(-e $method_file) or !(-e $option_list))
 	
 
 }
-
+close OUT;
 system("chmod +x $install_dir/installation/MULTICOM_test_codes/*sh");
 
 system("cp $install_dir/src/run_multicom.sh $install_dir/bin/run_multicom.sh");
