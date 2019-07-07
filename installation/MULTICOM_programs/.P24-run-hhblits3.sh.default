@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ $# != 3 ]; then
+	echo "$0 <target id> <fasta> <output-directory>"
+	exit
+fi
+
+targetid=$1
+fastafile=$2
+outputdir=$3
+
+mkdir -p $outputdir
+cd $outputdir
+
+if [[ "$fastafile" != /* ]]
+then
+   echo "Please provide absolute path for $fastafile"
+   exit
+fi
+
+if [[ "$outputdir" != /* ]]
+then
+   echo "Please provide absolute path for $outputdir"
+   exit
+fi
+
+mkdir -p $outputdir/hhblits3
+
+cd $outputdir
+perl SOFTWARE_PATH/src/meta/hhblits3//script/tm_hhblits3_main.pl SOFTWARE_PATH/src/meta/hhblits3/hhblits3_option SOFTWARE_PATH/examples/T1006.fasta hhblits3  2>&1 | tee  hhblits3.log
+perl SOFTWARE_PATH/src/meta/hhblits3//script/filter_identical_hhblits.pl hhblits3
+
+
+printf "\nFinished.."
+printf "\nCheck log file <$outputdir/hhblits3.log>\n\n"
+
+
+if [[ ! -f "$outputdir/hhblits3/hhbl2.pdb" ]];then 
+	printf "!!!!! Failed to run hhblits3, check the installation <SOFTWARE_PATH/src/meta/hhblits3/>\n\n"
+else
+	printf "\nJob successfully completed!"
+	if [[ -f "$outputdir/hhblits3/hhbl1.pdb" ]];then
+		cp $outputdir/hhblits3/hhbl1.pdb $outputdir/$targetid.pdb 
+		printf "\nResults: $outputdir/$targetid.pdb\n\n"
+	elif [[ -f "$outputdir/hhblits3/hhbl2.pdb" ]];then
+		cp $outputdir/hhblits3/hhbl2.pdb $outputdir/$targetid.pdb 
+		printf "\nResults: $outputdir/$targetid.pdb\n\n"
+	fi
+fi
+
