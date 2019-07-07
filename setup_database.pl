@@ -96,11 +96,6 @@ if(!-d $tools_dir)
 	`chmod -R 755 $tools_dir`;
 }
 
-
-
-
-
-
 ####### tools compilation 
 if(-e "$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh")
 {
@@ -115,6 +110,7 @@ print OUT "cd boost_1_55_0\n\n";
 print OUT "./bootstrap.sh  --prefix=$multicom_db_tools_dir/tools/boost_1_55_0\n\n";
 print OUT "./b2\n\n";
 print OUT "./b2 install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/boost_1_55_0/install.done\n\n";
 close OUT;
 
 #### install OpenBlas
@@ -126,6 +122,7 @@ print OUT "cd OpenBLAS\n\n";
 print OUT "make clean\n\n";
 print OUT "make\n\n";
 print OUT "make PREFIX=$multicom_db_tools_dir/tools/OpenBLAS install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/OpenBLAS/install.done\n\n";
 close OUT;
 
 
@@ -141,6 +138,7 @@ print OUT "make clean\n\n";
 print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\" --with-boost=$multicom_db_tools_dir/tools/boost_1_55_0/\n\n";
 print OUT "make\n\n";
 print OUT "make install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
 close OUT;
 
 =pod
@@ -179,6 +177,7 @@ print OUT "NOW=\$(date +\"%m-%d-%Y\")\n\n";
 print OUT "mkdir -p ~/.keras\n\n";
 print OUT "cp ~/.keras/keras.json ~/.keras/keras.json.\$NOW.\$RANDOM\n\n";
 print OUT "cp $install_dir/installation/MULTICOM_configure_files/keras_multicom.json ~/.keras/keras.json\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/python_virtualenv/install.done\n\n";
 close OUT;
 
 
@@ -197,6 +196,7 @@ if(!(-e "/usr/bin/python2.6"))
 	print OUT "./configure --prefix=$multicom_db_tools_dir/tools/Python-2.6.8 --with-threads --enable-shared --with-zlib=/usr/include\n\n";
 	print OUT "make\n\n";
 	print OUT "make install\n\n";
+	print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/Python-2.6.8/install.done\n\n";
 	close OUT;
 	
 	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
@@ -300,7 +300,8 @@ if(-e "uniref90.pal")
 	{
 		`rm uniref90.fasta.gz`;
 	}
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz`;
+	#`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz`;
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref90.fasta.gz`;
 	if(-e "uniref90.fasta.gz")
 	{
 		print "\tuniref90.fasta.gz is found, start extracting files\n";
@@ -325,7 +326,7 @@ if(-e "uniref70.pal")
 	print "\tuniref70.fasta is found, start formating......\n";
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref70.fasta -o T -t uniref70 -n uniref70`;
 }else{
-
+=pod
 	### run mmseq
 	`mkdir $uniref_dir/create70`;
 	chdir("$uniref_dir/create70");
@@ -336,8 +337,21 @@ if(-e "uniref70.pal")
 	`$tools_dir/mmseqs2/bin/mmseqs result2flat uniref90 uniref90 uniref70_lin_req uniref70.fasta --use-fasta-header`;
 	`cp uniref70.fasta $uniref_dir/uniref70.fasta`;
 	`rm -rf $uniref_dir/create70`;
-	
+=cut	
 	chdir($uniref_dir);
+	if(-e "uniref70.fasta.gz")
+	{
+		`rm uniref70.fasta.gz`;
+	}
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref70.fasta.gz`;
+	if(-e "uniref70.fasta.gz")
+	{
+		print "\tuniref70.fasta.gz is found, start extracting files\n";
+	}else{
+		die "Failed to download uniref70.fasta.gz from ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref70/\n";
+	}
+	`gzip -d uniref70.fasta.gz`;
+	
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref70.fasta -o T -t uniref70 -n uniref70`;
 		`chmod -R 755 uniref70*`;
 
@@ -362,7 +376,8 @@ if(-e "uniref50.pal")
 	print "\tuniref50.fasta is found, start formating......\n";
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
 }else{
-	`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz`;
+	#`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz`;
+	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref50.fasta.gz`;
 	if(-e "uniref50.fasta.gz")
 	{
 		print "\tuniref50.fasta.gz is found, start extracting files......\n";
@@ -1247,6 +1262,64 @@ if(-d $addr_scwrl4)
 	$OUT->close();
 	print "Done\n";
 }
+
+
+### install boost-1.55 
+chdir("$install_dir/installation/MULTICOM_manually_install_files/");
+if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
+{
+	print "Start install boost, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
+	`sh P1_install_boost.sh &> P1_install_boost.log`;
+}else{
+	print "\nboost-1.55 is installed!\n\n";
+}
+
+#### install OpenBlas
+
+if(! -e "$multicom_db_tools_dir/tools/OpenBLAS/install.done")
+{
+	print "Start install OpenBlas, may take ~1 min (sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log)\n\n";
+	`sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log`;
+}else{
+	print "\nOpenBLAS is installed!\n\n";
+}
+
+
+#### install freecontact
+
+if(! -e "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done")
+{
+	print "Start install freecontact, may take ~1 min (sh P3_install_freecontact.sh &> P3_install_freecontact.log)\n\n";
+	`sh P3_install_freecontact.sh &> P3_install_freecontact.log`;
+}else{
+	print "\nfreecontact-1.0.21 is installed!\n\n";
+}
+
+#### create python virtual environment
+
+if(! -e "$multicom_db_tools_dir/tools/python_virtualenv/install.done")
+{
+	print "Start create python virtual environment, may take ~1 min (sh P4_python_virtual.sh &> P4_python_virtual.log)\n\n";
+	`sh P4_python_virtual.sh &> P4_python_virtual.log`;
+}else{
+	print "\npython virtual environment is installed!\n\n";
+}
+
+
+if(!(-e "/usr/bin/python2.6"))
+{
+	#### create python2.6 library
+
+	if(! -e "$multicom_db_tools_dir/tools/Python-2.6.8/install.done")
+	{
+		print "Start install freecontact, may take ~1 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
+		`sh P5_python2.6_library.sh &> P5_python2.6_library.log`;
+	}else{
+		print "\nPython-2.6.8 is installed!\n\n";
+	}	
+}
+
+
 
 
 print "\n\n";
