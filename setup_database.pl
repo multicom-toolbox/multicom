@@ -59,12 +59,13 @@ if ( substr($multicom_db_tools_dir, length($multicom_db_tools_dir) - 1, 1) ne "/
         $multicom_db_tools_dir .= "/";
 }
 
+=pod
 if (prompt_yn("multicom database will be installed into <$multicom_db_tools_dir> ")){
 
 }else{
 	die "The installation is cancelled!\n";
 }
-
+=cut
 
 print "Start install multicom into <$multicom_db_tools_dir>\n"; 
 
@@ -235,11 +236,18 @@ $basic_tools_list = "blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;blast-2.2.25.tar.gz
 foreach $tool (@basic_tools)
 {
 	$toolname = substr($tool,0,index($tool,'.tar.gz'));
-	if(-e "$tools_dir/$toolname/download.done")
+	if(-d "$tools_dir/$toolname")
 	{
-		print "\t$toolname is done!\n";
-		next;
-	}
+		if(-e "$tools_dir/$toolname/download.done")
+		{
+			print "\t$toolname is done!\n";
+			next;
+		}
+	}elsif(-f "$tools_dir/$toolname")
+	{
+			print "\t$toolname is done!\n";
+			next;
+	}				
 	if(-e $tool)
 	{
 		`rm $tool`;
@@ -590,11 +598,24 @@ if(!(-e $method_file) or !(-e $method_info))
 			foreach $tool (@basic_tools)
 			{
 				$toolname = substr($tool,0,index($tool,'.tar.gz'));
-				if(-e "$tools_dir/$toolname/download.done")
+
+				if(-d "$tools_dir/$toolname")
 				{
-					print "\t\t$toolname is done!\n";
-					next;
+					if(-e "$tools_dir/$toolname/download.done")
+					{
+						print "\t$toolname is done!\n";
+						next;
+					}
+				}elsif(-f "$tools_dir/$toolname")
+				{
+						print "\t$toolname is done!\n";
+						next;
 				}
+				
+				if(-e $tool)
+				{
+					`rm $tool`;
+				}				
 				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
 				if(-e "$tool")
 				{
@@ -649,7 +670,10 @@ if(!(-e $method_file) or !(-e $method_info))
 					
 					}else{
 						print("\n\t\t#### Download uniprot20\n\n");
-						-e "uniprot20_2016_02.tgz" || `rm uniprot20_2016_02.tgz`;
+						if(-e "uniprot20_2016_02.tgz")
+						{
+							`rm uniprot20_2016_02.tgz`;
+						}
 						`wget http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz`;
 						if(-e "uniprot20_2016_02.tgz")
 						{
@@ -657,7 +681,7 @@ if(!(-e $method_file) or !(-e $method_info))
 							`tar -xf uniprot20_2016_02.tgz`;
 							`echo 'done' > uniprot20_2016_02/download.done`;
 							`rm uniprot20_2016_02.tgz`;
-						`chmod -R 755 uniprot20_2016_02`;
+							`chmod -R 755 uniprot20_2016_02`;
 						}else{
 							die "Failed to download uniprot20_2016_02.tgz from http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/\n";
 						}
