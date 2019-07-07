@@ -1292,6 +1292,7 @@ if(-d $addr_sam)
 		}
 		close TMPI;
 		close TMPO;
+		`mv $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf.tmp $multicom_db_tools_dir/tools/sam3.5.x86_64-linux/bin/sam-t2k.conf`;
 		
 	}else{
 		die "The configure.pl file for $tooldir doesn't exist, please contact us(Jie Hou: jh7x3\@mail.missouri.edu)\n";
