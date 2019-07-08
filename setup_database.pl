@@ -803,7 +803,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						{
 							`rm uniclust30_2017_10_hhsuite.tar.gz`;
 						}
-						`wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz`  || die "Failed to download, check permission or file path\n";
+						`wget http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz`;
 						if(-e "uniclust30_2017_10_hhsuite.tar.gz")
 						{
 							print "\t\tuniclust30_2017_10_hhsuite.tar.gz is found, start extracting files......\n";
@@ -837,7 +837,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					print "\t\t$dbname is done!\n";
 					next;
 				}
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`  || die "Failed to download, check permission or file path\n";
+				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
 				if(-e "$db")
 				{
 					print "\t\t$db is found, start extracting files......\n\n";
