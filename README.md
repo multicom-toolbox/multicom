@@ -53,6 +53,7 @@ If the output reports any warning or error, you can also manually inspect the in
 
 Change the contents in '~/.keras/keras.json'. DNCON2 is currently running based on theano-compiled models.
 ```
+$ mkdir ~/.keras
 $ vi ~/.keras/keras.json
 
 
