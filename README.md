@@ -42,7 +42,7 @@ c. save configure.pl
 perl configure.pl
 ```
 
-**Note: Boosting and freecontact may fail to be installed completely on different system versions. We tested on Redhat 6.9 using gcc 4.4 and Cent OS 7.6 using gcc 4.8.5. Please verify if freecontact can run correctly using following test program:**
+**Note: Boosting and freecontact may fail to be installed completely on different system versions. We tested on Redhat 6.9 with gcc 4.4 and Cent OS 7.6 with gcc 4.8.5. Please verify if freecontact can run correctly using following test program:**
 ```
 sh ./tools/DNCON2/test_freecontact.sh
 ```
