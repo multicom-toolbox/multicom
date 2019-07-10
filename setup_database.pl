@@ -1491,7 +1491,7 @@ if(-e "$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh")
 		}
 		
 		print TMPT "#!/bin/bash -e\n\n";
-		print TMPT "export LD_LIBRARY_PATH=$multicom_db_tools_dir/tools/boost_1_38_0/lib/:$multicom_db_tools_dir/tools/OpenBLAS:$LD_LIBRARY_PATH\n\n";
+		print TMPT "export LD_LIBRARY_PATH=$multicom_db_tools_dir/tools/boost_1_38_0/lib/:$multicom_db_tools_dir/tools/OpenBLAS:\$LD_LIBRARY_PATH\n\n";
 		print TMPT "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/bin/freecontact < $multicom_db_tools_dir/examples/T1006.aln\n\n";
 	}else{
 		while(<TMPI>)
@@ -1506,7 +1506,7 @@ if(-e "$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh")
 		}
 		
 		print TMPT "#!/bin/bash -e\n\n";
-		print TMPT "export LD_LIBRARY_PATH=$multicom_db_tools_dir/tools/boost_1_55_0/lib/:$multicom_db_tools_dir/tools/OpenBLAS:$LD_LIBRARY_PATH\n\n";
+		print TMPT "export LD_LIBRARY_PATH=$multicom_db_tools_dir/tools/boost_1_55_0/lib/:$multicom_db_tools_dir/tools/OpenBLAS:\$LD_LIBRARY_PATH\n\n";
 		print TMPT "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/bin/freecontact < $multicom_db_tools_dir/examples/T1006.aln\n\n"; 
 	}
 	close TMPI;
