@@ -121,8 +121,8 @@ print OUT "echo \" Start compile boost (will take ~20 min)\"\n\n";
 print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd boost_1_38_0\n\n";
 print OUT "./configure  --prefix=$multicom_db_tools_dir/tools/boost_1_38_0\n\n";
-print OUT "./make\n\n";
-print OUT "./make install\n\n";
+print OUT "make\n\n";
+print OUT "make install\n\n";
 print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/boost_1_38_0/install.done\n\n";
 close OUT;
 
