@@ -45,6 +45,17 @@ perl configure.pl
 **Note: Boosting and freecontact may fail to be installed completely on different system versions. We tested on Redhat 6.9 with gcc 4.4 and Cent OS 7.6 with gcc 4.8.5. Please verify if freecontact can run correctly using following test program:**
 ```
 sh ./tools/DNCON2/test_freecontact.sh
+
+Output:
+1 D 2 I 0.229506 2.14777
+1 D 3 Y 0.170497 0.725349
+1 D 4 G 0.111352 0.262319
+1 D 5 D 0.0955716 0.426977
+1 D 6 E 0.0803633 -0.125561
+1 D 7 I 0.0956117 0.310092
+1 D 8 T 0.0789781 -0.119555
+1 D 9 A 0.079003 0.0613284
+1 D 10 V 0.0922035 -0.223796
 ```
 If the output reports any warning or error, you can also manually inspect the installation in folder 'installation/MULTICOM_manually_install_files/' or contact us.
 
