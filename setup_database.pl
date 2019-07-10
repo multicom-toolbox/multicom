@@ -1470,7 +1470,7 @@ if(-d "$multicom_db_tools_dir/tools/SCRATCH-1D_1.1")
 }
 
 ### set up the boost environment for DNCON2
-if(-d "$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh")
+if(-e "$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh")
 {
 	`mv $multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh $multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh.old`;
 	open(TMPI,"$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh.old");
