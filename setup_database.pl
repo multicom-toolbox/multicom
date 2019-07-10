@@ -101,6 +101,7 @@ if(-e "$install_dir/installation/MULTICOM_manually_install_files/P1_install_boos
 {
 	`rm $install_dir/installation/MULTICOM_manually_install_files/*sh`;
 }
+=pod
 ### install boost-1.55 
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh\n";
 print OUT "#!/bin/bash -e\n\n";
@@ -111,6 +112,18 @@ print OUT "./bootstrap.sh  --prefix=$multicom_db_tools_dir/tools/boost_1_55_0\n\
 print OUT "./b2\n\n";
 print OUT "./b2 install\n\n";
 print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/boost_1_55_0/install.done\n\n";
+close OUT;
+=cut
+### install boost-1.38 
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile boost (will take ~20 min)\"\n\n";
+print OUT "cd $multicom_db_tools_dir/tools\n\n";
+print OUT "cd boost_1_38_0\n\n";
+print OUT "./configure  --prefix=$multicom_db_tools_dir/tools/boost_1_38_0\n\n";
+print OUT "./make\n\n";
+print OUT "./make install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/boost_1_38_0/install.done\n\n";
 close OUT;
 
 #### install OpenBlas
@@ -125,8 +138,8 @@ print OUT "make PREFIX=$multicom_db_tools_dir/tools/OpenBLAS install\n\n";
 print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/OpenBLAS/install.done\n\n";
 close OUT;
 
-
-#### install freecontact
+=pod
+#### install freecontact using boost 1.55
 
 open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh\n";
 print OUT "#!/bin/bash -e\n\n";
@@ -136,6 +149,22 @@ print OUT "cd freecontact-1.0.21\n\n";
 print OUT "autoreconf -f -i\n\n";
 print OUT "make clean\n\n";
 print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\" --with-boost=$multicom_db_tools_dir/tools/boost_1_55_0/\n\n";
+print OUT "make\n\n";
+print OUT "make install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
+close OUT;
+=cut
+
+#### install freecontact using boost 1.38
+
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile freecontact (will take ~1 min)\"\n\n";
+print OUT "cd $multicom_db_tools_dir/tools/DNCON2\n\n";
+print OUT "cd freecontact-1.0.21\n\n";
+print OUT "autoreconf -f -i\n\n";
+print OUT "make clean\n\n";
+print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_38_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost_1_38_0\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost_1_38_0\" --with-boost=$multicom_db_tools_dir/tools/boost_1_38_0/\n\n";
 print OUT "make\n\n";
 print OUT "make install\n\n";
 print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";

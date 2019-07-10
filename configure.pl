@@ -18,7 +18,7 @@ $install_dir = getcwd;
 $install_dir=abs_path($install_dir);
 
 
-if(!-s $install_dir)
+if(!-d $install_dir)
 {
 	die "The multicom directory ($install_dir) is not existing, please revise the customize settings part inside the configure.pl, set the path as  your unzipped multicom directory\n";
 }
