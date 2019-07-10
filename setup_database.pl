@@ -1406,7 +1406,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 			`ln -s $multicom_db_tools_dir/tools/boost_1_38_0 $multicom_db_tools_dir/tools/boost_1_55_0`;
 		}
 	}else{
-		print "\nboost-1.55 is installed!\n\n";
+		print "\nboost-1.38 is installed!\n\n";
 	}
 }else{
 	if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
