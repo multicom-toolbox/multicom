@@ -357,7 +357,7 @@ foreach $tool (@basic_tools)
 			`mv ${toolname}_64bit ${toolname}`;
 			
 			`echo 'done' > $toolname/download.done`;
-			`rm $tool`;
+			`rm ${toolname}_64bit.tar.gz`;
 			`chmod -R 755 $toolname`;
 		}else{
 			die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
@@ -802,7 +802,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						chdir($tools_dir);
 						
 						`echo 'done' > $toolname/download.done`;
-						`rm $tool`;
+						`rm ${toolname}_64bit.tar.gz`;
 						`chmod -R 755 $toolname`;
 					}else{
 						die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
