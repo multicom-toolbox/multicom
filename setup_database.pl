@@ -103,6 +103,12 @@ if(-e "$install_dir/installation/MULTICOM_manually_install_files/P1_install_boos
 }
 
 ##### check gcc version
+$check_gcc = system("gcc -dumpversion");
+if($check_gcc)
+{
+	print "Failed to find gcc in system, please check gcc version";
+	exit;
+}
 
 $gcc_v = `gcc -dumpversion`;
 chomp $gcc_v;
