@@ -20,14 +20,16 @@ a. edit method.list
 
     uncomment the methods that you would like to run in MULTICOM system (i.e., DNCON2, HHsearch, CONFOLD) 
 
-b. edit setup_database.pl
+b. edit 'setup_database.pl' and 'setup_database_64bit.pl'
 
     set the path of variable '$multicom_db_tools_dir' for multicom databases and tools (i.e., /home/MULTICOM_db_tools/).
 
-c. perl setup_database.pl
+c(1). Install 32bit tools: perl setup_database.pl
+c(2). Or Install 64bit tools: perl setup_database_64bit.pl
 ```
 
 Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM system for publication. The tools can be also downloaded from their official websites.
+
 
 
 **(3) Configure MULTICOM system (required)**
