@@ -545,6 +545,7 @@ foreach $file (@files)
 	if(substr($file,0,9) eq 'uniref90.')
 	{
 		$subfix = substr($file,9);
+		print "Working on $database_dir/nr70_90/nr90.$subfix\n";
 		if(-l "$database_dir/nr70_90/nr90.$subfix")
 		{	
 			$status = system("rm $database_dir/nr70_90/nr90.$subfix");
@@ -587,6 +588,7 @@ foreach $file (@files)
 	if(substr($file,0,9) eq 'uniref70.')
 	{
 		$subfix = substr($file,9);
+		print "Working on $database_dir/nr70_90/nr70.$subfix\n";
 		if(-l "$database_dir/nr70_90/nr70.$subfix")
 		{
 			
@@ -632,6 +634,7 @@ foreach $file (@files)
 	if(substr($file,0,9) eq 'uniref90.')
 	{
 		$subfix = substr($file,9);
+		print "Working on $database_dir/nr_latest/nr.$subfix\n";
 		if(-l "$database_dir/nr_latest/nr.$subfix")
 		{
 			`rm $database_dir/nr_latest/nr.$subfix`; 
