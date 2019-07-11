@@ -148,7 +148,13 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_38_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost-1_38\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost-1_38\" --with-boost=$multicom_db_tools_dir/tools/boost_1_38_0/\n\n";
 	print OUT "make\n\n";
 	print OUT "make install\n\n";
-	print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
+	
+	print OUT "if [[ -f \"bin/freecontact\" ]]; then\n";
+	print OUT "\techo \"bin/freecontact exists\"\n";
+	print OUT "\techo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
+	print OUT "else\n\n";
+	print OUT "\techo \"bin/freecontact doesn't exist, check the installation\"\n";
+	print OUT "fi\n\n";
 	close OUT;
 
 }else{
@@ -177,7 +183,14 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\" --with-boost=$multicom_db_tools_dir/tools/boost_1_55_0/\n\n";
 	print OUT "make\n\n";
 	print OUT "make install\n\n";
-	print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
+	
+	print OUT "if [[ -f \"bin/freecontact\" ]]; then\n";
+	print OUT "\techo \"bin/freecontact exists\"\n";
+	print OUT "\techo \"installed\" > $multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done\n\n";
+	print OUT "else\n\n";
+	print OUT "\techo \"bin/freecontact doesn't exist, check the installation\"\n";
+	print OUT "fi\n\n";
+	
 	close OUT;	
 }
 
