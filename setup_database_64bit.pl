@@ -772,9 +772,9 @@ if(!(-e $method_file) or !(-e $method_info))
 						}
 					}				
 
-				}elsif(-f "$tools_dir/$toolname")
+				}elsif(-f "$tools_dir/$toolname") 
 				{
-						print "\t$toolname is done!\n";
+						print "\t$toolname is done!\n"; 
 						next;
 				}
 				if(-e $tool)
