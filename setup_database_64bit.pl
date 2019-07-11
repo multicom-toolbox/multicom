@@ -341,15 +341,15 @@ foreach $tool (@basic_tools)
 	$toolname = substr($tool,0,index($tool,'.tar.gz'));
 	if(-d "$tools_dir/$toolname")
 	{
-		if(exists($softwares_list_for_64bit{$toolname})))
+		if(exists($softwares_list_for_64bit{$toolname}))
 		{
-			if(-e "$tools_dir/$toolname/download_64bit.done" and  
+			if(-e "$tools_dir/$toolname/download_64bit.done")  
 			{
 				print "\t$toolname is done!\n";
 				next;
 			}
 		}else{
-			if(-e "$tools_dir/$toolname/download.done" and  
+			if(-e "$tools_dir/$toolname/download.done") 
 			{
 				print "\t$toolname is done!\n";
 				next;
@@ -782,15 +782,15 @@ if(!(-e $method_file) or !(-e $method_info))
 
 				if(-d "$tools_dir/$toolname")
 				{
-					if(exists($softwares_list_for_64bit{$toolname})))
+					if(exists($softwares_list_for_64bit{$toolname}))
 					{
-						if(-e "$tools_dir/$toolname/download_64bit.done" and  
+						if(-e "$tools_dir/$toolname/download_64bit.done")  
 						{
 							print "\t$toolname is done!\n";
 							next;
 						}
 					}else{
-						if(-e "$tools_dir/$toolname/download.done" and  
+						if(-e "$tools_dir/$toolname/download.done") 
 						{
 							print "\t$toolname is done!\n";
 							next;
