@@ -523,6 +523,9 @@ if(-e "uniref20.pal")
 }
 =cut
 
+
+
+
 #### (6) Linking databases
 print("\n#### (6) Linking databases\n\n");
 
@@ -531,7 +534,7 @@ print("\n#### (6) Linking databases\n\n");
 -d "$database_dir/nr_latest" || `mkdir $database_dir/nr_latest`;
 -d "$database_dir/nr70_90" || `mkdir $database_dir/nr70_90`;
 #-d "$database_dir/nr20" ||  `mkdir $database_dir/nr20`;
-
+=pod
 opendir(DBDIR,"$uniref_dir") || die "Failed to open $uniref_dir\n";
 @files = readdir(DBDIR);
 closedir(DBDIR);
@@ -670,39 +673,8 @@ foreach $file (@files)
 		}
 		
 	}
-=pod
-	if(substr($file,0,9) eq 'uniref20.')
-	{
-		$subfix = substr($file,9);
-		if(-l "$database_dir/nr20/nr20.$subfix")
-		{
-			`rm $database_dir/nr20/nr20.$subfix`; 
-		}
-		if($subfix eq 'pal')
-		{
-			## change to nr90
-			open(TMP,"$uniref_dir/$file");
-			open(TMPOUT,">$database_dir/nr20/nr20.pal");
-			while(<TMP>)
-			{
-				$li=$_;
-				chomp $li;
-				if(index($li,'uniref20')>=0)
-				{
-					$li =~ s/uniref20/nr20/g;
-					print TMPOUT "$li\n";
-				}else{
-					print TMPOUT "$li\n";
-				}
-			}
-			close TMP;
-			close TMPOUT;
-		}else{
-			`ln -s $uniref_dir/$file $database_dir/nr20/nr20.$subfix`;
-		}
-	}
-=cut
 }
+=cut
 
 #### (7) Setting up tools and databases for methods
 print("\n#### (7) Setting up tools and databases for methods\n\n");
@@ -1483,6 +1455,7 @@ if(-d $addr_sam)
 	print "Done\n";
 }
 
+exit;
 print "\n#########  Start install tools in folder 'installation/MULTICOM_manually_install_files/'\n\n";
 ### install boost-1.55 
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
