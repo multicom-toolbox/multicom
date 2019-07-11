@@ -328,7 +328,7 @@ foreach $tool (@basic_tools)
 	$toolname = substr($tool,0,index($tool,'.tar.gz'));
 	if(-d "$tools_dir/$toolname")
 	{
-		if(-e "$tools_dir/$toolname/download.done" and !exists($softwares_list_for_64bit{$toolname}))
+		if(-e "$tools_dir/$toolname/download.done" and !exists($softwares_list_for_64bit{$toolname})) 
 		{
 			print "\t$toolname is done!\n";
 			next;
