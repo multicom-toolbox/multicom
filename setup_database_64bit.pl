@@ -288,6 +288,29 @@ foreach $db (@basic_db)
 	}
 }
 
+
+
+###### record the 64bit tools
+%softwares_list_for_64bit = ();
+$softwares_list_for_64bit{'betacon'} = 1;
+$softwares_list_for_64bit{'betapro-1.0'} = 1;
+$softwares_list_for_64bit{'clustalw1.83'} = 1;
+$softwares_list_for_64bit{'compass1.24'} = 1;
+$softwares_list_for_64bit{'csblast-2.1.0-linux32'} = 1;
+$softwares_list_for_64bit{'disorder_new'} = 1;
+$softwares_list_for_64bit{'dssp'} = 1;
+$softwares_list_for_64bit{'lobster'} = 1;
+$softwares_list_for_64bit{'model_check2'} = 1;
+$softwares_list_for_64bit{'model_eva1.0'} = 1;
+$softwares_list_for_64bit{'new_compass'} = 1;
+$softwares_list_for_64bit{'nncon1.0'} = 1;
+$softwares_list_for_64bit{'prc1.5.6'} = 1;
+$softwares_list_for_64bit{'prchmm1.5.2'} = 1;
+$softwares_list_for_64bit{'pspro2'} = 1;
+$softwares_list_for_64bit{'pspro2_lite'} = 1;
+$softwares_list_for_64bit{'sam3.5.x86_64-linux'} = 1;
+$softwares_list_for_64bit{'tcoffee2.03'} = 1;
+
 #### (2) Download basic tools
 print("\n#### (2) Download basic tools\n\n");
 
@@ -313,17 +336,42 @@ foreach $tool (@basic_tools)
 	{
 		`rm $tool`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
-	if(-e "$tool")
+	if(exists($softwares_list_for_64bit{$toolname}))
 	{
-		print "\n\t$tool is found, start extracting files......\n\n";
-		`tar -zxf $tool`;
-		`echo 'done' > $toolname/download.done`;
-		`rm $tool`;
-		`chmod -R 755 $toolname`;
+		print "Downloading 64bit version for tool $toolname\n\n";
+		`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
+		if(-e "${toolname}_64bit.tar.gz")
+		{
+			print "\n\t${toolname}_64bit.tar.gz is found, start extracting files......\n\n";
+			`tar -zxf ${toolname}_64bit.tar.gz`;
+			if(-d "${toolname}")
+			{
+				`rm -rf ${toolname}`;
+			}
+			`mv ${toolname}_64bit ${toolname}`;
+			
+			`echo 'done' > $toolname/download.done`;
+			`rm $tool`;
+			`chmod -R 755 $toolname`;
+		}else{
+			die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+		}
 	}else{
-		die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+		`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+		if(-e "$tool")
+		{
+			print "\n\t$tool is found, start extracting files......\n\n";
+			`tar -zxf $tool`;
+			`echo 'done' > $toolname/download.done`;
+			`rm $tool`;
+			`chmod -R 755 $toolname`;
+		}else{
+			die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+		}
+	
 	}
+	
+	
 }
 
 
@@ -719,31 +767,67 @@ if(!(-e $method_file) or !(-e $method_info))
 				if(-e $tool)
 				{
 					`rm $tool`;
-				}				
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
-				
-				if(-e "$tool")
-				{
-					print "\n\t\t$tool is found, start extracting files......\n\n";
-					`tar -zxf $tool`;
-					
-					if($tool eq 'ffas_soft.tar.gz')
-					{
-						chdir("$tools_dir/$toolname/blast/db/");
-						if(!(-e "nr85s.tar.gz"))
-						{
-							die "!!!! Failed to find nr85s.tar.gz in <$tools_dir/$toolname/blast/db/>, please contact us\n\n";
-						}
-						`tar -zxf nr85s.tar.gz`;
-						
-					}
-					chdir($tools_dir);
-					`echo 'done' > $toolname/download.done`;
-					`rm $tool`;
-					`chmod -R 755 $toolname`;
-				}else{
-					die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 				}
+
+				if(exists($softwares_list_for_64bit{$toolname}))
+				{
+					print "Downloading 64bit version for tool $toolname\n\n";
+					`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
+					if(-e "${toolname}_64bit.tar.gz")
+					{
+						print "\n\t${toolname}_64bit.tar.gz is found, start extracting files......\n\n";
+						`tar -zxf ${toolname}_64bit.tar.gz`;
+						if(-d "${toolname}")
+						{
+							`rm -rf ${toolname}`;
+						}
+						`mv ${toolname}_64bit ${toolname}`;
+
+						if($tool eq 'ffas_soft.tar.gz')
+						{
+							chdir("$tools_dir/$toolname/blast/db/");
+							if(!(-e "nr85s.tar.gz"))
+							{
+								die "!!!! Failed to find nr85s.tar.gz in <$tools_dir/$toolname/blast/db/>, please contact us\n\n";
+							}
+							`tar -zxf nr85s.tar.gz`;
+							
+						}
+						chdir($tools_dir);
+						
+						`echo 'done' > $toolname/download.done`;
+						`rm $tool`;
+						`chmod -R 755 $toolname`;
+					}else{
+						die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+					}
+				}else{
+					`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+					
+					if(-e "$tool")
+					{
+						print "\n\t\t$tool is found, start extracting files......\n\n";
+						`tar -zxf $tool`;
+						
+						if($tool eq 'ffas_soft.tar.gz')
+						{
+							chdir("$tools_dir/$toolname/blast/db/");
+							if(!(-e "nr85s.tar.gz"))
+							{
+								die "!!!! Failed to find nr85s.tar.gz in <$tools_dir/$toolname/blast/db/>, please contact us\n\n";
+							}
+							`tar -zxf nr85s.tar.gz`;
+							
+						}
+						chdir($tools_dir);
+						`echo 'done' > $toolname/download.done`;
+						`rm $tool`;
+						`chmod -R 755 $toolname`;
+					}else{
+						die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+					}
+				}
+
 			}
 			
 			### databases
