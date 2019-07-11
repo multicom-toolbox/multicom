@@ -266,7 +266,7 @@ if(!(-e "/usr/bin/python2.6"))
 #### (1) Download basic databases
 print("#### (1) Download basic databases\n\n");
 chdir($database_dir);
-$basic_db_list = "cm_lib.tar.gz;atom.tar.gz;fr_lib.tar.gz;big.tar.gz";
+$basic_db_list = "cm_lib.tar.gz;seq.tar.gz;atom.tar.gz;fr_lib.tar.gz;big.tar.gz";
 @basic_db = split(';',$basic_db_list);
 foreach $db (@basic_db)
 {

@@ -1,20 +1,20 @@
 #### template identification using hhsearch 1.2
 hhsearch_tools:hhsearch1.2.tar.gz;psipred.tar.gz;psipred-2.61.tar.gz;blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;modeller-9.16.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz
-hhsearch_databases:cm_lib.tar.gz;atom.tar.gz;fr_lib.tar.gz;big.tar.gz;
+hhsearch_databases:cm_lib.tar.gz;atom.tar.gz;seq.tar.gz;fr_lib.tar.gz;big.tar.gz;
 
 
 #### template identification using hhsearch 1.5
 hhsearch15_tools:hhsearch1.5.0.tar.gz;psipred.tar.gz;psipred-2.61.tar.gz;blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;modeller-9.16.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz
-hhsearch15_databases:cm_lib.tar.gz;atom.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;big.tar.gz;
+hhsearch15_databases:cm_lib.tar.gz;atom.tar.gz;seq.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;big.tar.gz;
 
 #### template identification using hhsearch 1.5.1
 hhsearch151_tools:hhsearch1.5.1.tar.gz;psipred.tar.gz;psipred-2.61.tar.gz;blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;modeller-9.16.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz
-hhsearch151_databases:cm_lib.tar.gz;atom.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;big.tar.gz;
+hhsearch151_databases:cm_lib.tar.gz;atom.tar.gz;seq.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;big.tar.gz;
 
 
 #### template identification using hhsuite3
 hhsuite3_tools:hhsearch1.5.0.tar.gz;psipred.tar.gz;psipred-2.61.tar.gz;blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;modeller-9.16.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz
-hhsuite3_databases:cm_lib.tar.gz;atom.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;MULTICOM_sort90_hhblists_db.tar.gz;uniprot30/uniclust30_2017_10
+hhsuite3_databases:cm_lib.tar.gz;atom.tar.gz;seq.tar.gz;fr_lib.tar.gz;hhsearch1.5_db.tar.gz;MULTICOM_sort90_hhblists_db.tar.gz;uniprot30/uniclust30_2017_10
 
 
 #### template identification using confold
