@@ -341,11 +341,21 @@ foreach $tool (@basic_tools)
 	$toolname = substr($tool,0,index($tool,'.tar.gz'));
 	if(-d "$tools_dir/$toolname")
 	{
-		if(-e "$tools_dir/$toolname/download.done" and !exists($softwares_list_for_64bit{$toolname})) 
+		if(exists($softwares_list_for_64bit{$toolname})))
 		{
-			print "\t$toolname is done!\n";
-			next;
+			if(-e "$tools_dir/$toolname/download_64bit.done" and  
+			{
+				print "\t$toolname is done!\n";
+				next;
+			}
+		}else{
+			if(-e "$tools_dir/$toolname/download.done" and  
+			{
+				print "\t$toolname is done!\n";
+				next;
+			}
 		}
+		
 	}elsif(-f "$tools_dir/$toolname")
 	{
 			print "\t$toolname is done!\n";
@@ -369,7 +379,7 @@ foreach $tool (@basic_tools)
 			}
 			`mv ${toolname}_64bit ${toolname}`;
 			
-			`echo 'done' > $toolname/download.done`;
+			`echo 'done' > $toolname/download_64bit.done`;
 			`rm ${toolname}_64bit.tar.gz`;
 			`chmod -R 755 $toolname`;
 		}else{
@@ -772,17 +782,26 @@ if(!(-e $method_file) or !(-e $method_info))
 
 				if(-d "$tools_dir/$toolname")
 				{
-					if(-e "$tools_dir/$toolname/download.done")
+					if(exists($softwares_list_for_64bit{$toolname})))
 					{
-						print "\t$toolname is done!\n";
-						next;
-					}
+						if(-e "$tools_dir/$toolname/download_64bit.done" and  
+						{
+							print "\t$toolname is done!\n";
+							next;
+						}
+					}else{
+						if(-e "$tools_dir/$toolname/download.done" and  
+						{
+							print "\t$toolname is done!\n";
+							next;
+						}
+					}				
+
 				}elsif(-f "$tools_dir/$toolname")
 				{
 						print "\t$toolname is done!\n";
 						next;
 				}
-				
 				if(-e $tool)
 				{
 					`rm $tool`;
@@ -814,7 +833,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						}
 						chdir($tools_dir);
 						
-						`echo 'done' > $toolname/download.done`;
+						`echo 'done' > $toolname/download_64bit.done`;
 						`rm ${toolname}_64bit.tar.gz`;
 						`chmod -R 755 $toolname`;
 					}else{
