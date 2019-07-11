@@ -1512,6 +1512,8 @@ if(-e "$multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh")
 	close TMPI;
 	close TMPO;
 	close TMPT;
+	`chmod 755 $multicom_db_tools_dir/tools/DNCON2/dncon2-v1.0.sh`;
+	`chmod 755 $multicom_db_tools_dir/tools/DNCON2/test_freecontact.sh`;
 	
 }
 
