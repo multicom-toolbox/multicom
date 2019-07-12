@@ -1520,6 +1520,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	if(! -e "$multicom_db_tools_dir/tools/boost_1_38_0/install.done")
 	{
 		print "\nStart install boost_1.38, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
+		print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.log\n\n";
 		`sh P1_install_boost.sh &> P1_install_boost.log`;
 		if(-d "$multicom_db_tools_dir/tools/boost_1_55_0")
 		{
@@ -1533,6 +1534,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	if(! -e "$multicom_db_tools_dir/tools/boost_1_55_0/install.done")
 	{
 		print "\nStart install boost_1.55, may take ~20 min (sh P1_install_boost.sh &> P1_install_boost.log)\n\n";
+		print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P1_install_boost.log\n\n";
 		`sh P1_install_boost.sh &> P1_install_boost.log`;
 	}else{
 		print "\nboost-1.55 is installed!\n\n";
@@ -1544,6 +1546,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 if(! -e "$multicom_db_tools_dir/tools/OpenBLAS/install.done")
 {
 	print "\nStart install OpenBlas, may take ~1 min (sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log)\n\n";
+	print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P2_install_OpenBlas.log\n\n";
 	`sh P2_install_OpenBlas.sh &> P2_install_OpenBlas.log`;
 }else{
 	print "\nOpenBLAS is installed!\n\n";
@@ -1555,6 +1558,7 @@ if(! -e "$multicom_db_tools_dir/tools/OpenBLAS/install.done")
 if(! -e "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done")
 {
 	print "\nStart install freecontact, may take ~1 min (sh P3_install_freecontact.sh &> P3_install_freecontact.log)\n\n";
+	print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P3_install_freecontact.log\n\n";
 	`sh P3_install_freecontact.sh &> P3_install_freecontact.log`;
 }else{
 	print "\nfreecontact-1.0.21 is installed!\n\n";
@@ -1565,6 +1569,7 @@ if(! -e "$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21/install.done")
 if(! -e "$multicom_db_tools_dir/tools/python_virtualenv/install.done")
 {
 	print "\nStart create python virtual environment, may take ~1 min (sh P4_python_virtual.sh &> P4_python_virtual.log)\n\n";
+	print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P4_python_virtual.log\n\n";
 	`sh P4_python_virtual.sh &> P4_python_virtual.log`;
 }else{
 	print "\npython virtual environment is installed!\n\n";
@@ -1578,6 +1583,7 @@ if(!(-e "/usr/bin/python2.6"))
 	if(! -e "$multicom_db_tools_dir/tools/Python-2.6.8/install.done")
 	{
 		print "\nStart install freecontact, may take ~1 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
+		print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P5_python2.6_library.log\n\n";
 		`sh P5_python2.6_library.sh &> P5_python2.6_library.log`;
 	}else{
 		print "\nPython-2.6.8 is installed!\n\n";
