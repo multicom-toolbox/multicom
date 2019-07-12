@@ -1487,7 +1487,6 @@ if(-d $addr_sam)
 	print "Done\n";
 }
 
-exit;
 print "\n#########  Start install tools in folder 'installation/MULTICOM_manually_install_files/'\n\n";
 ### install boost-1.55 
 chdir("$install_dir/installation/MULTICOM_manually_install_files/");
