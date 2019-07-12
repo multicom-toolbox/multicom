@@ -144,7 +144,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	print OUT "cd $multicom_db_tools_dir/tools/DNCON2\n\n";
 	print OUT "cd freecontact-1.0.21\n\n";
 	print OUT "autoreconf -f -i\n\n";
-	print OUT "make clean\n\n";
+	print OUT "#make clean\n\n";
 	print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_38_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost-1_38\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_38_0/include/boost-1_38\" --with-boost=$multicom_db_tools_dir/tools/boost_1_38_0/\n\n";
 	print OUT "make\n\n";
 	print OUT "make install\n\n";
@@ -180,7 +180,7 @@ if($gcc_version[0] ==4 and $gcc_version[1]<6) #gcc 4.6
 	print OUT "cd $multicom_db_tools_dir/tools/DNCON2\n\n";
 	print OUT "cd freecontact-1.0.21\n\n";
 	print OUT "autoreconf -f -i\n\n";
-	print OUT "make clean\n\n";
+	print OUT "#make clean\n\n";
 	print OUT "./configure --prefix=$multicom_db_tools_dir/tools/DNCON2/freecontact-1.0.21 LDFLAGS=\"-L$multicom_db_tools_dir/tools/OpenBLAS/lib -L$multicom_db_tools_dir/tools/boost_1_55_0/lib\" CFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\"  CPPFLAGS=\"-I$multicom_db_tools_dir/tools/OpenBLAS/include -I$multicom_db_tools_dir/tools/boost_1_55_0/include\" --with-boost=$multicom_db_tools_dir/tools/boost_1_55_0/\n\n";
 	print OUT "make\n\n";
 	print OUT "make install\n\n";
@@ -202,7 +202,7 @@ print OUT "#!/bin/bash -e\n\n";
 print OUT "echo \" Start compile OpenBlas (will take ~5 min)\"\n\n";
 print OUT "cd $multicom_db_tools_dir/tools\n\n";
 print OUT "cd OpenBLAS\n\n";
-print OUT "make clean\n\n";
+print OUT "#make clean\n\n";
 print OUT "make\n\n";
 print OUT "make PREFIX=$multicom_db_tools_dir/tools/OpenBLAS install\n\n";
 print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/OpenBLAS/install.done\n\n";
