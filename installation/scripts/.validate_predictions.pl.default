@@ -50,7 +50,7 @@ foreach $subdir (@subdirs)
 	printf "\n%-20s\t", 'Model';
 	printf "%-20s\t", 'Predicted (GDT-TS)';
 	printf "%-20s\t", 'Benchmark (GDT-TS)';
-	printf "%-20s\n", 'Difference (GDT-TS)';
+	printf "%-20s\n", 'Difference (GDT-TS. [Benchmark - Predicted])';
 	foreach $file (sort @files)
 	{
 		if($file eq '.' or $file eq '..' or index($file,'.pdb') < 0)
@@ -104,7 +104,7 @@ foreach $subdir (@subdirs)
 	printf "\n%-20s\t", 'Model';
 	printf "%-20s\t", 'Predicted (GDT-TS)';
 	printf "%-20s\t", 'Benchmark (GDT-TS)';
-	printf "%-20s\n", 'Difference (GDT-TS)';
+	printf "%-20s\n", 'Difference (GDT-TS. [Benchmark - Predicted])';
 
 	printf "%-20s\t", 'Average';
 	printf "%-20f\t", $avg_gdt_predict;
