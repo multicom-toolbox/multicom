@@ -373,7 +373,7 @@ if($domain_num>1)
 
 		if(!(-e "$workdir/$full_length_dir/hhsearch15/$targetid.fasta.disorder"))
 		{
-			print "Warning: 2. Failed to find $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder\n";
+			#print "Warning: 2. Failed to find $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder\n";
 		}else{
 			`cp $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder $outputdir/domain$domid/domain$domid.fasta.disorder`;
 		}
