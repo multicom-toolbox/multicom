@@ -312,7 +312,7 @@ if(!(-e "$workdir/$full_length_dir/meta/$targetid.gdt"))
 		close SCORE;
 		if(!(-e $modelpir))
 		{
-			print "Failed to find $modelpir, this ab initio model\n";
+			#print "Failed to find $modelpir, this ab initio model\n";
 		}else{
 			`cp $modelpir $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir`;
 			
@@ -433,7 +433,7 @@ if($domain_num>1)
 				close SCORE;
 				if(!(-e $modelpir))
 				{
-					print "Failed to find $modelpir, this ab initio model\n";
+					#print "Failed to find $modelpir, this ab initio model\n";
 				}else{
 					`cp $modelpir $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir`;
 					
