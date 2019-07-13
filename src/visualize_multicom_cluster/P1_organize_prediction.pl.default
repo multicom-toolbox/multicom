@@ -360,8 +360,8 @@ if($domain_num>1)
 	for($domid=0;$domid<$domain_num;$domid++)
 	{
 		chdir($outputdir);
-		`mkdir $outputdir/domain$domid/`;
-		`mkdir $outputdir/domain$domid/Top5_aln/`;
+		-d "$outputdir/domain$domid" || `mkdir $outputdir/domain$domid/`;
+		-d "$outputdir/domain$domid/Top5_aln" || `mkdir $outputdir/domain$domid/Top5_aln/`;
 
 		$full_length_dir = "domain$domid";
 		###### copy basic information
