@@ -18,9 +18,10 @@ if(!(-d $outputdir))
 
 ###### handle full_length proteins
 chdir($outputdir);
-`mkdir $outputdir/full_length/`;
-`mkdir $outputdir/full_length/Top5_aln/`;
-`mkdir $outputdir/Final_models/`;
+
+-d "mkdir $outputdir/full_length/" || `mkdir $outputdir/full_length/`;
+-d "mkdir $outputdir/full_length/Top5_aln/" || `mkdir $outputdir/full_length/Top5_aln/`;
+-d "mkdir $outputdir/Final_models/" || `mkdir $outputdir/Final_models/`;
 
 $full_length_dir = 'full_length';
 if(-d "$workdir/full_length_hard")
