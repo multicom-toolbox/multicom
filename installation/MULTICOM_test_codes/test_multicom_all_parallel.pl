@@ -10,7 +10,7 @@ if($num ==0)
 }elsif($num ==1)
 {
 	$proc_num = $ARGV[0];
-	if($proc_num > 10)
+	if($proc_num > 5)
 	{
 		die "5 maximum jobs are reccommended for parallel testing\n";
 	}
