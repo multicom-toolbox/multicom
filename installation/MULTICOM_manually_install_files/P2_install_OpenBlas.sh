@@ -6,7 +6,7 @@ cd /data/commons/MULTICOM_db_tools//tools
 
 cd OpenBLAS
 
-make clean
+#make clean
 
 make
 

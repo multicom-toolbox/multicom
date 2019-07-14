@@ -269,9 +269,9 @@ if(!(-e "/usr/bin/python2.6"))
 	print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/Python-2.6.8/install.done\n\n";
 	close OUT;
 	
-	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
 }else{
-	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
 }
 
 

@@ -8,7 +8,7 @@ cd freecontact-1.0.21
 
 autoreconf -f -i
 
-make clean
+#make clean
 
 ./configure --prefix=/data/commons/MULTICOM_db_tools//tools/DNCON2/freecontact-1.0.21 LDFLAGS="-L/data/commons/MULTICOM_db_tools//tools/OpenBLAS/lib -L/data/commons/MULTICOM_db_tools//tools/boost_1_55_0/lib" CFLAGS="-I/data/commons/MULTICOM_db_tools//tools/OpenBLAS/include -I/data/commons/MULTICOM_db_tools//tools/boost_1_55_0/include"  CPPFLAGS="-I/data/commons/MULTICOM_db_tools//tools/OpenBLAS/include -I/data/commons/MULTICOM_db_tools//tools/boost_1_55_0/include" --with-boost=/data/commons/MULTICOM_db_tools//tools/boost_1_55_0/
 
@@ -16,5 +16,12 @@ make
 
 make install
 
-echo "installed" > /data/commons/MULTICOM_db_tools//tools/DNCON2/freecontact-1.0.21/install.done
+if [[ -f "bin/freecontact" ]]; then
+	echo "bin/freecontact exists"
+	echo "installed" > /data/commons/MULTICOM_db_tools//tools/DNCON2/freecontact-1.0.21/install.done
+
+else
+
+	echo "bin/freecontact doesn't exist, check the installation"
+fi
 
