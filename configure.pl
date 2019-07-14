@@ -91,6 +91,15 @@ if (prompt_yn("multicom will be installed into <$install_dir> ")){
 print "Start install multicom into <$install_dir>\n"; 
 
 
+### update python version in Fusion
+if(!(-e "/usr/bin/python2.6"))
+{	
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
+}else{
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
+}
+
+
 print "#########  (1) Configuring option files\n";
 
 $option_list = "$install_dir/installation/MULTICOM_configure_files/multicom_option_list";
