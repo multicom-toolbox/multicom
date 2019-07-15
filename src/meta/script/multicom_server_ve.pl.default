@@ -731,7 +731,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
 			chdir $output_dir;
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -739,7 +738,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch15")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -751,7 +749,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch151")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
@@ -760,7 +757,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "csblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
 
 			#call hhsuite predictor
@@ -803,7 +799,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "csiblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -811,7 +806,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "blast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
@@ -820,7 +814,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "psiblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
