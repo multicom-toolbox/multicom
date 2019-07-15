@@ -4,8 +4,8 @@
 #The main script of template-based modeling using raptorx
 #Inputs: option file, fasta file, output dir.
 #Outputs: raptorx output file, pir alignment file, pdb models 
-#Author: Jianlin Cheng
-#Date: 4/9/2014
+#Author: Jie Hou, Jianlin Cheng
+#Date: 4/1/2018
 ##########################################################################
 
 if (@ARGV != 3)
