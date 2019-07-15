@@ -47,12 +47,9 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-#$tm_score = "/home/casp13/MULTICOM_package//software/tm_score/TMscore_32";
 $tm_score = "$GLOBAL_PATH/tools/tm_score/TMscore_32";
 
-#$q_score = "/home/casp13/MULTICOM_package//software/pairwiseQA/q_score";
 $q_score = "$GLOBAL_PATH/tools/pairwiseQA/q_score";
-#$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package//casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
 $hhsearch_option_casp8 = "$GLOBAL_PATH/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
@@ -1204,7 +1201,6 @@ if ($i == $thread_num && $post_process == 0)
 
 	#rank models
 	system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_file $model_dir");
-#	system("$prosys_dir/script/energy_models_proc.pl $meta_dir/script/eva_option $query_file $model_dir");
 
 	open(FASTA, $query_file) || die "can't read $query_file.\n";
 	$name = <FASTA>;
