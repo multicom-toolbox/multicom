@@ -5,7 +5,7 @@
 #Inputs: option file, fasta file, output dir.
 #Outputs: raptorx output file, pir alignment file, pdb models 
 #Author: Jie Hou, Jianlin Cheng
-#Date: 4/1/2018
+#Date: 4/1/2018, 07/10/2019
 ##########################################################################
 
 if (@ARGV != 3)
