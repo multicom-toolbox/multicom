@@ -215,7 +215,11 @@ chdir("$work_dir/Raptorx/");
 `perl setup.pl`;
 
 chdir($work_dir);
-system("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $work_dir/Raptorx $modeller_program $name $cm_model_num"); 
+
+if(!(-e "$work_dir/$name.rank"))
+{
+	system("$raptorx_dir/runRaptorX.pl $fasta_file $work_dir $work_dir/Raptorx $modeller_program $name $cm_model_num"); 
+}
 
 `rm $work_dir/Raptorx/*`;
 `rm -rf $work_dir/Raptorx/util`;

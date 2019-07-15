@@ -786,13 +786,19 @@ for ($i = 0; $i < @servers; $i++)
 		}
 		elsif ($server eq "deepsf")
 		{
-			
-			system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+			if(!(-e "deepsf/deepsf1.pdb"))
+			{
+				  system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+			}
 		}
 		elsif ($server eq "novel")
 		{
-			
-			system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server"); 
+
+			if(!(-e "novel/novel1.pdb"))
+			{
+				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");  
+			}
+
 		}
 
 		elsif ($server eq "csiblast")
