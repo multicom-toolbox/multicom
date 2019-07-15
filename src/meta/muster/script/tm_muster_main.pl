@@ -5,9 +5,9 @@
 #Inputs: option file, fasta file, output dir.
 #Outputs: muster output file, local alignment file, pir file,
 #         pdb file (if available, and log file
-#Author: Jianlin Cheng
+#Author: Jie Hou, Jianlin Cheng
 #Modifided tm_hhpred_main.pl 
-#Date: 11/23/2011
+#Date: 11/23/2011, 04/02/2018, 07/15/2019
 ##########################################################################
 
 if (@ARGV != 3)
@@ -409,12 +409,18 @@ print ERR "Start to run TASSER...\n";
 if ($itasser_dir =~ /3\.0/)
 {
 	print "Run itasser 3.0...\n";
-	system("$itasser_dir/I-TASSERmod/runMUSTER.pl -pkgdir $itasser_dir -libdir $itasser_dir -seqname $name -datadir $work_dir -usrname chengji"); 
+	if(!(-e "initres.MUSTER"))
+	{
+		system("$itasser_dir/I-TASSERmod/runMUSTER.pl -pkgdir $itasser_dir -libdir $itasser_dir -seqname $name -datadir $work_dir -usrname chengji"); 
+	}
 }
 else
 {
 	print "Run $itasser_dir ...\n";
-	system("$itasser_dir/I-TASSERmod/runMUSTER.pl -pkgdir $itasser_dir -libdir $itasser_dir/ITLIB -seqname $name -datadir $work_dir"); 
+	if(!(-e "initres.MUSTER"))
+	{
+		system("$itasser_dir/I-TASSERmod/runMUSTER.pl -pkgdir $itasser_dir -libdir $itasser_dir/ITLIB -seqname $name -datadir $work_dir"); 
+	}
 }
 
 print ERR "Finish running TASSER.\n";
