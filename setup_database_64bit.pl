@@ -976,6 +976,60 @@ if(!(-e $method_file) or !(-e $method_info))
 					next;
 				}
 				
+				if($db eq 'uniprot30/uniclust30_2018_08')
+				{
+					
+					chdir("$database_dir/$db");
+					
+					
+					$uniprot30_dir = "$multicom_db_tools_dir/databases/uniprot30/";
+					if(-e "$uniprot30_dir/uniclust30_2018_08/download.done" and -e "$uniprot30_dir/uniclust30_2018_08/uniclust30_2018_08_hhm_db" )
+					{
+						print "\t\t$db is done!\n";
+						next;
+					}
+					
+					-d $uniprot30_dir || `mkdir $uniprot30_dir/`;;
+					chdir($uniprot30_dir);
+					
+					if(-e "uniclust30_2018_08/uniclust30_2018_08_hhm.ffdata")
+					{
+						print "\t\tuniclust30_2018_08 has been downloaded, skip!\n";
+						`echo 'done' > uniclust30_2018_08/download.done`;
+					
+					}else{
+						print("\n\t\t#### Download uniprot30\n\n");
+						if(-e "uniclust30_2018_08_hhsuite.tar.gz")
+						{
+							`rm uniclust30_2018_08_hhsuite.tar.gz`;
+						}
+						`wget http://wwwuser.gwdg.de/~compbiol/uniclust/2018_08/uniclust30_2018_08_hhsuite.tar.gz`;
+						if(-e "uniclust30_2018_08_hhsuite.tar.gz")
+						{
+							print "\t\tuniclust30_2018_08_hhsuite.tar.gz is found, start extracting files......\n";
+							`tar -zxf uniclust30_2018_08_hhsuite.tar.gz`;
+							`echo 'done' > uniclust30_2018_08/download.done`;
+							`rm uniclust30_2018_08_hhsuite.tar.gz`;
+							`chmod -R 755 uniclust30_2018_08`;
+						}else{
+							die "Failed to download uniclust30_2018_08_hhsuite.tar.gz from http://wwwuser.gwdg.de/~compbiol/uniclust/2018_08/\n";
+						}
+					}
+					chdir("$uniprot30_dir/uniclust30_2018_08/");
+					if(-l "uniclust30_2018_08_a3m_db")
+					{
+						`rm uniclust30_2018_08_a3m_db`; 
+						`rm uniclust30_2018_08_hhm_db`; 
+					}
+				
+					`ln -s uniclust30_2018_08_a3m.ffdata uniclust30_2018_08_a3m_db`;
+					`ln -s uniclust30_2018_08_hhm.ffdata uniclust30_2018_08_hhm_db`;
+					`chmod -R 755 uniclust30_2018_08_a3m_db`;
+					`chmod -R 755 uniclust30_2018_08_hhm_db`;
+					
+					next;
+				}
+				
 				
 				$dbname = substr($db,0,index($db,'.tar.gz'));
 				if(-e "$database_dir/$dbname/download.done")
