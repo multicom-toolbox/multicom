@@ -198,8 +198,8 @@ foreach $folder (@remote_folders)
     	print SB "mv $sbatch_dir/db${db_index}_${folder}.queued $sbatch_dir/db${db_index}_${folder}.running\n\n";
   		#within the child process
   		print SB "echo 'start updating database to date $folder'\n\n";
-      print SB "cd $database_dir/work\n\n";
-  		print SB "echo '$script_dir/scripts/casp12_update_once.pl $script_dir/prosys/script/update_main.pl $script_dir/bin/update_nr.sh $script_dir/tools/compass/update_compass_db_v2.sh $script_dir/tools/hhsearch1.5/make_hhsearch1.5_db.sh$script_dir/tools/prc/make_prc_db.sh  $option_tmp'\n\n";
+        print SB "cd $database_dir/work\n\n";
+  		print SB "echo '$script_dir/scripts/casp12_update_once.pl $script_dir/prosys/script/update_main.pl $script_dir/bin/update_nr.sh $script_dir/tools/compass/update_compass_db_v2.sh $script_dir/tools/hhsearch1.5/make_hhsearch1.5_db.sh $script_dir/tools/prc/make_prc_db.sh  $option_tmp'\n\n";
   		print SB "$script_dir/scripts/casp12_update_once.pl $script_dir/prosys/script/update_main.pl $script_dir/bin/update_nr.sh $script_dir/tools/compass/update_compass_db_v2.sh $script_dir/tools/hhsearch1.5/make_hhsearch1.5_db.sh $script_dir/tools/prc/make_prc_db.sh  $option_tmp\n\n";
     	print SB "mv $sbatch_dir/db${db_index}_${folder}.running $sbatch_dir/db${db_index}_${folder}.done\n\n";
     	close SB;
