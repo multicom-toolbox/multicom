@@ -10,6 +10,7 @@ thread_num = 30
 
 ### set running mode to run (threads or sbatch)
 #running_mode = thread
+#running_mode = sbatch
 running_mode = sbatch
 
 ### set start date

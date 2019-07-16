@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 ###################################################################
-#Script to udpate PDB files using sbatch
+#Script to udpate template database
 #Input: database option file. 
 #Author: Jie Hou
 #Date: 06/24/2015
@@ -12,7 +12,7 @@ use Scalar::Util qw(looks_like_number);
 
 
 $num = @ARGV;
-if($num !=7)
+if($num !=8)
 {
   die "The parameter is not correct\n";
 }
@@ -23,6 +23,7 @@ $from_db_date = $ARGV[3];
 $end_db_date = $ARGV[4];
 $thread_num = $ARGV[5];
 $by_weeks = $ARGV[6];
+$run_mode = $ARGV[7];
 
 $db_option = "$script_dir/options/db_option";
 
@@ -143,6 +144,9 @@ foreach $folder (@remote_folders)
       	if ($line =~ /^end_date/)
       	{
           print OUT "end_date = $folder\n";
+        }elsif ($line =~ /^running_mode/)
+      	{
+          print OUT "running_mode = $run_mode\n";
         }elsif ($line =~ /^thread_num/)
       	{
           print OUT "thread_num = $thread_num\n";
