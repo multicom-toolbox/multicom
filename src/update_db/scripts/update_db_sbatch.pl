@@ -146,6 +146,39 @@ foreach $folder (@remote_folders)
         }elsif ($line =~ /^thread_num/)
       	{
           print OUT "thread_num = $thread_num\n";
+        }elsif ($line =~ /^prosys_db_stat_dir/)
+      	{
+          print OUT "prosys_db_stat_dir = $database_dir/dbstat\n";
+        }elsif ($line =~ /^main_pdb_dir/)
+      	{
+          print OUT "main_pdb_dir = $database_dir/pdb05_2004\n";
+        }elsif ($line =~ /^pdb_download_dir/)
+      	{
+          print OUT "pdb_download_dir = $database_dir/pdb\n";
+        }elsif ($line =~ /^set_pdb_source_dir/)
+      	{
+          print OUT "set_pdb_source_dir = $database_dir/pdb\n";
+        }elsif ($line =~ /^set_dssp_dir/)
+      	{
+          print OUT "set_dssp_dir = $database_dir/dssp\n";
+        }elsif ($line =~ /^set_seq_dir/)
+      	{
+          print OUT "set_seq_dir = $database_dir/seq\n";
+        }elsif ($line =~ /^set_atom_dir/)
+      	{
+          print OUT "set_atom_dir = $database_dir/atom\n";
+        }elsif ($line =~ /^set_work_dir/)
+      	{
+          print OUT "set_work_dir = $database_dir/work\n";
+        }elsif ($line =~ /^cm_library_dir/)
+      	{
+          print OUT "cm_library_dir = $database_dir/cm_lib\n";
+        }elsif ($line =~ /^fr_template_dir/)
+      	{
+          print OUT "fr_template_dir = $database_dir/library\n";
+        }elsif ($line =~ /^fr_template_library_dir/)
+      	{
+          print OUT "fr_template_library_dir = $database_dir/fr_lib\n";
         }else{
           print OUT "$line\n";
         }
