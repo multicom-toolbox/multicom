@@ -1,0 +1,4 @@
+#!/bin/sh
+#script to update nr database
+#need to replace the nr_test with the nr directory used by prosys later.
+SOFTWARE_PATH/src/prosys/script/update_nr_lock.pl SOFTWARE_PATH/src/prosys/ SOFTWARE_PATH/databases/nr_download/  SOFTWARE_PATH/databases/nr_latest/  SOFTWARE_PATH/databases/atom/

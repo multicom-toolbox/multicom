@@ -1,0 +1,17 @@
+#!/bin/sh
+
+perl SOFTWARE_PATH/src/update_db_v1.1/tools/hhsuite3/gen_hhblits_profile.pl SOFTWARE_PATH/databases/prosys_database/fr_lib/sort90  SOFTWARE_PATH/databases/prosys_database/hhsuite_dbs/a3m/ SOFTWARE_PATH/databases/prosys_database/hhsuite3_dbs
+
+#source /storage/htc/bdm/tools/hhsuite-3.0-beta.1/test/my_virtenv3/bin/activate
+
+source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
+set -e
+
+#cd SOFTWARE_PATH/databases/prosys_database/hhsuite3_dbs
+export HHLIB=SOFTWARE_PATH/tools/hhsuite-3.2.0/
+PATH=$PATH:$HHLIB/bin:$HHLIB/scripts
+#export PATH=/storage/htc/bdm/tools/MMseqs2/build/bin/:$PATH
+
+python $HHLIB/scripts/hhsuitedb.py -o SOFTWARE_PATH/databases/prosys_database/hhsuite3_dbs/hhsuite3_sort90 --cpu 0 --ia3m=SOFTWARE_PATH/databases/prosys_database/hhsuite3_dbs/a3m/* --ihhm=SOFTWARE_PATH/databases/prosys_database/hhsuite3_dbs/hhm/* --force
+
+
