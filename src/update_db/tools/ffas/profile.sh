@@ -2,9 +2,9 @@
 
 #inputs: multiple sequence alignment file, output file
 
- #calculate ffas profiles
-export FFAS=/home/jh7x3/multicom/src/update_db/tools/ffas
-export PATH=$PATH:/home/jh7x3/multicom/src/update_db/tools/ffas/soft
+ #calculate ffas profiles 
+export FFAS=/storage/hpc/scratch/jh7x3/multicom/databases/ffas_dbs/
+export PATH=$PATH:/storage/hpc/scratch/jh7x3/multicom/databases/ffas_dbs/soft
 
 #cat 1UCSA.ffas.mu | profil > 1UCSA.ffas 
 #profil 1UCSA.ffas.mu > ff_T0579

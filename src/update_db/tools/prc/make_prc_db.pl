@@ -69,6 +69,7 @@ while (@fasta)
 
 	print "make hmm for $name...\n";
 	#create hmm from msa
+	print("$sam_dir/bin/w0.5 $name.tmp.fas $name.mod >/dev/null 2>&1\n"); 
 	system("$sam_dir/bin/w0.5 $name.tmp.fas $name.mod >/dev/null 2>&1"); 
 	
 	if (-f "$name.mod")

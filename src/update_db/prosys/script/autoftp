@@ -1,0 +1,595 @@
+#!/usr/bin/perl
+
+# Set DEBUG equal to 1 to print debugging information
+local ($DEBUG) = 0;
+$| = 1 if ($DEBUG == 1);                        # Force prints when debugging
+
+local ($VERSION) = "2.2";			# Current version
+local ($COPYRIGHT) = "
+Copyright (c) 1999, 2002 Xerox Corporation.  All Rights Reserved.
+
+Permission to use, copy, modify  and  distribute  without  charge
+this  software,  documentation, images, etc. is granted, provided
+that this copyright and the author's name is retained.
+    
+A fee may be charged for this program ONLY to recover  costs  for
+distribution  (i.e.  media costs).  No profit can be made on this
+program.
+        
+The author assumes no responsibility for  disasters  (natural  or
+otherwise) as a consequence of use of this software.
+            
+Adam Stein (adam\@scan.mc.xerox.com)
+";
+
+use Net::FTP;
+
+# Global variables
+local ($program);				# Name of current program
+
+local($EMAIL_DOMAIN) = "scan.mc.xerox.com";     # Email domain
+
+local($modename{'a'}) = "ascii";                # ASCII xfer mode name
+local($modename{'b'}) = "binary";               # Binary xfer mode name
+
+MAIN:
+{
+  my ($completed),				# Show FTP is completed flag
+  my ($delay),                                  # Delay between retries
+  my ($filename),                               # File of commands
+  my ($lsargs),					# List command args
+  my ($mode),					# FTP mode (get,send,list,del)
+  my ($password),				# Login password
+  my ($retries),				# Number of retry attempts
+  my ($status),                           	# Status of FTP job
+  my ($user),					# Login name
+  my ($verbose);				# Verbose flag
+
+  # Set name of current program
+  ($program = $0) =~ s#.*/##;
+
+  # Parse the command line
+  &GetArgs(\@ARGV, \$completed, \$delay, \$filename, \$lsargs, \$mode,
+	   \$password, \$retries, \$user, \$verbose);
+
+  # Decide where the command are comming from and process
+  ($filename ne "") ?
+	$status = &ProcessFile($delay, $filename, $lsargs, $mode, $retries,
+			       $user, $password, $verbose) :
+	$status = &ProcessCmdLine(\@ARGV, $delay, $lsargs, $mode, $retries,
+				  $user, $password, $verbose);
+
+  print "$program: successful completion of ", lc($mode), " files\n"
+	if ($completed && !$status && ($mode ne "Listing"));
+
+  exit($status);
+}
+
+sub GetArgs
+{
+  my ($args) = shift,				# Command line args
+  my ($completed) = shift,			# Show FTP is completed flag
+  my ($delay) = shift,				# Delay between retries
+  my ($filename) = shift,			# File of commands
+  my ($lsargs) = shift,				# List command args
+  my ($mode) = shift,				# FTP mode (get,send,list,del)
+  my ($password) = shift,			# Login password
+  my ($retries) = shift,			# Number of retry attempts
+  my ($user) = shift,				# Login name
+  my ($verbose) = shift,			# Verbose flag
+  my ($done);                             	# Done parsing flag
+
+  # Defaults
+  $$completed = 0;
+  $$delay = 300;
+  $$lsargs = "FC";
+  $$mode = "Retrieving";
+  $$retries = -1;
+  $$user = "anonymous";
+  $$verbose = 0;
+
+  # Parse command line arguments
+  $done = 0;
+  while(!$done) {
+    SWITCH: {
+      # Show FTP operations is completed flag (-c)
+      $$completed = 1, last SWITCH
+		if ($$args[0] eq "-c");
+
+      # Delay (-d)
+      shift @$args, $$delay = $$args[0], last SWITCH
+      		if ($$args[0] eq "-d");
+
+      # Filename of commands (-f)
+      shift @$args, $$filename = $$args[0], last SWITCH
+      		if ($$args[0] eq "-f");
+
+      # Kill (delete) (-k)
+      $$mode = "Deleting", last SWITCH
+      		if ($$args[0] eq "-k");
+
+      # List, with or without arguments (-l [args])
+      if ($$args[0] =~ "^-l") {
+        ($$lsargs = $$args[0]) =~ s/^-l// if ($$args[0] =~ /-l./);
+
+        $$mode = "Listing";
+
+        last SWITCH;
+      }
+
+      # Password (-p)
+      shift @$args, $$password = $$args[0], last SWITCH
+      		if ($$args[0] eq "-p");
+
+      # Number of retries (-r)
+      shift @$args, $$retries = $$args[0], last SWITCH
+      		if ($$args[0] eq "-r");
+
+      # Send mode (-s)
+      $$mode = "Sending", last SWITCH
+      		if ($$args[0] eq "-s");
+
+      # User name (-u)
+      shift @$args, $$user = $$args[0], last SWITCH
+      		if ($$args[0] eq "-u");
+
+      # Verbose (-v)
+      $$verbose = 1, last SWITCH
+      		if ($$args[0] eq "-v");
+
+      # Show version and exit (no processing is done)
+      if ($$args[0] eq "-version") {
+        print "$program: v$VERSION\n";
+	exit(0);
+      }
+
+      # Nothing matched, assuming it's the FTP commands
+      $done = 1;
+    }
+
+    shift @$args if (!$done);
+  }
+
+  # We need to have either a filename or commands on the command line
+  defined($$filename) || scalar(@$args) ||
+	die "usage: $program [-c] [-d #] [-l[arg] | -k | -s] [-p password] [-r #] [-u name] [-v] (-f filename | 'system;dir;mode;file(s)'...)\n";
+
+  # If a password isn't supplied, automatically make it
+  # the user's email address
+  $$password = "-" . (getpwuid($>))[0] . "\@" . $EMAIL_DOMAIN
+  	if (!defined($$password));
+}
+
+sub ProcessFile
+{
+  my ($delay) = shift,				# Delay between retries
+  my ($filename) = shift,			# File of commands
+  my ($lsargs) = shift,				# List command args
+  my ($mode) = shift,				# FTP mode (get,send,list)
+  my ($retries) = shift,			# Number of retry attempts
+  my ($user) = shift,				# Login name
+  my ($password) = shift,			# Login password
+  my ($verbose) = shift,			# Verbose flag
+  my ($status),                           	# Status of FTP job
+  my ($numtimes);                         	# Num of times to keep trying
+
+  # Make sure the file exists
+  (-f $filename) || die "$program: can't find <$filename>\n";
+
+  # Open file containing FTP commands
+  open(CMDS, $filename);
+
+  while (<CMDS>) {
+    $status = 1;
+
+    for($numtimes = 0;($status == 1) && ($numtimes ne $retries);++$numtimes) {
+      $status = &ProcessCommand($_, $lsargs, $mode, $user, $password, $verbose);
+
+      # Error occurred, missing something, skip to next job
+      last if ($status == 2);
+
+      # If the job failed, print out message if verbose, sleep for
+      # the delay period to try again
+      &DoSleep($numtimes, $delay, $retries, $verbose) if ($status);
+    }
+  }
+
+  # Close file now that we are done
+  close(CMDS);
+
+  return($status);
+}
+
+sub ProcessCmdLine
+{
+  my ($cmds) = shift,                        	# FTP commands
+  my ($delay) = shift,				# Delay between retries
+  my ($lsargs) = shift,				# List command args
+  my ($mode) = shift,				# FTP mode (get,send,list,del)
+  my ($retries) = shift,			# Number of retry attempts
+  my ($user) = shift,				# Login name
+  my ($password) = shift,			# Login password
+  my ($verbose) = shift,			# Verbose flag
+  my ($status),                           	# Status of FTP job
+  my ($numtimes);                         	# Num of times to keep trying
+
+  # Process each command found on the command line
+  foreach (@$cmds) {
+    $status = 1;
+
+    for($numtimes = 0;($status == 1) && ($numtimes ne $retries);++$numtimes) {
+      $status = &ProcessCommand($_, $lsargs, $mode, $user, $password, $verbose);
+
+      # Error occurred, missing something, skip to next job
+      last if ($status == 2);
+
+      # If the job failed, print out message if verbose, sleep for
+      # the delay period to try again
+      &DoSleep($numtimes, $delay, $retries, $verbose) if ($status);
+    }
+  }
+
+  return($status);
+}
+
+{
+  # Static variables for ProcessCommand()
+  my ($beenhere),                         	# Flag for being here before
+  my ($dir),                              	# Remote directory
+  my ($files),                            	# Files to act on
+  my ($system),                           	# Remote system name
+  my ($xfermode);                         	# Transfer mode
+
+sub ProcessCommand
+{
+  my ($cmd) = shift,                      	# Command to process
+  my ($lsargs) = shift,				# List command args
+  my ($mode) = shift,				# FTP mode (get,send,list,del)
+  my ($user) = shift,				# Login name
+  my ($password) = shift,			# Login password
+  my ($verbose) = shift,			# Verbose flag
+  my ($ftp),                              	# FTP object
+  my ($status),                           	# Status of FTP command
+  my ($tmpdir),                           	# Tmp place to hold dir
+  my ($tmpfiles),                         	# Tmp place to hold files
+  my ($tmpmode),                          	# Tmp place to hold xfer mode
+  my ($tmpsys);                           	# Tmp place to hold system
+
+  print "Command Line = <$cmd>\n" if ($DEBUG);
+
+  # Break apart command
+  ($tmpsys, $tmpdir, $tmpmode, $tmpfiles) = split(";", $cmd);
+
+  print "[DEBUG] Tmp: System = <$tmpsys>, Dir = <$tmpdir>, Mode = <$tmpmode>, ",
+	"Files = <$tmpfiles>\n" if ($DEBUG);
+
+  # Make sure mode is legal
+  if (($tmpmode ne "a") && ($tmpmode ne "b") && ($tmpmode ne "")) {
+    warn "$program: $tmpmode is an illegal mode, mode unchanged\n";
+    $tmpmode = "";
+  }
+
+  # Set up vars
+  $dir = $tmpdir if ($tmpdir ne "");
+  $files = $tmpfiles if ($tmpfiles ne "");
+  $system = $tmpsys if ($tmpsys ne "");
+  $xfermode = $tmpmode if ($tmpmode ne "");
+
+  print "[DEBUG] System = <$system>, Dir = <$dir>, Mode = <$xfermode>, ",
+	"Files = <$files>\n" if ($DEBUG);
+
+  # Set defaults for empty vars
+  $dir = "." if ($dir eq "");
+  $xfermode = "a" if ($xfermode eq "");
+
+  # Make sure we have the things we need
+  if ($system eq "") {
+    warn "$program: no system specified\n";
+    return(2);
+  }
+
+  if (($files eq "") && ($mode ne "Listing")) {
+    warn "$program: no files specified\n";
+    return(2);
+  }
+
+  if ($verbose == 1) {
+    print "\n" if ($beenhere);
+    print "$mode:\n";
+    print "  System:    $system\n";
+    print "  Directory: $dir\n";
+    print "  Mode:      $modename{$xfermode}\n";
+    print "  File(s):   $files\n\n";
+  }
+
+  $beenhere = 1;
+
+  # Create the FTP object
+  print STDERR "Creating FTP object to <$system>\n" if ($DEBUG);
+  $ftp = Net::FTP->new($system, Timeout =>3600);
+  if (!defined($ftp)) {
+    warn "$program: can't create FTP object: $@\n";
+    return(1);
+  }
+
+  # Log into the remote host
+  print STDERR "Logging in using login = <$user>, password = <$password>\n"
+	if ($DEBUG);
+  if ($ftp->login($user, $password) == 0) {
+    warn "$program: can't login to <$system>\n";
+    return(1);
+  }
+
+  # Go to the specified directory
+  print STDERR "Changing directory to <$dir>\n" if ($DEBUG);
+  if ($ftp->cwd($dir) == 0) {
+    warn "$program: can't change directory to <$dir>\n";
+    return(1);
+  }
+
+  # Setting file mode (if not listing or deleting)
+  if (($mode ne "Listing") && ($mode ne "Deleting")) {
+    print STDERR "Setting file mode to <$modename{$xfermode}>\n" if ($DEBUG);
+
+    $status = ($xfermode eq "a") ? $ftp->ascii : $ftp->binary;
+
+    if (!defined($status)) {
+      warn "$program: can't set file mode to <$modename{$xfermode}>\n";
+      return(1);
+    }
+  }
+
+  SWITCH: {
+    # List files
+    $status = &ListFiles($ftp, $lsargs, $files), last SWITCH
+	if ($mode eq "Listing");
+
+    # Retrieve files
+    $status = &GetFiles($ftp, $files), last SWITCH
+	if ($mode eq "Retrieving");
+
+    # Send files
+    $status = &SendFiles($ftp, $files), last SWITCH
+	if ($mode eq "Sending");
+
+    # Delete files
+    $status = &DeleteFiles($ftp, $files), last SWITCH
+	if ($mode eq "Deleting");
+  }
+
+  # Need to have $status = 0 if quit() is successful (quit returns a 1
+  # if successful)
+  $status = $ftp->quit ? 0 : 1;
+
+  return($status);
+}
+}
+
+sub ListFiles {
+  my ($ftp) = shift,                           	# FTP object
+  my ($lsargs) = shift,				# List command args
+  my ($files) = shift,                         	# Files to act on
+  my (@filelist);                         	# List of remote files
+
+  @filelist = $ftp->ls("-$lsargs $files");
+  return(1) if (@filelist == 0);
+
+  print "\n", "-" x 70, "\n";
+
+  foreach (@filelist) {
+    print "$_\n";
+  }
+
+  print "\n", "-" x 70, "\n";
+
+  return(0);
+}
+
+sub GetFiles {
+  my ($ftp) = shift,                           	# FTP object
+  my ($files) = shift,                         	# Files to act on
+  my (@filelist);                         	# List of remote files
+
+  # Fetch the requested file(s)
+  @filelist = split(/\s/, $files);
+  _GetFiles($ftp, \@filelist);
+
+  return(0);
+}
+
+sub _GetFiles {
+  my ($ftp) = shift,                            # FTP object
+  my ($filelist) = shift,			# Files to retrieve
+  my (@expanded),				# Expanded wildcard file list
+  my ($status);					# Stataus of FTP command
+
+  if ($DEBUG) {
+    print "Filelist:\n";
+
+    foreach (@$filelist) {
+      print "\t<$_>\n";
+    }
+  }
+
+  # Fetch each file
+  foreach (@$filelist) {
+    # Handle wildcards in filename
+    if (/\*/) {
+      @expanded = $ftp->ls("$_");
+
+      if ($DEBUG) {
+	print "Expanding <$_> to:\n";
+
+	foreach (@expanded) {
+	  print "\t<$_>\n";
+	}
+      }
+
+      if ((@expanded == 0) || ($expanded[0] =~ /not found/i) ||
+	  ($expanded[0] =~ /no such file/i)) {
+	warn "$program: warning: no matches for $_\n";
+	next;
+      } else {
+	# Fetch expanded wildcard file list
+	_GetFiles($ftp, \@expanded);
+      }
+    } else {
+      $status = $ftp->get($_);
+
+      if (!defined($status)) {
+        warn "$program: warning: $_ not found\n";
+        next;
+      }
+    }
+  }
+}
+
+sub SendFiles {
+  my ($ftp) = shift,                           	# FTP object
+  my ($files) = shift,                         	# Files to act on
+  my (@filelist);                         	# List of remote files
+
+  # Send the requested file(s)
+  @filelist = split(/\s/, $files);
+  _SendFiles($ftp, \@filelist);
+}
+
+sub _SendFiles {
+  my ($ftp) = shift,                           	# FTP object
+  my ($filelist) = shift,                      	# Files to send
+  my (@expanded),                               # Expanded wildcard file list
+  my ($status);                           	# Status of FTP command
+
+  if ($DEBUG) {
+    print "Filelist:\n";
+
+    foreach (@$filelist) {
+      print "\t<$_>\n";
+    }
+  }
+
+  # Send each file
+  foreach (@$filelist) {
+    # Handle wildcards in filename
+    if (/\*/) {
+      @expanded = `/bin/ls $_ 2>&1`;
+
+      if ($DEBUG) {
+	print "Expanding <$_> to:\n";
+
+	foreach (@expanded) {
+	  print "\t<$_>\n";
+	}
+      }
+
+      if ($expanded[0] =~ /not found/) {
+	warn "$program: warning: no matches for $_\n";
+	next;
+      } else {
+	# Need to remove the newline character from each name
+	foreach (@expanded) {
+	  chomp;
+	}
+
+	# Send expanded wildcard file list
+	_SendFiles($ftp, \@expanded);
+      }
+    } else {
+      if (-f $_) {
+	$status = $ftp->put($_);
+      } else {
+	undef($status);
+      }
+
+      if (!defined($status)) {
+	warn "$program: warning: error in sending <$_>\n";
+	next;
+      }
+    }
+  }
+}
+
+sub DeleteFiles {
+  my ($ftp) = shift,                           	# FTP object
+  my ($files) = shift,                         	# Files to act on
+  my (@filelist);                         	# List of remote files
+
+  # Delete the requested file(s)
+  @filelist = split(/\s/, $files);
+  _DeleteFiles($ftp, \@filelist);
+
+  return(0);
+}
+
+sub _DeleteFiles {
+  my ($ftp) = shift,                            # FTP object
+  my ($filelist) = shift,			# Files to delete
+  my (@expanded),				# Expanded wildcard file list
+  my ($status);					# Stataus of FTP command
+
+  if ($DEBUG) {
+    print "Filelist:\n";
+
+    foreach (@$filelist) {
+      print "\t<$_>\n";
+    }
+  }
+
+  # Delete each file
+  foreach (@$filelist) {
+    # Handle wildcards in filename
+    if (/\*/) {
+      @expanded = $ftp->ls("$_");
+
+      if ($DEBUG) {
+	print "Expanding <$_> to:\n";
+
+	foreach (@expanded) {
+	  print "\t<$_>\n";
+	}
+      }
+
+      if ((@expanded == 0) || ($expanded[0] =~ /not found/i) ||
+	  ($expanded[0] =~ /no such file/i)) {
+	warn "$program: warning: no matches for $_\n";
+	next;
+      } else {
+	# Fetch expanded wildcard file list
+	_DeleteFiles($ftp, \@expanded);
+      }
+    } else {
+      $status = $ftp->delete($_);
+
+      if (!defined($status)) {
+        warn "$program: warning: $_ not found\n";
+        next;
+      }
+    }
+  }
+}
+
+sub DoSleep
+{
+  my ($numtimes) = shift,			# Number of times thru loop
+  my ($delay) = shift,				# Delay between retries
+  my ($retries) = shift,			# Number of retry attempts
+  my ($verbose) = shift;			# Verbose flag
+
+  if ($verbose) {
+    print "\nFTP failed";
+
+    # Don't print out "trying again" if it's the last time
+    if ($numtimes ne $retries - 1) {
+      if ($delay ne 1) {
+        print "... trying it again in $delay seconds\n";
+      } else {
+        print "... trying it again in one second\n";
+      }
+
+      sleep($delay);
+    } else {
+      print "\n";
+    }
+  }
+}
+

@@ -83,17 +83,39 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		system("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db_v1.1/tools/ffas/build_db_update.pl");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";
 
+
+			#update hhsuite
+			print "start to update hhsuite database\n";
+			`echo start to update hhsuite database >> update.log`; 
+			`date >> update.log`; 
+			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db_v1.1/tools/hhsuite/gen_db.sh > hhsuite.log");
+			`date >> update.log`;
+			`echo finish updating hhsuite database >> update.log`;
+			print "finish updateing hhsuite database.\n";
+
+
+			#update hhsuite3 using hhm and a3m
+			print "start to update hhsuite3 database\n";
+			`echo start to update hhsuite3 database >> update.log`; 
+			`date >> update.log`; 
+			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db_v1.1/tools/hhsuite3/gen_db.sh > hhsuite3.log");
+			`date >> update.log`;
+			`echo finish updating hhsuite3 database >> update.log`;
+			print "finish updateing hhsuite3 database.\n";
+            
+=pod      
 		#update nr database every Saturday 
 		#update compass database every saturday
 		$weekday = $fields[0]; 
 		if ($weekday eq "Sat")
 		{
-			print "start to update compass database\n";
+		
+    	print "start to update compass database\n";
 			`echo start to update compass database >> update.log`;
 			`date >> update.log`;
 			system("$update_compass > compass.log");
@@ -114,7 +136,7 @@ if (-f "update.log")
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db_v1.1/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";	
@@ -129,7 +151,7 @@ if (-f "update.log")
 			`echo finish updating NR database >> update.log`;
 
 		}
-
+=cut
 
 	}
 

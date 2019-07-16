@@ -3,18 +3,33 @@
 ###############################Global Options########################
 #database status dir: hold all kinds of information regarding database
 #prosys_db_stat_dir = /home/jianlinc/prosys/database/dbstat
-prosys_db_stat_dir = SOFTWARE_PATH/databases/dbstat
+prosys_db_stat_dir = SOFTWARE_PATH/databases/prosys_database/dbstat
+
+### set number of thread
+thread_num = 30
+
+### set running mode to run (threads or sbatch)
+#running_mode = thread
+running_mode = sbatch
+
+### set start date
+from_date = 19900101
+
+### set end date
+end_date = 20070425
+
+
 ###############################End of Global Options#################
 
 ############################PDB download options#####################
 #prosys dir
-prosys_dir = SOFTWARE_PATH/src/prosys
+prosys_dir = SOFTWARE_PATH/src/update_db_v1.1/prosys
 
 #main pdb repository
-main_pdb_dir = SOFTWARE_PATH/databases/pdb05_2004
+main_pdb_dir = SOFTWARE_PATH/databases/prosys_database/pdb05_2004
 
 #pdb download dir
-pdb_download_dir = SOFTWARE_PATH/databases/pdb
+pdb_download_dir = SOFTWARE_PATH/databases/prosys_database/pdb
 
 #pdb index file: a list of pdb files downloaded so far
 #should contains all files listed in $main_pdb_dir
@@ -31,29 +46,31 @@ pdb_bad_list = pdb_bad_list
 
 
 #non-redundant protein database
-nr_dir = SOFTWARE_PATH/databases/nr_latest
+nr_dir = SOFTWARE_PATH/databases/uniref/
+nr_name = uniref90
 
 #########################End of PDB download optons##################
 
 ############################Dataset generation option################
 #dssp program path
-dssp_program_dir = SOFTWARE_PATH/tools/dssp/
+#dssp_program_dir = SOFTWARE_PATH/tools/dssp/
+dssp_program_dir = SOFTWARE_PATH/tools/DSSP_64bit/
 
 #pdb source dir, it usually the same as pdb download dir
-set_pdb_source_dir = SOFTWARE_PATH/databases/pdb
+set_pdb_source_dir = SOFTWARE_PATH/databases/prosys_database/pdb
 
 #dssp dir to store dssp file
-set_dssp_dir = SOFTWARE_PATH/databases/dssp
+set_dssp_dir = SOFTWARE_PATH/databases/prosys_database/dssp
 
 #seq dir to store new seq 
-set_seq_dir = SOFTWARE_PATH/databases/seq
+set_seq_dir = SOFTWARE_PATH/databases/prosys_database/seq
 
 #atom dir to store new atom file
-set_atom_dir = SOFTWARE_PATH/databases/atom
+set_atom_dir = SOFTWARE_PATH/databases/prosys_database/atom
 
 #working dir for both dataset generation and library building.
 #if this directory doesn't exist, the script will create one.
-set_work_dir = SOFTWARE_PATH/databases/work
+set_work_dir = SOFTWARE_PATH/databases/prosys_database/work
 
 #dataset file name generated from all new dssp files
 #this file is stored in set_work_dir
@@ -83,12 +100,14 @@ set_pdb_release_date = all_new
 #set_pdb_release_date = 20-11-2009 
 #set_pdb_release_date = 15-09-2007 
 #set_pdb_release_date = 31-10-2007 
+
+
 ############################End of Dataset generation option#########
 
 
 ###########################CM library option#########################
 #directory to store cm library (fasta file and formated blast file)
-cm_library_dir = SOFTWARE_PATH/databases/cm_lib
+cm_library_dir = SOFTWARE_PATH/databases/prosys_database/cm_lib
 
 #cm database file name (name of fasta file and prefix of formated
 #blast file. this file is put in cm_library_dir
@@ -109,7 +128,6 @@ cm_filter_resolution = 8
 cm_filter_ratio = 0.9
 
 #blast dir
-#blast_dir = /home/chengji/software/prosys/blast-2.2.9
 blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin
 
 ###########################End of CM library option##################
@@ -147,10 +165,10 @@ pspro_dir=SOFTWARE_PATH/tools/pspro2
 betapro_dir=SOFTWARE_PATH/tools/betapro-1.0
 
 #fr template dir of holding template related files
-fr_template_dir=SOFTWARE_PATH/databases/library
+fr_template_dir=SOFTWARE_PATH/databases/prosys_database/library
 
 #fr template  dir of holding profile files.
-fr_template_library_dir = SOFTWARE_PATH/databases/fr_lib
+fr_template_library_dir = SOFTWARE_PATH/databases/prosys_database/fr_lib
 
 #fr template fasta file
 #this file must be put in fr_template_library_dir

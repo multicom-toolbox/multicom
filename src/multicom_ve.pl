@@ -18,7 +18,7 @@
 #
 #################################################################################
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 
@@ -201,7 +201,8 @@ if ($pos >= 0)
 	$query_filename = substr($query_file_name, $pos + 1); 
 }
 $hhsearch_local_alignment = "$full_length_dir/hhsearch15/$query_filename.local";
-if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
+#if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
+if ($DEBUG == 0 && !(-e "$query_name/meta/$query_name.gdt")) # skip if pairwise evaluation was done
 {
 	#generate full-length model
 	system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
@@ -272,12 +273,9 @@ elsif (-f $hhsearch_local_alignment)
 		$full_length_dir_hard = $output_dir . "/full_length_hard";
 		`mkdir $full_length_dir_hard`; 
 
-		if ($DEBUG == 0)
+		if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 		{
-			#system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 			system("$GLOBAL_PATH/src/meta/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
-			# /data/jh7x3/multicom_github/multicom/src/meta/
-			# /data/jh7x3/multicom_github/multicom/src/meta/test_system/multicom_option_hard_casp13
 		}
 		$full_length_dir = $full_length_dir_hard; 
 		goto MODEL_EVA; 
@@ -475,7 +473,7 @@ if ($bHard == 1)
 	print "This is a hard target, recall MULTICOM with hard options on the full target.\n";
 	$full_length_dir_hard = $output_dir . "/full_length_hard";
 	`mkdir $full_length_dir_hard`; 
-	if ($DEBUG == 0)
+	if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 	{
 		system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 	}
@@ -919,7 +917,7 @@ if ($wrong == 1)
 		print "This is a hard target, recall MULTICOM with hard options on the full target.\n";
 		$full_length_dir_hard = $output_dir . "/full_length_hard";
 		`mkdir $full_length_dir_hard`; 
-		if ($DEBUG == 0)
+		if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 		{
 			system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 		}
@@ -1195,7 +1193,7 @@ if (@domain_start > 1) #multiple domain case
 		{
 
 			##############################Temporarily disable model generation#####################
-			if ($DEBUG == 0)
+			if ($DEBUG == 0 && !(-e "domain$i/meta/domain$i.gdt")) # skip if the pairwise evaluation was done
 			{
 				system("$multicom_dir/script/multicom_server_ve.pl $meta_option_easy_domain domain$i.fasta $domain_dir"); 
 			}
@@ -1204,7 +1202,7 @@ if (@domain_start > 1) #multiple domain case
 		else
 		{
 			##############################Temporarily disable model generation#####################
-			if ($DEBUG == 0)
+			if ($DEBUG == 0 && !(-e "domain$i/meta/domain$i.gdt")) # skip if the pairwise evaluation was done
 			{
 				system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain domain$i.fasta $domain_dir"); 
 			}
