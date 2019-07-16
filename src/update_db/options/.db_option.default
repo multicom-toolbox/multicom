@@ -23,7 +23,7 @@ end_date = 20070425
 
 ############################PDB download options#####################
 #prosys dir
-prosys_dir = SOFTWARE_PATH/src/update_db_v1.1/prosys
+prosys_dir = SOFTWARE_PATH/src/update_db/prosys
 
 #main pdb repository
 main_pdb_dir = SOFTWARE_PATH/databases/prosys_database/pdb05_2004
@@ -53,8 +53,7 @@ nr_name = uniref90
 
 ############################Dataset generation option################
 #dssp program path
-#dssp_program_dir = SOFTWARE_PATH/tools/dssp/
-dssp_program_dir = SOFTWARE_PATH/tools/DSSP_64bit/
+dssp_program_dir = SOFTWARE_PATH/tools/dssp/
 
 #pdb source dir, it usually the same as pdb download dir
 set_pdb_source_dir = SOFTWARE_PATH/databases/prosys_database/pdb

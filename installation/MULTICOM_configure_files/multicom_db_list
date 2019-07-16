@@ -1,6 +1,6 @@
 
 ### update databases
-src/update_db/bin/CASP12_update_once.sh
+src/update_db/bin/MULTICOM_update_once.sh
 src/update_db/scripts/casp12_update_once.pl
 src/prosys/script/update_nr_lock.pl
 

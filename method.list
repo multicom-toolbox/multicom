@@ -113,3 +113,7 @@ dncon2
 ##################### method 31
 ### use '#' to deactivate fusioncon method in multicom system
 fusioncon
+
+##################### Update database
+### use '#' to deactivate fusioncon method in multicom system
+DBupdate
