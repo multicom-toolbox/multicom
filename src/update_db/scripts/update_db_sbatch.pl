@@ -30,6 +30,11 @@ $db_option = "$script_dir/options/db_option";
 -e $db_option || die "Failed to find database option $db_option\n"; 
 -d $database_dir || die "Failed to find database directory $database_dir\n"; 
 
+if($run_mode ne 'thread' and $run_mode ne 'sbatch')
+{
+	die "The running mode should be <thread> or <sbatch>\n\n";
+}
+
 if(-d "$sbatch_dir")
 {
   `rm $sbatch_dir/*`;
