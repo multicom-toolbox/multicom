@@ -3,8 +3,9 @@
 #This is the main entry script for protein structure prediction server
 #Inputs: option file, query file(fasta), output dir
 #New version: starte date: 1/10/2009
+#Update version: 04/15/2018, 07/10/2019 --- Jie Hou, Jianlin Cheng 
 #########################################################################
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -44,12 +45,12 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-#$tm_score = "/home/casp13/MULTICOM_package//software/tm_score/TMscore_32";
+
 $tm_score = "$GLOBAL_PATH/tools/tm_score/TMscore_32";
 
-#$q_score = "/home/casp13/MULTICOM_package//software/pairwiseQA/q_score";
+
 $q_score = "$GLOBAL_PATH/tools/pairwiseQA/q_score";
-#$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package//casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
+
 $hhsearch_option_casp8 = "$GLOBAL_PATH/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
@@ -948,42 +949,78 @@ for ($i = 0; $i < @servers; $i++)
 		}
 		elsif ($server eq "deepsf")
 		{
-
-				system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server");
+			if(!(-e "deepsf/deepsf1.pdb"))
+			{
+				  system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+			}
 		}
 		elsif ($server eq "novel")
 		{
 
-				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");
+			if(!(-e "novel/novel1.pdb"))
+			{
+				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");  
+			}
+
 		}
 		elsif ($server eq "confold")
 		{
-			system("$confold_dir/script/tm_confold2_main.sh $confold_option $query_file $server"); 
+			if(!(-e "confold/confold2-1.pdb"))
+			{
+				system("$confold_dir/script/tm_confold2_main.sh $confold_option $query_file $server"); 
+			}
 		}
 		elsif ($server eq "rosettacon")
 		{
-			if (length($qseq) <= 400)
+			if(!(-e "rosettacon/rocon1.pdb"))
 			{
-				$dncon_check = "$output_dir/confold/dncon2/$query_name.dncon2.rr";
-				`echo "checking $dncon_check" > $output_dir/$server/dncon2.waiting`;
-				$minutes = 240; 
-				$wait_min = 0; 
-				while($wait_min < $minutes) # added by jie on 2018/04/09
+				if (length($qseq) <= 400)
 				{
-					if(-e $dncon_check)
+					$dncon_check = "$output_dir/confold/dncon2/$query_name.dncon2.rr";
+					`echo "checking $dncon_check" > $output_dir/$server/dncon2.waiting`;
+					$minutes = 240; 
+					$wait_min = 0; 
+					while($wait_min < $minutes) # added by jie on 2018/04/09
 					{
-						last;
+						if(-e $dncon_check)
+						{
+							last;
+						}
+						sleep(60); 
+						$wait_min++; 
 					}
-					sleep(60); 
-					$wait_min++; 
+					`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
+					system("$rosettacon_dir/script/tm_rosettacon_main.pl $rosettacon_option $query_file $server $dncon_check"); 
 				}
-				`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
-				system("$rosettacon_dir/script/tm_rosettacon_main.pl $rosettacon_option $query_file $server $dncon_check"); 
 			}
 		}
 		elsif ($server eq "fusioncon")
 		{
-			if (length($qseq) <= 400)
+			if(!(-e "fusioncon/fusicon1.pdb"))
+			{
+				if (length($qseq) <= 400)
+				{
+					$dncon_check = "$output_dir/confold/dncon2/$query_name.dncon2.rr";
+					`echo "checking $dncon_check" > $output_dir/$server/dncon2.waiting`;
+					$minutes = 240; 
+					$wait_min = 0; 
+					while($wait_min < $minutes) # added by jie on 2018/04/09
+					{
+						if(-e $dncon_check)
+						{
+							last;
+						}
+						sleep(60); 
+						$wait_min++; 
+					}
+					`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
+					system("$fusioncon_dir/script/tm_fusioncon_main.pl $fusioncon_option $query_file $server $dncon_check"); 
+				}
+			}
+		}
+		elsif ($server eq "unicon3d")
+		{
+			if(!(-e "unicon3d/Unicon3d-1.pdb"))
 			{
 				$dncon_check = "$output_dir/confold/dncon2/$query_name.dncon2.rr";
 				`echo "checking $dncon_check" > $output_dir/$server/dncon2.waiting`;
@@ -999,27 +1036,8 @@ for ($i = 0; $i < @servers; $i++)
 					$wait_min++; 
 				}
 				`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
-				system("$fusioncon_dir/script/tm_fusioncon_main.pl $fusioncon_option $query_file $server $dncon_check"); 
+				system("$unicon3d_dir/script/tm_unicon3d_main.pl $unicon3d_option $query_file $server $dncon_check"); 
 			}
-		}
-		elsif ($server eq "unicon3d")
-		{
-			$dncon_check = "$output_dir/confold/dncon2/$query_name.dncon2.rr";
-			`echo "checking $dncon_check" > $output_dir/$server/dncon2.waiting`;
-			$minutes = 240; 
-			$wait_min = 0; 
-			while($wait_min < $minutes) # added by jie on 2018/04/09
-			{
-				if(-e $dncon_check)
-				{
-					last;
-				}
-				sleep(60); 
-				$wait_min++; 
-			}
-			`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
-			system("$unicon3d_dir/script/tm_unicon3d_main.pl $unicon3d_option $query_file $server $dncon_check"); 
-			#system("$unicon3d_dir/script/tm_unicon3d_main.pl $unicon3d_option $query_file $server"); 
 		}
 
 		elsif ($server eq "muster")
@@ -1106,7 +1124,11 @@ for ($i = 0; $i < @servers; $i++)
 
 				#copy fragment files
 				`cp -r $output_dir/rosetta_common/abini $server_dir`; 
-				system("$meta_dir/script/run_rosetta_no_fragment.sh $query_file abini $server_dir $local_model_num >/dev/null");
+				
+				if(!(-e "$server_dir/denovo1.pdb"))
+				{
+					system("$meta_dir/script/run_rosetta_no_fragment.sh $query_file abini $server_dir $local_model_num >/dev/null");
+				}
 				#evaluate these models using ModelEvaluator
 				#select at most top 10 models for further 
 				#analysis
@@ -1522,7 +1544,6 @@ if ($i == $thread_num && $post_process == 0)
 
 	#rank models
 	system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_file $model_dir");
-#	system("$prosys_dir/script/energy_models_proc.pl $meta_dir/script/eva_option $query_file $model_dir");
 
 	open(FASTA, $query_file) || die "can't read $query_file.\n";
 	$name = <FASTA>;

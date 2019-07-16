@@ -4,8 +4,9 @@
 #Inputs: option file, query file(fasta), output dir
 #New version: starte date: 1/10/2009
 #second version: add construct predictor
+#Update version: 04/15/2018, 07/10/2019 --- Jie Hou, Jianlin Cheng 
 #########################################################################
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)
@@ -46,12 +47,9 @@ open(OPTION, $meta_option) || die "can't read option file.\n";
 
 $local_model_num = 50;
 
-#$tm_score = "/home/casp13/MULTICOM_package//software/tm_score/TMscore_32";
 $tm_score = "$GLOBAL_PATH/tools/tm_score/TMscore_32";
 
-#$q_score = "/home/casp13/MULTICOM_package//software/pairwiseQA/q_score";
 $q_score = "$GLOBAL_PATH/tools/pairwiseQA/q_score";
-#$hhsearch_option_casp8 = "/home/casp13/MULTICOM_package//casp8/hhsearch/hhsearch_option_cluster_used_in_casp8";
 $hhsearch_option_casp8 = "$GLOBAL_PATH/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8";
 
 while (<OPTION>)
@@ -731,7 +729,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
 			chdir $output_dir;
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -739,7 +736,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch15")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -751,7 +747,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch151")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
@@ -760,7 +755,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "csblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
 
 			#call hhsuite predictor
@@ -786,18 +780,23 @@ for ($i = 0; $i < @servers; $i++)
 		}
 		elsif ($server eq "deepsf")
 		{
-			
-			system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+			if(!(-e "deepsf/deepsf1.pdb"))
+			{
+				  system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+			}
 		}
 		elsif ($server eq "novel")
 		{
-			
-			system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server"); 
+
+			if(!(-e "novel/novel1.pdb"))
+			{
+				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");  
+			}
+
 		}
 
 		elsif ($server eq "csiblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
@@ -805,7 +804,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "blast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
@@ -814,7 +812,6 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "psiblast")
 		{
-			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
@@ -1204,7 +1201,6 @@ if ($i == $thread_num && $post_process == 0)
 
 	#rank models
 	system("$prosys_dir/script/score_models.pl $meta_dir/script/eva_option $query_file $model_dir");
-#	system("$prosys_dir/script/energy_models_proc.pl $meta_dir/script/eva_option $query_file $model_dir");
 
 	open(FASTA, $query_file) || die "can't read $query_file.\n";
 	$name = <FASTA>;

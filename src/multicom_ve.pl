@@ -2,7 +2,7 @@
 #################################################################################
 #
 #               MULTICOM Protein Structure Prediction System
-#                         Author: Jianlin Cheng,Jie Hou
+#                         Author: Jianlin Cheng, Jie Hou
 #                         Start date: 1/13/2010
 #                         Current date: 06/01/2019
 #
@@ -18,7 +18,7 @@
 #
 #################################################################################
 
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 

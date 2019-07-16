@@ -1,9 +1,9 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta
+prosys_dir = /home/jh7x3/multicom/src/meta
 
 #novel prediction program
-deepsf_program = /storage/hpc/scratch/jh7x3/multicom/tools/deepsf/run_deepsf_3d.sh 
+deepsf_program = /home/jh7x3/multicom/tools/deepsf/run_deepsf_3d.sh 
 
 final_model_number = 5
 

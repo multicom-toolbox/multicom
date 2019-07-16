@@ -31,7 +31,7 @@ $prev_range = "$model_dir/refine_range";
 
 $prev_global_quality_file = "$model_dir/$query_name.gdt";
 chdir $model_dir; 
-$cluster_dir = "/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script";
+$cluster_dir = "/home/jh7x3/multicom/src/meta/model_cluster/script";
 $iteration = 1; 
 #assess the local quality of the models generated in the last iteration
 
@@ -80,7 +80,7 @@ while (1)
 	}
 
 	#do a local quality assessment
-	system("$cluster_dir/consensus_qa.robust.casp9.pl $cluster_dir /storage/hpc/scratch/jh7x3/multicom/tools/spicker/spicker . $prev_global_quality_file $query_name $query_name.local.$iteration");
+	system("$cluster_dir/consensus_qa.robust.casp9.pl $cluster_dir /home/jh7x3/multicom/tools/spicker/spicker . $prev_global_quality_file $query_name $query_name.local.$iteration");
 
 	open(LOCAL, "$query_name.local.$iteration");
 	@local = <LOCAL>;
@@ -174,8 +174,8 @@ while (1)
 	$range = "$new_start-$new_end";	
 	$refine_dir = ".";
 	$refine_num = 100; 
-	$multicom_dir = "/storage/hpc/scratch/jh7x3/multicom/src/meta/script"; 
-	system("$multicom_dir/script/refine_model_range.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/cheng_group/bin/run_rosetta_refine.sh casp1.pdb  $refine_dir $refine_num 2>&1 1>/dev/null");
+	$multicom_dir = "/home/jh7x3/multicom/src/meta/script"; 
+	system("$multicom_dir/script/refine_model_range.pl /home/jh7x3/multicom/src/meta/cheng_group/bin/run_rosetta_refine.sh casp1.pdb  $refine_dir $refine_num 2>&1 1>/dev/null");
 
 	#assess models	
 	$model_prefix = "casp1";
@@ -194,8 +194,8 @@ while (1)
  	}
 	close MLIST;
 
-	$tm_score = "/storage/hpc/scratch/jh7x3/multicom/tools/tm_score/TMscore_32";
-	$q_score =  "/storage/hpc/scratch/jh7x3/multicom/tools/pairwiseQA/q_score";
+	$tm_score = "/home/jh7x3/multicom/tools/tm_score/TMscore_32";
+	$q_score =  "/home/jh7x3/multicom/tools/pairwiseQA/q_score";
 
 
 	if ($count > 0)

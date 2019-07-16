@@ -4,8 +4,8 @@
 #Author: Jianlin Cheng
 #############################################################
 
-$self = "/storage/hpc/scratch/jh7x3/multicom/src/meta/script/self.pl";
-$pdb2casp2 = "/storage/hpc/scratch/jh7x3/multicom/src/meta/script/pdb2casp.pl";
+$self = "/home/jh7x3/multicom/src/meta/script/self.pl";
+$pdb2casp2 = "/home/jh7x3/multicom/src/meta/script/pdb2casp.pl";
 
 if (@ARGV != 2)
 {
@@ -64,7 +64,7 @@ foreach $target (@targets)
 				#$casp_model.self");
 				`mv self$target_name.pdb $casp_model.self.pdb`; 
 				`mv $casp_model $casp_model.abi`; 
-				system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $casp_model.self.pdb -o $casp_model.self.scw  >/dev/null");
+				system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $casp_model.self.pdb -o $casp_model.self.scw  >/dev/null");
 				system("$pdb2casp2 $casp_model.self.scw $i $target_name $casp_model");	
 			
 			}

@@ -31,7 +31,7 @@ $output_name = shift @ARGV;
 
 open(OPTION, $align_option) || die "can't read $align_option file.\n";
 
-$align_dir="/storage/hpc/scratch/jh7x3/multicom/src/meta/hhpred/script/"; 
+$align_dir="/home/jh7x3/multicom/src/meta/hhpred/script/"; 
 
 while (<OPTION>)
 {
