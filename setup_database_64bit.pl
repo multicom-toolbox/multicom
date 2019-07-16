@@ -268,9 +268,9 @@ if(!(-e "/usr/bin/python2.6"))
 	print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/Python-2.6.8/install.done\n\n";
 	close OUT;
 	
-	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.6.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
 }else{
-	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7 $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh`;
+	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
 }
 
 
@@ -1557,7 +1557,7 @@ if(!(-e "/usr/bin/python2.6"))
 
 	if(! -e "$multicom_db_tools_dir/tools/Python-2.6.8/install.done")
 	{
-		print "\nStart install freecontact, may take ~1 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
+		print "\nStart install python2.6, may take ~10 min (sh P5_python2.6_library.sh &> P5_python2.6_library.log)\n\n";
 		print "\n\t\t\tLog is saved in $install_dir/installation/MULTICOM_manually_install_files/P5_python2.6_library.log\n\n";
 		`sh P5_python2.6_library.sh &> P5_python2.6_library.log`;
 	}else{

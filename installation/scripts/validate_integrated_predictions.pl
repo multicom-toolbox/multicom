@@ -50,6 +50,10 @@ foreach $file (sort @files)
 	($gdttsscore2,$rmsd2) = cal_sim($benchmark_file,$native_file);
 	$avg_gdt2_benchmark += $gdttsscore2;
 	
+	chomp $gdttsscore1;
+	chomp $gdttsscore2;
+	chomp $rmsd1;
+	chomp $rmsd2;
 	$diff = $gdttsscore2 - $gdttsscore1;
 	
 	printf "%-20s\t", $file;

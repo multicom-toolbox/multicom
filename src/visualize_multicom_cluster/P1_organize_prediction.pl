@@ -18,9 +18,10 @@ if(!(-d $outputdir))
 
 ###### handle full_length proteins
 chdir($outputdir);
-`mkdir $outputdir/full_length/`;
-`mkdir $outputdir/full_length/Top5_aln/`;
-`mkdir $outputdir/Final_models/`;
+
+-d "$outputdir/full_length/" || `mkdir $outputdir/full_length/`;
+-d "$outputdir/full_length/Top5_aln/" || `mkdir $outputdir/full_length/Top5_aln/`;
+-d "$outputdir/Final_models/" || `mkdir $outputdir/Final_models/`;
 
 $full_length_dir = 'full_length';
 if(-d "$workdir/full_length_hard")
@@ -312,7 +313,7 @@ if(!(-e "$workdir/$full_length_dir/meta/$targetid.gdt"))
 		close SCORE;
 		if(!(-e $modelpir))
 		{
-			print "Failed to find $modelpir, this ab initio model\n";
+			#print "Failed to find $modelpir, this ab initio model\n";
 		}else{
 			`cp $modelpir $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir`;
 			
@@ -359,8 +360,8 @@ if($domain_num>1)
 	for($domid=0;$domid<$domain_num;$domid++)
 	{
 		chdir($outputdir);
-		`mkdir $outputdir/domain$domid/`;
-		`mkdir $outputdir/domain$domid/Top5_aln/`;
+		-d "$outputdir/domain$domid" || `mkdir $outputdir/domain$domid/`;
+		-d "$outputdir/domain$domid/Top5_aln" || `mkdir $outputdir/domain$domid/Top5_aln/`;
 
 		$full_length_dir = "domain$domid";
 		###### copy basic information
@@ -373,25 +374,35 @@ if($domain_num>1)
 
 		if(!(-e "$workdir/$full_length_dir/hhsearch15/$targetid.fasta.disorder"))
 		{
-			print "Warning: 2. Failed to find $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder\n";
+			#print "Warning: 2. Failed to find $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder\n";
 		}else{
 			`cp $workdir/$full_length_dir/hhsearch15/domain$domid.fasta.disorder $outputdir/domain$domid/domain$domid.fasta.disorder`;
 		}
-
-		if(!(-e "$workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa"))
+		
+		if(-e "$workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa")
 		{
-			print "Warning: 3. Failed to find $workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa\n";
-		}else{
 			`cp $workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa $outputdir/domain$domid/domain$domid.ss_sa`;
+		}elsif(-e "$workdir/domain$domid/confold/dncon2/ss_sa/domain$domid.ss_sa")
+		{
+			`cp $workdir/domain$domid/confold/dncon2/ss_sa/domain$domid.ss_sa $outputdir/domain$domid/domain$domid.ss_sa`;
+		}else{
+			print "Warning: 3. Failed to find $workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa\n";
 		}
 
-		if(!(-e "$workdir/domain$domid/dncon2/domain$domid.dncon2.rr"))
+
+		if(-e "$workdir/domain$domid/dncon2/domain$domid.dncon2.rr")
 		{
-			print "Warning: 4. Failed to find $workdir/domain$domid/dncon2/domain$domid.dncon2.rr\n";
-		}else{
 			`cp $workdir/domain$domid/dncon2/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr`;
 			#print "perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats\n";
 			`perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats`;
+		}elsif(-e "$workdir/domain$domid/confold/dncon2/domain$domid.dncon2.rr")
+		{
+			`cp $workdir/domain$domid/confold/dncon2/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr`;
+			#print "perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats\n";
+			`perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats`;
+		}else
+		{
+			print "Warning: 4. Failed to find $workdir/domain$domid/dncon2/domain$domid.dncon2.rr\n";
 		}
 
 		####### copy top models
@@ -423,13 +434,13 @@ if($domain_num>1)
 				close SCORE;
 				if(!(-e $modelpir))
 				{
-					print "Failed to find $modelpir, this ab initio model\n";
+					#print "Failed to find $modelpir, this ab initio model\n";
 				}else{
 					`cp $modelpir $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir`;
 					
 					`perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa`;
 
-					`source /home/casp13/python_virtualenv/bin/activate`;
+					#`source /home/casp13/python_virtualenv/bin/activate`;
 
 					`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker.jpeg`;
 
@@ -437,12 +448,12 @@ if($domain_num>1)
 				}
 				if(!(-e $modelpdb))
 				{
-					print "Failed to find $modelpir, this ab initio model\n";
+					print "Failed to find $modelpdb\n";
 				}else{
 					`cp $modelpdb $outputdir/domain$domid/domain$domid.casp$indx.pdb`;
-					
-
 				}
+				
+
 				
 				if($indx == 5)
 				{
