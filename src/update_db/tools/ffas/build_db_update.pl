@@ -6,11 +6,11 @@
 #################################################################
 
 #library dir
-$library_dir = "/storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/library";
-$input_file = "/storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/fr_lib/sort90";
-$output_db = "/storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/ffas_dbs/multicom_db/multicom_ffas_db";
-$db_profile_list = "/storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/ffas_dbs/multicom_db/profile_list"; 
-$ffas_dir = "/storage/hpc/scratch/jh7x3/multicom_beta1.0/src/update_db_v1.1/tools/ffas/";
+$library_dir = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/library";
+$input_file = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/fr_lib/sort90";
+$output_db = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/ffas_dbs/multicom_db/multicom_ffas_db";
+$db_profile_list = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/ffas_dbs/multicom_db/profile_list"; 
+$ffas_dir = "/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/";
 
 if (! -f $output_db)
 {

@@ -7,38 +7,151 @@
 #Date: 07/01/2019
 #######################################################################
 
-if (@ARGV != 3)
+if (@ARGV != 6)
 {
-	die "need three parameters: sort90 fasta, hhsuite profiles, output dir.\n";
+	die "need five parameters: hhsuite dir, # cpu cores, secondary structure dir, hhblits database, input file (in fasta format), output dir.\n";
 }
 
-$sort90_file = shift @ARGV;
-$input_dir = shift @ARGV;
-$output_db = shift @ARGV; 
+$hhsuite_dir = shift @ARGV;
+$cpu_num = shift @ARGV;
+$ss_dir = shift @ARGV; 
+$hhblits_db = shift @ARGV;
+$input_file = shift @ARGV;
+$output_dir = shift @ARGV;
 
--d "$output_db" || `mkdir $output_db`;
--d "$output_db/a3m" || `mkdir $output_db/a3m`;
--d "$output_db/hhm" || `mkdir $output_db/hhm`;
+-d $hhsuite_dir || die "can't find $hhsuite_dir.\n";
+-d $output_dir || die "can't find $output_dir.\n";
+-d $ss_dir || die "can't find $ss_dir.\n";
+
+#$ENV{HHLIB}="$hhsuite_dir/lib/hh";
+$ENV{HHLIB}="$hhsuite_dir/";
 
 
-chdir($output_db);
+open(INPUT, $input_file) || die "can't open $input_file.\n";
+@fasta = <INPUT>;
+close INPUT;
 
-open(IN,"$sort90_file") || die "Failed to find $sort90_file\n";
-while(<IN>)
+$seq_num = 0; 
+while (@fasta)
 {
-  $line = $_;
-  chomp $line;
-  if(substr($line,0,1) eq '>')
-  {
-    $pdbid = substr($line,1);
-    if(-e "$input_dir/$pdbid.hhm" and -e "$input_dir/$pdbid.a3m")
-    {
-      `ln -s $input_dir/$pdbid.hhm $output_db/hhm/$pdbid`;
-      `ln -s $input_dir/$pdbid.a3m $output_db/a3m/$pdbid`;
-    }else{
-      print "$input_dir/$pdbid.hhm or $input_dir/$pdbid.a3m not exists\n\n";
-    }
-  } 
+	$name = shift @fasta;
+	$seq = shift @fasta;
+
+	chomp $name;
+	$name = substr($name, 1);
+ 
+	#check if the output file exist. if so, nothing needs to be done.		
+	if (-f "$output_dir/$name.a3m" && -f "$output_dir/$name.hhm" && -f "$output_dir/$name.cs219")
+	{
+		warn "The hhblits profile files for $name exist. Skip.\n";
+		next;
+	}
+	$seq_num++; 
+	print "Generate hhblits profile for $seq_num: $name\n";
+
+	open FASTA, ">$name.fasta" || "cannot create $name.fasta\n";
+	print FASTA ">$name\n$seq";
+	close FASTA;
+
+	#generate a3m multiple sequence alignment 
+  #	print("$hhsuite_dir/bin/hhblits -cpu $cpu_num -i $name.fasta -d $hhblits_db -oa3m $output_dir/$name.a3m -n 2\n");
+  if (! -f "$output_dir/$name.a3m")
+	{  
+    print("$hhsuite_dir/bin/hhblits -cpu $cpu_num -i $name.fasta -d $hhblits_db -oa3m $output_dir/$name.a3m -n 2\n\n");
+    system("$hhsuite_dir/bin/hhblits -cpu $cpu_num -i $name.fasta -d $hhblits_db -oa3m $output_dir/$name.a3m -n 2");
+  }
+	#generate profile
+	if (-f "$output_dir/$name.a3m")
+	{
+		system("$hhsuite_dir/bin/hhmake -i $output_dir/$name.a3m -o $output_dir/$name.hhm");  
+		`rm $name.hhr $name.fasta`; 
+		print("$hhsuite_dir/bin/cstranslate  -x 0.3 -c 4 -b -I a3m -i $output_dir/$name.a3m -o $output_dir/$name.cs219\n\n");
+		system("$hhsuite_dir/bin/cstranslate  -x 0.3 -c 4 -b -I a3m -i $output_dir/$name.a3m -o $output_dir/$name.cs219");    
+	}
+	else
+	{
+		next;
+	}
+
+	#get ss file
+	$ss_file = "$ss_dir/$name.seq";
+	if (-f $ss_file)
+	{
+	
+
+		$seq_file = $ss_file;
+		$hhm_file = "$output_dir/$name.hhm";
+
+		open(SEQ, $seq_file) || die "can't read $seq_file.\n";
+		<SEQ>;
+		<SEQ>;
+		<SEQ>;
+		<SEQ>;
+		<SEQ>;
+		<SEQ>;
+		$ss = <SEQ>;
+		chomp $ss;
+		close SEQ;
+
+		#remove blank
+		$ss =~ s/ //g;
+		#replace . with C.
+		$ss =~ s/\./C/g;
+
+		open(HHM, $hhm_file) || die "can't read $hhm_file.\n";
+		@hhm = <HHM>;
+		close HHM;
+
+		open(SHHM, ">$output_dir/$name.shhm");
+
+		while (@hhm)
+		{
+			$line = shift @hhm;
+			print SHHM $line;
+			if ($line =~ /^SEQ/)
+			{
+				#get length of secondary structure	
+				$len = length($ss);			
+
+				print SHHM ">ss_dssp\n";
+				for ($i = 1; $i <= $len; $i++)
+				{
+					print SHHM substr($ss, $i-1, 1);
+					if ($i % 100 == 0 || $i == $len)
+					{
+						print SHHM "\n";
+					}
+				}
+
+				print SHHM ">ss_pred\n";
+				$ss =~ s/[GI]/H/g;
+				$ss =~ s/B/E/g;
+				$ss =~ s/[TS]/C/g;
+				for ($i = 1; $i <= $len; $i++)
+				{
+					print SHHM substr($ss, $i-1, 1);
+					if ($i % 100 == 0 || $i == $len)
+					{
+						print SHHM "\n";
+					}
+				}
+
+				print SHHM ">ss_conf\n";
+				for ($i = 1; $i <= $len; $i++)
+				{
+					print SHHM "9";
+					if ($i % 100 == 0 || $i == $len)
+					{
+						print SHHM "\n";
+					}
+				}
+
+			}	
+		}
+
+    
+		`mv $output_dir/$name.shhm $output_dir/$name.hhm`; 
+
+	}	
 }
-close IN;
 

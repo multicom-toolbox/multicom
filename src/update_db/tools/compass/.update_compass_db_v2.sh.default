@@ -3,7 +3,7 @@
 
 date >> SOFTWARE_PATH/databases/prosys_database/compass_db/update_log.txt
 
-SOFTWARE_PATH/src/update_db_v1.1/tools/compass/build_compass_db_v3.pl SOFTWARE_PATH/tools/new_compass/compass_search/mk_compass_db SOFTWARE_PATH/databases/prosys_database/library/ SOFTWARE_PATH/databases/prosys_database/fr_lib/sort90 SOFTWARE_PATH/databases/prosys_database/compass_db/compass_db_new
+SOFTWARE_PATH/src/update_db/tools/compass/build_compass_db_v3.pl SOFTWARE_PATH/tools/new_compass/compass_search/mk_compass_db SOFTWARE_PATH/databases/prosys_database/library/ SOFTWARE_PATH/databases/prosys_database/fr_lib/sort90 SOFTWARE_PATH/databases/prosys_database/compass_db/compass_db_new
 
 mv SOFTWARE_PATH/databases/prosys_database/compass_db/compass_db1 SOFTWARE_PATH/databases/prosys_database/compass_db/compass_db1_old
 

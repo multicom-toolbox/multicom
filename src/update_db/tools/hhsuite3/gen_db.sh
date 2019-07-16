@@ -1,8 +1,31 @@
 #!/bin/sh
 
-#/disk2/chengji/hhsuite/gen_hhblits_profile.pl ~/software/hhsuite-2.0.8-linux-x86_64/ 8 ~/software/prosys_database/seq/ /disk2/chengji/nr20/nr20 ~/software/prosys_database/fr_lib/sort90  /disk2/chengji/hhsuite/a3m
+if [ ! -d "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs" ]; then
+  mkdir /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs
+  mkdir /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/profiles
+fi
 
-/storage/hpc/scratch/jh7x3/multicom_beta1.0/src/update_db_v1.1/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom_beta1.0/tools/hhsuite-2.0.16/ 8 /storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/seq/ /storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 /storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/fr_lib/sort90  /storage/hpc/scratch/jh7x3/multicom_beta1.0/databases/prosys_database/hhsuite_dbs/a3m/
 
-/storage/hpc/scratch/jh7x3/multicom_beta1.0/src/update_db_v1.1/tools/hhsuite/joinhmm2db.pl
+
+
+/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/seq/ /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/fr_lib/sort90  /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/profiles
+
+perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/prepare_db.pl /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/fr_lib/sort90  /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/profiles /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs
+
+export HHLIB=/storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/
+PATH=$PATH:$HHLIB/bin:$HHLIB/scripts
+
+
+if [ ! -d "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/work/" ]; then
+  mkdir /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/work/
+else
+  rm /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/work/*
+fi
+
+python $HHLIB/scripts/hhsuitedb.py -o /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/work/hhsuite3_sort90 --cpu 10 --ia3m=/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/a3m/* --ihhm=/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/hhm/* --ics219=/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/cs219/* --force
+
+cp /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/work/* /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/
+
+
+
 
