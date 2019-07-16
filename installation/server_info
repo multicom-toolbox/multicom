@@ -142,7 +142,7 @@ fusioncon_databases:uniprot20/uniprot20_2016_02
 
 
 #### Update template databases
-DBupdate_tools:hhsuite-3.2.0.tar.gz;clustalw1.83.tar.gz;palign.tar.gz;tcoffee2.03.tar.gz;hmmer2.3.2.tar.gz;prchmm1.5.2.tar.gz;hhsearch.tar.gz;lobster.tar.gz;compass1.24.tar.gz;pspro2.tar.gz;betapro-1.0.tar.gz;
+DBupdate_tools:hhsuite-3.2.0.tar.gz;clustalw1.83.tar.gz;palign.tar.gz;tcoffee2.03.tar.gz;hmmer2.3.2.tar.gz;prchmm1.5.2.tar.gz;hhsearch.tar.gz;lobster.tar.gz;compass1.24.tar.gz;pspro2.tar.gz;betapro-1.0.tar.gz;sam3.5.x86_64-linux.tar.gz;hhsuite-2.0.16.tar.gz
 DBupdate_databases:uniprot30/uniclust30_2018_08
 
 
