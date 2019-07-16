@@ -158,7 +158,7 @@ foreach $folder (@remote_folders)
     	print SB "#!/bin/bash -l\n";
     	print SB "#SBATCH -J db${db_index}_${folder}\n";
     	print SB "#SBATCH -o db${db_index}_${folder}.log\n";
-    	print SB "#SBATCH -p hpc4,hpc5,Lewis\n";
+    	print SB "#SBATCH -p hpc4,Lewis\n";
     	print SB "#SBATCH -n 1\n";
     	print SB "#SBATCH --mem 10G\n";
     	print SB "#SBATCH -t 2-00:00\n";
