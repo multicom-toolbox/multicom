@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-$test_script_dir= '/home/jh7x3/multicom/installation/MULTICOM_test_codes';
-$test_out_dir= '/home/jh7x3/multicom/test_out';
+$test_script_dir= '/storage/hpc/scratch/jh7x3/multicom/installation/MULTICOM_test_codes';
+$test_out_dir= '/storage/hpc/scratch/jh7x3/multicom/test_out';
 
 $num = @ARGV;
 if($num ==0)
@@ -10,7 +10,7 @@ if($num ==0)
 }elsif($num ==1)
 {
 	$proc_num = $ARGV[0];
-	if($proc_num > 10)
+	if($proc_num > 5)
 	{
 		die "5 maximum jobs are reccommended for parallel testing\n";
 	}

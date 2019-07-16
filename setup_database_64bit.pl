@@ -1568,7 +1568,7 @@ if(!(-e "/usr/bin/python2.6"))
 ### change permission of SCRATCH, will write tmp file 
 if(-d "$multicom_db_tools_dir/tools/SCRATCH-1D_1.1")
 {
-	`chmod -R 777 $multicom_db_tools_dir/tools/SCRATCH-1D_1.1`;
+	#`chmod -R 777 $multicom_db_tools_dir/tools/SCRATCH-1D_1.1`;
 }
 
 ### set up the boost environment for DNCON2
