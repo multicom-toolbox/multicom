@@ -35,12 +35,12 @@ if($run_mode ne 'thread' and $run_mode ne 'sbatch')
 	die "The running mode should be <thread> or <sbatch>\n\n";
 }
 
-if(-d "$sbatch_dir")
-{
-  `rm $sbatch_dir/*`;
-}else{
-  `mkdir $sbatch_dir`;
-}
+#if(-d "$sbatch_dir")
+#{
+#  `rm $sbatch_dir/*`;
+#}else{
+#  `mkdir $sbatch_dir`;
+#}
 
 ###### initialize the database file for the first run
 
