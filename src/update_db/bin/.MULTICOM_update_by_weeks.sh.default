@@ -10,7 +10,7 @@ week_interval=1
 run_mode='thread'
 
 ################# do not change the code below
-start_date=20170101
+start_date=20070101
 database_script=SOFTWARE_PATH/src/update_db/
 
 
