@@ -17,7 +17,7 @@ running_mode = sbatch
 from_date = 19900101
 
 ### set end date
-end_date = 20070425
+end_date = 20990101
 
 
 ###############################End of Global Options#################
