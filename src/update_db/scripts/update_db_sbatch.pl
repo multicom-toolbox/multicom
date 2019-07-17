@@ -139,6 +139,11 @@ foreach $folder (@remote_folders)
       $db_index ++;
       $option_tmp = "$sbatch_dir/db${db_index}_${folder}_option";
       
+      if(-e "$sbatch_dir/db${db_index}_${folder}.done")
+      {
+          print "$sbatch_dir/db${db_index}_${folder}.done is found. To next week!\n";
+          next;
+      }
       open(OPTION, $db_option) || die "can't read option file.\n";
       open(OUT, ">$option_tmp") || die "can't write option file.\n";
       

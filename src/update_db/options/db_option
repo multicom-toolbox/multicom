@@ -10,13 +10,14 @@ thread_num = 30
 
 ### set running mode to run (threads or sbatch)
 #running_mode = thread
+#running_mode = sbatch
 running_mode = sbatch
 
 ### set start date
 from_date = 19900101
 
 ### set end date
-end_date = 20070425
+end_date = 20990101
 
 
 ###############################End of Global Options#################

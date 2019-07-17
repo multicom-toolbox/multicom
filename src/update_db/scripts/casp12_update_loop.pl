@@ -8,7 +8,7 @@
 ####################################################################
 if (@ARGV != 6)
 {
-	die "need six parameters: pdb update script (update_main.pl), nr update script (update_nr.sh), compass update script (update_compass_db.sh), hhsearch udpate script, prc update script,  db option file.\n";
+	die "need  four parameters: pdb update script (update_main.pl), nr update script (update_nr.sh), compass update script (update_compass_db.sh), hhsearch udpate script, prc update script,  db option file.\n";
 }
 $update_script = shift @ARGV;
 $nr_script = shift @ARGV;
@@ -31,7 +31,7 @@ for ($i = 0; $i <= 31; $i++)
 }
 
 #enter into a loop for the database updating
-if (! -f "update.log")
+if (-f "update.log")
 {
 	`>update.log`; 
 }
@@ -46,7 +46,7 @@ while (1)
 	$hour = $minute = $second = 0;
 	($hour, $minute, $second) = split(/:/, $time);
 
-	if ($hour == 1 && $days[$day] == 0) #read hour 1, and is not updated today yet
+#	if ($hour == 1 && $days[$day] == 0) #read hour 1, and is not updated today yet
 	{
 		#set the update flag for the day
 		for ($i = 0; $i <= 31; $i++)
@@ -83,17 +83,39 @@ while (1)
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		system("/home/chengji/casp8/ffas/build_db_update.pl");
+		system("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";
 
+
+			#update hhsuite
+			print "start to update hhsuite database\n";
+			`echo start to update hhsuite database >> update.log`; 
+			`date >> update.log`; 
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			`date >> update.log`;
+			`echo finish updating hhsuite database >> update.log`;
+			print "finish updateing hhsuite database.\n";
+
+
+			#update hhsuite3 using hhm and a3m
+			print "start to update hhsuite3 database\n";
+			`echo start to update hhsuite3 database >> update.log`; 
+			`date >> update.log`; 
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh > hhsuite3.log");
+			`date >> update.log`;
+			`echo finish updating hhsuite3 database >> update.log`;
+			print "finish updateing hhsuite3 database.\n";
+            
+=pod      
 		#update nr database every Saturday 
 		#update compass database every saturday
 		$weekday = $fields[0]; 
 		if ($weekday eq "Sat")
 		{
-			print "start to update compass database\n";
+		
+    	print "start to update compass database\n";
 			`echo start to update compass database >> update.log`;
 			`date >> update.log`;
 			system("$update_compass > compass.log");
@@ -101,25 +123,24 @@ while (1)
 			`echo finish updating compass database >> update.log`;
 			print "finish updating compass database.\n";
 
+			#add sp3 update
+#			print "start to update sparks database\n";
+#			`echo start to update sparks database >> update.log`;
+#			`date >> update.log`;
+#			system("/home/chengji/sparks/lib-bin/updatelib_sp3.job > sparks.log");	
+#			`date >> update.log`;
+#			`echo finish updating sparks database >> update.log`;
+#			print "finish updateing sparks database.\n";	
+
 			#update hhsuite
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/disk2/chengji/hhsuite/gen_db.sh > hhsuite.log");
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";	
 
-			#start to update hhpred/hhblits/hhblits3 database  (to do...)
-			print "start to update hhpred/hhblits/hhblits3 database...\n";
-
-
-			print "finish updateing hhpred/hhblits/hhblits3 database.\n";	
-
-
-			#disable nr database update on 4/21/2018 to save space
-			if (0)
-			{
 			#udpate nr 
 			print "start to update nr database\n";
 			`echo start to update NR database >> update.log`;
@@ -128,14 +149,9 @@ while (1)
 			print "finish updating nr database (see update.log for details) on $date";
 			`date >> update.log`;
 			`echo finish updating NR database >> update.log`;
-			}
-
-
-
-
 
 		}
-
+=cut
 
 	}
 

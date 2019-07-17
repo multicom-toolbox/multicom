@@ -2,6 +2,7 @@
 ### update databases
 src/update_db/bin/MULTICOM_update_once.sh
 src/update_db/bin/MULTICOM_update_loop.sh
+src/update_db/bin/MULTICOM_update_by_weeks.sh
 src/update_db/scripts/casp12_update_once.pl
 src/update_db/scripts/casp12_update_loop.pl
 src/prosys/script/update_nr_lock.pl
