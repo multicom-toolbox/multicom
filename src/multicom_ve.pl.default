@@ -202,7 +202,7 @@ if ($pos >= 0)
 }
 $hhsearch_local_alignment = "$full_length_dir/hhsearch15/$query_filename.local";
 #if ($DEBUG == 0 && ! -f $hhsearch_local_alignment)
-if ($DEBUG == 0 && !(-e "$query_name/meta/$query_name.gdt")) # skip if pairwise evaluation was done
+if ($DEBUG == 0 && !(-e "$full_length_dir/meta/$query_name.gdt")) # skip if pairwise evaluation was done
 {
 	#generate full-length model
 	system("$GLOBAL_PATH/src/meta/script/multicom_server_ve.pl $meta_option_full_length $query_file $full_length_dir"); 
