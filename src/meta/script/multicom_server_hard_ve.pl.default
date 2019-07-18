@@ -690,6 +690,10 @@ $thread_num = @servers;
 for ($i = 0; $i < @servers; $i++)
 {
 	$server = $servers[$i];
+	if(-e "$output_dir/$$server/modelling.done") # set for restart
+	{
+		next;
+	}
 	sleep(1); #sleep a while so that rosetta will start at different time points
 
 	if ($server eq "rosetta2")
@@ -701,6 +705,7 @@ for ($i = 0; $i < @servers; $i++)
 		system("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null");
 
 		chdir "$output_dir"; 
+		`touch $output_dir/$server/modelling.done`;
 	}
 
 	if ( !defined( $kidpid = fork() ) )
@@ -812,6 +817,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hhsearch15")
@@ -820,6 +826,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hhsearch151")
@@ -828,6 +835,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "csblast")
@@ -836,6 +844,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+			`touch $output_dir/$server/modelling.done`;
 
 		}
 
@@ -845,6 +854,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+			`touch $output_dir/$server/modelling.done`;
 	
 			#call fugue predictor
 			#`mkdir fugue`; 
@@ -858,6 +868,7 @@ for ($i = 0; $i < @servers; $i++)
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
 			system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "psiblast")
@@ -866,12 +877,14 @@ for ($i = 0; $i < @servers; $i++)
 			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "newblast")
 		{
 			#system("$hhsearch_dir/script/tm_hhsearch_main.pl $hhsearch_option $query_file $server");
 			system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "compass")
@@ -879,12 +892,14 @@ for ($i = 0; $i < @servers; $i++)
 			system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 		elsif ($server eq "raptorx")
 		{
 			system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "sam")
@@ -892,6 +907,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "prc")
@@ -899,6 +915,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.prank" || `touch $server/$query_name.prank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hhpred")
@@ -906,6 +923,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hhblits")
@@ -914,6 +932,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
 			chdir $output_dir; 
 			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hhblits3")
@@ -922,6 +941,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
 			chdir $output_dir; 
 			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "ffas")
@@ -940,18 +960,21 @@ for ($i = 0; $i < @servers; $i++)
 			chdir $output_dir; 
 			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
 			-e "hhsuite/$query_name.rank" || `touch hhsuite/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 		elsif ($server eq "hhsuite3")
 		{
 			system("$hhsuite3_dir/script/tm_hhsuite3_main.pl $hhsuite3_option $query_file $server"); 
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 		elsif ($server eq "deepsf")
 		{
 			if(!(-e "deepsf/deepsf1.pdb"))
 			{
-				  system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+				 system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
+				`touch $output_dir/$server/modelling.done`;
 			}
 		}
 		elsif ($server eq "novel")
@@ -959,7 +982,8 @@ for ($i = 0; $i < @servers; $i++)
 
 			if(!(-e "novel/novel1.pdb"))
 			{
-				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");  
+				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server"); 
+				`touch $output_dir/$server/modelling.done`; 
 			}
 
 		}
@@ -968,6 +992,7 @@ for ($i = 0; $i < @servers; $i++)
 			if(!(-e "confold/confold2-1.pdb"))
 			{
 				system("$confold_dir/script/tm_confold2_main.sh $confold_option $query_file $server"); 
+				`touch $output_dir/$server/modelling.done`;
 			}
 		}
 		elsif ($server eq "rosettacon")
@@ -991,6 +1016,7 @@ for ($i = 0; $i < @servers; $i++)
 					}
 					`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
 					system("$rosettacon_dir/script/tm_rosettacon_main.pl $rosettacon_option $query_file $server $dncon_check"); 
+					`touch $output_dir/$server/modelling.done`;
 				}
 			}
 		}
@@ -1015,6 +1041,7 @@ for ($i = 0; $i < @servers; $i++)
 					}
 					`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
 					system("$fusioncon_dir/script/tm_fusioncon_main.pl $fusioncon_option $query_file $server $dncon_check"); 
+					`touch $output_dir/$server/modelling.done`;
 				}
 			}
 		}
@@ -1037,6 +1064,7 @@ for ($i = 0; $i < @servers; $i++)
 				}
 				`mv  $output_dir/$server/dncon2.waiting  $output_dir/$server/dncon2.done`;
 				system("$unicon3d_dir/script/tm_unicon3d_main.pl $unicon3d_option $query_file $server $dncon_check"); 
+				`touch $output_dir/$server/modelling.done`;
 			}
 		}
 
@@ -1049,6 +1077,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$muster_dir/script/filter_identical_muster.pl $server"); 
 			chdir $output_dir; 
 			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hmmer")
@@ -1056,6 +1085,7 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "hmmer3")
@@ -1063,11 +1093,13 @@ for ($i = 0; $i < @servers; $i++)
 			system("$hmmer3_dir/script/tm_hmmer3_main.pl $hmmer3_option $query_file $server");
 			chdir $output_dir; 
 			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "multicom")
 		{
 			system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
+			`touch $output_dir/$server/modelling.done`;
 		}
 
 		elsif ($server eq "rosetta")
@@ -1083,6 +1115,7 @@ for ($i = 0; $i < @servers; $i++)
 
 				#self model rosetta models
 				system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server");
+				`touch $output_dir/$server/modelling.done`;
 			}
 		}
 
@@ -1195,24 +1228,28 @@ for ($i = 0; $i < @servers; $i++)
 
 				#self model rosetta models
 				system("$meta_dir/script/self_dir.pl $meta_dir/script/self.pl $server_dir");
+				`touch $output_dir/$server/modelling.done`;
 
 		#	}
 		}
 		elsif ($server eq "construct")
 		{
 			system("$construct_dir/script/construct_hard_v9.pl $construct_option $query_file $output_dir");
+			`touch $output_dir/$server/modelling.done`;
 		}
 		elsif ($server eq "confoldtemp")
 		{
 			if (length($qseq) <= 400)
 			{
 				system("$confoldtemp_dir/script/tm_confoldtemp_main.pl $confoldtemp_option $query_file $output_dir");
+				`touch $output_dir/$server/modelling.done`;
 			}
 		}
 
 		elsif ($server eq "msa")
 		{
 				system("$msa_dir/script/msa4.pl $msa_option $query_file $output_dir");
+				`touch $output_dir/$server/modelling.done`;
 		}
 
 
