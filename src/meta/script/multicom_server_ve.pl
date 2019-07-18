@@ -625,6 +625,7 @@ for ($i = 0; $i < @servers; $i++)
 	$server = $servers[$i];
 	if(-e "$output_dir/$$server/modelling.done") # set for restart
 	{
+		print "$output_dir/$$server/modelling.done exists, modelling was complete, next\n";
 		next;
 	}
 	if ( !defined( $kidpid = fork() ) )
