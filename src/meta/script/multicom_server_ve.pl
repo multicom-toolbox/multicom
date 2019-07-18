@@ -623,11 +623,6 @@ $thread_num = @servers;
 for ($i = 0; $i < @servers; $i++)
 {
 	$server = $servers[$i];
-	if(-e "$output_dir/$server/modelling.done") # set for restart
-	{
-		print "$output_dir/$server/modelling.done exists, modelling was complete, next\n";
-		next;
-	}
 	if ( !defined( $kidpid = fork() ) )
 	{
 		die "can't create process $i\n";
@@ -635,6 +630,12 @@ for ($i = 0; $i < @servers; $i++)
 	elsif ($kidpid == 0)
 	{
 		print "start thread $i\n";
+		
+		if(-e "$output_dir/$server/modelling.done") # set for restart
+		{
+			print "$output_dir/$server/modelling.done exists, modelling was complete, next\n";
+			exit;
+		}
 		`mkdir $server`; 	
 
 		if ($server eq "sp3")

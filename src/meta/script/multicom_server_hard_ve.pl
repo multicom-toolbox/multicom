@@ -690,23 +690,21 @@ $thread_num = @servers;
 for ($i = 0; $i < @servers; $i++)
 {
 	$server = $servers[$i];
-	if(-e "$output_dir/$server/modelling.done") # set for restart
-	{
-		print "$output_dir/$server/modelling.done exists, modelling was complete, next\n";
-		next;
-	}
 	sleep(1); #sleep a while so that rosetta will start at different time points
 
 	if ($server eq "rosetta2")
 	{
-		#generate fragments files for all ab initio modeling 
-		print "generate fragment files for rosetta ab initio modeling...\n";
-		`mkdir $output_dir/rosetta_common`; 
-		chdir "$output_dir/rosetta_common"; 
-		system("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null");
+		if(-e "$output_dir/$server/modelling.done") # set for restart
+		{
+			#generate fragments files for all ab initio modeling 
+			print "generate fragment files for rosetta ab initio modeling...\n";
+			`mkdir $output_dir/rosetta_common`; 
+			chdir "$output_dir/rosetta_common"; 
+			system("$meta_dir/script/make_rosetta_fragment.sh $query_file abini $output_dir/rosetta_common $local_model_num >/dev/null");
 
-		chdir "$output_dir"; 
-		`touch $output_dir/$server/modelling.done`;
+			chdir "$output_dir"; 
+			`touch $output_dir/$server/modelling.done`;
+		}
 	}
 
 	if ( !defined( $kidpid = fork() ) )
@@ -716,6 +714,15 @@ for ($i = 0; $i < @servers; $i++)
 	elsif ($kidpid == 0)
 	{
 		print "start thread $i\n";
+		
+		
+		if(-e "$output_dir/$server/modelling.done") # set for restart
+		{
+			print "$output_dir/$server/modelling.done exists, modelling was complete, next\n";
+			exit;
+		}
+	
+	
 		`mkdir $server`; 	
 
 		if ($server eq "sp3")
