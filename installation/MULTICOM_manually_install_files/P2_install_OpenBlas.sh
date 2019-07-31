@@ -2,7 +2,7 @@
 
 echo " Start compile OpenBlas (will take ~5 min)"
 
-cd /storage/htc/bdm/tools/multicom_db_tools//tools
+cd /data/commons/MULTICOM_db_tools//tools
 
 cd OpenBLAS
 
@@ -10,7 +10,7 @@ cd OpenBLAS
 
 make
 
-make PREFIX=/storage/htc/bdm/tools/multicom_db_tools//tools/OpenBLAS install
+make PREFIX=/data/commons/MULTICOM_db_tools//tools/OpenBLAS install
 
-echo "installed" > /storage/htc/bdm/tools/multicom_db_tools//tools/OpenBLAS/install.done
+echo "installed" > /data/commons/MULTICOM_db_tools//tools/OpenBLAS/install.done
 
