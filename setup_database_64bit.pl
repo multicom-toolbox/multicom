@@ -609,6 +609,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr70_90/nr90.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 	}
 	
 	if(substr($file,0,9) eq 'uniref70.')
@@ -654,6 +655,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 		
 	}
 	
@@ -694,6 +696,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr_latest/nr.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 		
 	}
 }

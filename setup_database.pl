@@ -538,6 +538,7 @@ foreach $file (@files)
 			}
 			close TMP;
 			close TMPOUT;
+			`chmod -R 755 $uniref_dir/$file`;
 		}else{
 			
 			$status = system("ln -s $uniref_dir/$file $database_dir/nr70_90/nr90.$subfix");
@@ -548,6 +549,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr70_90/nr90.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 	}
 	
 	if(substr($file,0,9) eq 'uniref70.')
@@ -592,6 +594,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr70_90/nr70.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 		
 	}
 	
@@ -631,6 +634,7 @@ foreach $file (@files)
 			
 			`chmod -R 755 $database_dir/nr_latest/nr.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 		
 	}
 =pod
@@ -663,6 +667,7 @@ foreach $file (@files)
 		}else{
 			`ln -s $uniref_dir/$file $database_dir/nr20/nr20.$subfix`;
 		}
+		`chmod -R 755 $uniref_dir/$file`;
 	}
 =cut
 }
