@@ -77,8 +77,14 @@ if($multicom_db_tools_dir eq "$cur_dir/")
 	die "Same directory as MULTICOM main folder. Differnt path for original databases/tools folder $multicom_db_tools_dir is recommended.\n";
 }
 #create link for databases and tools
-`rm ${install_dir}databases`; 
-`rm ${install_dir}tools`; 
+if(-l "${install_dir}databases")
+{
+	`rm ${install_dir}databases`;
+}
+if(-l "${install_dir}tools")
+{
+	`rm ${install_dir}tools`;
+}
 `ln -s $database_dir ${install_dir}databases`;
 `ln -s $tools_dir ${install_dir}tools`;
 
