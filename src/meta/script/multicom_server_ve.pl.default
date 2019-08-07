@@ -735,65 +735,100 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "hhsearch")
 		{
-			system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
-			chdir $output_dir;
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			`touch $output_dir/$server/modelling.done`;
-			
+			if(-e "hhsearch/hh1.pdb" or -e "hhsearch/hh2.pdb")
+			{
+				print "hhsearch modelling is done!\n\n";
+			}else{
+				system("$hhsearch_dir/script/tm_hhsearch_main_v2.pl $hhsearch_option $query_file $server 1>out.log 2>err.log");
+				chdir $output_dir;
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "hhsearch15")
 		{
-			system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			### add domain analysis and disorder prediction, need reset hard code path
-			system("perl $hhsearch15_dir/script/domain_identification_from_hhsearch15.pl $query_file $server");
-			system("$GLOBAL_PATH/tools/disorder_new/bin/predict_diso.sh $query_file $output_dir/$server/$query_name.fasta.disorder");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhsearch15/ss1.pdb" or -e "hhsearch15/ss2.pdb")
+			{
+				print "hhsearch15 modelling is done!\n\n";
+			}else{
+				system("$hhsearch15_dir/script/tm_hhsearch1.5_main_v2.pl $hhsearch15_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				### add domain analysis and disorder prediction, need reset hard code path
+				system("perl $hhsearch15_dir/script/domain_identification_from_hhsearch15.pl $query_file $server");
+				system("$GLOBAL_PATH/tools/disorder_new/bin/predict_diso.sh $query_file $output_dir/$server/$query_name.fasta.disorder");
+				`touch $output_dir/$server/modelling.done`;
+			}
 			
 		}
 
 		elsif ($server eq "hhsearch151")
 		{
-			system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
-			
+			if(-e "hhsearch151/hg1.pdb" or -e "hhsearch151/hg2.pdb" )
+			{
+				print "hhsearch151 modelling is done!\n\n";
+			}else{
+				system("$hhsearch151_dir/script/tm_hhsearch151_main.pl $hhsearch151_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "csblast")
 		{
-			system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
-
-			#call hhsuite predictor
-			`mkdir hhsuite`; 
-			system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite"); 
-
-			#call hhsuite with super_option
-			$super_option = "$hhsuite_dir/super_option";
-			system("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite"); 
-			system("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite"); 
+			if(-e "csblast/csblast1.pdb" or -e "csblast/csblast2.pdb" )
+			{
+				print "csblast modelling is done!\n\n";
+			}else{
+				system("$csblast_dir/script/multicom_csblast_v2.pl $csblast_option $query_file $server");
+			}
 			
-			chdir $output_dir; 
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			-e "hhsuite/$query_name.rank" || `touch hhsuite/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhsuite/hhsuite1.pdb" or -e "hhsuite/hhsuite2.pdb" )
+			{
+				print "hhsuite modelling is done!\n\n";
+			}else{
+				#call hhsuite predictor
+				`mkdir hhsuite`; 
+				system("$hhsuite_dir/script/tm_hhsuite_main.pl $hhsuite_option $query_file hhsuite"); 
+			}
+			
+			if(-e "hhsuite/super1.pdb" or -e "hhsuite/super2.pdb" )
+			{
+				print "hhsuite/super modelling is done!\n\n";
+			}else{
+				#call hhsuite with super_option
+				$super_option = "$hhsuite_dir/super_option";
+				system("$hhsuite_dir/script/tm_hhsuite_main_simple.pl $super_option $query_file hhsuite"); 
+				system("$hhsuite_dir/script/filter_identical_hhsuite.pl hhsuite"); 
+				
+				chdir $output_dir; 
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				-e "hhsuite/$query_name.rank" || `touch hhsuite/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 			
 		}
 		elsif ($server eq "hhsuite3")
 		{
 			
-			system("$hhsuite3_dir/script/tm_hhsuite3_main.pl $hhsuite3_option $query_file $server"); 
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhsuite3/hhsu1.pdb" or -e "hhsuite3/hhsu2.pdb" )
+			{
+				print "hhsuite/super modelling is done!\n\n";
+			}else{
+				system("$hhsuite3_dir/script/tm_hhsuite3_main.pl $hhsuite3_option $query_file $server"); 
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "deepsf")
 		{
-			if(!(-e "deepsf/deepsf1.pdb"))
+			if(-e "deepsf/deepsf1.pdb" or -e "deepsf/deepsf2.pdb" )
 			{
+				print "deepsf modelling is done!\n\n";
+			}else{
 				 system("$deepsf_dir/script/tm_deepsf_main.pl $deepsf_option $query_file $server"); 
 				`touch $output_dir/$server/modelling.done`;
 			}
@@ -801,8 +836,10 @@ for ($i = 0; $i < @servers; $i++)
 		elsif ($server eq "novel")
 		{
 
-			if(!(-e "novel/novel1.pdb"))
+			if(-e "novel/novel1.pdb" or -e "novel/novel2.pdb")
 			{
+				print "novel modelling is done!\n\n";
+			}else{
 				system("$novel_dir/script/tm_novel_main.pl $novel_option $query_file $server");  
 				`touch $output_dir/$server/modelling.done`;
 			}
@@ -811,143 +848,233 @@ for ($i = 0; $i < @servers; $i++)
 
 		elsif ($server eq "csiblast")
 		{
-			system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			`touch $output_dir/$server/modelling.done`;
+
+			if(-e "csiblast/csiblast1.pdb" or -e "csiblast/csiblast2.pdb")
+			{
+				print "csiblast modelling is done!\n\n";
+			}else{
+				system("$csblast_dir/script/multicom_csiblast_v2.pl $csiblast_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "blast")
 		{
-			system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
-			system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "blast/hs1.pdb" or -e "blast/hs2.pdb")
+			{
+				print "blast modelling is done!\n\n";
+			}else{
+				system("$blast_dir/script/main_blast_v2.pl $blast_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
+				system("$hhsearch_dir/script/tm_hhsearch_main_casp8.pl $hhsearch_option_casp8 $query_file $server 1>out.log 2>err.log");
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "psiblast")
 		{
-			system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "psiblast/psiblast1.pdb" or -e "psiblast/psiblast2.pdb")
+			{
+				print "psiblast modelling is done!\n\n";
+			}else{
+				system("$psiblast_dir/script/main_psiblast_v2.pl $psiblast_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.easy.local" || `touch $server/$fasta_file.easy.local`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "compass")
 		{
-			system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "compass/com1.pdb" or -e "compass/com2.pdb")
+			{
+				print "compass modelling is done!\n\n";
+			}else{
+				system("$compass_dir/script/tm_compass_main_v2.pl $compass_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "sam")
 		{
-			system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "sam/sam1.pdb" or -e "sam/sam2.pdb")
+			{
+				print "sam modelling is done!\n\n";
+			}else{
+				system("$sam_dir/script/tm_sam_main_v2.pl $sam_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "prc")
 		{
-			system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.prank" || `touch $server/$query_name.prank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "prc/prc1.pdb" or -e "prc/prc2.pdb")
+			{
+				print "prc modelling is done!\n\n";
+			}else{
+				system("$prc_dir/script/tm_prc_main_v2.pl $prc_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.prank" || `touch $server/$query_name.prank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "hmmer")
 		{
-			system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			if(-e "hmmer/hmmer1.pdb" or -e "hmmer/hmmer2.pdb")
+			{
+				print "hmmer modelling is done!\n\n";
+			}else{
+				system("$hmmer_dir/script/tm_hmmer_main_v2.pl $hmmer_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+			}
 		}
 
 		elsif ($server eq "hmmer3")
 		{
-			system("$hmmer3_dir/script/tm_hmmer3_main.pl $hmmer3_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hmmer3/jackhmmer1.pdb" or -e "hmmer3/jackhmmer2.pdb")
+			{
+				print "hmmer3 modelling is done!\n\n";
+			}else{
+				system("$hmmer3_dir/script/tm_hmmer3_main.pl $hmmer3_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "raptorx")
 		{
-			system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "raptorx/rapt1.pdb" or -e "raptorx/rapt2.pdb")
+			{
+				print "hmmer3 modelling is done!\n\n";
+			}else{
+				system("$raptorx_dir/script/tm_raptorx_main.pl $raptorx_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.rank" || `touch $server/$query_name.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "newblast")
 		{
-			system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "newblast/newblast1.pdb" or -e "newblast/newblast2.pdb")
+			{
+				print "newblast modelling is done!\n\n";
+			}else{
+				system("$newblast_dir/script/newblast.pl $newblast_option $query_file $server");
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 
 		elsif ($server eq "multicom")
 		{
-			system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "multicom/multicom1.pdb" or -e "multicom/multicom2.pdb")
+			{
+				print "multicom modelling is done!\n\n";
+			}else{
+				system("$multicom_dir/script/multicom_cm_v2.pl $multicom_option $query_file $server");
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "construct")
 		{
-			system("$construct_dir/script/construct_v9.pl $construct_option $query_file $output_dir");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "construct/center1.pdb" or -e "construct/star1.pdb")
+			{
+				print "construct modelling is done!\n\n";
+			}else{
+				system("$construct_dir/script/construct_v9.pl $construct_option $query_file $output_dir");
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "msa")
 		{
-			system("$msa_dir/script/msa4.pl $msa_option $query_file $output_dir");
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "msa/msaprobs1.pdb" or -e "msa/msaprobs2.pdb")
+			{
+				print "msa modelling is done!\n\n";
+			}else{
+				system("$msa_dir/script/msa4.pl $msa_option $query_file $output_dir");
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "hhpred")
 		{
 			
-			system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhpred/hp1.pdb" or -e "hhpred/hp2.pdb")
+			{
+				print "hhpred modelling is done!\n\n";
+			}else{
+				system("$hhpred_dir/script/tm_hhpred_main.pl $hhpred_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "hhblits")
 		{
 			
-			system("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server");
-			system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
-			chdir $output_dir; 
-			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhblits/blits1.pdb" or -e "hhblits/gbli1.pdb")
+			{
+				print "hhblits modelling is done!\n\n";
+			}else{
+				system("$hhblits_dir/script/tm_hhblits_main.pl $hhblits_option $query_file $server");
+				system("$hhblits_dir/script/filter_identical_hhblits.pl hhblits"); 
+				chdir $output_dir; 
+				-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "hhblits3")
 		{
-			
-			system("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server");
-			system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
-			chdir $output_dir; 
-			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "hhblits3/hhbl1.pdb" or -e "hhblits3/hhbl2.pdb")
+			{
+				print "hhblits3 modelling is done!\n\n";
+			}else{
+				system("$hhblits3_dir/script/tm_hhblits3_main.pl $hhblits3_option $query_file $server");
+				system("$hhblits3_dir/script/filter_identical_hhblits.pl hhblits3"); 
+				chdir $output_dir; 
+				-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "muster")
 		{
 			
-			system("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server");
-			#system("$muster_dir/script/tm_lomets_main.pl $muster_option $query_file $server");
-			#system("$muster_dir/script/tm_NNNd_main.pl $muster_option $query_file $server");
-			#filter out redundant models
-			system("$muster_dir/script/filter_identical_muster.pl $server"); 
-			chdir $output_dir; 
-			-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
-			`touch $output_dir/$server/modelling.done`;
+			if(-e "muster/muster1.pdb" or -e "muster/muster1.pdb")
+			{
+				print "muster modelling is done!\n\n";
+			}else{
+				system("$muster_dir/script/tm_muster_main.pl $muster_option $query_file $server");
+				#system("$muster_dir/script/tm_lomets_main.pl $muster_option $query_file $server");
+				#system("$muster_dir/script/tm_NNNd_main.pl $muster_option $query_file $server");
+				#filter out redundant models
+				system("$muster_dir/script/filter_identical_muster.pl $server"); 
+				chdir $output_dir; 
+				-e "$server/$query_name.filter.rank" || `touch $server/$query_name.filter.rank`;
+				`touch $output_dir/$server/modelling.done`;
+			}
 		}
 		elsif ($server eq "ffas")
 		{
 			
-			system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
-			chdir $output_dir; 
-			-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
-			`touch $output_dir/$server/modelling.done`;
-		#	`mkdir fugue`; 
-			#system("$fugue_dir/script/tm_fugue_main.pl $fugue_option $query_file fugue"); 
+			if(-e "ffas/ff1.pdb" or -e "ffas/ff2.pdb")
+			{
+				print "ffas modelling is done!\n\n";
+			}else{
+				system("$ffas_dir/script/tm_ffas_main.pl $ffas_option $query_file $server");
+				chdir $output_dir; 
+				-e "$server/$fasta_file.local" || `touch $server/$fasta_file.local`;
+				`touch $output_dir/$server/modelling.done`;
+			#	`mkdir fugue`; 
+				#system("$fugue_dir/script/tm_fugue_main.pl $fugue_option $query_file fugue"); 
+			}
 		}
 
 		exit; 

@@ -275,6 +275,30 @@ elsif (-f $hhsearch_local_alignment)
 
 		if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 		{
+		
+			##### link predictors from full_length
+			if(-e "$output_dir/full_length/dncon2/$query_name.dncon2.rr")
+			{
+				`mkdir $full_length_dir_hard/confold/`; 
+				if(-l "$full_length_dir_hard/confold/dncon2")
+				{
+					`rm $full_length_dir_hard/confold/dncon2`;
+				}
+				`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
+			}
+			`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+			`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+			`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
+			`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
+			`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
+			`ln -s  $output_dir/full_length/hhsuite3 $full_length_dir_hard/hhsuite3`;
+			`ln -s  $output_dir/full_length/hhsuite $full_length_dir_hard/hhsuite`;
+			`ln -s  $output_dir/full_length/hhblits3 $full_length_dir_hard/hhblits3`;
+			`ln -s  $output_dir/full_length/hhblits $full_length_dir_hard/hhblits`;
+			`ln -s  $output_dir/full_length/ffas $full_length_dir_hard/ffas`;
+			`ln -s  $output_dir/full_length/blast $full_length_dir_hard/blast`;
+			##### end linking
+		
 			system("$GLOBAL_PATH/src/meta/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 		}
 		$full_length_dir = $full_length_dir_hard; 
@@ -293,6 +317,31 @@ else
 		$bHard = 1; 
 		$full_length_dir_hard = $output_dir . "/full_length_hard";
 		`mkdir $full_length_dir_hard`; 
+		
+		##### link predictors from full_length
+		if(-e "$output_dir/full_length/dncon2/$query_name.dncon2.rr")
+		{
+			`mkdir $full_length_dir_hard/confold/`; 
+			if(-l "$full_length_dir_hard/confold/dncon2")
+			{
+				`rm $full_length_dir_hard/confold/dncon2`;
+			}
+			`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
+		}
+		`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+		`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+		`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
+		`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
+		`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
+		`ln -s  $output_dir/full_length/hhsuite3 $full_length_dir_hard/hhsuite3`;
+		`ln -s  $output_dir/full_length/hhsuite $full_length_dir_hard/hhsuite`;
+		`ln -s  $output_dir/full_length/hhblits3 $full_length_dir_hard/hhblits3`;
+		`ln -s  $output_dir/full_length/hhblits $full_length_dir_hard/hhblits`;
+		`ln -s  $output_dir/full_length/ffas $full_length_dir_hard/ffas`;
+		`ln -s  $output_dir/full_length/blast $full_length_dir_hard/blast`;
+		##### end linking		
+		
+		
 		system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 		$full_length_dir = $full_length_dir_hard; 
 	}
@@ -475,6 +524,30 @@ if ($bHard == 1)
 	`mkdir $full_length_dir_hard`; 
 	if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 	{
+	
+		##### link predictors from full_length
+		if(-e "$output_dir/full_length/dncon2/$query_name.dncon2.rr")
+		{
+			`mkdir $full_length_dir_hard/confold/`; 
+			if(-l "$full_length_dir_hard/confold/dncon2")
+			{
+				`rm $full_length_dir_hard/confold/dncon2`;
+			}
+			`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
+		}
+		`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+		`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+		`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
+		`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
+		`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
+		`ln -s  $output_dir/full_length/hhsuite3 $full_length_dir_hard/hhsuite3`;
+		`ln -s  $output_dir/full_length/hhsuite $full_length_dir_hard/hhsuite`;
+		`ln -s  $output_dir/full_length/hhblits3 $full_length_dir_hard/hhblits3`;
+		`ln -s  $output_dir/full_length/hhblits $full_length_dir_hard/hhblits`;
+		`ln -s  $output_dir/full_length/ffas $full_length_dir_hard/ffas`;
+		`ln -s  $output_dir/full_length/blast $full_length_dir_hard/blast`;
+		##### end linking	
+	
 		system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 	}
 	$full_length_dir = $full_length_dir_hard;
@@ -919,6 +992,30 @@ if ($wrong == 1)
 		`mkdir $full_length_dir_hard`; 
 		if ($DEBUG == 0 && !(-e "$full_length_dir_hard/meta/$query_name.gdt")) # skip if the pairwise evaluation was done
 		{
+		
+			##### link predictors from full_length
+			if(-e "$output_dir/full_length/dncon2/$query_name.dncon2.rr")
+			{
+				`mkdir $full_length_dir_hard/confold/`; 
+				if(-l "$full_length_dir_hard/confold/dncon2")
+				{
+					`rm $full_length_dir_hard/confold/dncon2`;
+				}
+				`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
+			}
+			`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+			`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+			`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
+			`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
+			`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
+			`ln -s  $output_dir/full_length/hhsuite3 $full_length_dir_hard/hhsuite3`;
+			`ln -s  $output_dir/full_length/hhsuite $full_length_dir_hard/hhsuite`;
+			`ln -s  $output_dir/full_length/hhblits3 $full_length_dir_hard/hhblits3`;
+			`ln -s  $output_dir/full_length/hhblits $full_length_dir_hard/hhblits`;
+			`ln -s  $output_dir/full_length/ffas $full_length_dir_hard/ffas`;
+			`ln -s  $output_dir/full_length/blast $full_length_dir_hard/blast`;
+			##### end linking		
+		
 			system("$multicom_dir/script/multicom_server_hard_ve.pl $meta_option_hard_domain $query_file $full_length_dir_hard"); 
 		}
 		$full_length_dir = $full_length_dir_hard;
