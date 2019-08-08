@@ -28,9 +28,9 @@ mkdir -p $outputdir/rosetta2
 mkdir -p $outputdir/rosetta_common
 
 cd $outputdir
-sh /home/jh7x3/multicom/src/meta/script/make_rosetta_fragment.sh /home/jh7x3/multicom/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  rosetta_common.log
+sh /storage/hpc/scratch/jh7x3/multicom/src/meta/script/make_rosetta_fragment.sh /storage/hpc/scratch/jh7x3/multicom/examples/T1006.fasta abini  rosetta_common 100 2>&1 | tee  rosetta_common.log
 cp -r rosetta_common/abini rosetta2
-sh /home/jh7x3/multicom/src/meta/script/run_rosetta_no_fragment.sh /home/jh7x3/multicom/examples/T1006.fasta abini rosetta2 100 2>&1 | tee  rosetta2.log
+sh /storage/hpc/scratch/jh7x3/multicom/src/meta/script/run_rosetta_no_fragment.sh /storage/hpc/scratch/jh7x3/multicom/examples/T1006.fasta abini rosetta2 100 2>&1 | tee  rosetta2.log
 
 
 printf "\nFinished.."
@@ -38,7 +38,7 @@ printf "\nCheck log file <$outputdir/rosetta2.log>\n\n"
 
 
 if [[ ! -f "$outputdir/rosetta2/abini/abini-1.pdb" ]];then 
-	printf "!!!!! Failed to run rosetta, check the installation </home/jh7x3/multicom/src/meta/script/run_rosetta_no_fragment.sh>\n\n"
+	printf "!!!!! Failed to run rosetta, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/script/run_rosetta_no_fragment.sh>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/rosetta2/abini/abini-1.pdb $outputdir/$targetid.pdb 

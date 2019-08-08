@@ -6,7 +6,7 @@
 #second version: add construct predictor
 #Update version: 04/15/2018, 07/10/2019 --- Jie Hou, Jianlin Cheng 
 #########################################################################
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)

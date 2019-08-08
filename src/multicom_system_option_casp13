@@ -1,27 +1,27 @@
 
 #multicom dir
-multicom_dir = /home/jh7x3/multicom/src/meta/
+multicom_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta/
 
 #option for generate full length model
-meta_option_full_length = /home/jh7x3/multicom/src/meta/test_system/multicom_option_casp13
+meta_option_full_length = /storage/hpc/scratch/jh7x3/multicom/src/meta/test_system/multicom_option_casp13
 
 #option for generate easy domain model
-meta_option_easy_domain = /home/jh7x3/multicom/src/meta/test_system/multicom_option_casp13
+meta_option_easy_domain = /storage/hpc/scratch/jh7x3/multicom/src/meta/test_system/multicom_option_casp13
 
 #option for generate hard domain model
-meta_option_hard_domain = /home/jh7x3/multicom/src/meta/test_system/multicom_option_hard_casp13
+meta_option_hard_domain = /storage/hpc/scratch/jh7x3/multicom/src/meta/test_system/multicom_option_hard_casp13
 
 #prosys dir
-prosys_dir = /home/jh7x3/multicom/src/prosys/
+prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/
 
 #model dir
-modeller_dir = /home/jh7x3/multicom/tools/modeller-9.16/
+modeller_dir = /storage/hpc/scratch/jh7x3/multicom/tools/modeller-9.16/
 
 #tm_score
-tm_score = /home/jh7x3/multicom/tools/tm_score/TMscore_32
+tm_score = /storage/hpc/scratch/jh7x3/multicom/tools/tm_score/TMscore_32
 
 #q_score
-q_score = /home/jh7x3/multicom/tools/pairwiseQA/q_score
+q_score = /storage/hpc/scratch/jh7x3/multicom/tools/pairwiseQA/q_score
 
 
 #number of models to simulate for generating one model by Modeller

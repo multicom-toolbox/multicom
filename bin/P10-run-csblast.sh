@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/csblast
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/csblast/script/multicom_csblast_v2.pl /home/jh7x3/multicom/src/meta/csblast/csblast_option $fastafile csblast  2>&1 | tee  csblast.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/csblast/script/multicom_csblast_v2.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/csblast/csblast_option $fastafile csblast  2>&1 | tee  csblast.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/csblast.log>\n\n"
 
 
 if [[ ! -f "$outputdir/csblast/csblast1.pdb" ]];then 
-	printf "!!!!! Failed to run csblast, check the installation </home/jh7x3/multicom/src/meta/csblast/>\n\n"
+	printf "!!!!! Failed to run csblast, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/csblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/csblast/csblast1.pdb $outputdir/$targetid.pdb 

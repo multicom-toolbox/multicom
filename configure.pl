@@ -7,7 +7,7 @@
 #																					#
 # Set directory of multicom databases and tools								        #
 
-$multicom_db_tools_dir = "/data/commons/MULTICOM_db_tools/";							        
+$multicom_db_tools_dir = "/storage/htc/bdm/tools/multicom_db_tools/";							        
 
 ######################## !!! End of customize settings !!! ##########################
 

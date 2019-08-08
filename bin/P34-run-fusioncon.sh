@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/fusioncon
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/fusioncon/script/tm_fusioncon_main.pl /home/jh7x3/multicom/src/meta/fusioncon/fusioncon_option $fastafile fusioncon  2>&1 | tee  fusioncon.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/fusioncon/script/tm_fusioncon_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/fusioncon/fusioncon_option $fastafile fusioncon  2>&1 | tee  fusioncon.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/fusioncon.log>\n\n"
 
 
 if [[ ! -f "$outputdir/fusioncon/fusicon1.pdb" ]];then 
-	printf "!!!!! Failed to run fusioncon, check the installation </home/jh7x3/multicom/src/meta/fusioncon/>\n\n"
+	printf "!!!!! Failed to run fusioncon, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/fusioncon/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/fusioncon/fusicon1.pdb $outputdir/$targetid.pdb 
