@@ -34,3 +34,5 @@ src/update_db/bin/update_nr.sh
 src/update_db/options/db_option
 
 src/update_db/readme.txt
+src/update_db/example/run_db_20070425_thread.sh
+src/update_db/example/run_db_20070425_sbatch.sh
