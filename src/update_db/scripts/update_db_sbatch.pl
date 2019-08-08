@@ -218,7 +218,7 @@ foreach $folder (@remote_folders)
     	print SB "mv $sbatch_dir/db${db_index}_${folder}.running $sbatch_dir/db${db_index}_${folder}.done\n\n";
     	close SB;
     	system("chmod +x $sbatch_dir/db${db_index}_${folder}.sh");      
-	print "Running $sbatch_dir/db${db_index}_${folder}.sh\n\n";
+		print "Running $sbatch_dir/db${db_index}_${folder}.sh\n\n";
         system("sh $sbatch_dir/db${db_index}_${folder}.sh");
 	}
 }

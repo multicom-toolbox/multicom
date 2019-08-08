@@ -1,0 +1,11 @@
+
+perl update_db_sbatch.pl <database_dir> <script_dir> <from_db_date> <end_db_date> <thread_num> <by_weeks> <run mode>
+
+perl SOFTWARE_PATH/src/update_db/scripts/update_db_sbatch.pl  SOFTWARE_PATH/databases/prosys_database/  SOFTWARE_PATH/src/update_db/ SOFTWARE_PATH/databases/prosys_database/run_sbatch/  20070101 20070501  20  1  thread
+
+
+
+cd SOFTWARE_PATH/databases/prosys_database/run_sbatch
+
+
+
