@@ -56,6 +56,9 @@ nr_name = uniref90
 #dssp program path
 dssp_program_dir = SOFTWARE_PATH/tools/dssp/
 
+#full database dir to store all template information
+multicom_database_dir = SOFTWARE_PATH/databases/prosys_database
+
 #pdb source dir, it usually the same as pdb download dir
 set_pdb_source_dir = SOFTWARE_PATH/databases/prosys_database/pdb
 

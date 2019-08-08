@@ -193,6 +193,9 @@ foreach $folder (@remote_folders)
         }elsif ($line =~ /^fr_template_library_dir/)
       	{
           print OUT "fr_template_library_dir = $database_dir/fr_lib\n";
+        }elsif ($line =~ /^multicom_database_dir/)
+      	{
+          print OUT "multicom_database_dir = $database_dir\n";
         }else{
           print OUT "$line\n";
         }

@@ -5,6 +5,7 @@
 #Input: update script (pdb), update script (nr),  db option file
 #Author: Jianlin Cheng
 #Date: 1/20/2006
+#Update: 0808/2019
 ####################################################################
 if (@ARGV != 6)
 {
@@ -17,12 +18,33 @@ $update_hhsearch15 = shift @ARGV;
 $update_prc = shift @ARGV; 
 $option_file = shift @ARGV;
 
+
+
+#################read option file##################################
+open(OPTION, $option_file) || die "can't read option file.\n";
+$multicom_database_dir = "";
+while (<OPTION>)
+{
+	$line = $_; 
+	chomp $line;
+	if ($line =~ /^multicom_database_dir/)
+	{
+		($other, $value) = split(/=/, $line);
+		$value =~ s/\s//g; 
+		$multicom_database_dir = $value; 
+	}
+}
+close OPTION;
+#####################End of reading options######################
+
 -f $update_script || die "can't find update script: $update_script\n";
 -f $nr_script || die "can't find $nr_script.\n";
 -f $update_compass || die "can't find $update_compass.\n";
 -f $update_hhsearch15 || die "can't find $update_hhsearch15.\n";
 -f $update_prc || die "can't find $update_prc.\n";
 -f $option_file || die "can't find option file: $option_file\n";
+-d $multicom_database_dir || die "can't find database directory: $multicom_database_dir\n";
+
 
 #record the updating state the day 1 to day 31
 for ($i = 0; $i <= 31; $i++)
@@ -93,7 +115,8 @@ if (-f "update.log")
 		print "start to update hhsuite3 database\n";
 		`echo start to update hhsuite3 database >> update.log`; 
 		`date >> update.log`; 
-		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh > hhsuite3.log");
+    print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir > hhsuite3.log\n\n");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir > hhsuite3.log");
 		`date >> update.log`;
 		`echo finish updating hhsuite3 database >> update.log`;
 		print "finish updateing hhsuite3 database.\n";
@@ -102,7 +125,8 @@ if (-f "update.log")
 		print "start to update hhsuite database\n";
 		`echo start to update hhsuite database >> update.log`; 
 		`date >> update.log`; 
-		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log\n\n");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log");
 		`date >> update.log`;
 		`echo finish updating hhsuite database >> update.log`;
 		print "finish updateing hhsuite database.\n";
