@@ -213,7 +213,7 @@ foreach $folder (@remote_folders)
     	print SB "#SBATCH --time 2-00:00     # days-hours:minutes\n";
     	print SB "#SBATCH --qos=normal\n";
     	print SB "#SBATCH --account=general-gpu  # investors will replace this with their account name\n";
-    	print SB "#SBATCH --gres gpu:\"Tesla K40m:1\":1\n";
+    	print SB "#SBATCH --gres gpu:\"Tesla K40m\":1\n";
     	print SB "mv $sbatch_dir/db${db_index}_${folder}.queued $sbatch_dir/db${db_index}_${folder}.running\n\n";
   		#within the child process
   		print SB "echo 'start updating database to date $folder'\n\n";
