@@ -33,4 +33,4 @@ src/update_db/bin/update_nr.sh
 ## option
 src/update_db/options/db_option
 
-src/update_db/.readme.txt.default
+src/update_db/readme.txt
