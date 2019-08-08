@@ -226,10 +226,12 @@ foreach $folder (@remote_folders)
 		print "Running $sbatch_dir/db${db_index}_${folder}.sh\n\n";
 		if($run_mode eq 'thread')
 		{
+			chdir($sbatch_dir);
 			print("sh $sbatch_dir/db${db_index}_${folder}.sh\n\n");
 			system("sh $sbatch_dir/db${db_index}_${folder}.sh");
 		}elsif($run_mode eq 'sbatch')
 		{
+			chdir($sbatch_dir);
 			print("sbatch $sbatch_dir/db${db_index}_${folder}.sh\n\n");
 			system("sbatch $sbatch_dir/db${db_index}_${folder}.sh");
 		}else{
