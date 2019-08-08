@@ -205,10 +205,15 @@ foreach $folder (@remote_folders)
     	print SB "#!/bin/bash -l\n";
     	print SB "#SBATCH -J db${db_index}_${folder}\n";
     	print SB "#SBATCH -o db${db_index}_${folder}.log\n";
-    	print SB "#SBATCH -p hpc4,Lewis\n";
-    	print SB "#SBATCH -n 1\n";
-    	print SB "#SBATCH --mem 10G\n";
-    	print SB "#SBATCH -t 2-00:00\n";
+    	print SB "#SBATCH --partition gpu3\n";
+    	print SB "#SBATCH --nodes=1\n";
+    	print SB "#SBATCH --ntasks=1         # leave at '1' unless using a MPI code\n";
+    	print SB "#SBATCH --cpus-per-task=20  # cores per task\n";
+    	print SB "#SBATCH --mem-per-cpu=2G  # memory per core (default is 1GB/core)\n";
+    	print SB "#SBATCH --time 2-00:00     # days-hours:minutes\n";
+    	print SB "#SBATCH --qos=normal\n";
+    	print SB "#SBATCH --account=general-gpu  # investors will replace this with their account name\n";
+    	print SB "#SBATCH --gres gpu:\"Tesla K40m:1\":1\n";
     	print SB "mv $sbatch_dir/db${db_index}_${folder}.queued $sbatch_dir/db${db_index}_${folder}.running\n\n";
   		#within the child process
   		print SB "echo 'start updating database to date $folder'\n\n";
