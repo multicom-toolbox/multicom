@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
-$input_dir = "/home/jh7x3/multicom/databases/prosys_database/hhsuite_dbs/a3m/";
+#$input_dir = "/home/jh7x3/multicom/databases/prosys_database/hhsuite_dbs/a3m/";
+$input_dir = "/home/jh7x3/multicom/databases/prosys_database/hhsuite3_dbs/profiles/";
 $output_db = "/home/jh7x3/multicom/databases/prosys_database/hhsuite_dbs/a3m/hhsuitedb";
 `> $output_db`; 
 opendir(HHM, $input_dir);

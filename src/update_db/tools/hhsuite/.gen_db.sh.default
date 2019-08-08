@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SOFTWARE_PATH/src/update_db/tools/hhsuite/gen_hhblits_profile.pl SOFTWARE_PATH/tools/hhsuite-2.0.16/ 8 SOFTWARE_PATH/databases/prosys_database/seq/ SOFTWARE_PATH/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 SOFTWARE_PATH/databases/prosys_database/fr_lib/sort90  SOFTWARE_PATH/databases/prosys_database/hhsuite_dbs/a3m/
+#SOFTWARE_PATH/src/update_db/tools/hhsuite/gen_hhblits_profile.pl SOFTWARE_PATH/tools/hhsuite-2.0.16/ 8 SOFTWARE_PATH/databases/prosys_database/seq/ SOFTWARE_PATH/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 SOFTWARE_PATH/databases/prosys_database/fr_lib/sort90  SOFTWARE_PATH/databases/prosys_database/hhsuite_dbs/a3m/
 
 SOFTWARE_PATH/src/update_db/tools/hhsuite/joinhmm2db.pl
 
