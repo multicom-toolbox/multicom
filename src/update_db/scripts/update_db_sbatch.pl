@@ -219,7 +219,18 @@ foreach $folder (@remote_folders)
     	close SB;
     	system("chmod +x $sbatch_dir/db${db_index}_${folder}.sh");      
 		print "Running $sbatch_dir/db${db_index}_${folder}.sh\n\n";
-        system("sh $sbatch_dir/db${db_index}_${folder}.sh");
+		if($run_mode eq 'thread')
+		{
+			print("sh $sbatch_dir/db${db_index}_${folder}.sh\n\n");
+			system("sh $sbatch_dir/db${db_index}_${folder}.sh");
+		}elsif($run_mode eq 'sbatch')
+		{
+			print("sbatch $sbatch_dir/db${db_index}_${folder}.sh\n\n");
+			system("sbatch $sbatch_dir/db${db_index}_${folder}.sh");
+		}else{
+			die "Wrong mode option <$run_mode>\n\n";
+		}
+        
 	}
 }
 close TMP;
