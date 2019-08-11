@@ -134,10 +134,10 @@ if (-f "update.log")
 		`echo finish updating hhsuite database >> update.log`;
 		print "finish updateing hhsuite database.\n";
 
-  	print "start to update compass database\n";
+  		print "start to update compass database\n";
 		`echo start to update compass database >> update.log`;
 		`date >> update.log`;
-    print("$update_compass  $multicom_database_dir > compass.logi\n\n");
+    		print("$update_compass  $multicom_database_dir > compass.log\n\n");
 		system("$update_compass  $multicom_database_dir > compass.log");
 		`date >> update.log`;
 		`echo finish updating compass database >> update.log`;
