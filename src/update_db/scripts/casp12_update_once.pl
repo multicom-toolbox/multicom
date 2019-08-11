@@ -107,8 +107,8 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
-		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
+		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";

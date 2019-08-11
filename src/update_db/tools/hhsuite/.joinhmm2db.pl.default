@@ -15,7 +15,7 @@ $database_path=$ARGV[0];
 $input_dir = "$database_path/hhsuite3_dbs/profiles/";
 $output_db = "$database_path/hhsuite_dbs/a3m/hhsuitedb";
 
-mkdir -p $database_path/hhsuite_dbs/a3m/
+-d "$database_path/hhsuite_dbs/a3m" || `mkdir -p $database_path/hhsuite_dbs/a3m/`;
 
 `> $output_db`; 
 opendir(HHM, $input_dir);
