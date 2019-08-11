@@ -142,7 +142,7 @@ foreach $folder (@remote_folders)
       if(-e "$sbatch_dir/db${db_index}_${folder}.done")
       {
           print "$sbatch_dir/db${db_index}_${folder}.done is found. To next week!\n";
-          next;
+          #next;
       }
       open(OPTION, $db_option) || die "can't read option file.\n";
       open(OUT, ">$option_tmp") || die "can't write option file.\n";
