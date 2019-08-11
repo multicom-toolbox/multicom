@@ -97,7 +97,7 @@ if (-f "update.log")
 		print "start to update PRC database\n";
 		`echo start to update PRC database >> update.log`;
 		`date >> update.log`;
-		print("$update_prc $multicom_database_dir\n");
+		print("$update_prc $multicom_database_dir\n\n");
 		system("$update_prc $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating PRC database >> update.log`;
@@ -107,7 +107,7 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
+		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir\n\n");
 		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
@@ -137,7 +137,7 @@ if (-f "update.log")
   	print "start to update compass database\n";
 		`echo start to update compass database >> update.log`;
 		`date >> update.log`;
-    print("$update_compass  $multicom_database_dir > compass.log");
+    print("$update_compass  $multicom_database_dir > compass.logi\n\n");
 		system("$update_compass  $multicom_database_dir > compass.log");
 		`date >> update.log`;
 		`echo finish updating compass database >> update.log`;
