@@ -3,13 +3,26 @@
 #create and continuously update the ffas database
 #Author: Jianlin Cheng
 #Date: 11/21/2011
+#Update:0809/2019
 #################################################################
 
+$num = @ARGV;
+if($num != 1)
+{
+  die "Parameter: directory of database\n\n";
+}
+
+$database_path = $ARGV[0];
+
+-d "$database_path/ffas_dbs" || `mkdir $database_path/ffas_dbs`;
+-d "$database_path/ffas_dbs/multicom_db" || `mkdir $database_path/ffas_dbs/multicom_db`;
+
+
 #library dir
-$library_dir = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/library";
-$input_file = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/fr_lib/sort90";
-$output_db = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/ffas_dbs/multicom_db/multicom_ffas_db";
-$db_profile_list = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/ffas_dbs/multicom_db/profile_list"; 
+$library_dir = "$database_path/library";
+$input_file = "$database_path/fr_lib/sort90";
+$output_db = "$database_path/ffas_dbs/multicom_db/multicom_ffas_db";
+$db_profile_list = "$database_path/ffas_dbs/multicom_db/profile_list"; 
 $ffas_dir = "/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/";
 
 if (! -f $output_db)

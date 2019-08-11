@@ -87,7 +87,8 @@ if (-f "update.log")
 		print "start to update hhsearch15 database\n";
 		`echo start to update hhsearch15 database >> update.log`;
 		`date >> update.log`;
-		system("$update_hhsearch15");
+		print("$update_hhsearch15 $multicom_database_dir\n");
+		system("$update_hhsearch15 $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating hhsearch15 database >> update.log`;
 		print "finish updating hhsearch15 database.\n";
@@ -96,7 +97,8 @@ if (-f "update.log")
 		print "start to update PRC database\n";
 		`echo start to update PRC database >> update.log`;
 		`date >> update.log`;
-		system("$update_prc");
+		print("$update_prc $multicom_database_dir\n");
+		system("$update_prc $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating PRC database >> update.log`;
 		print "finish updating PRC database.\n";
@@ -105,6 +107,7 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
+		print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
 		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
@@ -131,7 +134,17 @@ if (-f "update.log")
 		`echo finish updating hhsuite database >> update.log`;
 		print "finish updateing hhsuite database.\n";
 
-            
+  	print "start to update compass database\n";
+		`echo start to update compass database >> update.log`;
+		`date >> update.log`;
+    print("$update_compass  $multicom_database_dir > compass.log");
+		system("$update_compass  $multicom_database_dir > compass.log");
+		`date >> update.log`;
+		`echo finish updating compass database >> update.log`;
+		print "finish updating compass database.\n"; 
+    
+    
+               
 =pod      
 		#update nr database every Saturday 
 		#update compass database every saturday
@@ -142,7 +155,8 @@ if (-f "update.log")
     	print "start to update compass database\n";
 			`echo start to update compass database >> update.log`;
 			`date >> update.log`;
-			system("$update_compass > compass.log");
+      print("$update_compass  $multicom_database_dir > compass.log");
+			system("$update_compass  $multicom_database_dir > compass.log");
 			`date >> update.log`;
 			`echo finish updating compass database >> update.log`;
 			print "finish updating compass database.\n";
