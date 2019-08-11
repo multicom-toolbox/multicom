@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/raptorx
 
 cd $outputdir
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/raptorx/script/tm_raptorx_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/raptorx/raptorx_option_version3 $fastafile raptorx  2>&1 | tee  raptorx.log
+perl /home/jh7x3/multicom/src/meta/raptorx/script/tm_raptorx_main.pl /home/jh7x3/multicom/src/meta/raptorx/raptorx_option_version3 $fastafile raptorx  2>&1 | tee  raptorx.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/raptorx.log>\n\n"
 
 
 if [[ ! -f "$outputdir/raptorx/rapt1.pdb" ]];then 
-	printf "!!!!! Failed to run raptorx, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/raptorx/>\n\n"
+	printf "!!!!! Failed to run raptorx, check the installation </home/jh7x3/multicom/src/meta/raptorx/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/raptorx/rapt1.pdb $outputdir/$targetid.pdb 

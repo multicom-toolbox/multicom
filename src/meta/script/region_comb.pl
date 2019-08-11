@@ -7,10 +7,10 @@
 #Date: 5/11/2010
 #############################domain combination########################################
 $cm_model_num = 5; 
-$modeller_dir = "/storage/hpc/scratch/jh7x3/multicom/tools/modeller9v7/"; 
-$prosys_dir = "/storage/hpc/scratch/jh7x3/multicom/src/prosys/";
+$modeller_dir = "/home/jh7x3/multicom/tools/modeller9v7/"; 
+$prosys_dir = "/home/jh7x3/multicom/src/prosys/";
 $final_model_num = 5; 
-$pdb2casp2 = "/storage/hpc/scratch/jh7x3/multicom/src/meta/script/pdb2casp.pl";
+$pdb2casp2 = "/home/jh7x3/multicom/src/meta/script/pdb2casp.pl";
 
 if (@ARGV < 5)
 {
@@ -187,8 +187,8 @@ for ($m = 0; $m < @servers; $m++)
 		{
 			print "A combined model $comb_dir/$server$idx.pdb is generated.\n";
 
-			system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $comb_dir/$server$idx.pdb -o $comb_dir/$server$idx.pdb.scw >/dev/null");
-			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $comb_dir/$server$idx.pdb.scw > $comb_dir/$server-clash$idx.txt");
+			system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $comb_dir/$server$idx.pdb -o $comb_dir/$server$idx.pdb.scw >/dev/null");
+			system("/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $comb_dir/$server$idx.pdb.scw > $comb_dir/$server-clash$idx.txt");
 
 
 #			print("$pdb2casp2 $comb_dir/$server$idx.pdb.scw $idx $query_name $comb_dir/$server-casp$idx.pdb");	

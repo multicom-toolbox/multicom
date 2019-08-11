@@ -28,7 +28,7 @@ mkdir -p $outputdir/hhsearch15
 
 cd $outputdir
 
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch1.5/hhsearch1.5_option $fastafile hhsearch15  2>&1 | tee  hhsearch15.log
+perl /home/jh7x3/multicom/src/meta/hhsearch1.5/script/tm_hhsearch1.5_main_v2.pl /home/jh7x3/multicom/src/meta/hhsearch1.5/hhsearch1.5_option $fastafile hhsearch15  2>&1 | tee  hhsearch15.log
 
 
 printf "\nFinished.."
@@ -36,7 +36,7 @@ printf "\nCheck log file <$outputdir/hhsearch15.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhsearch15/ss1.pdb" ]];then 
-	printf "!!!!! Failed to run hhsearch15, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch1.5/>\n\n"
+	printf "!!!!! Failed to run hhsearch15, check the installation </home/jh7x3/multicom/src/meta/hhsearch1.5/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhsearch15/ss1.pdb $outputdir/$targetid.pdb 

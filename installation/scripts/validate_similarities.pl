@@ -9,7 +9,7 @@ $test_dir = $ARGV[1];
 $benchmark_dir = $ARGV[2];
 $prefix = $ARGV[3];
 
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/home/jh7x3/multicom/";
 
 
 print "\n---------------------------------------------------------------------------------------------------\n";

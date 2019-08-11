@@ -28,15 +28,15 @@ mkdir -p $outputdir/blast
 
 cd $outputdir
 
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/blast/script/main_blast_v2.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/blast/cm_option_adv $fastafile blast  2>&1 | tee  blast.log
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch/script/tm_hhsearch_main_casp8.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8 $fastafile blast
+perl /home/jh7x3/multicom/src/meta/blast/script/main_blast_v2.pl /home/jh7x3/multicom/src/meta/blast/cm_option_adv $fastafile blast  2>&1 | tee  blast.log
+perl /home/jh7x3/multicom/src/meta/hhsearch/script/tm_hhsearch_main_casp8.pl /home/jh7x3/multicom/src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8 $fastafile blast
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/blast.log>\n\n"
 
 
 if [[ ! -f "$outputdir/blast/hs1.pdb" ]];then 
-	printf "!!!!! Failed to run blast, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/blast/>\n\n"
+	printf "!!!!! Failed to run blast, check the installation </home/jh7x3/multicom/src/meta/blast/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/blast/hs1.pdb $outputdir/$targetid.pdb 

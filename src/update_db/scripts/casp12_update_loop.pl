@@ -83,7 +83,7 @@ while (1)
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
+		system("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";
@@ -93,7 +93,7 @@ while (1)
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";
@@ -103,7 +103,7 @@ while (1)
 			print "start to update hhsuite3 database\n";
 			`echo start to update hhsuite3 database >> update.log`; 
 			`date >> update.log`; 
-			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh > hhsuite3.log");
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh > hhsuite3.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite3 database >> update.log`;
 			print "finish updateing hhsuite3 database.\n";
@@ -136,7 +136,7 @@ while (1)
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";	
