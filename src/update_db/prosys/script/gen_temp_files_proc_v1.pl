@@ -157,7 +157,7 @@ if($running_mode eq 'thread')
   
   			#`rm $work_dir/$thread_dir$i/lib$i.fasta`; 
   
-  			`rm -r $work_dir/$thread_dir$i`; 
+  			`rm -rf $work_dir/$thread_dir$i`; 
   		}
   
   		#remove thread dir
@@ -247,6 +247,14 @@ if($running_mode eq 'thread')
   die "Incorrect running mode ($running_mode), please check the option file $option_file\n\n";
 }
 END:
+## clean folders
+for ($i = 0; $i < $thread_num; $i++)
+{
+  if(-d "$work_dir/$thread_dir$i")
+  {
+    `rm -rf $work_dir/$thread_dir$i`;
+  }
+}
 
 
 

@@ -142,7 +142,7 @@ foreach $folder (@remote_folders)
       if(-e "$sbatch_dir/db${db_index}_${folder}.done")
       {
           print "$sbatch_dir/db${db_index}_${folder}.done is found. To next week!\n";
-          next;
+          #next;
       }
       open(OPTION, $db_option) || die "can't read option file.\n";
       open(OUT, ">$option_tmp") || die "can't write option file.\n";
@@ -231,12 +231,12 @@ foreach $folder (@remote_folders)
 		{
 			chdir($sbatch_dir);
 			print("sh $sbatch_dir/db${db_index}_${folder}.sh\n\n");
-			#system("sh $sbatch_dir/db${db_index}_${folder}.sh");
+			system("sh $sbatch_dir/db${db_index}_${folder}.sh");
 		}elsif($run_mode eq 'sbatch')
 		{
 			chdir($sbatch_dir);
 			print("sbatch $sbatch_dir/db${db_index}_${folder}.sh\n\n");
-			#system("sbatch $sbatch_dir/db${db_index}_${folder}.sh");
+			system("sbatch $sbatch_dir/db${db_index}_${folder}.sh");
 		}else{
 			die "Wrong mode option <$run_mode>\n\n";
 		}
