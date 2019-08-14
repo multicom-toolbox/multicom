@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/hhsearch151
 
 cd $outputdir
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch151/script/tm_hhsearch151_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch151/hhsearch151_option_hard $fastafile hhsearch151  2>&1 | tee  hhsearch151.log
+perl /storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch151/script/tm_hhsearch151_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch151/hhsearch151_option_hard $fastafile hhsearch151  2>&1 | tee  hhsearch151.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/hhsearch151.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhsearch151/hg1.pdb" ]];then 
-	printf "!!!!! Failed to run hhsearch151, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch151/>\n\n"
+	printf "!!!!! Failed to run hhsearch151, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch151/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhsearch151/hg1.pdb $outputdir/$targetid.pdb 

@@ -34,9 +34,9 @@ foreach $model (@models)
 }
 
 #generate features
-system("/storage/hpc/scratch/jh7x3/multicom/tools/model_check2/script/generate_input_v2.pl /storage/hpc/scratch/jh7x3/multicom/tools/betacon/ /storage/hpc/scratch/jh7x3/multicom/tools/pspro2/ /storage/hpc/scratch/jh7x3/multicom/tools/disorder_new/ $query_file $feature_dir");
+system("/storage/htc/bdm/jh7x3/multicom/tools/model_check2/script/generate_input_v2.pl /storage/htc/bdm/jh7x3/multicom/tools/betacon/ /storage/htc/bdm/jh7x3/multicom/tools/pspro2/ /storage/htc/bdm/jh7x3/multicom/tools/disorder_new/ $query_file $feature_dir");
 
-system("/storage/hpc/scratch/jh7x3/multicom/tools/model_check2/script/casp_model_eva_full.pl /storage/hpc/scratch/jh7x3/multicom/tools/betacon/ /storage/hpc/scratch/jh7x3/multicom/tools/model_check2/ $query_file $feature_dir $output_dir $output_file");
+system("/storage/htc/bdm/jh7x3/multicom/tools/model_check2/script/casp_model_eva_full.pl /storage/htc/bdm/jh7x3/multicom/tools/betacon/ /storage/htc/bdm/jh7x3/multicom/tools/model_check2/ $query_file $feature_dir $output_dir $output_file");
 
 `mv $feature_dir $output_dir`; 
 

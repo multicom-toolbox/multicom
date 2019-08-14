@@ -13,22 +13,22 @@ use lib ".";
 
 ###########################################################################################################
 ####################################The values are hard coded and need to be parameterized later###########
-use lib "/storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch151/script/";
+use lib "/storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch151/script/";
 use Align;
 # CUSTOMIZE
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhpred/nr_latest/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhsearch_db/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
                                    # It is recommended to use nre = nr + env. 
                                    # 90: filtered with CD-HIT to 90% maximum pairwise sequence identity
-my $dbbase="/storage/hpc/scratch/jh7x3/multicom/databases/nr70_90/nr";
-my $hh="/storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch151/script/";
+my $dbbase="/storage/htc/bdm/jh7x3/multicom/databases/nr70_90/nr";
+my $hh="/storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch151/script/";
 my $perl=$hh;
-my $ncbidir="/storage/hpc/scratch/jh7x3/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
+my $ncbidir="/storage/htc/bdm/jh7x3/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
 my $blastpgp=$ncbidir."/blastpgp -I T -s T"; # blastpgp executable
 #our $blastpgp.=" -I T -s T"; # show gi's in defline; use Smith-Waterman
 
-my $execdir="/storage/hpc/scratch/jh7x3/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
-my $datadir="/storage/hpc/scratch/jh7x3/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
+my $execdir="/storage/htc/bdm/jh7x3/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
+my $datadir="/storage/htc/bdm/jh7x3/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
 ###########################################################################################################
 
 

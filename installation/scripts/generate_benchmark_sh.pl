@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/storage/htc/bdm/jh7x3/multicom/";
 
 
 $benchmark_list = "$GLOBAL_PATH/installation/benchmark/casp13_benchmark.txt";

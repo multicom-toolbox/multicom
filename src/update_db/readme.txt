@@ -5,7 +5,7 @@ perl update_db_sbatch.pl <database_dir> <script_dir> <from_db_date> <end_db_date
 
 ### test example
 
-cd /storage/hpc/scratch/jh7x3/multicom/src/update_db/example
+cd /storage/htc/bdm/jh7x3/multicom/src/update_db/example
 
 *** On local server 
 
@@ -23,12 +23,12 @@ sh run_db_20070425_sbatch.sh
 
 Examples:
 
-perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/  /storage/hpc/scratch/jh7x3/multicom/src/update_db/ /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/run_sbatch/  20070101 20070428  20  1  thread
+perl /storage/htc/bdm/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/  /storage/htc/bdm/jh7x3/multicom/src/update_db/ /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/run_sbatch/  20070101 20070428  20  1  thread
 
-perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/  /storage/hpc/scratch/jh7x3/multicom/src/update_db/ /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/run_sbatch/  20070101 20070428  20  1  sbatch
+perl /storage/htc/bdm/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/  /storage/htc/bdm/jh7x3/multicom/src/update_db/ /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/run_sbatch/  20070101 20070428  20  1  sbatch
 
 
-cd /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/run_sbatch
+cd /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/run_sbatch
 
 
 

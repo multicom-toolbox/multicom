@@ -3,7 +3,7 @@
 ###############################Global Options########################
 #database status dir: hold all kinds of information regarding database
 #prosys_db_stat_dir = /home/jianlinc/prosys/database/dbstat
-prosys_db_stat_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/dbstat
+prosys_db_stat_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/dbstat
 
 ### set number of thread
 thread_num = 30
@@ -24,13 +24,13 @@ end_date = 20990101
 
 ############################PDB download options#####################
 #prosys dir
-prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/update_db/prosys
+prosys_dir = /storage/htc/bdm/jh7x3/multicom/src/update_db/prosys
 
 #main pdb repository
-main_pdb_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/pdb05_2004
+main_pdb_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/pdb05_2004
 
 #pdb download dir
-pdb_download_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/pdb
+pdb_download_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/pdb
 
 #pdb index file: a list of pdb files downloaded so far
 #should contains all files listed in $main_pdb_dir
@@ -47,33 +47,33 @@ pdb_bad_list = pdb_bad_list
 
 
 #non-redundant protein database
-nr_dir = /storage/hpc/scratch/jh7x3/multicom/databases/uniref/
+nr_dir = /storage/htc/bdm/jh7x3/multicom/databases/uniref/
 nr_name = uniref90
 
 #########################End of PDB download optons##################
 
 ############################Dataset generation option################
 #dssp program path
-dssp_program_dir = /storage/hpc/scratch/jh7x3/multicom/tools/dssp/
+dssp_program_dir = /storage/htc/bdm/jh7x3/multicom/tools/dssp/
 
 #full database dir to store all template information
-multicom_database_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database
+multicom_database_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database
 
 #pdb source dir, it usually the same as pdb download dir
-set_pdb_source_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/pdb
+set_pdb_source_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/pdb
 
 #dssp dir to store dssp file
-set_dssp_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/dssp
+set_dssp_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/dssp
 
 #seq dir to store new seq 
-set_seq_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/seq
+set_seq_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/seq
 
 #atom dir to store new atom file
-set_atom_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/atom
+set_atom_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/atom
 
 #working dir for both dataset generation and library building.
 #if this directory doesn't exist, the script will create one.
-set_work_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/work
+set_work_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/work
 
 #dataset file name generated from all new dssp files
 #this file is stored in set_work_dir
@@ -110,7 +110,7 @@ set_pdb_release_date = all_new
 
 ###########################CM library option#########################
 #directory to store cm library (fasta file and formated blast file)
-cm_library_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/cm_lib
+cm_library_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/cm_lib
 
 #cm database file name (name of fasta file and prefix of formated
 #blast file. this file is put in cm_library_dir
@@ -131,47 +131,47 @@ cm_filter_resolution = 8
 cm_filter_ratio = 0.9
 
 #blast dir
-blast_dir = /storage/hpc/scratch/jh7x3/multicom/tools/blast-2.2.17/bin
+blast_dir = /storage/htc/bdm/jh7x3/multicom/tools/blast-2.2.17/bin
 
 ###########################End of CM library option##################
 
 
 ###########################FR library option#########################
 #clustalw dir
-clustalw_dir=/storage/hpc/scratch/jh7x3/multicom/tools/clustalw1.83
+clustalw_dir=/storage/htc/bdm/jh7x3/multicom/tools/clustalw1.83
 
 #palign dir
-palign_dir=/storage/hpc/scratch/jh7x3/multicom/tools/palign/linux
+palign_dir=/storage/htc/bdm/jh7x3/multicom/tools/palign/linux
 
 #tcoffee dir
-tcoffee_dir=/storage/hpc/scratch/jh7x3/multicom/tools/tcoffee2.03
+tcoffee_dir=/storage/htc/bdm/jh7x3/multicom/tools/tcoffee2.03
 
 #hmmer dir
-hmmer_dir=/storage/hpc/scratch/jh7x3/multicom/tools/hmmer2.3.2
+hmmer_dir=/storage/htc/bdm/jh7x3/multicom/tools/hmmer2.3.2
 
 #hhm prc dir
-prc_dir=/storage/hpc/scratch/jh7x3/multicom/tools/prchmm1.5.2
+prc_dir=/storage/htc/bdm/jh7x3/multicom/tools/prchmm1.5.2
 
 #hhsearch dir
-hhsearch_dir=/storage/hpc/scratch/jh7x3/multicom/tools/hhsearch
+hhsearch_dir=/storage/htc/bdm/jh7x3/multicom/tools/hhsearch
 
 #lobster dir
-lobster_dir=/storage/hpc/scratch/jh7x3/multicom/tools/lobster
+lobster_dir=/storage/htc/bdm/jh7x3/multicom/tools/lobster
 
 #compass dir
-compass_dir=/storage/hpc/scratch/jh7x3/multicom/tools/compass1.24
+compass_dir=/storage/htc/bdm/jh7x3/multicom/tools/compass1.24
 
 #pspro dir 
-pspro_dir=/storage/hpc/scratch/jh7x3/multicom/tools/pspro2
+pspro_dir=/storage/htc/bdm/jh7x3/multicom/tools/pspro2
 
 #betapro dir 
-betapro_dir=/storage/hpc/scratch/jh7x3/multicom/tools/betapro-1.0
+betapro_dir=/storage/htc/bdm/jh7x3/multicom/tools/betapro-1.0
 
 #fr template dir of holding template related files
-fr_template_dir=/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/library
+fr_template_dir=/storage/htc/bdm/jh7x3/multicom/databases/prosys_database/library
 
 #fr template  dir of holding profile files.
-fr_template_library_dir = /storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/fr_lib
+fr_template_library_dir = /storage/htc/bdm/jh7x3/multicom/databases/prosys_database/fr_lib
 
 #fr template fasta file
 #this file must be put in fr_template_library_dir

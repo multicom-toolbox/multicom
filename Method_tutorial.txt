@@ -1,245 +1,245 @@
 
 ################################################################# Method 1: hhsearch  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P1-run-hhsearch.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P1-run-hhsearch.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P1-run-hhsearch.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P1-run-hhsearch.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P1-run-hhsearch-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P1-run-hhsearch-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P1-run-hhsearch-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P1-run-hhsearch-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch_hard
 
 
 ################################################################# Method 2: hhsearch15  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P2-run-hhsearch15.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P2-run-hhsearch15.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P2-run-hhsearch15.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch15
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P2-run-hhsearch15.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch15
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P2-run-hhsearch15-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P2-run-hhsearch15-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P2-run-hhsearch15-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch15_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P2-run-hhsearch15-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch15_hard
 
 
 ################################################################# Method 3: hhsearch151  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P3-run-hhsearch151.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P3-run-hhsearch151.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P3-run-hhsearch151.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch151
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P3-run-hhsearch151.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch151
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P3-run-hhsearch151-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P3-run-hhsearch151-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P3-run-hhsearch151-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsearch151_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P3-run-hhsearch151-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsearch151_hard
 
 
 ################################################################# Method 4: hhsuite  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P11-run-hhsuite.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P11-run-hhsuite.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P11-run-hhsuite.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsuite
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P11-run-hhsuite.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsuite
 
 
 ################################################################# Method 5: hhsuite3  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P33-run-hhsuite3.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P33-run-hhsuite3.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P33-run-hhsuite3.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhsuite3
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P33-run-hhsuite3.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhsuite3
 
 
 ################################################################# Method 6: hmmer  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P18-run-hmmer.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P18-run-hmmer.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P18-run-hmmer.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hmmer
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P18-run-hmmer.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hmmer
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P18-run-hmmer-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P18-run-hmmer-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P18-run-hmmer-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hmmer_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P18-run-hmmer-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hmmer_hard
 
 
 ################################################################# Method 7: hmmer3  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P19-run-hmmer3.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P19-run-hmmer3.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P19-run-hmmer3.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hmmer3
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P19-run-hmmer3.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hmmer3
 
 
 ################################################################# Method 8: hhblits  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P23-run-hhblits.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P23-run-hhblits.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P23-run-hhblits.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhblits
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P23-run-hhblits.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhblits
 
 
 ################################################################# Method 9: hhblits3  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P24-run-hhblits3.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P24-run-hhblits3.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P24-run-hhblits3.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhblits3
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P24-run-hhblits3.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhblits3
 
 
 ################################################################# Method 10: hhpred  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P22-run-hhpred.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P22-run-hhpred.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P22-run-hhpred.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhpred
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P22-run-hhpred.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhpred
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P22-run-hhpred-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P22-run-hhpred-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P22-run-hhpred-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_hhpred_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P22-run-hhpred-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_hhpred_hard
 
 
 ################################################################# Method 11: ffas  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P26-run-ffas.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P26-run-ffas.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P26-run-ffas.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_ffas
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P26-run-ffas.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_ffas
 
 
 ################################################################# Method 12: compass  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P15-run-compass.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P15-run-compass.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P15-run-compass.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_compass
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P15-run-compass.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_compass
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P15-run-compass-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P15-run-compass-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P15-run-compass-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_compass_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P15-run-compass-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_compass_hard
 
 
 ################################################################# Method 13: blast  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P13-run-blast.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P13-run-blast.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P13-run-blast.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_blast
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P13-run-blast.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_blast
 
 
 ################################################################# Method 14: newblast  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P21-run-newblast.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P21-run-newblast.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P21-run-newblast.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_newblast
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P21-run-newblast.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_newblast
 
 
 ################################################################# Method 15: csblast  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P10-run-csblast.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P10-run-csblast.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P10-run-csblast.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_csblast
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P10-run-csblast.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_csblast
 
 
 ################################################################# Method 16: csiblast  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P12-run-csiblast.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P12-run-csiblast.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P12-run-csiblast.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_csiblast
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P12-run-csiblast.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_csiblast
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P12-run-csiblast-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P12-run-csiblast-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P12-run-csiblast-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_csiblast_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P12-run-csiblast-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_csiblast_hard
 
 
 ################################################################# Method 17: psiblast  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P14-run-psiblast.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P14-run-psiblast.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P14-run-psiblast.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_psiblast
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P14-run-psiblast.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_psiblast
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P14-run-psiblast-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P14-run-psiblast-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P14-run-psiblast-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_psiblast_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P14-run-psiblast-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_psiblast_hard
 
 
 ################################################################# Method 18: sam  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P16-run-sam.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P16-run-sam.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P16-run-sam.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_sam
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P16-run-sam.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_sam
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P16-run-sam-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P16-run-sam-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P16-run-sam-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_sam_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P16-run-sam-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_sam_hard
 
 
 ################################################################# Method 19: prc  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P17-run-prc.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P17-run-prc.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P17-run-prc.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_prc
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P17-run-prc.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_prc
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P17-run-prc-hard.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P17-run-prc-hard.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P17-run-prc-hard.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_prc_hard
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P17-run-prc-hard.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_prc_hard
 
 
 ################################################################# Method 20: raptorx  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P20-run-raptorx.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P20-run-raptorx.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P20-run-raptorx.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_raptorx
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P20-run-raptorx.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_raptorx
 
 
 ################################################################# Method 21: muster  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P25-run-muster.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P25-run-muster.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P25-run-muster.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_muster
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P25-run-muster.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_muster
 
 
 ################################################################# Method 22: novel  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P32-run-novel.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P32-run-novel.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P32-run-novel.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_novel
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P32-run-novel.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_novel
 
 
 ################################################################# Method 23: deepsf  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P31-run-deepsf.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P31-run-deepsf.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P31-run-deepsf.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_deepsf
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P31-run-deepsf.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_deepsf
 
 
 ################################################################# Method 24: confold  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P27-run-confold.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P27-run-confold.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P27-run-confold.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_confold
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P27-run-confold.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_confold
 
 
 ################################################################# Method 25: rosettacon  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P30-run-rosettacon.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P30-run-rosettacon.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P30-run-rosettacon.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_rosettacon
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P30-run-rosettacon.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_rosettacon
 
 
 ################################################################# Method 26: unicon3d  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P28-run-unicon3d.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P28-run-unicon3d.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P28-run-unicon3d.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_unicon3d
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P28-run-unicon3d.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_unicon3d
 
 
 ################################################################# Method 27: rosetta  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P29-run-rosetta.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P29-run-rosetta.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P29-run-rosetta.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_rosetta
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P29-run-rosetta.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_rosetta
 
 
 ################################################################# Method 28: dncon2  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P4-run-dncon2.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P4-run-dncon2.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P4-run-dncon2.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_dncon2
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P4-run-dncon2.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_dncon2
 
 
 ################################################################# Method 29: fusioncon  #################################################################
 
-Usage: /storage/hpc/scratch/jh7x3/multicom//bin/P34-run-fusioncon.sh <target id> <fasta> <output-directory>
+Usage: /storage/htc/bdm/jh7x3/multicom//bin/P34-run-fusioncon.sh <target id> <fasta> <output-directory>
 
-	** Example: /storage/hpc/scratch/jh7x3/multicom//bin/P34-run-fusioncon.sh T1006 /storage/hpc/scratch/jh7x3/multicom//examples/T1006.fasta /storage/hpc/scratch/jh7x3/multicom//test_out/T1006_fusioncon
+	** Example: /storage/htc/bdm/jh7x3/multicom//bin/P34-run-fusioncon.sh T1006 /storage/htc/bdm/jh7x3/multicom//examples/T1006.fasta /storage/htc/bdm/jh7x3/multicom//test_out/T1006_fusioncon
 
 
 ################################################################# Method 30: DBupdate  #################################################################
