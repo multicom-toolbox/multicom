@@ -886,12 +886,13 @@ sub seq_rr{
 	open RR, $file_rr or confess "ERROR! Could not open $file_rr! $!";
 	while(<RR>){
 		chomp $_;
+    next if ($_ =~ /^TARGET/ and index($_,' ')>0); ## Filter the TAEGET line
 		$_ =~ s/\r//g; # chomp does not remove \r
 		$_ =~ s/^\s+//;
 		$_ =~ s/\s+//g;
 		next if ($_ =~ /^>/);
 		next if ($_ =~ /^PFRMAT/);
-		next if ($_ =~ /^TARGET/  and length($_)<15); ## met one case that sequence has substring TARGET
+		#next if ($_ =~ /^TARGET/);## commented this line because met one case that sequence has substring TARGET
 		next if ($_ =~ /^AUTHOR/);
 		next if ($_ =~ /^SCORE/); 
 		next if ($_ =~ /^REMARK/);
