@@ -82,7 +82,7 @@ if (-f "update.log")
 		system("$update_script $option_file >> update.log");
 		$date = `date`;
 		print "finish updating database on $date";
-
+    chdir($multicom_database_dir);
 		#update hhsearch db
 		print "start to update hhsearch15 database\n";
 		`echo start to update hhsearch15 database >> update.log`;
@@ -118,8 +118,8 @@ if (-f "update.log")
 		print "start to update hhsuite3 database\n";
 		`echo start to update hhsuite3 database >> update.log`; 
 		`date >> update.log`; 
-    print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir > hhsuite3.log\n\n");
-		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir > hhsuite3.log");
+    print("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log\n\n");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log");
 		`date >> update.log`;
 		`echo finish updating hhsuite3 database >> update.log`;
 		print "finish updateing hhsuite3 database.\n";

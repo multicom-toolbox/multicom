@@ -1,12 +1,13 @@
 #!/bin/sh
 
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 then
-        echo "need one parameters: databasae directory."
+        echo "need two parameters: databasae directory, option file."
         exit 1
 fi
 
 database_path=$1
+option_file=$2
 
 
 if [ ! -d "$database_path/hhsuite3_dbs" ]; then
@@ -17,7 +18,9 @@ fi
 
 
 
-/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 $database_path/seq/ /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
+#/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 $database_path/seq/ /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
+
+/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile_proc.pl $option_file $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
 
 perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/prepare_db.pl $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles $database_path/hhsuite3_dbs
 
