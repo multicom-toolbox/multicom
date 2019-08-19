@@ -7,7 +7,7 @@ if (@ARGV != 2) {
 $pdb1 = $ARGV[0];
 $pdb2 = $ARGV[1];
 
-$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
+$GLOBAL_PATH="/storage/htc/bdm/jh7x3/multicom/";
 
 if(-e $pdb1 and -e $pdb2)
 {

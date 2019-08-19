@@ -274,6 +274,20 @@ if(!(-e "/usr/bin/python2.6"))
 	`cp $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.py2.7.default $install_dir/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.sh.default`;
 }
 
+#### install R-3.2.0.tar.gz
+
+open(OUT,">$install_dir/installation/MULTICOM_manually_install_files/P6_install_R-3.2.0.sh") || die "Failed to open file $install_dir/installation/MULTICOM_manually_install_files/P6_install_R-3.2.0.sh\n";
+print OUT "#!/bin/bash -e\n\n";
+print OUT "echo \" Start compile R-3.2.0 (will take ~3 min)\"\n\n";
+print OUT "cd $multicom_db_tools_dir/tools/R-3.2.0\n\n";
+print OUT "make clean\n\n";
+print OUT "./configure --prefix=$multicom_db_tools_dir/tools/R-3.2.0  --with-readline=no --with-x=no\n\n";
+print OUT "make\n\n";
+print OUT "make install\n\n";
+print OUT "echo \"installed\" > $multicom_db_tools_dir/tools/R-3.2.0/install.done\n\n";
+close OUT;
+
+
 
 
 
@@ -312,7 +326,7 @@ foreach $db (@basic_db)
 print("\n#### (2) Download basic tools\n\n");
 
 chdir($tools_dir);
-$basic_tools_list = "blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;blast-2.2.25.tar.gz;modeller-9.16.tar.gz;modeller9v7.tar.gz;tm_score.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz;mmseqs2.tar.gz;boost_1_38_0.tar.gz;boost_1_55_0.tar.gz;OpenBLAS.tar.gz;scwrl4.tar.gz;DNCON2.tar.gz;pairwiseQA.tar.gz;pspro2.tar.gz;model_eva1.0.tar.gz;model_check2.tar.gz;MSACompro_1.2.0.tar.gz;MSAProbs-0.9.4.tar.gz;Domain_assembly.tar.gz;TMalign.tar.gz;TMscore.tar.gz;betacon.tar.gz;betapro-1.0.tar.gz;disorder_new.tar.gz;dssp.tar.gz;energy.tar.gz;maxcluster64bit.tar.gz;tm_align.tar.gz;Python-2.6.8.tar.gz";
+$basic_tools_list = "blast-2.2.17.tar.gz;blast-2.2.20.tar.gz;blast-2.2.25.tar.gz;modeller-9.16.tar.gz;modeller9v7.tar.gz;tm_score.tar.gz;tm_score2.tar.gz;tm_align2.tar.gz;clustalw1.83.tar.gz;mmseqs2.tar.gz;boost_1_38_0.tar.gz;boost_1_55_0.tar.gz;OpenBLAS.tar.gz;scwrl4.tar.gz;DNCON2.tar.gz;pairwiseQA.tar.gz;pspro2.tar.gz;model_eva1.0.tar.gz;model_check2.tar.gz;MSACompro_1.2.0.tar.gz;MSAProbs-0.9.4.tar.gz;Domain_assembly.tar.gz;TMalign.tar.gz;TMscore.tar.gz;betacon.tar.gz;betapro-1.0.tar.gz;disorder_new.tar.gz;dssp.tar.gz;energy.tar.gz;maxcluster64bit.tar.gz;tm_align.tar.gz;Python-2.6.8.tar.gz;R-3.2.0.tar.gz";
 @basic_tools = split(';',$basic_tools_list);
 foreach $tool (@basic_tools)
 {
@@ -1546,6 +1560,23 @@ if(!(-e "/usr/bin/python2.6"))
 		print "\nPython-2.6.8 is installed!\n\n";
 	}	
 }
+
+
+
+
+#### install R-3.2.0.tar.gz
+chdir("$install_dir/installation/MULTICOM_manually_install_files/");
+if(-d "$multicom_db_tools_dir/tools/R-3.2.0")
+{
+	if( ! -e "$multicom_db_tools_dir/tools/R-3.2.0/install.done")
+	{
+		print "\nStart install R-3.2.0, may take ~10 min (sh P6_install_R-3.2.0.sh &> P6_install_R-3.2.0.log)\n\n";
+		`sh P6_install_R-3.2.0.sh &> P6_install_R-3.2.0.log`;
+	}else{
+		print "\nR-3.2.0 is installed!\n\n";
+	}
+}
+
 
 ### change permission of SCRATCH, will write tmp file 
 if(-d "$multicom_db_tools_dir/tools/SCRATCH-1D_1.1")

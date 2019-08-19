@@ -27,15 +27,15 @@ fi
 mkdir -p $outputdir/hhblits
 
 cd $outputdir
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits/script/tm_hhblits_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits/hhblits_option /storage/hpc/scratch/jh7x3/multicom/examples/T1006.fasta hhblits  2>&1 | tee  hhblits.log
-perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits/script/filter_identical_hhblits.pl hhblits
+perl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits/script/tm_hhblits_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits/hhblits_option /storage/htc/bdm/jh7x3/multicom/examples/T1006.fasta hhblits  2>&1 | tee  hhblits.log
+perl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits/script/filter_identical_hhblits.pl hhblits
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/hhblits.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhblits/blits1.pdb" ]];then 
-	printf "!!!!! Failed to run hhblits, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits/>\n\n"
+	printf "!!!!! Failed to run hhblits, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/hhblits/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhblits/blits1.pdb $outputdir/$targetid.pdb 

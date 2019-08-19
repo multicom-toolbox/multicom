@@ -17,7 +17,7 @@ fi
 
 date >> $database_path/compass_db/update_log.txt
 
-/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/compass/build_compass_db_v3.pl /storage/hpc/scratch/jh7x3/multicom/tools/new_compass/compass_search/mk_compass_db $database_path/library/ $database_path/fr_lib/sort90 $database_path/compass_db/compass_db_new
+/storage/htc/bdm/jh7x3/multicom/src/update_db/tools/compass/build_compass_db_v3.pl /storage/htc/bdm/jh7x3/multicom/tools/new_compass/compass_search/mk_compass_db $database_path/library/ $database_path/fr_lib/sort90 $database_path/compass_db/compass_db_new
 
 mv $database_path/compass_db/compass_db1 $database_path/compass_db/compass_db1_old
 

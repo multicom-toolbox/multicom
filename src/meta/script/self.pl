@@ -13,7 +13,7 @@ $in_pdb = shift @ARGV;
 $name = shift @ARGV;
 -f $in_pdb || die "can't find $in_pdb\n";
 
-$seq = `/storage/hpc/scratch/jh7x3/multicom/tools/model_eva1.0/script/pdb2seq.pl $in_pdb`;
+$seq = `/storage/htc/bdm/jh7x3/multicom/tools/model_eva1.0/script/pdb2seq.pl $in_pdb`;
 
 chomp $seq;
 
@@ -46,7 +46,7 @@ chomp $cur_dir;
 
 #do modeling
 #system("/home/casp13/MULTICOM_package/software/prosys/script/pir2ts_energy.pl /home/casp13/MULTICOM_package/software/modeller9v7 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 3");
-system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/pir2ts_energy.pl /storage/hpc/scratch/jh7x3/multicom/tools/modeller-9.16 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 8");
+system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/pir2ts_energy.pl /storage/htc/bdm/jh7x3/multicom/tools/modeller-9.16 $cur_dir/atomtmp $cur_dir/outtmp selftmp.pir 8");
 
 `cp $cur_dir/outtmp/$name.pdb $name.pdb`;
 

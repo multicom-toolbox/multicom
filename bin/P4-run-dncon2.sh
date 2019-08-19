@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/
 
 cd $outputdir
-/storage/hpc/scratch/jh7x3/multicom/tools/DNCON2/dncon2-v1.0.sh $fastafile $outputdir/  2>&1 | tee  $outputdir/dncono2.log
+/storage/htc/bdm/jh7x3/multicom/tools/DNCON2/dncon2-v1.0.sh $fastafile $outputdir/  2>&1 | tee  $outputdir/dncono2.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/dncono2.log>\n\n"
 
 
 if [[ ! -f "$outputdir/$targetid.dncon2.rr" ]];then 
-	printf "!!!!! Failed to run DNCON2, check the installation </storage/hpc/scratch/jh7x3/multicom/tools/DNCON2/>\n\n"
+	printf "!!!!! Failed to run DNCON2, check the installation </storage/htc/bdm/jh7x3/multicom/tools/DNCON2/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	printf "\nResults: $outputdir/$targetid.dncon2.rr\n\n"

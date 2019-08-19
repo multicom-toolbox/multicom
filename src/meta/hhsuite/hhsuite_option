@@ -5,46 +5,46 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/
+prosys_dir = /storage/htc/bdm/jh7x3/multicom/src/prosys/
 
 #blast tool dir
-blast_dir = /storage/hpc/scratch/jh7x3/multicom/tools/blast-2.2.17/bin
+blast_dir = /storage/htc/bdm/jh7x3/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
-modeller_dir = /storage/hpc/scratch/jh7x3/multicom/tools/modeller-9.16/
+modeller_dir = /storage/htc/bdm/jh7x3/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
-pdb_db_dir = /storage/hpc/scratch/jh7x3/multicom/databases/cm_lib/
+pdb_db_dir = /storage/htc/bdm/jh7x3/multicom/databases/cm_lib/
 
 #nr database used by hhblits to generate profiles
-nr_db = /storage/hpc/scratch/jh7x3/multicom/databases/uniprot20/uniprot20_2016_02/uniprot20_2016_02
+nr_db = /storage/htc/bdm/jh7x3/multicom/databases/uniprot20/uniprot20_2016_02/uniprot20_2016_02
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsuite dir
-hhsuite_dir=/storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-2.0.8-linux-x86_64
+hhsuite_dir=/storage/htc/bdm/jh7x3/multicom/tools/hhsuite-2.0.8-linux-x86_64
 
 #hhblits dir (used for secondary structure prediction only)
-hhblits_dir=/storage/hpc/scratch/jh7x3/multicom/tools/hhblits/
+hhblits_dir=/storage/htc/bdm/jh7x3/multicom/tools/hhblits/
 
 #psipred dir
-psipred_dir=/storage/hpc/scratch/jh7x3/multicom/tools/psipred-2.61/
+psipred_dir=/storage/htc/bdm/jh7x3/multicom/tools/psipred-2.61/
 
 #hhsearchdb 
 #all current templates 
 #this database is used by hhblits too
-hhsuitedb=/storage/hpc/scratch/jh7x3/multicom/databases/hhsuite_dbs/a3m/hhsuitedb
+hhsuitedb=/storage/htc/bdm/jh7x3/multicom/databases/hhsuite_dbs/a3m/hhsuitedb
 
 #hhsearch pdb dir 
-atom_dir = /storage/hpc/scratch/jh7x3/multicom/databases/atom/
+atom_dir = /storage/htc/bdm/jh7x3/multicom/databases/atom/
 
 #templates built before May 10, 2007 (CASP7 starts)
-#hhsearchdb=/storage/hpc/scratch/jh7x3/multicom/databases/casp7_hhsearchdb
+#hhsearchdb=/storage/htc/bdm/jh7x3/multicom/databases/casp7_hhsearchdb
 
 #meta dir for hhblits
-meta_dir=/storage/hpc/scratch/jh7x3/multicom/src/meta/hhsuite/
+meta_dir=/storage/htc/bdm/jh7x3/multicom/src/meta/hhsuite/
 
 #meta common dir
-meta_common_dir=/storage/hpc/scratch/jh7x3/multicom/src/meta/
+meta_common_dir=/storage/htc/bdm/jh7x3/multicom/src/meta/
 
 ###############################################################################
 
@@ -158,7 +158,7 @@ cm_evalue_diff=10
 ##########################Options for sorting blast local alignment###########
 
 #The file containing resolution/method/match ratio for all chains
-chain_stx_info=/storage/hpc/scratch/jh7x3/multicom/databases/cm_lib/chain_stx_info
+chain_stx_info=/storage/htc/bdm/jh7x3/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort
