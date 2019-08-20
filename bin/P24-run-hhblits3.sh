@@ -27,8 +27,8 @@ fi
 mkdir -p $outputdir/hhblits3
 
 cd $outputdir
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits3/script/tm_hhblits3_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits3/hhblits3_option /storage/htc/bdm/jh7x3/multicom/examples/T1006.fasta hhblits3  2>&1 | tee  hhblits3.log
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/hhblits3/script/filter_identical_hhblits.pl hhblits3
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits3/script/tm_hhblits3_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits3/hhblits3_option /storage/hpc/scratch/jh7x3/multicom/examples/T1006.fasta hhblits3  2>&1 | tee  hhblits3.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits3/script/filter_identical_hhblits.pl hhblits3
 
 
 printf "\nFinished.."
@@ -36,7 +36,7 @@ printf "\nCheck log file <$outputdir/hhblits3.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhblits3/hhbl2.pdb" ]];then 
-	printf "!!!!! Failed to run hhblits3, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/hhblits3/>\n\n"
+	printf "!!!!! Failed to run hhblits3, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/hhblits3/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	if [[ -f "$outputdir/hhblits3/hhbl1.pdb" ]];then

@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/psiblast
 
 cd $outputdir
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/psiblast/script/main_psiblast_v2.pl /storage/htc/bdm/jh7x3/multicom/src/meta/psiblast/cm_option_adv $fastafile psiblast  2>&1 | tee  psiblast.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/psiblast/script/main_psiblast_v2.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/psiblast/cm_option_adv $fastafile psiblast  2>&1 | tee  psiblast.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/psiblast.log>\n\n"
 
 
 if [[ ! -f "$outputdir/psiblast/psiblast1.pdb" ]];then 
-	printf "!!!!! Failed to run psiblast, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/psiblast/>\n\n"
+	printf "!!!!! Failed to run psiblast, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/psiblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/psiblast/psiblast1.pdb $outputdir/$targetid.pdb 

@@ -21,8 +21,8 @@ or confess "ERROR! Error in command line arguments!";
 
 ####################################################################################################
 use constant{
-	CONEVA      => '/storage/htc/bdm/jh7x3/multicom/src/visualize_multicom_construct/cmap/coneva.pl',
-	CMAP      => '/storage/htc/bdm/jh7x3/multicom/src/visualize_multicom_construct/cmap/cmap.pl',
+	CONEVA      => '/storage/hpc/scratch/jh7x3/multicom/src/visualize_multicom_construct/cmap/coneva.pl',
+	CMAP      => '/storage/hpc/scratch/jh7x3/multicom/src/visualize_multicom_construct/cmap/cmap.pl',
 };
 
 confess "Oops!! alignment-script not found at ".CONEVA   if not -f CONEVA;

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-#$input_dir = "/storage/htc/bdm/jh7x3/multicom/databases/prosys_database/hhsuite_dbs/a3m/";
+#$input_dir = "/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database/hhsuite_dbs/a3m/";
 
 $num = @ARGV;
 if($num != 1)

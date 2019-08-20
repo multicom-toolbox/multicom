@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-$test_script_dir= '/storage/htc/bdm/jh7x3/multicom/installation/MULTICOM_test_codes';
-$test_out_dir= '/storage/htc/bdm/jh7x3/multicom/test_out';
+$test_script_dir= '/storage/hpc/scratch/jh7x3/multicom/installation/MULTICOM_test_codes';
+$test_out_dir= '/storage/hpc/scratch/jh7x3/multicom/test_out';
 
 $num = @ARGV;
 if($num ==0)

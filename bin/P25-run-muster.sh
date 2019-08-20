@@ -27,15 +27,15 @@ fi
 mkdir -p $outputdir/muster
 
 cd $outputdir
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/muster/script/tm_muster_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/muster/muster_option_version4 $fastafile muster  2>&1 | tee  muster.log
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/muster/script/filter_identical_muster.pl muster
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/muster/script/tm_muster_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/muster/muster_option_version4 $fastafile muster  2>&1 | tee  muster.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/muster/script/filter_identical_muster.pl muster
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/muster.log>\n\n"
 
 
 if [[ ! -f "$outputdir/muster/muster1.pdb" ]];then 
-	printf "!!!!! Failed to run muster, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/muster/>\n\n"
+	printf "!!!!! Failed to run muster, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/muster/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/muster/muster1.pdb $outputdir/$targetid.pdb 

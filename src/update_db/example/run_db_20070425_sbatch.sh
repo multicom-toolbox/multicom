@@ -17,7 +17,7 @@
 
 
 
-database_path='/storage/htc/bdm/jh7x3/multicom/databases/prosys_database_test/'
+database_path='/storage/hpc/scratch/jh7x3/multicom/databases/prosys_database_test/'
 end_date=20070428
 thread_num=20
 week_interval=1
@@ -25,7 +25,7 @@ run_mode='sbatch'
 
 ################# do not change the code below
 start_date=20070101
-database_script=/storage/htc/bdm/jh7x3/multicom/src/update_db/
+database_script=/storage/hpc/scratch/jh7x3/multicom/src/update_db/
 
 
 if [ ! -d "$database_path" ]; then
@@ -37,4 +37,4 @@ if [ ! -d "$database_path/run_sbatch" ]; then
 fi
 
 
-perl /storage/htc/bdm/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  $database_path  $database_script  $database_path/run_sbatch/  20070101 20070425  $thread_num  $week_interval $run_mode
+perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/scripts/update_db_sbatch.pl  $database_path  $database_script  $database_path/run_sbatch/  20070101 20070425  $thread_num  $week_interval $run_mode

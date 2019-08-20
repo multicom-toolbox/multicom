@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/confold
 
 cd $outputdir
-sh /storage/htc/bdm/jh7x3/multicom/src/meta/confold2/script/tm_confold2_main.sh /storage/htc/bdm/jh7x3/multicom/src/meta/confold2/CONFOLD_option $fastafile confold  2>&1 | tee  confold.log
+sh /storage/hpc/scratch/jh7x3/multicom/src/meta/confold2/script/tm_confold2_main.sh /storage/hpc/scratch/jh7x3/multicom/src/meta/confold2/CONFOLD_option $fastafile confold  2>&1 | tee  confold.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/confold.log>\n\n"
 
 
 if [[ ! -f "$outputdir/confold/confold2-1.pdb" ]];then 
-	printf "!!!!! Failed to run confold, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/confold2/>\n\n"
+	printf "!!!!! Failed to run confold, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/confold2/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/confold/confold2-1.pdb $outputdir/$targetid.pdb 

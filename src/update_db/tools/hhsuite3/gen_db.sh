@@ -18,17 +18,13 @@ fi
 
 
 
-<<<<<<< HEAD
 #/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 $database_path/seq/ /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
 
 /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile_proc.pl $option_file $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
-=======
-/storage/htc/bdm/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/htc/bdm/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 $database_path/seq/ /storage/htc/bdm/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08 $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles
->>>>>>> 804e7efc548401d06e1b0482724e2da755c96db7
 
-perl /storage/htc/bdm/jh7x3/multicom/src/update_db/tools/hhsuite3/prepare_db.pl $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles $database_path/hhsuite3_dbs
+perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/prepare_db.pl $database_path/fr_lib/sort90  $database_path/hhsuite3_dbs/profiles $database_path/hhsuite3_dbs
 
-export HHLIB=/storage/htc/bdm/jh7x3/multicom/tools/hhsuite-3.2.0/
+export HHLIB=/storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/
 PATH=$PATH:$HHLIB/bin:$HHLIB/scripts
 
 

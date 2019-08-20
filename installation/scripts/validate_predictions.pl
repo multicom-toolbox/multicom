@@ -8,7 +8,7 @@ $targetid = $ARGV[0];
 $test_dir = $ARGV[1];
 $benchmark_dir = $ARGV[2];
 
-$GLOBAL_PATH="/storage/htc/bdm/jh7x3/multicom/";
+$GLOBAL_PATH="/storage/hpc/scratch/jh7x3/multicom/";
 
 
 opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";

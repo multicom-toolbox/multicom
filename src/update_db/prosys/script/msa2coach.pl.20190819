@@ -39,14 +39,6 @@ system("$script_dir/check_amino_acids.pl $query_msa.fas");
 #create hmm from msa
 system("$lobster_dir/lobster -msa2hmm  $query_msa.fas -hmm $out_file >/dev/null"); 
 
-### check if lobster output is generated. Sometimes lobster will fail when too many alignments are found
-if(!(-e $out_file))
-{
-  print "Failed to generate lobster on $query_msa.fas, need filter the alignments\n\n";
-  
-}
-
-
 #also keep the fasta file.
 $idx = rindex($out_file, "."); 
 if ($idx >= 1)

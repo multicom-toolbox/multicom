@@ -13,11 +13,11 @@ mkdir -p $outputdir/deepsf
 cd $outputdir
 
 
-source /storage/htc/bdm/jh7x3/multicom/tools/python_virtualenv/bin/activate
-export LD_LIBRARY_PATH=/storage/htc/bdm/jh7x3/multicom/tools/boost_1_55_0/lib/:/storage/htc/bdm/jh7x3/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
+source /storage/hpc/scratch/jh7x3/multicom/tools/python_virtualenv/bin/activate
+export LD_LIBRARY_PATH=/storage/hpc/scratch/jh7x3/multicom/tools/boost_1_55_0/lib/:/storage/hpc/scratch/jh7x3/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
 
 
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/deepsf/script/tm_deepsf_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/deepsf/deepsf_option $fastafile deepsf  2>&1 | tee  $outputdir/deepsf.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/deepsf/script/tm_deepsf_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/deepsf/deepsf_option $fastafile deepsf  2>&1 | tee  $outputdir/deepsf.log
 
 
 printf "\nFinished.."
@@ -25,7 +25,7 @@ printf "\nCheck log file <$outputdir/deepsf.log>\n\n"
 
 
 if [[ ! -f "$outputdir/deepsf/deepsf1.pdb" ]];then 
-	printf "!!!!! Failed to run deepsf, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/deepsf/>\n\n"
+	printf "!!!!! Failed to run deepsf, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/deepsf/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/deepsf/deepsf1.pdb $outputdir/$targetid.pdb 

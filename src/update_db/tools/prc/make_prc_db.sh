@@ -14,5 +14,5 @@ if [ ! -d "$database_path/prc_db" ]; then
 fi
 
 
-/storage/htc/bdm/jh7x3/multicom/src/update_db/tools/prc/make_prc_db.pl $database_path /storage/htc/bdm/jh7x3/multicom/tools/sam3.5.x86_64-linux/ $database_path/prc_db/ prcdb.lib
+/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/prc/make_prc_db.pl $database_path /storage/hpc/scratch/jh7x3/multicom/tools/sam3.5.x86_64-linux/ $database_path/prc_db/ prcdb.lib
 

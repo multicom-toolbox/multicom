@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/ffas
 
 cd $outputdir
-perl /storage/htc/bdm/jh7x3/multicom/src/meta/ffas/script/tm_ffas_main.pl /storage/htc/bdm/jh7x3/multicom/src/meta/ffas/ffas_option /storage/htc/bdm/jh7x3/multicom/examples/T1006.fasta ffas  2>&1 | tee  ffas.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/ffas/script/tm_ffas_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/ffas/ffas_option /storage/hpc/scratch/jh7x3/multicom/examples/T1006.fasta ffas  2>&1 | tee  ffas.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/ffas.log>\n\n"
 
 
 if [[ ! -f "$outputdir/ffas/ff1.pdb" ]];then 
-	printf "!!!!! Failed to run ffas, check the installation </storage/htc/bdm/jh7x3/multicom/src/meta/ffas/>\n\n"
+	printf "!!!!! Failed to run ffas, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/ffas/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/ffas/ff1.pdb $outputdir/$targetid.pdb 
