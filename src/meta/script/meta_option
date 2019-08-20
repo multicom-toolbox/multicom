@@ -3,33 +3,33 @@
 
 ########################################################################
 #meta directory
-meta_dir = /storage/htc/bdm/jh7x3/multicom/src/meta
+meta_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta
 
 #sp3 and sp3 directory
 #sparks_dir = /home/casp13/MULTICOM_package/sparks
 
-#sparks_option = /storage/htc/bdm/jh7x3/multicom/src/meta/script/sp3_option_adv
+#sparks_option = /storage/hpc/scratch/jh7x3/multicom/src/meta/script/sp3_option_adv
 
 #hhsearch dir
-hhsearch_dir = /storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch
+hhsearch_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch
 
 #hhsearch option file
-hhsearch_option = /storage/htc/bdm/jh7x3/multicom/src/meta/hhsearch/hhsearch_option
+hhsearch_option = /storage/hpc/scratch/jh7x3/multicom/src/meta/hhsearch/hhsearch_option
 
 #compass dir
-compass_dir = /storage/htc/bdm/jh7x3/multicom/src/meta/compass
+compass_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta/compass
 
 #compass option file
-compass_option = /storage/htc/bdm/jh7x3/multicom/src/meta/compass/compass_option
+compass_option = /storage/hpc/scratch/jh7x3/multicom/src/meta/compass/compass_option
 
 #multicom dir
-multicom_dir = /storage/htc/bdm/jh7x3/multicom/src/prosys/
+multicom_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/
 
 #multicom option file
-multicom_option = /storage/htc/bdm/jh7x3/multicom/src/prosys/multicom_option
+multicom_option = /storage/hpc/scratch/jh7x3/multicom/src/prosys/multicom_option
 
 #rosetta dir
-rosetta_dir = /storage/htc/bdm/jh7x3/multicom/rosetta
+rosetta_dir = /storage/hpc/scratch/jh7x3/multicom/rosetta
 
 #rosetta server 1
 rosetta_server1 = lewis.rnet.missouri.edu
@@ -38,7 +38,7 @@ rosetta_server1 = lewis.rnet.missouri.edu
 rosetta_server2 = clark.rnet.missouri.edu
 
 #scwrl_dir
-scwrl_dir = /storage/htc/bdm/jh7x3/multicom/tools/scwrl
+scwrl_dir = /storage/hpc/scratch/jh7x3/multicom/tools/scwrl
 
 #########################################################################
 #maximum waiting time for a rosetta server to finish (minutes)

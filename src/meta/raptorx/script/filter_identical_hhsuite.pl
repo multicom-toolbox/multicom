@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #filter out identical muster, nnnd, lomets models 
-$tm_score = "/storage/htc/bdm/jh7x3/multicom/tools/tm_score2/TMscore"; 
+$tm_score = "/storage/hpc/scratch/jh7x3/multicom/tools/tm_score2/TMscore"; 
 if (@ARGV !=1)
 {
 	die "need one parameters: hhsuite model dir.\n";

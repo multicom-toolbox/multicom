@@ -72,8 +72,8 @@ while ($i <= $count && @eva)
 	}
 
 	#repack the side chains 
-	system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
-	system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/a_clash$i.txt");
+	system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/a_clash$i.txt");
 	#if ($method eq "cm" || $method eq "fr")
 	if (-f $pir_file)
 	{
@@ -92,7 +92,7 @@ while ($i <= $count && @eva)
 ####################Second Choice for MULTICOM-CLUSTER######################
 print "Convert models in $mdir for choice b of MULTICOM-CLUSTER...\n"; 
 `cp $mdir/meta.eva $out_dir`; 
-system("/storage/htc/bdm/jh7x3/multicom/src/meta/script/iqa_v2.pl $out_dir/meta.eva $mdir $fasta_file $out_dir/$target_name.iqa"); 
+system("/storage/hpc/scratch/jh7x3/multicom/src/meta/script/iqa_v2.pl $out_dir/meta.eva $mdir $fasta_file $out_dir/$target_name.iqa"); 
 open(EVA, "$out_dir/$target_name.iqa") || die "can't read $target_name.iqa\n";
 @eva = <EVA>;
 close EVA;
@@ -134,8 +134,8 @@ while ($i <= $count && @eva)
 	}
 
 	#repack the side chains 
-	system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
-	system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/b_clash$i.txt");
+	system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $out_dir/$model_name.pdb.scw >/dev/null");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $out_dir/$model_name.pdb.scw > $out_dir/b_clash$i.txt");
 	#if ($method eq "cm" || $method eq "fr")
 	if (-f $pir_file)
 	{
@@ -214,8 +214,8 @@ for ($i = 1; $i <= $count; $i++)
 	$model_file = "$mdir/comb$i.pdb";	
 	if (-f $model_file)
 	{
-		system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-		system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
+		system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
 		system("$pdb2casp2 $model_file.scw $i $target_name $mdir/casp$i.pdb");	
 	}
 } 
@@ -228,8 +228,8 @@ for ($i = 1; $i <= $count; $i++)
 	`mv $model_file $model_file.org`; 
 	if (-f "$model_file.org")
 	{
-		system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
-		system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $mdir/casp$i.scw > $mdir/clash$i.txt");
+		system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.org -o $mdir/casp$i.scw >/dev/null");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $mdir/casp$i.scw > $mdir/clash$i.txt");
 		system("$pdb2casp2 $mdir/casp$i.scw $i $target_name $mdir/casp$i.pdb");	
 	}
 } 
@@ -276,10 +276,10 @@ if (-f $eva_file)
 			print "self modeling refined model...\n";
 
 			#do a self modeling
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/casp_tools/self.pl $model_file $model_file.self"); 
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/casp_tools/self.pl $model_file $model_file.self"); 
 
-			system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.self.pdb -o $model_file.scw >/dev/null");
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $org_fasta_file $model_file.scw > $mdir/clash$i.txt");
+			system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.self.pdb -o $model_file.scw >/dev/null");
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $org_fasta_file $model_file.scw > $mdir/clash$i.txt");
 
 			if (-f "$mdir/casp$i.pdb")
 			{
@@ -292,10 +292,10 @@ if (-f $eva_file)
 		{
 			print "self modeling refined model...\n";
 
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/casp_tools/self.pl $model_file $model_file.self"); 
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/casp_tools/self.pl $model_file $model_file.self"); 
 
-			system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.self.pdb -o $model_file.scw >/dev/null");
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $org_fasta_file $model_file.scw > $mdir/clash$i.txt");
+			system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file.self.pdb -o $model_file.scw >/dev/null");
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $org_fasta_file $model_file.scw > $mdir/clash$i.txt");
 			#`rm -f  $mdir/casp$i.pdb`; 
 			if (-f "$mdir/casp$i.pdb")
 			{
@@ -323,18 +323,18 @@ for ($i = 1; $i <= $count; $i++)
 
 		if (-f $pir_file)
 		{
-			system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
+			system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
 			system("$pdb2casp1 $model_file.scw $pir_file $i $mdir/casp$i.pdb");	
 		}
 		elsif (-f $model_file) 
 		{
-			system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-			system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
+			system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+			system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
 			system("$pdb2casp2 $model_file.scw $i $target_name $mdir/casp$i.pdb");	
 		}
-#		system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-#		system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
+#		system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+#		system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $mdir/clash$i.txt");
 #		system("$pdb2casp2 $model_file.scw $i $target_name $mdir/casp$i.pdb");	
 	}
 } 
@@ -488,8 +488,8 @@ while (@layer1_model && $i <= 5)
 	$pir_file = shift @layer1_pir; 
 	print CONSTRUCT "$model_file\n";
 	#repack the side chains 
-	system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-	system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $out_dir/con_clash$i.txt");
+	system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $out_dir/con_clash$i.txt");
 	system("$pdb2casp1 $model_file.scw $pir_file $i $out_dir/con_casp$i.pdb");	
 	$i++;
 }
@@ -499,8 +499,8 @@ while (@layer2_model && $i <= 5)
 	$pir_file = shift @layer2_pir; 
 	print CONSTRUCT "$model_file\n";
 	#repack the side chains 
-	system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-	system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $out_dir/con_clash$i.txt");
+	system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $out_dir/con_clash$i.txt");
 	system("$pdb2casp1 $model_file.scw $pir_file $i $out_dir/con_casp$i.pdb");	
 	$i++; 
 }

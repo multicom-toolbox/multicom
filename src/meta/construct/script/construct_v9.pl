@@ -920,7 +920,7 @@ for ($i = 0; $i < $construct_num && $i < @select_temp; $i++)
 	######################################################################
 	######################################################################
 
-	$hhsearch_dir = "/storage/htc/bdm/jh7x3/multicom/tools/hhsearch1.2/linux32/";
+	$hhsearch_dir = "/storage/hpc/scratch/jh7x3/multicom/tools/hhsearch1.2/linux32/";
 	#step 1: make center.hmm and query.hmm
 	system("$hhsearch_dir/hhmake -i center$i.msa -o center$i.hmm"); 	
 	system("$hhsearch_dir/hhmake -i $query_name.msa -o $query_name.hmm"); 	

@@ -21,7 +21,7 @@ $output_prefix_name='fusion';
 
 $fusion_starttime = time();
 $SBROD_starttime = time();
-chdir("/storage/htc/bdm/jh7x3/multicom/tools/SBROD");
+chdir("/storage/hpc/scratch/jh7x3/multicom/tools/SBROD");
 
 if(!(-e "$outputdir/SBROD_ranking.txt"))
 {

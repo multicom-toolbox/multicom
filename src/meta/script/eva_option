@@ -1,13 +1,13 @@
-prosys_dir=/storage/htc/bdm/jh7x3/multicom/src/prosys/
+prosys_dir=/storage/hpc/scratch/jh7x3/multicom/src/prosys/
 
-model_check_dir=/storage/htc/bdm/jh7x3/multicom/tools/model_eva1.0/
+model_check_dir=/storage/hpc/scratch/jh7x3/multicom/tools/model_eva1.0/
 
-betacon_dir=/storage/htc/bdm/jh7x3/multicom/tools/betacon/
+betacon_dir=/storage/hpc/scratch/jh7x3/multicom/tools/betacon/
 
-pspro_dir=/storage/htc/bdm/jh7x3/multicom/tools/pspro2/
+pspro_dir=/storage/hpc/scratch/jh7x3/multicom/tools/pspro2/
 
-model_energy_dir=/storage/htc/bdm/jh7x3/multicom/tools/energy/
+model_energy_dir=/storage/hpc/scratch/jh7x3/multicom/tools/energy/
 
-betapro_dir=/storage/htc/bdm/jh7x3/multicom/tools/betapro-1.0/
+betapro_dir=/storage/hpc/scratch/jh7x3/multicom/tools/betapro-1.0/
 
 thread_num=12

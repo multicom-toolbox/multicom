@@ -137,12 +137,12 @@ foreach $model (@models)
 		}
 		#call Scwrl4 to refine side chain
 		#system("/home/casp13/MULTICOM_package//software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-		system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+		system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
 		#system("/home/casp13/MULTICOM_package//casp8/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $deepcomb_dir/clash-$model$jj.txt");
-		system("/storage/htc/bdm/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $deepcomb_dir/clash-$model$jj.txt");
+		system("/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $deepcomb_dir/clash-$model$jj.txt");
 
 		#$pdb2casp2 = "/home/casp13/MULTICOM_package//casp8/meta/script/pdb2casp.pl";
-		$pdb2casp2 = "/storage/htc/bdm/jh7x3/multicom/src/meta/script/pdb2casp.pl";
+		$pdb2casp2 = "/storage/hpc/scratch/jh7x3/multicom/src/meta/script/pdb2casp.pl";
 		#convert models to pdb format
 		$qq = $jj; 
 		system("$pdb2casp2 $model_file.scw $qq $target_name $deepcomb_dir/casp-$model$jj.pdb");	

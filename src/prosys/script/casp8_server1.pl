@@ -35,11 +35,11 @@ $out_dir = shift @ARGV;
 
 #1. call multicom-cm
 #system("/home/casp13/MULTICOM_package/software/prosys/script/multicom_cm.pl $cm_option $seq_file $out_dir");
-system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/multicom_cm.pl $cm_option $seq_file $out_dir");
+system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/multicom_cm.pl $cm_option $seq_file $out_dir");
 
 #2. evaluate multicom-cm
 #$cm_sel = `/home/casp13/MULTICOM_package/software/prosys/script/evaluate_cm_ha_models.pl $out_dir $name $out_dir/$name.cm.eva`;
-$cm_sel = `/storage/htc/bdm/jh7x3/multicom/src/prosys/script/evaluate_cm_ha_models.pl $out_dir $name $out_dir/$name.cm.eva`;
+$cm_sel = `/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/evaluate_cm_ha_models.pl $out_dir $name $out_dir/$name.cm.eva`;
 
 @models = ();
 @select = split(/\n+/, $cm_sel); 
@@ -59,16 +59,16 @@ while (@select)
 if (@models < 5)
 {
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/multicom_fr.pl $fr_option $seq_file $out_dir");
-	system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/multicom_fr.pl $fr_option $seq_file $out_dir");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/multicom_fr.pl $fr_option $seq_file $out_dir");
 }
 
 #4. evaluate all models
 #system("/home/casp13/MULTICOM_package/software/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
-system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
+system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/score_models.pl $eva_option $seq_file $out_dir");
 #system("/home/casp13/MULTICOM_package/software/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
-system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
+system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/energy_models_proc.pl $eva_option $seq_file $out_dir");
 #system("/home/casp13/MULTICOM_package/software/prosys/evaluate_models.pl /home/casp13/MULTICOM_package/software/prosys/ $out_dir $seq_file ./$out_dir/$name.fr.eva");
-system("/storage/htc/bdm/jh7x3/multicom/src/prosys/evaluate_models.pl /storage/htc/bdm/jh7x3/multicom/src/prosys/ $out_dir $seq_file ./$out_dir/$name.fr.eva");
+system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/evaluate_models.pl /storage/hpc/scratch/jh7x3/multicom/src/prosys/ $out_dir $seq_file ./$out_dir/$name.fr.eva");
 
 #5. select more models in addition to selected cm models if available
 open(FR, "$name.fr.eva") || die "can't read ./$out_dir/$name.fr.eva\n";
@@ -122,11 +122,11 @@ for ($i = 0; $i < 5; $i++)
 
 	#convert model using scwrl
 	#system("/home/casp13/MULTICOM_package/software/scwrl/scwrl3 -i $out_dir/$model -o $out_dir/$name-$idx.pdb >/dev/null");
-	system("/storage/htc/bdm/jh7x3/multicom/tools/scwrl4/Scwrl4-i $out_dir/$model -o $out_dir/$name-$idx.pdb >/dev/null");
+	system("/storage/hpc/scratch/jh7x3/multicom/tools/scwrl4/Scwrl4-i $out_dir/$model -o $out_dir/$name-$idx.pdb >/dev/null");
 
 	#generate casp model for submission
 	#system("/home/casp13/MULTICOM_package/software/prosys/script/pdb2casp.pl $out_dir/$name-$idx.pdb $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
-	system("/storage/htc/bdm/jh7x3/multicom/src/prosys/script/pdb2casp.pl $out_dir/$name-$idx.pdb $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
+	system("/storage/hpc/scratch/jh7x3/multicom/src/prosys/script/pdb2casp.pl $out_dir/$name-$idx.pdb $out_dir/$prefix.pir $idx $out_dir/casp$idx.pdb");
 
 	print SEL $model, "\n";
 }
