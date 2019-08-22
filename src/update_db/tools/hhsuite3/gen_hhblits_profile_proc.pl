@@ -85,6 +85,7 @@ while (@fasta)
 	$seq = shift @fasta;
 
 	chomp $name;
+	chomp $seq;
 	$name = substr($name, 1);
  
 	#check if the output file exist. if so, nothing needs to be done.		
@@ -295,9 +296,9 @@ END:
 ## clean folders
 for ($i = 0; $i < $thread_num; $i++)
 {
-  if(-d "$work_dir/$thread_dir$i")
+  if(-d "$work_dir/$thread_dir$i" or -e "$work_dir/$thread_dir$i.done")
   {
-    `rm -rf $work_dir/$thread_dir$i`;
+    `rm -rf $work_dir/$thread_dir$i*`;
   }
 }
 
