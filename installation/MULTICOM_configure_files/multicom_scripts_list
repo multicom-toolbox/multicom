@@ -157,3 +157,8 @@ src/visualize_multicom_cluster/P1_organize_prediction.sh
 src/visualize_multicom_cluster/P6_pdb_to_png.py
 src/visualize_multicom_cluster/cmap/coneva-camp.pl
 
+
+src/visualize_multicom_construct/P1_organize_prediction.pl
+src/visualize_multicom_construct/P1_organize_prediction.sh
+src/visualize_multicom_construct/P6_pdb_to_png.py
+src/visualize_multicom_construct/cmap/coneva-camp.pl

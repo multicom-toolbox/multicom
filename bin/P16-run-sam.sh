@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/sam
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/sam/script/tm_sam_main_v2.pl /home/jh7x3/multicom/src/meta/sam/sam_option_nr $fastafile sam  2>&1 | tee  /home/jh7x3/multicom/test_out/T1006_sam_$dtime.log
+perl /home/jh7x3/multicom/src/meta/sam/script/tm_sam_main_v2.pl /home/jh7x3/multicom/src/meta/sam/sam_option_nr $fastafile sam  2>&1 | tee  sam.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/sam.log>\n\n"

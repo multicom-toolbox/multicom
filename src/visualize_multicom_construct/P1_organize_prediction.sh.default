@@ -16,6 +16,6 @@ outputdir=$3 #
 
 source SOFTWARE_PATH/tools/python_virtualenv/bin/activate
 #export PATH=SOFTWARE_PATH/tools/R-3.2.0/bin/:$PATH
-perl SOFTWARE_PATH/src/visualize_multicom_cluster/P1_organize_prediction.pl  $workdir $targetid  $outputdir
+perl SOFTWARE_PATH/src/visualize_multicom_construct/P1_organize_prediction.pl  $workdir $targetid  $outputdir
 
 

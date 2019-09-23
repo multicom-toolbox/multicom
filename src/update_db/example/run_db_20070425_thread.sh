@@ -3,7 +3,7 @@
 #The main script to update MULTICOM database by specific weeks
 
 
-database_path='/home/jh7x3/multicom/prosys_database_test/'
+database_path='/home/jh7x3/multicom/databases/prosys_database_test/'
 end_date=20070428
 thread_num=20
 week_interval=1

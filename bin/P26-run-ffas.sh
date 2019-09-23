@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/ffas
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/ffas/script/tm_ffas_main.pl /home/jh7x3/multicom/src/meta/ffas/ffas_option /home/jh7x3/multicom/examples/T1006.fasta ffas  2>&1 | tee  ffas.log
+perl /home/jh7x3/multicom/src/meta/ffas/script/tm_ffas_main.pl /home/jh7x3/multicom/src/meta/ffas/ffas_option $fastafile ffas  2>&1 | tee  ffas.log
 
 
 printf "\nFinished.."

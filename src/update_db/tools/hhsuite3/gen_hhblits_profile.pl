@@ -38,6 +38,7 @@ while (@fasta)
 	$seq = shift @fasta;
 
 	chomp $name;
+	chomp $seq;
 	$name = substr($name, 1);
  
 	#check if the output file exist. if so, nothing needs to be done.		

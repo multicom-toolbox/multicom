@@ -5,9 +5,9 @@ if [ $# != 3 ]; then
         exit
 fi
 
-targetid = $1
-fastafile = $2
-outputdir = $3
+targetid=$1
+fastafile=$2
+outputdir=$3
 
 mkdir -p $outputdir/unicon3d
 cd $outputdir

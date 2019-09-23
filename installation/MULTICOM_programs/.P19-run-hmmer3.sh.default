@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/hmmer3
 
 cd $outputdir
-perl SOFTWARE_PATH/src/meta/hmmer3/script/tm_hmmer3_main.pl SOFTWARE_PATH/src/meta/hmmer3/hmmer3_option SOFTWARE_PATH/examples/T1006.fasta hmmer3  2>&1 | tee  hmmer3.log
+perl SOFTWARE_PATH/src/meta/hmmer3/script/tm_hmmer3_main.pl SOFTWARE_PATH/src/meta/hmmer3/hmmer3_option $fastafile hmmer3  2>&1 | tee  hmmer3.log
 
 
 printf "\nFinished.."

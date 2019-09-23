@@ -3,15 +3,16 @@
 #generate template files using multiple threads
 #1/9/2014
 #Jianlin Cheng
+#update: Jie Hou, 2019/08/15
 #######################################################################
-if (@ARGV != 4)
+if (@ARGV != 3)
 {
-	die "need three parameters: option file(option_prep), fasta file(fasta), output dir, thread num\n"; 
+	die "need three parameters: option file(option_prep), fasta file(fasta), output dir\n"; 
 }
 $option_file = shift @ARGV; 
-$fasta_file = shift @ARGV; 
-$out_dir = shift @ARGV;
-$thread_num = shift @ARGV;
+$fasta_file = shift @ARGV; #$database_path/fr_lib/sort90
+$out_dir = shift @ARGV; #$database_path/hhsuite3_dbs/profiles
+
 
 use Cwd 'abs_path';
 $option_file = abs_path($option_file);
@@ -25,6 +26,7 @@ $work_dir = $out_dir;
 #read option file
 $thread_num = "";
 $running_mode = "";
+$set_seq_dir = "";
 open(OPTION, $option_file) || die "can't read option file.\n";
 while (<OPTION>)
 {
@@ -44,6 +46,10 @@ while (<OPTION>)
 	if ($_ =~ /^running_mode\s*=\s*(\S+)/)
 	{
 		$running_mode = $1; 
+	}
+	if ($_ =~ /^set_seq_dir\s*=\s*(\S+)/)
+	{
+		$set_seq_dir = $1; 
 	}
 
 }
@@ -65,7 +71,38 @@ $full_path = `pwd`;
 chomp $full_path;
 #############################
 
-open(LIB, $fasta_file) || die "can't read fasta file.\n";
+#### check if profiles have been generated
+
+open(INPUT, $fasta_file) || die "can't open $fasta_file.\n";
+@fasta = <INPUT>;
+close INPUT;
+
+open(OUTPUT, ">$fasta_file.new") || die "can't open $fasta_file.new.\n";
+$seq_num=0;
+while (@fasta)
+{
+	$name = shift @fasta;
+	$seq = shift @fasta;
+
+	chomp $name;
+	chomp $seq;
+	$name = substr($name, 1);
+ 
+	#check if the output file exist. if so, nothing needs to be done.		
+	if (-f "$out_dir/$name.a3m" && -f "$out_dir/$name.hhm" && -f "$out_dir/$name.cs219")
+	{
+		warn "The hhblits profile files for $name exist. Skip.\n";
+		next;
+	}else{
+    print OUTPUT ">$name\n$seq\n";
+    $seq_num++;
+  }
+}
+print "Total $seq_num new proteins are found\n\n";
+#################################
+
+
+open(LIB, "$fasta_file.new") || die "can't read fasta file $fasta_file.new.\n";
 @fasta = <LIB>;
 close LIB;
 
@@ -76,7 +113,6 @@ $total = @fasta / 2;
 #{
 #	$thread_num = 1; 
 #}
-
 if($total == 0)
 {
 	$thread_num = 1;
@@ -84,8 +120,8 @@ if($total == 0)
 {
 	$thread_num = $total;
 }
-print "Using $thread_num cpus\n\n";
 
+print "Using $thread_num cpus\n\n";
 $max_num = int($total / $thread_num) + 1; 
 $thread_dir = "pthread";
 for ($i = 0; $i < $thread_num; $i++)
@@ -123,8 +159,9 @@ if($running_mode eq 'thread')
   	elsif ($kidpid == 0)
   	{
   		#within the child process
-  		print "start thread $i to generate template profile\n";
-  		system("$prosys_dir/script/gen_temp_files_original_v1.pl $option_file $work_dir/$thread_dir$i/lib$i.fasta $work_dir/$thread_dir$i");
+  		print "start thread $i to generate hhsuite profile\n";
+  		system("perl SOFTWARE_PATH/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl SOFTWARE_PATH/tools/hhsuite-3.2.0/ 8 $set_seq_dir SOFTWARE_PATH/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i");
+     
   		goto END;
   	}
   	else
@@ -192,13 +229,13 @@ if($running_mode eq 'thread')
     	print SB "#SBATCH -o db-$i.log\n";
     	print SB "#SBATCH -p hpc4,hpc5,Lewis\n";
     	print SB "#SBATCH -n 1\n";
-    	print SB "#SBATCH --mem 5G\n";
-    	print SB "#SBATCH -t 2-00:00\n";
+    	print SB "#SBATCH --mem 10G\n";
+    	print SB "#SBATCH -t 1-00:00\n";
     	print SB "mv $work_dir/$thread_dir$i.queued $work_dir/$thread_dir$i.running\n";
   		#within the child process
-  		print SB "echo 'start thread $i to generate template profile'\n";
-  		print SB "echo '$prosys_dir/script/gen_temp_files_original_v1.pl $option_file $work_dir/$thread_dir$i/lib$i.fasta $work_dir/$thread_dir$i'\n";
-  		print SB "$prosys_dir/script/gen_temp_files_original_v1.pl $option_file $work_dir/$thread_dir$i/lib$i.fasta $work_dir/$thread_dir$i\n";
+  		print SB "echo 'start thread $i to generate hhsuite3 profile'\n";
+  		print SB "echo 'perl SOFTWARE_PATH/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl SOFTWARE_PATH/tools/hhsuite-3.2.0/ 1 $set_seq_dir SOFTWARE_PATH/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i'\n";
+  		print SB "perl SOFTWARE_PATH/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl SOFTWARE_PATH/tools/hhsuite-3.2.0/ 1 $set_seq_dir SOFTWARE_PATH/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i &> $work_dir/$thread_dir$i.log\n";
     	print SB "mv $work_dir/$thread_dir$i.running $work_dir/$thread_dir$i.done\n";
     	close SB;
     	system("chmod +x $work_dir/$thread_dir$i.sh");
@@ -259,9 +296,9 @@ END:
 ## clean folders
 for ($i = 0; $i < $thread_num; $i++)
 {
-  if(-d "$work_dir/$thread_dir$i")
+  if(-d "$work_dir/$thread_dir$i" or -e "$work_dir/$thread_dir$i.done")
   {
-    `rm -rf $work_dir/$thread_dir$i`;
+    `rm -rf $work_dir/$thread_dir$i*`;
   }
 }
 
