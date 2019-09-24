@@ -156,7 +156,10 @@ while (@fasta)
 	#generate alignment file
 	$align_file = "$out_dir/$name.align"; 
 
-	`$pspro_dir/script/generate_flatblast.pl $blast_dir $pspro_dir/script/ $pspro_dir/data/big/big_98_X $nr_dir/$nr_name $name.fasta $align_file >/dev/null`;
+	#`$pspro_dir/script/generate_flatblast.pl $blast_dir $pspro_dir/script/ $pspro_dir/data/big/big_98_X $nr_dir/$nr_name $name.fasta $align_file >/dev/null`;
+
+	`$prosys_dir/script/generate_flatblast_v3.pl  $blast_dir $pspro_dir/script/ $nr_dir/$nr_name  $work_dir/$name/$name.fasta $align_file >/dev/null`;
+
 
 	#use more sensitive blast options on NR database
 	#`$prosys_dir/script/generate_flatblast.pl $blast_dir $pspro_dir/script/ $pspro_dir/data/big/big_98_X $pspro_dir/data/nr/nr $name.fasta $align_file >/dev/null`;
