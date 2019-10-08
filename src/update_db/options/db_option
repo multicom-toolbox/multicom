@@ -9,16 +9,16 @@ prosys_db_stat_dir = /home/jh7x3/multicom/databases/prosys_database/dbstat
 thread_num = 30
 
 ### set running mode to run (threads or sbatch)
-#running_mode = thread
+running_mode = thread
 #running_mode = sbatch
-running_mode = sbatch
+#running_mode = sbatch
 
 ### set start date
 from_date = 19900101
 
 ### set end date
-end_date = 20990101
-
+#end_date = 20990101
+end_date = 20180801
 
 ###############################End of Global Options#################
 
