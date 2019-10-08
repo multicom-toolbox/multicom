@@ -122,7 +122,14 @@ if($total == 0)
 }
 
 print "Using $thread_num cpus\n\n";
-$max_num = int($total / $thread_num) + 1; 
+
+if($total > $thread_num)
+{
+	$max_num = int($total / $thread_num) + 1; 
+}else{
+	$max_num = int($total / $thread_num);
+}
+
 $thread_dir = "pthread";
 for ($i = 0; $i < $thread_num; $i++)
 {
@@ -292,7 +299,6 @@ if($running_mode eq 'thread')
 }else{
   die "Incorrect running mode ($running_mode), please check the option file $option_file\n\n";
 }
-END:
 ## clean folders
 for ($i = 0; $i < $thread_num; $i++)
 {
@@ -302,6 +308,6 @@ for ($i = 0; $i < $thread_num; $i++)
   }
 }
 
-
+END:
 
 
