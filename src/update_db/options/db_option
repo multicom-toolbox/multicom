@@ -18,7 +18,7 @@ from_date = 19900101
 
 ### set end date
 #end_date = 20990101
-end_date = 20180710
+end_date = 20180720
 
 
 ###############################End of Global Options#################
