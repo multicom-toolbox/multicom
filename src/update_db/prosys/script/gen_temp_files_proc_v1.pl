@@ -85,8 +85,12 @@ if($total == 0)
 	$thread_num = $total;
 }
 print "Using $thread_num cpus\n\n";
-
-$max_num = int($total / $thread_num) + 1; 
+if($total > $thread_num)
+{
+	$max_num = int($total / $thread_num) + 1; 
+}else{
+	$max_num = int($total / $thread_num);
+}
 $thread_dir = "pthread";
 for ($i = 0; $i < $thread_num; $i++)
 {
