@@ -48,7 +48,7 @@ pdb_bad_list = pdb_bad_list
 
 #non-redundant protein database
 nr_dir = SOFTWARE_PATH/databases/uniref/
-nr_name = uniref90
+nr_name = uniref70
 
 #########################End of PDB download optons##################
 
