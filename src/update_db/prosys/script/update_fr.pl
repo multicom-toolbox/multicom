@@ -170,7 +170,7 @@ if (-f $new_fr_file)
 
 	#generate required files
 	print "Round 1: generate required files for fr templates...\n";
-	system("$prosys_dir/script/gen_temp_files.pl $db_option.temp $new_fr_file $fr_out_dir"); 
+	system("$prosys_dir/script/gen_temp_files_v1.pl $db_option.temp $new_fr_file $fr_out_dir"); 
 
 	#########################################################################
 	#add 10/11/2007
@@ -186,7 +186,7 @@ if (-f $new_fr_file)
 	if (@miss > 0) #retry.
 	{
 		print "Some files for some templates are missing. Retry on the missing ones...\n";
-		system("$prosys_dir/script/gen_temp_files.pl $db_option.temp $new_fr_file.miss $fr_out_dir"); 
+		system("$prosys_dir/script/gen_temp_files_v1.pl $db_option.temp $new_fr_file.miss $fr_out_dir"); 
 	}
 
 	`rm $db_option.temp`;

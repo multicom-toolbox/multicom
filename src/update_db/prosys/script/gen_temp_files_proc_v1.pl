@@ -255,7 +255,6 @@ if($running_mode eq 'thread')
 }else{
   die "Incorrect running mode ($running_mode), please check the option file $option_file\n\n";
 }
-END:
 ## clean folders
 for ($i = 0; $i < $thread_num; $i++)
 {
@@ -265,6 +264,7 @@ for ($i = 0; $i < $thread_num; $i++)
   }
 }
 
+END:
 
 
 
