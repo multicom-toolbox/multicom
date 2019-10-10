@@ -575,7 +575,7 @@ sub move_files
 &move_files("$set_work_dir/atom", $set_atom_dir);
 
 #combine cm library
-open(CURRENT, $current_cm_lib) || die "can't read current cm library file.\n";
+open(CURRENT, $current_cm_lib) || die "can't read current cm library file $current_cm_lib.\n";
 @current = <CURRENT>;
 close CURRENT;
 @seqs = ();
@@ -612,7 +612,7 @@ while (@add)
 		$add_num++;
 	}
 }
-open(CURRENT, ">$current_cm_lib") || die "can't overwrite current cm library file.\n";
+open(CURRENT, ">$current_cm_lib") || die "can't overwrite current cm library file $current_cm_lib.\n"; 
 print CURRENT join("", @sel);
 close CURRENT;
 print "$add_num new cm templates are added.\n";
