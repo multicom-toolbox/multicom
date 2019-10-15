@@ -28,14 +28,14 @@ mkdir -p $outputdir/hhsuite3
 
 cd $outputdir
 
-perl /home/jh7x3/multicom/src/meta/hhsuite3/script/tm_hhsuite3_main.pl /home/jh7x3/multicom/src/meta/hhsuite3/hhsuite3_option $fastafile hhsuite3  2>&1 | tee  hhsuite3.log
+perl /home/test/jie_test/multicom/src/meta/hhsuite3/script/tm_hhsuite3_main.pl /home/test/jie_test/multicom/src/meta/hhsuite3/hhsuite3_option $fastafile hhsuite3  2>&1 | tee  hhsuite3.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/hhsuite3.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhsuite3/hhsu1.pdb" ]];then 
-	printf "!!!!! Failed to run hhsuite3, check the installation </home/jh7x3/multicom/src/meta/hhsuite3/>\n\n"
+	printf "!!!!! Failed to run hhsuite3, check the installation </home/test/jie_test/multicom/src/meta/hhsuite3/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhsuite3/hhsu1.pdb $outputdir/$targetid.pdb 

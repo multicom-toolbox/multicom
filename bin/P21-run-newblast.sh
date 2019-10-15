@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/newblast
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/newblast/script/newblast.pl /home/jh7x3/multicom/src/meta/newblast/newblast_option $fastafile newblast  2>&1 | tee  newblast.log
+perl /home/test/jie_test/multicom/src/meta/newblast/script/newblast.pl /home/test/jie_test/multicom/src/meta/newblast/newblast_option $fastafile newblast  2>&1 | tee  newblast.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/newblast.log>\n\n"
 
 
 if [[ ! -f "$outputdir/newblast/newblast1.pdb" ]];then 
-	printf "!!!!! Failed to run newblast, check the installation </home/jh7x3/multicom/src/meta/newblast/>\n\n"
+	printf "!!!!! Failed to run newblast, check the installation </home/test/jie_test/multicom/src/meta/newblast/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/newblast/newblast1.pdb $outputdir/$targetid.pdb 

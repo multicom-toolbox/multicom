@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/compass
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/compass/script/tm_compass_main_v2.pl /home/jh7x3/multicom/src/meta/compass/compass_option_hard $fastafile compass  2>&1 | tee  compass.log
+perl /home/test/jie_test/multicom/src/meta/compass/script/tm_compass_main_v2.pl /home/test/jie_test/multicom/src/meta/compass/compass_option_hard $fastafile compass  2>&1 | tee  compass.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/compass.log>\n\n"
 
 
 if [[ ! -f "$outputdir/compass/com1.pdb" ]];then 
-	printf "!!!!! Failed to run compass, check the installation </home/jh7x3/multicom/src/meta/compass/>\n\n"
+	printf "!!!!! Failed to run compass, check the installation </home/test/jie_test/multicom/src/meta/compass/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/compass/com1.pdb $outputdir/$targetid.pdb 

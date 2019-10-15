@@ -107,8 +107,8 @@ if (-f "update.log")
 		print "start to update FFAS database\n";
 		`echo start to update FFAS database >> update.log`;
 		`date >> update.log`;
-		print("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir\n\n");
-		system("/home/jh7x3/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
+		print("/home/test/jie_test/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir\n\n");
+		system("/home/test/jie_test/multicom/src/update_db/tools/ffas/build_db_update.pl $multicom_database_dir");
 		`date >> update.log`;
 		`echo finish updating FFAS database >> update.log`;
 		print "finish updating FFAS database.\n";
@@ -118,8 +118,8 @@ if (-f "update.log")
 		print "start to update hhsuite3 database\n";
 		`echo start to update hhsuite3 database >> update.log`; 
 		`date >> update.log`; 
-    print("/home/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log\n\n");
-		system("/home/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log");
+    print("/home/test/jie_test/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log\n\n");
+		system("/home/test/jie_test/multicom/src/update_db/tools/hhsuite3/gen_db.sh $multicom_database_dir $option_file > hhsuite3.log");
 		`date >> update.log`;
 		`echo finish updating hhsuite3 database >> update.log`;
 		print "finish updateing hhsuite3 database.\n";
@@ -128,8 +128,8 @@ if (-f "update.log")
 		print "start to update hhsuite database\n";
 		`echo start to update hhsuite database >> update.log`; 
 		`date >> update.log`; 
-		print("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log\n\n");
-		system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log");
+		print("/home/test/jie_test/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log\n\n");
+		system("/home/test/jie_test/multicom/src/update_db/tools/hhsuite/gen_db.sh $multicom_database_dir > hhsuite.log");
 		`date >> update.log`;
 		`echo finish updating hhsuite database >> update.log`;
 		print "finish updateing hhsuite database.\n";
@@ -174,7 +174,7 @@ if (-f "update.log")
 			print "start to update hhsuite database\n";
 			`echo start to update hhsuite database >> update.log`; 
 			`date >> update.log`; 
-			system("/home/jh7x3/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
+			system("/home/test/jie_test/multicom/src/update_db/tools/hhsuite/gen_db.sh > hhsuite.log");
 			`date >> update.log`;
 			`echo finish updating hhsuite database >> update.log`;
 			print "finish updateing hhsuite database.\n";	

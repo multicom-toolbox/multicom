@@ -31,7 +31,7 @@ $output_name = shift @ARGV;
 
 open(OPTION, $align_option) || die "can't read $align_option file.\n";
 
-$align_dir="/home/jh7x3/multicom/src/meta/script"; 
+$align_dir="/home/test/jie_test/multicom/src/meta/script"; 
 
 while (<OPTION>)
 {
@@ -564,7 +564,7 @@ close SIM;
 #########################################################
 
 #use lib "/home/casp13/MULTICOM_package/casp8/meta/script/";
-use lib "/home/jh7x3/multicom/src/meta/script/";
+use lib "/home/test/jie_test/multicom/src/meta/script/";
 use Align; 
 #load the alignment methods
 #require "$align_dir/align_methods.pl";

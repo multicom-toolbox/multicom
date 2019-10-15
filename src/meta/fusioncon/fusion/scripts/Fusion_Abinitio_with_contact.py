@@ -24,7 +24,7 @@
 #
 ############################################################################
 import sys
-project_root = '/home/jh7x3/multicom/tools/Fusion/'
+project_root = '/home/test/jie_test/multicom/tools/Fusion/'
 sys.path.insert(0, project_root)
 
 from fusion_lib import *

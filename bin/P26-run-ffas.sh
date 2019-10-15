@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/ffas
 
 cd $outputdir
-perl /home/jh7x3/multicom/src/meta/ffas/script/tm_ffas_main.pl /home/jh7x3/multicom/src/meta/ffas/ffas_option $fastafile ffas  2>&1 | tee  ffas.log
+perl /home/test/jie_test/multicom/src/meta/ffas/script/tm_ffas_main.pl /home/test/jie_test/multicom/src/meta/ffas/ffas_option $fastafile ffas  2>&1 | tee  ffas.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/ffas.log>\n\n"
 
 
 if [[ ! -f "$outputdir/ffas/ff1.pdb" ]];then 
-	printf "!!!!! Failed to run ffas, check the installation </home/jh7x3/multicom/src/meta/ffas/>\n\n"
+	printf "!!!!! Failed to run ffas, check the installation </home/test/jie_test/multicom/src/meta/ffas/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/ffas/ff1.pdb $outputdir/$targetid.pdb 

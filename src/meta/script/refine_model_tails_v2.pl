@@ -281,7 +281,7 @@ if ($range ne "")
 		close RCORE; 
 
 		#compare refined core with the original core
-		$tm_score = "/home/jh7x3/multicom/tools/tm_score/TMscore_32";		
+		$tm_score = "/home/test/jie_test/multicom/tools/tm_score/TMscore_32";		
 		system("$tm_score $core_file $refine_core > $refine_core.res");
 		#get GDT-TS score of two cores		
 		open(RES, "$refine_core.res") || die "can't read $refine_core.res.\n";

@@ -9,7 +9,7 @@ $test_dir = $ARGV[1];
 $benchmark_dir = $ARGV[2];
 $prefix = $ARGV[3];
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/home/test/jie_test/multicom/";
 
 
 print "\n---------------------------------------------------------------------------------------------------\n";

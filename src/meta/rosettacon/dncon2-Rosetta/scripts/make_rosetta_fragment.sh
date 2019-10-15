@@ -11,7 +11,7 @@
 # Revision: Jianlin Cheng, 12/25/2009
 ###############################################################################
 
-ROSETTA_PATH='/home/jh7x3/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle'
+ROSETTA_PATH='/home/test/jie_test/multicom/tools/rosetta_bin_linux_2018.09.60072_bundle'
 NNMAKE_PATH=$ROSETTA_PATH/tools/fragment_tools/
 #OUTPUT_DIR='/data/rosetta3.1'
 

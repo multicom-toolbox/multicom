@@ -10,7 +10,7 @@ Thanks!
 """
 
 import sys
-sys.path.append('/home/jh7x3/multicom/tools/pymol/lib/python2.7/site-packages/')
+sys.path.append('/home/test/jie_test/multicom/tools/pymol/lib/python2.7/site-packages/')
 
 import __main__
 __main__.pymol_argv = ['pymol','-qc'] # Pymol: quiet and no GUI

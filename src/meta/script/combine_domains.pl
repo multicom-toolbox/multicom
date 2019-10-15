@@ -129,12 +129,12 @@ foreach $model (@models)
 	}
 	#call Scwrl4 to refine side chain
 	#system("/home/casp13/MULTICOM_package/software/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
-	system("/home/jh7x3/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
+	system("/home/test/jie_test/multicom/tools/scwrl4/Scwrl4 -i $model_file -o $model_file.scw >/dev/null");
 	#system("/home/casp13/MULTICOM_package/casp8/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model.txt");
-	system("/home/jh7x3/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model.txt");
+	system("/home/test/jie_test/multicom/src/meta/model_cluster/script/clash_check.pl $fasta_file $model_file.scw > $comb_dir/clash-$model.txt");
 
 	#$pdb2casp2 = "/home/casp13/MULTICOM_package/casp8/meta/script/pdb2casp.pl";
-	$pdb2casp2 = "/home/jh7x3/multicom/src/meta/script/pdb2casp.pl";
+	$pdb2casp2 = "/home/test/jie_test/multicom/src/meta/script/pdb2casp.pl";
 	#convert models to pdb format
 	system("$pdb2casp2 $model_file.scw 1 $target_name $comb_dir/casp1-$model.pdb");	
 

@@ -148,7 +148,7 @@ print TEST "MAAFQIANKTVGKDAPVFIIAEAGINHDGKLDQAFALIDAAAEAGADAVKFQMFQADRMYQKDPGLYK
 close TEST;
 print "test downloaded NR using blastall...\n";
 #system("$prosys_dir/blast-2.2.9/blastall -i testnr.fasta -d nr -p blastp -F F > testnr.blast");
-system("/home/jh7x3/multicom/tools/blast-2.2.17/bin/blastall -i testnr.fasta -d nr -p blastp -F F > testnr.blast");
+system("/home/test/jie_test/multicom/tools/blast-2.2.17/bin/blastall -i testnr.fasta -d nr -p blastp -F F > testnr.blast");
 open(OUT, "testnr.blast");
 @blast = <OUT>;
 close OUT;

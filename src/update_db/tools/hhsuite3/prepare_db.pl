@@ -20,21 +20,24 @@ $output_db = shift @ARGV;
 
 if(-d "$output_db/a3m")
 {
-  `rm $output_db/a3m/*`;
+  `rm -rf  $output_db/a3m`;
+  `mkdir $output_db/a3m`;
 }else{
   `mkdir $output_db/a3m`;
 }
 
 if(-d "$output_db/hhm")
 {
-  `rm $output_db/hhm/*`;
+  `rm -rf $output_db/hhm`;
+  `mkdir $output_db/hhm`;
 }else{
   `mkdir $output_db/hhm`;
 }
 
 if(-d "$output_db/cs219")
 {
-  `rm $output_db/cs219/*`;
+  `rm -rf $output_db/cs219`;
+  `mkdir $output_db/cs219`;
 }else{
   `mkdir $output_db/cs219`;
 }

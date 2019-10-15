@@ -8,7 +8,7 @@ $targetid = $ARGV[0];
 $test_dir = $ARGV[1]; #$test_dir
 $benchmark_dir = $ARGV[2];
 
-$GLOBAL_PATH="/home/jh7x3/multicom/";
+$GLOBAL_PATH="/home/test/jie_test/multicom/";
 
 
 print "\n---------------------------------------------------------------------------------------------------\n";
