@@ -5,9 +5,9 @@
 #Date: 5/11/2010
 ########################################################################
 
-$model_eva_script = "/home/test/jie_test/multicom/tools/model_eva1.0/script/gen_feature.pl";
-$script_dir = "/home/test/jie_test/multicom/tools/model_eva1.0/script";
-$dssp_dir = "/home/test/jie_test/multicom/tools/dssp/";
+$model_eva_script = "/home/jhou4/tools/multicom/tools/model_eva1.0/script/gen_feature.pl";
+$script_dir = "/home/jhou4/tools/multicom/tools/model_eva1.0/script";
+$dssp_dir = "/home/jhou4/tools/multicom/tools/dssp/";
 
 if (@ARGV != 3)
 {

@@ -14,8 +14,8 @@ outputdir=$3 #
 
 
 
-source /home/test/jie_test/multicom/tools/python_virtualenv/bin/activate
-#export PATH=/home/test/jie_test/multicom/tools/R-3.2.0/bin/:$PATH
-perl /home/test/jie_test/multicom/src/visualize_multicom_cluster/P1_organize_prediction.pl  $workdir $targetid  $outputdir
+source /home/jhou4/tools/multicom/tools/python_virtualenv/bin/activate
+#export PATH=/home/jhou4/tools/multicom/tools/R-3.2.0/bin/:$PATH
+perl /home/jhou4/tools/multicom/src/visualize_multicom_cluster/P1_organize_prediction.pl  $workdir $targetid  $outputdir
 
 

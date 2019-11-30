@@ -13,10 +13,10 @@ mkdir -p $outputdir/unicon3d
 cd $outputdir
 
 
-source /home/test/jie_test/multicom/tools/python_virtualenv/bin/activate
-export LD_LIBRARY_PATH=/home/test/jie_test/multicom/tools/boost_1_55_0/lib/:/home/test/jie_test/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
+source /home/jhou4/tools/multicom/tools/python_virtualenv/bin/activate
+export LD_LIBRARY_PATH=/home/jhou4/tools/multicom/tools/boost_1_55_0/lib/:/home/jhou4/tools/multicom/tools/OpenBLAS:$LD_LIBRARY_PATH
 
-perl /home/test/jie_test/multicom/src/meta/unicon3d/script/tm_unicon3d_main.pl /home/test/jie_test/multicom/src/meta/unicon3d/Unicon3D_option $fastafile unicon3d  2>&1 | tee  unicon3d.log
+perl /home/jhou4/tools/multicom/src/meta/unicon3d/script/tm_unicon3d_main.pl /home/jhou4/tools/multicom/src/meta/unicon3d/Unicon3D_option $fastafile unicon3d  2>&1 | tee  unicon3d.log
 
 
 printf "\nFinished.."
@@ -24,7 +24,7 @@ printf "\nCheck log file <$outputdir/unicon3d.log>\n\n"
 
 
 if [[ ! -f "$outputdir/unicon3d/Unicon3d-1.pdb" ]];then 
-	printf "!!!!! Failed to run unicon3d, check the installation </home/test/jie_test/multicom/src/meta/unicon3d/>\n\n"
+	printf "!!!!! Failed to run unicon3d, check the installation </home/jhou4/tools/multicom/src/meta/unicon3d/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/unicon3d/Unicon3d-1.pdb $outputdir/$targetid.pdb 

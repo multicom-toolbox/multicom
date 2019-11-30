@@ -27,15 +27,15 @@ fi
 mkdir -p $outputdir/hhblits
 
 cd $outputdir
-perl /home/test/jie_test/multicom/src/meta/hhblits/script/tm_hhblits_main.pl /home/test/jie_test/multicom/src/meta/hhblits/hhblits_option $fastafile  hhblits  2>&1 | tee  hhblits.log
-perl /home/test/jie_test/multicom/src/meta/hhblits/script/filter_identical_hhblits.pl hhblits
+perl /home/jhou4/tools/multicom/src/meta/hhblits/script/tm_hhblits_main.pl /home/jhou4/tools/multicom/src/meta/hhblits/hhblits_option $fastafile  hhblits  2>&1 | tee  hhblits.log
+perl /home/jhou4/tools/multicom/src/meta/hhblits/script/filter_identical_hhblits.pl hhblits
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/hhblits.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhblits/blits1.pdb" ]];then 
-	printf "!!!!! Failed to run hhblits, check the installation </home/test/jie_test/multicom/src/meta/hhblits/>\n\n"
+	printf "!!!!! Failed to run hhblits, check the installation </home/jhou4/tools/multicom/src/meta/hhblits/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhblits/blits1.pdb $outputdir/$targetid.pdb 

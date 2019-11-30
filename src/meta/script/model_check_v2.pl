@@ -34,9 +34,9 @@ foreach $model (@models)
 }
 
 #generate features
-system("/home/test/jie_test/multicom/tools/model_check2/script/generate_input_v2.pl /home/test/jie_test/multicom/tools/betacon/ /home/test/jie_test/multicom/tools/pspro2/ /home/test/jie_test/multicom/tools/disorder_new/ $query_file $feature_dir");
+system("/home/jhou4/tools/multicom/tools/model_check2/script/generate_input_v2.pl /home/jhou4/tools/multicom/tools/betacon/ /home/jhou4/tools/multicom/tools/pspro2/ /home/jhou4/tools/multicom/tools/disorder_new/ $query_file $feature_dir");
 
-system("/home/test/jie_test/multicom/tools/model_check2/script/casp_model_eva_full.pl /home/test/jie_test/multicom/tools/betacon/ /home/test/jie_test/multicom/tools/model_check2/ $query_file $feature_dir $output_dir $output_file");
+system("/home/jhou4/tools/multicom/tools/model_check2/script/casp_model_eva_full.pl /home/jhou4/tools/multicom/tools/betacon/ /home/jhou4/tools/multicom/tools/model_check2/ $query_file $feature_dir $output_dir $output_file");
 
 `mv $feature_dir $output_dir`; 
 

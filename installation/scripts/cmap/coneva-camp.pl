@@ -21,8 +21,8 @@ or confess "ERROR! Error in command line arguments!";
 
 ####################################################################################################
 use constant{
-	CONEVA      => '/home/test/jie_test/multicom/installation/scripts/cmap/coneva.pl',
-	CMAP      => '/home/test/jie_test/multicom/installation/scripts/cmap/cmap.pl',
+	CONEVA      => '/home/jhou4/tools/multicom/installation/scripts/cmap/coneva.pl',
+	CMAP      => '/home/jhou4/tools/multicom/installation/scripts/cmap/cmap.pl',
 };
 
 confess "Oops!! alignment-script not found at ".CONEVA   if not -f CONEVA;

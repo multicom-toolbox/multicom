@@ -27,14 +27,14 @@ fi
 mkdir -p $outputdir/sam
 
 cd $outputdir
-perl /home/test/jie_test/multicom/src/meta/sam/script/tm_sam_main_v2.pl /home/test/jie_test/multicom/src/meta/sam/sam_option_nr $fastafile sam  2>&1 | tee  sam.log
+perl /home/jhou4/tools/multicom/src/meta/sam/script/tm_sam_main_v2.pl /home/jhou4/tools/multicom/src/meta/sam/sam_option_nr $fastafile sam  2>&1 | tee  sam.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/sam.log>\n\n"
 
 
 if [[ ! -f "$outputdir/sam/sam1.pdb" ]];then 
-	printf "!!!!! Failed to run sam, check the installation </home/test/jie_test/multicom/src/meta/sam/>\n\n"
+	printf "!!!!! Failed to run sam, check the installation </home/jhou4/tools/multicom/src/meta/sam/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/sam/sam1.pdb $outputdir/$targetid.pdb 

@@ -72,7 +72,7 @@ while ($count <= 5)
 	print "do model combination...\n";
 
 	#system("$meta_dir/script/stx_model_comb_global.pl /home/casp13/MULTICOM_package/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
-	system("$meta_dir/script/stx_model_comb_global.pl /home/test/jie_test/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70");
+	system("$meta_dir/script/stx_model_comb_global.pl /home/jhou4/tools/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70");
 
 	open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 	@pir = <PIR>;
@@ -85,7 +85,7 @@ while ($count <= 5)
 	while (@pir < 10)
 	{
 		print "Less than two templates, do local model combination...\n";
-		system("$meta_dir/script/stx_model_comb.pl /home/test/jie_test/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
+		system("$meta_dir/script/stx_model_comb.pl /home/jhou4/tools/multicom/tools/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 3 $length $gdt");
 
 		open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
 		@pir = <PIR>;
@@ -106,7 +106,7 @@ while ($count <= 5)
 
 	#hard coded
 	#system("$meta_dir/script/pir2ts_energy_9v7.pl /home/casp13/MULTICOM_package/software/modeller9v7/ $casp_model_dir $output_dir $output_dir/$name.pir 5");
-	system("/home/test/jie_test/multicom/src/prosys/script/pir2ts_energy.pl /home/test/jie_test/multicom/tools/modeller-9.16/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
+	system("/home/jhou4/tools/multicom/src/prosys/script/pir2ts_energy.pl /home/jhou4/tools/multicom/tools/modeller-9.16/ $casp_model_dir $output_dir $output_dir/$name.pir 8");
 
 		
 

@@ -5,7 +5,7 @@
 #New version: starte date: 1/10/2009
 #Update version: 04/15/2018, 07/10/2019 --- Jie Hou, Jianlin Cheng 
 #########################################################################
-$GLOBAL_PATH="/home/test/jie_test/multicom/";
+$GLOBAL_PATH="/home/jhou4/tools/multicom/";
 
 #####################Read Input Parameters###################################
 if (@ARGV != 3)

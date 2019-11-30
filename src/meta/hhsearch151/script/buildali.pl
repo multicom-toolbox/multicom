@@ -13,22 +13,22 @@ use lib ".";
 
 ###########################################################################################################
 ####################################The values are hard coded and need to be parameterized later###########
-use lib "/home/test/jie_test/multicom/src/meta/hhsearch151/script/";
+use lib "/home/jhou4/tools/multicom/src/meta/hhsearch151/script/";
 use Align;
 # CUSTOMIZE
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhpred/nr_latest/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
 #my $dbbase="/home/casp13/MULTICOM_package/casp8/hhsearch_db/nr"; # will use PSI-BLAST dbs $dbbase."90" and $dbbase."70" 
                                    # It is recommended to use nre = nr + env. 
                                    # 90: filtered with CD-HIT to 90% maximum pairwise sequence identity
-my $dbbase="/home/test/jie_test/multicom/databases/nr70_90/nr";
-my $hh="/home/test/jie_test/multicom/src/meta/hhsearch151/script/";
+my $dbbase="/home/jhou4/tools/multicom/databases/nr70_90/nr";
+my $hh="/home/jhou4/tools/multicom/src/meta/hhsearch151/script/";
 my $perl=$hh;
-my $ncbidir="/home/test/jie_test/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
+my $ncbidir="/home/jhou4/tools/multicom/tools/blast-2.2.17/bin"; # directory with ncbi BLAST binaries
 my $blastpgp=$ncbidir."/blastpgp -I T -s T"; # blastpgp executable
 #our $blastpgp.=" -I T -s T"; # show gi's in defline; use Smith-Waterman
 
-my $execdir="/home/test/jie_test/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
-my $datadir="/home/test/jie_test/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
+my $execdir="/home/jhou4/tools/multicom/tools/psipred-2.61/bin";  # directory with PSIPRED binaries 
+my $datadir="/home/jhou4/tools/multicom/tools/psipred-2.61/data"; # directory with PSIPRED data 
 ###########################################################################################################
 
 

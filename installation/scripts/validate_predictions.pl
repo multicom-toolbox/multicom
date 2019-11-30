@@ -8,7 +8,7 @@ $targetid = $ARGV[0];
 $test_dir = $ARGV[1];
 $benchmark_dir = $ARGV[2];
 
-$GLOBAL_PATH="/home/test/jie_test/multicom/";
+$GLOBAL_PATH="/home/jhou4/tools/multicom/";
 
 
 opendir(DIR,"$test_dir") || die "Failed to open directory $test_dir\n";

@@ -28,7 +28,7 @@ mkdir -p $outputdir/hhpred
 
 cd $outputdir
 
-perl /home/test/jie_test/multicom/src/meta/hhpred/script/tm_hhpred_main.pl /home/test/jie_test/multicom/src/meta/hhpred/hhpred_option_hard $fastafile hhpred  2>&1 | tee  hhpred.log
+perl /home/jhou4/tools/multicom/src/meta/hhpred/script/tm_hhpred_main.pl /home/jhou4/tools/multicom/src/meta/hhpred/hhpred_option_hard $fastafile hhpred  2>&1 | tee  hhpred.log
 
 
 printf "\nFinished.."
@@ -36,7 +36,7 @@ printf "\nCheck log file <$outputdir/hhpred.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hhpred/hp1.pdb" ]];then 
-	printf "!!!!! Failed to run hhpred, check the installation </home/test/jie_test/multicom/src/meta/hhpred/>\n\n"
+	printf "!!!!! Failed to run hhpred, check the installation </home/jhou4/tools/multicom/src/meta/hhpred/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hhpred/hp1.pdb $outputdir/$targetid.pdb 

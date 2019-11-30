@@ -145,6 +145,30 @@ while (@fasta)
 	$seq = ""; 
 	$seq = shift @fasta;
 	print "process $name...\n";
+	
+
+	#verify if all files are generated
+        $prefix = "$out_dir/../$name";
+        @suffix = ("align", "aln", "chk", "fas", "hhm", "hmm", "lob", "pssm", "set", "shhm");
+        $complete = 1;
+	while (@suffix)
+        {
+                $suf = shift @suffix;
+                if (!-f "$prefix.$suf")
+                {
+			$complete = 0;
+			#print "error: $prefix.$suf is not created.\n";
+                }
+        }
+        if($complete == 1)
+	{
+		print "$name 's features already generated\n";
+		next;
+	}else{
+		print "Generate features for $name\n";
+	}
+
+
 
 	#create a temporary file
 	open(TEMP, ">$name.fasta") || die "can't create $name.fasta\n";

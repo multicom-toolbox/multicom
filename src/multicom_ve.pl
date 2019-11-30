@@ -18,7 +18,7 @@
 #
 #################################################################################
 
-$GLOBAL_PATH="/home/test/jie_test/multicom/";
+$GLOBAL_PATH="/home/jhou4/tools/multicom/";
 
 $DEBUG = 0; #0: non-debug runtime model; set DEBUG 1 will enter into debug mode and will not generate models 
 

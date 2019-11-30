@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-$test_script_dir= '/home/test/jie_test/multicom/installation/MULTICOM_test_codes';
-$test_out_dir= '/home/test/jie_test/multicom/test_out';
+$test_script_dir= '/home/jhou4/tools/multicom/installation/MULTICOM_test_codes';
+$test_out_dir= '/home/jhou4/tools/multicom/test_out';
 
 $num = @ARGV;
 if($num ==0)

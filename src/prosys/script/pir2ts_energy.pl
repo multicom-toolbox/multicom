@@ -7,7 +7,7 @@
 ############################################################################# 
 
 #$prosys_dir = "/home/casp13/MULTICOM_package/software/prosys/script";
-$prosys_dir = "/home/test/jie_test/multicom/src/prosys/script";
+$prosys_dir = "/home/jhou4/tools/multicom/src/prosys/script";
 use Cwd 'abs_path';
 $script_path =  abs_path($0);
 $ridx = rindex($script_path, "/");

@@ -1,9 +1,9 @@
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/test/jie_test/multicom/src/meta/
+prosys_dir = /home/jhou4/tools/multicom/src/meta/
 
 #confoldtemp program
-confoldtemp_program = /home/test/jie_test/multicom/src/meta/confoldtemp/script/run_confold2_template.sh
+confoldtemp_program = /home/jhou4/tools/multicom/src/meta/confoldtemp/script/run_confold2_template.sh
 
 #final_model_number
 final_model_number = 5

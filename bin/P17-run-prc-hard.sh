@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/prc
 
 cd $outputdir
-perl /home/test/jie_test/multicom/src/meta/prc/script/tm_prc_main_v2.pl /home/test/jie_test/multicom/src/meta/prc/prc_option_hard $fastafile prc  2>&1 | tee  prc.log
+perl /home/jhou4/tools/multicom/src/meta/prc/script/tm_prc_main_v2.pl /home/jhou4/tools/multicom/src/meta/prc/prc_option_hard $fastafile prc  2>&1 | tee  prc.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/prc.log>\n\n"
 
 
 if [[ ! -f "$outputdir/prc/prc1.pdb" ]];then 
-	printf "!!!!! Failed to run prc, check the installation </home/test/jie_test/multicom/src/meta/prc/>\n\n"
+	printf "!!!!! Failed to run prc, check the installation </home/jhou4/tools/multicom/src/meta/prc/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/prc/prc1.pdb $outputdir/$targetid.pdb 

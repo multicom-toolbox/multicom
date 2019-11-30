@@ -6,5 +6,5 @@ then
 fi
 
 
-/home/test/jie_test/multicom/src/meta/confold2/script/tm_confold2_main.pl $1 $2 $3
+/home/jhou4/tools/multicom/src/meta/confold2/script/tm_confold2_main.pl $1 $2 $3
 

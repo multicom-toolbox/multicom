@@ -14,5 +14,5 @@ if [ ! -d "$database_path/prc_db" ]; then
 fi
 
 
-/home/test/jie_test/multicom/src/update_db/tools/prc/make_prc_db.pl $database_path /home/test/jie_test/multicom/tools/sam3.5.x86_64-linux/ $database_path/prc_db/ prcdb.lib
+/home/jhou4/tools/multicom/src/update_db/tools/prc/make_prc_db.pl $database_path /home/jhou4/tools/multicom/tools/sam3.5.x86_64-linux/ $database_path/prc_db/ prcdb.lib
 
