@@ -43,7 +43,7 @@ system("$lobster_dir/lobster -msa2hmm  $query_msa.fas -hmm $out_file >/dev/null"
 if(!(-e $out_file))
 {
   print "Failed to generate lobster on $query_msa.fas, need filter the alignments\n\n";
-  `cp query_msa.fas $query_msa.fas.filt0`;
+  `cp $query_msa.fas $query_msa.fas.filt0`;
   for($rep=1;$rep<=20;$rep++)
   {
       if(-e $out_file)
