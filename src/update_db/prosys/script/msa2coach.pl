@@ -43,14 +43,16 @@ system("$lobster_dir/lobster -msa2hmm  $query_msa.fas -hmm $out_file >/dev/null"
 if(!(-e $out_file))
 {
   print "Failed to generate lobster on $query_msa.fas, need filter the alignments\n\n";
-  for($rep=1;$rep<=10;$rep++)
+  `cp $query_msa.fas $query_msa.fas.filt0`;
+  for($rep=1;$rep<=20;$rep++)
   {
       if(-e $out_file)
       {
         last;
       }
       print "Trying $rep times' filtering\n\n";
-      system("$script_dir/fas_reduce2half.pl $query_msa.fas $query_msa.fas.filt$rep");
+      $prev = $rep -1;
+      system("$script_dir/fas_reduce2half.pl $query_msa.fas.filt$prev $query_msa.fas.filt$rep");
       system("$lobster_dir/lobster -msa2hmm  $query_msa.fas.filt$rep -hmm $out_file >/dev/null");
   }
 }

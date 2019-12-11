@@ -98,7 +98,6 @@ while (@fasta)
     $seq_num++;
   }
 }
-close OUTPUT;
 print "Total $seq_num new proteins are found\n\n";
 #################################
 
@@ -122,6 +121,7 @@ if($total == 0)
 	$thread_num = $total;
 }
 
+print "Using $thread_num cpus\n\n";
 
 if($total > $thread_num)
 {
@@ -130,7 +130,6 @@ if($total > $thread_num)
 	$max_num = int($total / $thread_num);
 }
 
-print "$thread_num cpu\n";
 $thread_dir = "pthread";
 for ($i = 0; $i < $thread_num; $i++)
 {
@@ -154,7 +153,6 @@ for ($i = 0; $i < $thread_num; $i++)
 #	`$gen_program $t_option_file $t_fasta_file $t_out_dir`; 	
 #}
 
-print "total $thread_num\n";
 if($running_mode eq 'thread')
 {
   $post_process = 0; 
