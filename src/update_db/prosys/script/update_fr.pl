@@ -128,7 +128,6 @@ $candidate_file = "$set_work_dir/$cm_database_name.work";
 
 $new_fr_file = "$set_work_dir/$fr_template_library_file.work";
 
-
 print "generate fr library file and reduce redundancy using blast from new cm fasta file...\n";
 #generate the updated fr library file
 
@@ -137,6 +136,8 @@ if (-f $new_fr_file)
 {
 	`rm $new_fr_file`; 
 }
+
+
 system("$prosys_dir/script/build_library_blast_update.pl $prosys_dir/script $blast_dir $old_fr_lib $candidate_file $fr_identity_threshold $new_fr_file");
 
 ######################################################################

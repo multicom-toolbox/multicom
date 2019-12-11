@@ -8,7 +8,7 @@ if (@ARGV != 4)
 	die "need 4 parameters: meta.eva file, model dir, fasta file, output file\n";
 }
 
-$iqa_script = "/home/test/jie_test/multicom/src/meta/model_cluster/script/iqa_v2.pl";
+$iqa_script = "/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/iqa_v2.pl";
 
 $meta_eva = shift @ARGV;
 -f $meta_eva || die "can't find $meta_eva file.\n";
@@ -21,7 +21,7 @@ $fasta_file = shift @ARGV;
 
 $output_file = shift @ARGV;
 
-$spicker = "/home/test/jie_test/multicom/tools/spicker/spicker";
+$spicker = "/storage/hpc/scratch/jh7x3/multicom/tools/spicker/spicker";
 
 open(FASTA, $fasta_file) || die "can't read $fasta_file.\n";
 $name = <FASTA>;
@@ -56,7 +56,7 @@ close SCORE;
 
 #call iterative qa
 print "Generate iterative QA from meta.eva...\n";
-$cluster_dir = "/home/test/jie_test/multicom/src/meta/model_cluster/script/"; 
+$cluster_dir = "/storage/hpc/scratch/jh7x3/multicom/src/meta/model_cluster/script/"; 
 
 use Cwd 'abs_path';
 `cp $fasta_file $name.tfasta`;

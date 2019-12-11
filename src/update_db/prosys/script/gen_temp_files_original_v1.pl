@@ -144,6 +144,25 @@ while (@fasta)
 	}
 	$seq = ""; 
 	$seq = shift @fasta;
+	
+	$prefix = "$out_dir/../$name";
+        @suffix = ("align", "aln", "chk", "fas", "hhm", "hmm", "lob", "pssm", "set", "shhm");
+        $complete = 1;
+	while (@suffix)
+        {
+                $suf = shift @suffix;
+                if (!-f "$prefix.$suf")
+                {
+			$complete = 0;
+                        #print "error: $prefix.$suf is not created.\n";
+                }
+        }	
+	if($complete == 1)
+	{
+		print "Features for $name exist\n";
+		next;
+	}
+
 	print "process $name...\n";
 
 	#create a temporary file

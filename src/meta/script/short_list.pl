@@ -52,8 +52,8 @@ while (@meta && $count < $num)
 close SHORT;
 
 #do pairwise model evaluation
-$q_score = "/home/test/jie_test/multicom/tools/pairwiseQA/q_score";
-$tm_score = "/home/test/jie_test/multicom/tools/tm_score/TMscore_32";
+$q_score = "/storage/hpc/scratch/jh7x3/multicom/tools/pairwiseQA/q_score";
+$tm_score = "/storage/hpc/scratch/jh7x3/multicom/tools/tm_score/TMscore_32";
 print "Do pairwise model evaluation...\n";
 system("$q_score short $name.fasta $tm_score . $name");  
 

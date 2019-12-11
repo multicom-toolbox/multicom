@@ -98,6 +98,7 @@ while (@fasta)
     $seq_num++;
   }
 }
+close OUTPUT;
 print "Total $seq_num new proteins are found\n\n";
 #################################
 
@@ -121,7 +122,6 @@ if($total == 0)
 	$thread_num = $total;
 }
 
-print "Using $thread_num cpus\n\n";
 
 if($total > $thread_num)
 {
@@ -130,6 +130,7 @@ if($total > $thread_num)
 	$max_num = int($total / $thread_num);
 }
 
+print "$thread_num cpu\n";
 $thread_dir = "pthread";
 for ($i = 0; $i < $thread_num; $i++)
 {
@@ -153,6 +154,7 @@ for ($i = 0; $i < $thread_num; $i++)
 #	`$gen_program $t_option_file $t_fasta_file $t_out_dir`; 	
 #}
 
+print "total $thread_num\n";
 if($running_mode eq 'thread')
 {
   $post_process = 0; 
@@ -167,7 +169,7 @@ if($running_mode eq 'thread')
   	{
   		#within the child process
   		print "start thread $i to generate hhsuite profile\n";
-  		system("perl /home/test/jie_test/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /home/test/jie_test/multicom/tools/hhsuite-3.2.0/ 8 $set_seq_dir /home/test/jie_test/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i");
+  		system("perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 8 $set_seq_dir /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i");
      
   		goto END;
   	}
@@ -241,8 +243,8 @@ if($running_mode eq 'thread')
     	print SB "mv $work_dir/$thread_dir$i.queued $work_dir/$thread_dir$i.running\n";
   		#within the child process
   		print SB "echo 'start thread $i to generate hhsuite3 profile'\n";
-  		print SB "echo 'perl /home/test/jie_test/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /home/test/jie_test/multicom/tools/hhsuite-3.2.0/ 1 $set_seq_dir /home/test/jie_test/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i'\n";
-  		print SB "perl /home/test/jie_test/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /home/test/jie_test/multicom/tools/hhsuite-3.2.0/ 1 $set_seq_dir /home/test/jie_test/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i &> $work_dir/$thread_dir$i.log\n";
+  		print SB "echo 'perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 1 $set_seq_dir /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i'\n";
+  		print SB "perl /storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/hhsuite3/gen_hhblits_profile.pl /storage/hpc/scratch/jh7x3/multicom/tools/hhsuite-3.2.0/ 1 $set_seq_dir /storage/hpc/scratch/jh7x3/multicom/databases/uniprot30/uniclust30_2018_08/uniclust30_2018_08  $work_dir/$thread_dir$i/lib$i.fasta  $work_dir/$thread_dir$i &> $work_dir/$thread_dir$i.log\n";
     	print SB "mv $work_dir/$thread_dir$i.running $work_dir/$thread_dir$i.done\n";
     	close SB;
     	system("chmod +x $work_dir/$thread_dir$i.sh");

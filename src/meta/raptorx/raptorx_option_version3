@@ -5,31 +5,31 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /home/test/jie_test/multicom/src/prosys/
+prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/
 
 #blast tool dir
-blast_dir = /home/test/jie_test/multicom/tools/blast-2.2.17/bin
+blast_dir = /storage/hpc/scratch/jh7x3/multicom/tools/blast-2.2.17/bin
 
-modeller_program = /home/test/jie_test/multicom/tools/modeller-9.16/bin/mod9.16
+modeller_program = /storage/hpc/scratch/jh7x3/multicom/tools/modeller-9.16/bin/mod9.16
 
-pdb_db_dir = /home/test/jie_test/multicom/databases/cm_lib/
+pdb_db_dir = /storage/hpc/scratch/jh7x3/multicom/databases/cm_lib/
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #raptorx dir
-raptorx_dir=/home/test/jie_test/multicom/tools/RaptorX4/CNFsearch1.66
+raptorx_dir=/storage/hpc/scratch/jh7x3/multicom/tools/RaptorX4/CNFsearch1.66
 
 
 #hhsearch pdb dir 
-atom_dir = /home/test/jie_test/multicom/databases/atom/
+atom_dir = /storage/hpc/scratch/jh7x3/multicom/databases/atom/
 
 #templates built before May 10, 2007 (CASP7 starts)
-#hhsearchdb=/home/test/jie_test/multicom/databases/casp7_hhsearchdb
+#hhsearchdb=/storage/hpc/scratch/jh7x3/multicom/databases/casp7_hhsearchdb
 
 #meta dir for hhblits
-meta_dir=/home/test/jie_test/multicom/src/meta/raptorx/
+meta_dir=/storage/hpc/scratch/jh7x3/multicom/src/meta/raptorx/
 
 #meta common dir
-meta_common_dir=/home/test/jie_test/multicom/src/meta/
+meta_common_dir=/storage/hpc/scratch/jh7x3/multicom/src/meta/
 
 ###############################################################################
 

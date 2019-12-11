@@ -1,30 +1,30 @@
 #this text file includes the options used in comparative modelling used by cm_main_comb.pl
 ###############################Software and Data Settings####################
 #prosys script dir
-script_dir = /home/test/jie_test/multicom/src/prosys/script
+script_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/script
 
-prosys_dir = /home/test/jie_test/multicom/src/prosys/
+prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys/
 
 #blast tool dir
-blast_dir = /home/test/jie_test/multicom/tools/blast-2.2.17/bin
+blast_dir = /storage/hpc/scratch/jh7x3/multicom/tools/blast-2.2.17/bin
 
 #modeller 7.0 dir
-modeller_dir = /home/test/jie_test/multicom/tools/modeller-9.16/
+modeller_dir = /storage/hpc/scratch/jh7x3/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
-pdb_db_dir = /home/test/jie_test/multicom/databases/cm_lib/
+pdb_db_dir = /storage/hpc/scratch/jh7x3/multicom/databases/cm_lib/
 
 #use non-redundant db dir (should always use non-redundant database)
-nr_dir = /home/test/jie_test/multicom/databases/nr_latest/
+nr_dir = /storage/hpc/scratch/jh7x3/multicom/databases/nr_latest/
 #not use nr (should never choose this option. its performance is worse)
 #nr_dir = none
 
 #atom files dir
-atom_dir = /home/test/jie_test/multicom/databases/atom/
+atom_dir = /storage/hpc/scratch/jh7x3/multicom/databases/atom/
 
 #common meta dir
 #meta_common_dir=/home/casp13/MULTICOM_package/casp8/meta/
-meta_common_dir=/home/test/jie_test/multicom/src/meta/
+meta_common_dir=/storage/hpc/scratch/jh7x3/multicom/src/meta/
 
 ############################End of Software and Data Settings#################
 
@@ -135,7 +135,7 @@ output_prefix_name=psiblast
 ##########################Options for sorting blast local alignment###########
 
 #The file containing resolution/method/match ratio for all chains
-chain_stx_info=/home/test/jie_test/multicom/databases/cm_lib/chain_stx_info
+chain_stx_info=/storage/hpc/scratch/jh7x3/multicom/databases/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort

@@ -27,7 +27,7 @@ fi
 mkdir -p $outputdir/hmmer3
 
 cd $outputdir
-perl /home/test/jie_test/multicom/src/meta/hmmer3/script/tm_hmmer3_main.pl /home/test/jie_test/multicom/src/meta/hmmer3/hmmer3_option $fastafile hmmer3  2>&1 | tee  hmmer3.log
+perl /storage/hpc/scratch/jh7x3/multicom/src/meta/hmmer3/script/tm_hmmer3_main.pl /storage/hpc/scratch/jh7x3/multicom/src/meta/hmmer3/hmmer3_option $fastafile hmmer3  2>&1 | tee  hmmer3.log
 
 
 printf "\nFinished.."
@@ -35,7 +35,7 @@ printf "\nCheck log file <$outputdir/hmmer3.log>\n\n"
 
 
 if [[ ! -f "$outputdir/hmmer3/jackhmmer1.pdb" ]];then 
-	printf "!!!!! Failed to run hmmer3, check the installation </home/test/jie_test/multicom/src/meta/hmmer3/>\n\n"
+	printf "!!!!! Failed to run hmmer3, check the installation </storage/hpc/scratch/jh7x3/multicom/src/meta/hmmer3/>\n\n"
 else
 	printf "\nJob successfully completed!"
 	cp $outputdir/hmmer3/jackhmmer1.pdb $outputdir/$targetid.pdb 

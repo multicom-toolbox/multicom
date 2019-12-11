@@ -23,7 +23,7 @@ $library_dir = "$database_path/library";
 $input_file = "$database_path/fr_lib/sort90";
 $output_db = "$database_path/ffas_dbs/multicom_db/multicom_ffas_db";
 $db_profile_list = "$database_path/ffas_dbs/multicom_db/profile_list"; 
-$ffas_dir = "/home/test/jie_test/multicom/src/update_db/tools/ffas/";
+$ffas_dir = "/storage/hpc/scratch/jh7x3/multicom/src/update_db/tools/ffas/";
 
 if (! -f $output_db)
 {

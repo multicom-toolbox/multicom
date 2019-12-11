@@ -1,22 +1,22 @@
 #meta directory
 #meta_dir = /data/jh7x3/multicom_github/multicom/src/meta
-meta_dir = /home/test/jie_test/multicom/src/meta
+meta_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta
 
 #prosys dir
 #prosys_dir = /data/jh7x3/multicom_github/multicom/src/prosys
-prosys_dir = /home/test/jie_test/multicom/src/prosys
+prosys_dir = /storage/hpc/scratch/jh7x3/multicom/src/prosys
 
 #rosetta+dncon2 directory
 #rosettacon_dir = /home/casp13/MULTICOM_package/casp8/rosettacon
-rosettacon_dir = /home/test/jie_test/multicom/src/meta/rosettacon
+rosettacon_dir = /storage/hpc/scratch/jh7x3/multicom/src/meta/rosettacon
 
 #Rosetta program of making predictions with contacts
 #rosettacon_program = /home/casp13/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact.sh
 #rosettacon_program = /home/casp13/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortL5.sh
-rosettacon_program = /home/test/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortL5.sh
+rosettacon_program = /storage/hpc/scratch/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_withcontact_LongMediumShortL5.sh
 
 #Rosetta ab intio program without contacts
-rosetta_program = /home/test/jie_test/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_abinitio.sh
+rosetta_program = /storage/hpc/scratch/jh7x3/multicom/src/meta/rosettacon/dncon2-Rosetta/scripts/run_CASP13_rosetta_abinitio.sh
 
 #number of models to be selected from this predictor
 local_model_num = 10

@@ -455,7 +455,7 @@ system("$meta_dir/script/filter_rank.pl $pdb_db_dir/pdb_cm $name.rank $name.filt
 
 #remove templates from rank file
 #system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank $work_dir/$name.rank.fil");
-system("$meta_dir/script/filter_rank_file.pl /home/test/jie_test/multicom/databases/hhpred_dbs/database/pdb.list $work_dir/$name.rank $work_dir/$name.rank.fil");
+system("$meta_dir/script/filter_rank_file.pl /storage/hpc/scratch/jh7x3/multicom/databases/hhpred_dbs/database/pdb.list $work_dir/$name.rank $work_dir/$name.rank.fil");
 `cp $work_dir/$name.rank $work_dir/$name.rank.org`;
 `cp $work_dir/$name.rank.fil $work_dir/$name.rank`;
 	
@@ -465,7 +465,7 @@ system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.local");
 
 #remove templates whose pdb files do not exist (to do)******************************
 #system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.local $fasta_file.local.fil");
-system("$meta_dir/script/filter_alignments.pl /home/test/jie_test/multicom/databases/hhpred_dbs/database/pdb.list $fasta_file.local $fasta_file.local.fil");
+system("$meta_dir/script/filter_alignments.pl /storage/hpc/scratch/jh7x3/multicom/databases/hhpred_dbs/database/pdb.list $fasta_file.local $fasta_file.local.fil");
 
 `cp $fasta_file.local $fasta_file.local.org`;
 `mv $fasta_file.local.fil $fasta_file.local`;
@@ -495,7 +495,7 @@ print "generate ranking list...\n";
 system("$meta_dir/script/rank_templates.pl $filename.hhr $work_dir/$name.rank.global");
 #remove templates from rank file
 #system("$meta_dir/script/filter_rank_file.pl $meta_dir/database/pdb.list $work_dir/$name.rank.global $work_dir/$name.rank.global.fil");
-system("$meta_dir/script/filter_rank_file.pl /home/test/jie_test/multicom/databases/hhpred_dbs/database/pdb.list $work_dir/$name.rank.global $work_dir/$name.rank.global.fil");
+system("$meta_dir/script/filter_rank_file.pl /storage/hpc/scratch/jh7x3/multicom/databases/hhpred_dbs/database/pdb.list $work_dir/$name.rank.global $work_dir/$name.rank.global.fil");
 `cp $work_dir/$name.rank.global $work_dir/$name.rank.global.org`;
 `cp $work_dir/$name.rank.global.fil $work_dir/$name.rank.global`;
 	
@@ -504,7 +504,7 @@ print "parse hhsearch output...\n";
 system("$meta_dir/script/parse_hhsearch.pl $filename.hhr $fasta_file.global");
 
 #system("$meta_dir/script/filter_alignments.pl $meta_dir/database/pdb.list $fasta_file.global $fasta_file.global.fil");
-system("$meta_dir/script/filter_alignments.pl /home/test/jie_test/multicom/databases/hhpred_dbs/database/pdb.list $fasta_file.global $fasta_file.global.fil");
+system("$meta_dir/script/filter_alignments.pl /storage/hpc/scratch/jh7x3/multicom/databases/hhpred_dbs/database/pdb.list $fasta_file.global $fasta_file.global.fil");
 `cp $fasta_file.global $fasta_file.global.org`;
 `mv $fasta_file.global.fil $fasta_file.global`;
 
