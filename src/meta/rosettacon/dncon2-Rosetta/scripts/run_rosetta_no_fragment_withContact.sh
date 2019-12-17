@@ -41,7 +41,8 @@ basename "$1" | grep -q "[^A-Za-z._0-9]"
 if [[ $? -eq 0 ]]; then
   echo "Fixing file name..."
   cp -v $1 $OUTPUT_DIR/$$_`basename $1 | sed -e 's/[^A-Za-z0-9.]/_/'`
-  fasta=$OUTPUT_DIR/`basename $1 | sed -e 's/[^A-Za-z0-9.]/_/'`
+  #fasta=$OUTPUT_DIR/`basename $1 | sed -e 's/[^A-Za-z0-9.]/_/'`
+  fasta=$OUTPUT_DIR/$$_`basename $1 | sed -e 's/[^A-Za-z0-9.]/_/'`
 else
   cp -v $1 $OUTPUT_DIR/$$_`basename $1`
   fasta=$OUTPUT_DIR/$$_`basename $1`
