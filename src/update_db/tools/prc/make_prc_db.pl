@@ -35,6 +35,8 @@ open(FASTA, $src_db) || die "can't read fasta file.\n";
 @fasta = <FASTA>;
 close FASTA;
 $count = 0; 
+
+### Update database everytime in case the path of database is changed.
 `>$prcdb`;
 open(ADD, ">$prcdb.add"); 
 
