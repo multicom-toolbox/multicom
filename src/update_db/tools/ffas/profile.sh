@@ -3,8 +3,8 @@
 #inputs: multiple sequence alignment file, output file
 
  #calculate ffas profiles 
-export FFAS=/home/jhou4/tools/multicom/databases/ffas_dbs/
-export PATH=$PATH:/home/jhou4/tools/multicom/databases/ffas_dbs/soft
+export FFAS=/home/jhou4/tools/multicom/tools/ffas_soft/
+export PATH=$PATH:/home/jhou4/tools/multicom/tools/ffas_soft/
 
 #cat 1UCSA.ffas.mu | profil > 1UCSA.ffas 
 #profil 1UCSA.ffas.mu > ff_T0579

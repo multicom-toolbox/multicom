@@ -5,6 +5,7 @@
 #Author: Jianlin Cheng
 #Modified from update_db.pl
 #Date: 10/10/05
+#Modified on 02/20/2020
 ###################################################################
 
 use Net::FTP;
@@ -181,53 +182,39 @@ $ftp->login($username,$password) or die "Login failed: $!";
 #-- chdir to $ftpdir
 $ftp->cwd($ftpdir) or die "Can't go to $ftpdir: $!";	
 
-@remote_folders = $ftp->dir($glob);
+#@remote_folders = $ftp->dir($glob);
+@remote_folders = $ftp->ls('/pub/pdb/data/structures/all/pdb/');
+
 
 $grabfolder = "";
 # Look through each date folder on wwpdb and update according the folder date
-foreach $folder (@remote_folders) 
+# Look through all files in /pub/pdb/data/structures/all/pdb/
+open(pdbcode, ">$file_out");
+foreach $code (@remote_folders) #pdb4md0.ent.gz 
 {
-	chomp $folder;
-	if($folder eq '.' or $folder eq '..')
+	chomp $code;
+	if($code eq '.' or $code eq '..' or substr($code,length($code)-3) ne '.gz')
 	{
 		next;
 	}
-	if ($folder eq "") {
+	if ($code eq "") {
 		next;
 	}
-	if (($folder <= $from_date) || ($folder > $end_date)){
-			next;
-	}else 
-	{
-		$grabfolder = $folder;
-		my $test = chop($folder);
-		#print "Saw: $ftpdir" . "$folder\n";
 		
-		$ftp->cwd($ftpdir . $folder) or die "Can't go to $folder: $!";
-
-		# DL the add.pdb file and adding a date to it
-		$ftp->get($file, "add.pdb") or die "Can't get $file: $!";
-		open(addpdf, "<add.pdb") or die "2Failed to open add.pdb, $!\n";
-		open(pdbcode, ">>$file_out");
+	chomp $code; #pdb4md0.ent.gz
+	print pdbcode "$code\n"; 
 		
-		while (<addpdf>) { 
-			$code = $_;
-			chomp $code; #pdb4md0.ent.gz
-			print pdbcode "pdb$code.ent.gz\n"; 
-		}
-		close(addpdf);
-		
-		# Create pdb code file with dates
-		close(pdbcode);
-		
-		$update = 1;
-	}
+	#$update = 1;
+	
 }
+# Create pdb code file with dates
+close(pdbcode);
 
-if ($update  == 0){
-	print "There are no new updates!\n";
-	exit;
-}
+#if ($update  == 0){
+#	print "There are no new updates!\n";
+#	exit;
+#}
+#
 print "Checking pdb list $file_out\n\n";
 #-- close ftp connection
 $ftp->quit or die "Error closing ftp connection: $!";	
@@ -279,9 +266,14 @@ foreach $file (@pdb_list)
 
 #download the list of all new pdb files
 $num = @update_list;
+
+if ($num  == 0){
+       print "There are no new updates!\n";
+       exit;
+}
+
 print "There are $num new proteins to download.\n"; 
 print "download new pdb files...\n"; 
-
 
 $ftp = "$prosys_dir/script/autoftp";
 -f $ftp || die "can't find ftp script.\n";

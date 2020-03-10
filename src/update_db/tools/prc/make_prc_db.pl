@@ -35,7 +35,7 @@ open(FASTA, $src_db) || die "can't read fasta file.\n";
 @fasta = <FASTA>;
 close FASTA;
 $count = 0; 
-
+`>$prcdb`;
 open(ADD, ">$prcdb.add"); 
 
 while (@fasta)
@@ -62,6 +62,7 @@ while (@fasta)
 	if (-f $hmm_file) 
 	{ 
 		print "$name exists in the database. Skipped.\n";
+		print ADD "$output_dir/$name.mod\n";
 		next; 
 	}
 
@@ -93,7 +94,7 @@ while (@fasta)
 
 close ADD; 
 
-if ($count > 0)
+if ($count >= 0)
 {
 	`cat $prcdb.add >> $prcdb`; 
 }
