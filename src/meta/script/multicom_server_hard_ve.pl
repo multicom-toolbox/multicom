@@ -694,7 +694,7 @@ for ($i = 0; $i < @servers; $i++)
 
 	if ($server eq "rosetta2")
 	{
-		if(-e "$output_dir/$server/modelling.done") # set for restart
+		if(!(-e "$output_dir/$server/modelling.done")) # set for restart
 		{
 			#generate fragments files for all ab initio modeling 
 			print "generate fragment files for rosetta ab initio modeling...\n";

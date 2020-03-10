@@ -306,7 +306,7 @@ foreach $db (@basic_db)
 	{
 		`rm $db`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
+	`wget http://daisy.rnet.missouri.edu/multicom_db_tools/databases/$db`;
 	
 	if(-e "$db")
 	{
@@ -316,7 +316,7 @@ foreach $db (@basic_db)
 		`rm $db`;
 		`chmod -R 755 $dbname`;
 	}else{
-		die "Failed to download $db from http://sysbio.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
+		die "Failed to download $db from http://daisy.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
 	}
 }
 
@@ -381,7 +381,7 @@ foreach $tool (@basic_tools)
 	if(exists($softwares_list_for_64bit{$toolname}))
 	{
 		print "Downloading 64bit version for tool $toolname\n\n";
-		`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
+		`wget http://daisy.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
 		if(-e "${toolname}_64bit.tar.gz")
 		{
 			print "\n\t${toolname}_64bit.tar.gz is found, start extracting files......\n\n";
@@ -396,10 +396,10 @@ foreach $tool (@basic_tools)
 			`rm ${toolname}_64bit.tar.gz`;
 			`chmod -R 755 $toolname`;
 		}else{
-			die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+			die "Failed to download ${toolname}_64bit.tar.gz from http://daisy.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 		}
 	}else{
-		`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+		`wget http://daisy.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
 		if(-e "$tool")
 		{
 			print "\n\t$tool is found, start extracting files......\n\n";
@@ -408,7 +408,7 @@ foreach $tool (@basic_tools)
 			`rm $tool`;
 			`chmod -R 755 $toolname`;
 		}else{
-			die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+			die "Failed to download $tool from http://daisy.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 		}
 	
 	}
@@ -440,7 +440,7 @@ if(-e "uniref90.pal")
 		`rm uniref90.fasta.gz`;
 	}
 	#`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz`;
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref90.fasta.gz`;
+	`wget http://daisy.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref90.fasta.gz`;
 	if(-e "uniref90.fasta.gz")
 	{
 		print "\tuniref90.fasta.gz is found, start extracting files\n";
@@ -482,7 +482,7 @@ if(-e "uniref70.pal")
 	{
 		`rm uniref70.fasta.gz`;
 	}
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref70.fasta.gz`;
+	`wget http://daisy.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref70.fasta.gz`;
 	if(-e "uniref70.fasta.gz")
 	{
 		print "\tuniref70.fasta.gz is found, start extracting files\n";
@@ -516,7 +516,7 @@ if(-e "uniref50.pal")
 	`$tools_dir/blast-2.2.25/bin/formatdb -i uniref50.fasta -o T -t uniref50 -n uniref50`;
 }else{
 	#`wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz`;
-	`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref50.fasta.gz`;
+	`wget http://daisy.rnet.missouri.edu/multicom_db_tools/databases/uniref/20190703/uniref50.fasta.gz`;
 	if(-e "uniref50.fasta.gz")
 	{
 		print "\tuniref50.fasta.gz is found, start extracting files......\n";
@@ -801,7 +801,7 @@ if(!(-e $method_file) or !(-e $method_info))
 				if(exists($softwares_list_for_64bit{$toolname}))
 				{
 					print "Downloading 64bit version for tool $toolname\n\n";
-					`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
+					`wget http://daisy.rnet.missouri.edu/multicom_db_tools/tools/${toolname}_64bit.tar.gz`;
 					if(-e "${toolname}_64bit.tar.gz")
 					{
 						print "\n\t${toolname}_64bit.tar.gz is found, start extracting files......\n\n";
@@ -828,10 +828,10 @@ if(!(-e $method_file) or !(-e $method_info))
 						`rm ${toolname}_64bit.tar.gz`;
 						`chmod -R 755 $toolname`;
 					}else{
-						die "Failed to download ${toolname}_64bit.tar.gz from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+						die "Failed to download ${toolname}_64bit.tar.gz from http://daisy.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 					}
 				}else{
-					`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
+					`wget http://daisy.rnet.missouri.edu/multicom_db_tools/tools/$tool`;
 					
 					if(-e "$tool")
 					{
@@ -853,7 +853,7 @@ if(!(-e $method_file) or !(-e $method_info))
 						`rm $tool`;
 						`chmod -R 755 $toolname`;
 					}else{
-						die "Failed to download $tool from http://sysbio.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
+						die "Failed to download $tool from http://daisy.rnet.missouri.edu/multicom_db_tools/tools, please contact chengji\@missouri.edu\n";
 					}
 				}
 
@@ -1053,7 +1053,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					print "\t\t$dbname is done!\n";
 					next;
 				}
-				`wget http://sysbio.rnet.missouri.edu/multicom_db_tools/databases/$db`;
+				`wget http://daisy.rnet.missouri.edu/multicom_db_tools/databases/$db`;
 				if(-e "$db")
 				{
 					print "\t\t$db is found, start extracting files......\n\n";
@@ -1062,7 +1062,7 @@ if(!(-e $method_file) or !(-e $method_info))
 					`rm $db`;
 					`chmod -R 755 $dbname`;
 				}else{
-					die "Failed to download $db from http://sysbio.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
+					die "Failed to download $db from http://daisy.rnet.missouri.edu/multicom_db_tools/databases, please contact chengji\@missouri.edu\n";
 				}
 			}
 			
