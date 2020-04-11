@@ -26,6 +26,8 @@ b. edit 'setup_database.pl' and 'setup_database_64bit.pl'
 
 c(1). Install 32bit tools: perl setup_database.pl
 c(2). Or Install 64bit tools: perl setup_database_64bit.pl
+
+Note: current package requires ~1T space to install complete version due to many large sequence/profile databases and tools requried by this system. The package optimization is in process.
 ```
 
 Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM system for publication. The tools can be also downloaded from their official websites.
