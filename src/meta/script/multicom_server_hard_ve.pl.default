@@ -674,7 +674,8 @@ else
 
 chdir $output_dir; 
 
-@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "novel", "deepsf", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7");
+#@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "novel", "deepsf", "confoldtemp", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7");
+@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7");
 
 
 $post_process = 0; 
@@ -1441,7 +1442,8 @@ if ($i == $thread_num && $post_process == 0)
 
 
 	#copy files into one common directory
-	@servers = ("hhsearch", "compass", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "hhsuite3", "raptorx", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "deepsf", "novel", "confoldtemp"); 
+	#@servers = ("hhsearch", "compass", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite", "hhsuite3", "raptorx", "msa", "confold", "rosettacon", "fusioncon", "unicon3d", "deepsf", "novel", "confoldtemp"); 
+	@servers = ("hhsearch", "compass", "raptorx", "csiblast", "sam", "hmmer", "hmmer3", "psiblast", "newblast", "blast", "hhsearch15", "prc", "construct", "hhpred", "hhblits", "hhblits3", "ffas", "muster", "hhsearch151", "hhsuite3", "msa", "confold", "rosettacon", "fusioncon", "rosetta2", "rosetta3", "rosetta4", "rosetta5", "rosetta6", "rosetta7");
 
 
 	for ($i = 0; $i < @servers; $i++)
