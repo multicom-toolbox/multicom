@@ -599,7 +599,8 @@ else
 
 chdir $output_dir; 
 
-@servers = 			 ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
+#@servers = 			 ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3", "novel", "deepsf"); 
+@servers = 			 ("hhsearch", "compass", "multicom", "csblast", "csiblast", "sam", "hmmer", "hmmer3", "blast", "psiblast", "hhsearch15", "prc", "raptorx", "newblast", "construct", "hhpred", "ffas", "hhblits", "hhblits3", "muster", "hhsearch151", "msa", "hhsuite3"); 
 
 
 $post_process = 0; 
