@@ -84,11 +84,11 @@ muster
 
 ##################### method 22
 ### use '#' to deactivate novel method in multicom system
-novel
+#novel
 
 ##################### method 23
 ### use '#' to deactivate deepsf method in multicom system
-deepsf
+#deepsf
 
 ##################### method 24
 ### use '#' to deactivate confold method in multicom system
@@ -100,7 +100,7 @@ rosettacon
 
 ##################### method 26
 ### use '#' to deactivate unicon3d method in multicom system
-unicon3d
+#unicon3d
 
 ##################### method 27
 ### use '#' to deactivate rosetta method in multicom system
