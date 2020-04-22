@@ -570,7 +570,7 @@ print("\n#### (6) Linking databases\n\n");
 -d "$database_dir/nr_latest" || `mkdir $database_dir/nr_latest`;
 -d "$database_dir/nr70_90" || `mkdir $database_dir/nr70_90`;
 #-d "$database_dir/nr20" ||  `mkdir $database_dir/nr20`;
-=pod
+
 opendir(DBDIR,"$uniref_dir") || die "Failed to open $uniref_dir\n";
 @files = readdir(DBDIR);
 closedir(DBDIR);
@@ -713,7 +713,7 @@ foreach $file (@files)
 		
 	}
 }
-=cut
+
 
 #### (7) Setting up tools and databases for methods
 print("\n#### (7) Setting up tools and databases for methods\n\n");
