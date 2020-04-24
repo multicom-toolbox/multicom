@@ -286,8 +286,8 @@ elsif (-f $hhsearch_local_alignment)
 				}
 				`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
 			}
-			`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
-			`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+			#`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+			#`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
 			`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
 			`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
 			`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
@@ -328,8 +328,8 @@ else
 			}
 			`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
 		}
-		`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
-		`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+		#`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+		#`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
 		`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
 		`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
 		`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
@@ -535,8 +535,8 @@ if ($bHard == 1)
 			}
 			`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
 		}
-		`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
-		`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+		#`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+		#`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
 		`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
 		`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
 		`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
@@ -1003,8 +1003,8 @@ if ($wrong == 1)
 				}
 				`ln -s $output_dir/full_length/dncon2 $full_length_dir_hard/confold/dncon2`;
 			}
-			`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
-			`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
+			#`ln -s  $output_dir/full_length/deepsf $full_length_dir_hard/deepsf`;
+			#`ln -s  $output_dir/full_length/novel $full_length_dir_hard/novel`;
 			`ln -s  $output_dir/full_length/raptorx $full_length_dir_hard/raptorx`;
 			`ln -s  $output_dir/full_length/muster $full_length_dir_hard/muster`;
 			`ln -s  $output_dir/full_length/newblast $full_length_dir_hard/newblast`;
@@ -1195,13 +1195,13 @@ for($i=0;$i<@domain_range_info_corrected;$i++)
 close DOM_DEF;
 
 
-if($correct_check ==1 and length($qseq)>500)
-{
-	`mv $output_dir/domain_info $output_dir/domain_info_original`;
-	`cp $output_dir/domain_info_withdisorder $output_dir/domain_info`;
-	@domain_start = @domain_start_tmp;
-	@domain_end = @domain_end_tmp;
-}
+#if($correct_check ==1 and length($qseq)>500)
+#{
+#	`mv $output_dir/domain_info $output_dir/domain_info_original`;
+#	`cp $output_dir/domain_info_withdisorder $output_dir/domain_info`;
+##	@domain_start = @domain_start_tmp;
+#	@domain_end = @domain_end_tmp;
+#}
 
 
 #################################################################################
