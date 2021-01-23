@@ -1,39 +1,51 @@
 ##################### method 1
-### use '#' to deactivate hhsearch method in multicom system 
-hhsearch
-
-##################### method 2
-### use '#' to deactivate hhsearch15 method in multicom system 
-hhsearch15
-
-##################### method 3
-### use '#' to deactivate hhsearch151 method in multicom system 
-hhsearch151
-
-##################### method 4
-### use '#' to deactivate hhsuite method in multicom system 
-hhsuite
-
-##################### method 5
-### use '#' to deactivate hhsuite3 method in multicom system 
-hhsuite3
-
-##################### method 6
-### use '#' to deactivate hmmer method in multicom system 
-hmmer
-
-##################### method 7
-### use '#' to deactivate hmmer3 method in multicom system 
-hmmer3
-
-##################### method 8
-### use '#' to deactivate hhblits method in multicom system 
+### use '#' to deactivate hhblits method in multicom2 system 
 hhblits
 
-##################### method 9
-### use '#' to deactivate hhblits3 method in multicom system 
+##################### method 2
+### use '#' to deactivate hhblits3 method in multicom2 system 
 hhblits3
 
-##################### method 17
-### use '#' to deactivate psiblast method in multicom system 
+##################### method 3
+### use '#' to deactivate hhh method in multicom2 system 
+hhh
+
+##################### method 4
+### use '#' to deactivate hhsu method in multicom2 system 
+hhsu
+
+##################### method 5
+### use '#' to deactivate hhsuite method in multicom2 system 
+hhsuite
+
+##################### method 6
+### use '#' to deactivate sbl method in multicom2 system 
+sbl
+
+##################### method 7
+### use '#' to deactivate hhsuite method in multicom2 system 
+hhsuite
+
+##################### method 8
+### use '#' to deactivate shh method in multicom2 system 
+shh
+
+##################### method 9
+### use '#' to deactivate psiblast method in multicom2 system 
 psiblast
+
+##################### method 10
+### use '#' to deactivate deephhblits3 method in multicom2 system 
+deephhblits3
+
+##################### method 11
+### use '#' to deactivate deephhsuite method in multicom2 system 
+deephhsuite
+
+##################### method 12
+### use '#' to deactivate deephybrid method in multicom2 system 
+deephybrid
+
+##################### method 13
+### use '#' to deactivate disrank method in multicom2 system 
+disrank
