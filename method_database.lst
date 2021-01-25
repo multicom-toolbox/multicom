@@ -1,0 +1,146 @@
+################## psibalst ##################
+/exports/store2/casp14/psiblast//script/tm_psiblast_main.pl
+/exports/store2/casp14/psiblast/psiblast_option
+
+pdb_db_dir = /exports/store2/casp14/databases/RCSB_PDB/cm_lib
+nr_dir = /data/casp14ts/tools/commons/databases/uniref90_04_2020/uniref90
+atom_dir = /exports/store2/casp14/databases/RCSB_PDB/atom
+
+################## hhblits ##################
+/exports/store2/casp14/hhblits/script/tm_hhblits_main.pl 
+/exports/store2/casp14/hhblits/hhblits_option
+
+/data/casp14ts/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+
+/data/casp14ts/hhblits/script/filter_rank_file.pl: /exports/store2/casp14/databases/update_db_pdb70/pdb.lst
+/data/casp14ts/hhblits/script/filter_alignments.pl
+
+hhblits db: /exports/store2/casp14/tools/commons/databases/UniRef30_2020_01/UniRef30_2020_01
+hhsearch db: /exports/store2/casp14/databases/hhsuite_dbs/pdb70
+
+atom_dir=/exports/store2/casp14/databases/HHsuite_PDB70
+seq_lib=/exports/store2/casp14/databases/update_db_pdb70/pdb.fasta
+
+################## hhblits3 ##################
+/exports/store2/casp14/hhblits3//script/tm_hhblits3_main.pl 
+/exports/store2/casp14/hhblits3/hhblits3_option_2020
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+
+/data/casp14ts/hhblits/script/filter_rank_file.pl: /exports/store2/casp14/databases/update_db_pdb70/pdb.lst
+/data/casp14ts/hhblits/script/filter_alignments.pl
+
+hhblits db: /data/casp14ts/tools/commons/databases/UniRef30_2020_02/UniRef30_2020_02
+atom_dir=/exports/store2/casp14/databases/HHsuite_PDB70
+seq_lib=/exports/store2/casp14/databases/update_db_pdb70/pdb.fasta
+
+##################    sbl    ##################
+/exports/store2/casp14/hhblits3/script/tm_sbl_main.pl 
+/exports/store2/casp14/hhblits3/sbl_option
+
+/data/casp14ts/hhblits/script/filter_rank_file.pl: /exports/store2/casp14/databases/update_db_pdb70/pdb.lst
+/data/casp14ts/hhblits/script/filter_alignments.pl
+
+hhblits db: /exports/store2/casp14/databases/hhsuite_dbs/pdb70
+atom_dir=/exports/store2/casp14/databases/HHsuite_PDB70
+seq_lib=/exports/store2/casp14/databases/update_db_pdb70/pdb.fasta
+
+##################    hhsu    ##################
+/exports/store2/casp14/hhsu/script/tm_hhsuite_main.pl 
+/exports/store2/casp14/hhsu/hhsu_option
+
+/exports/store2/casp14/hhsu/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+hhblits db: /exports/store2/casp14/tools/commons/databases/UniRef30_2020_01/UniRef30_2020_01
+hhsearch db: /exports/store2/casp14/hhsu/database/hhsuitedb
+
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/hhsu/database/cm_lib/pdb_cm_all_sel.fasta
+
+##################    hhsuite    ##################
+/exports/store2/casp14/hhsuite//script/tm_hhsuite_main_v2.pl 
+/exports/store2/casp14/hhsuite/hhsuite_option_v2
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+hhblits db: /exports/store2/casp14/tools/commons/databases/UniRef30_2020_02/UniRef30_2020_02
+hhsearch db: /exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb3
+
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+##################    hhh    ##################
+/exports/store2/casp14/hhsuite/script/tm_hhsu_hhbl_main.pl 
+/exports/store2/casp14/hhsuite/hhsu_hhbl_option
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+hhblits db: /exports/store2/casp14/tools/commons/databases/UniRef30_2020_02/UniRef30_2020_02
+hhsearch db: /exports/store2/casp14/databases/RCSB_PDB/msa/hhsuitedb3
+
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+##################    shh    ##################
+/exports/store2/casp14/hhsuite//script/tm_simple_hhsuite_main.pl 
+/exports/store2/casp14/hhsuite/simple_hhsuite_option
+
+hhblits db:/exports/store2/casp14/databases/RCSB_PDB/msa/hhsuitedb3
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+##################    hmmer3    ##################
+/exports/store2/casp14/hmmer3/script/tm_hmmer3_main.pl 
+/exports/store2/casp14/hmmer3/hmmer3_option
+
+nr_dir = /data/casp14ts/tools/commons/databases/uniref90_04_2020/uniref90
+atom_dir = /exports/store2/casp14/databases/RCSB_PDB/atom
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+hmmerdb=/exports/store2/casp14/databases/RCSB_PDB/fr_lib/sort90
+
+##################    deephhblits3    ##################
+/exports/store2/casp14/deephhblits3/script/tm_deephhblits3_main.pl
+/exports/store2/casp14/deephhblits3/deephhblits3_option
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+
+/data/casp14ts/hhblits/script/filter_rank_file.pl: /exports/store2/casp14/databases/update_db_pdb70/pdb.lst
+/data/casp14ts/hhblits/script/filter_alignments.pl
+
+hhblits db: /exports/store2/casp14/databases/hhsuite_dbs/pdb70/exports/store2/casp14/databases/hhsuite_dbs/pdb70
+atom_dir=/exports/store2/casp14/databases/HHsuite_PDB70
+seq_lib=/exports/store2/casp14/databases/update_db_pdb70/pdb.fasta
+
+##################    deephhsuite    ##################
+/exports/store2/casp14/deephhsuite/script/tm_deephhsuite_main_v2.pl
+/exports/store2/casp14/deephhsuite/deephhsuite_option_v2
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+
+hhblits db: /exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb3
+
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+##################    deephybrid    ##################
+/exports/store2/casp14/deephybrid/script/tm_deephybrid_main_v2.pl
+/exports/store2/casp14/deephybrid/deephybrid_option_v2
+
+/exports/store2/casp14/tools/hhblits/script/addss_v2020.pl: /exports/store2/casp14/databases/uniref/uniref90
+
+hhblits db: /exports/store2/casp14/databases/hhsuite_dbs/pdb70/exports/store2/casp14/databases/hhsuite_dbs/pdb70
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+seq_lib=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+
+pdbcm2sort90 = /exports/store2/casp14/databases/update_db_deephybrid/pdbcm2sort
+
+hmm_dir = /exports/store2/casp14/databases/RCSB_PDB/msa/hmm_ss/
+
+##################    disrank    ##################
+/exports/store2/casp14/disrank/run_disrank.sh
+
+atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+
+#################  DeepHbond & DeepDist ##################
+uniref90_version=uniref90_04_2020
+metaclust50_version=Metaclust_2018_06
+hhsuitedb_version=UniRef30_2020_03
+ebi_uniref100_version=myg_uniref100_04_2020

@@ -7,32 +7,32 @@ hhblits
 hhblits3
 
 ##################### method 3
-### use '#' to deactivate hhh method in multicom2 system 
-hhh
-
-##################### method 4
 ### use '#' to deactivate hhsu method in multicom2 system 
 hhsu
 
-##################### method 5
+##################### method 4
 ### use '#' to deactivate hhsuite method in multicom2 system 
 hhsuite
 
-##################### method 6
+##################### method 5
 ### use '#' to deactivate sbl method in multicom2 system 
 sbl
 
-##################### method 7
+##################### method 6
 ### use '#' to deactivate hhsuite method in multicom2 system 
-hhsuite
+hhh
 
-##################### method 8
+##################### method 7
 ### use '#' to deactivate shh method in multicom2 system 
 shh
 
-##################### method 9
+##################### method 8
 ### use '#' to deactivate psiblast method in multicom2 system 
 psiblast
+
+##################### method 9
+### use '#' to deactivate hmmer3 method in multicom2 system 
+hmmer3
 
 ##################### method 10
 ### use '#' to deactivate deephhblits3 method in multicom2 system 
@@ -49,3 +49,19 @@ deephybrid
 ##################### method 13
 ### use '#' to deactivate disrank method in multicom2 system 
 disrank
+
+##################### method 14
+### use '#' to deactivate DeepHbond method in multicom2 system 
+DeepHbond
+
+##################### method 15
+### use '#' to deactivate DeepDist method in multicom2 system 
+DeepDist
+
+##################### method 16
+### use '#' to deactivate dfold2 method in multicom2 system 
+dfold2
+
+##################### method 17
+### use '#' to deactivate trRosetta method in multicom2 system 
+trRosetta
