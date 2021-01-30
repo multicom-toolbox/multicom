@@ -563,7 +563,7 @@ close SIM;
 #Using Align.pm ------------ Developed by Soeding.
 #########################################################
 
-use lib "/storage/htc/bdm/tianqi/MULTICOM2/tools/meta/script";
+use lib "SOFTWARE_PATH/meta/script";
 use Align; 
 #load the alignment methods
 #require "$align_dir/align_methods.pl";
