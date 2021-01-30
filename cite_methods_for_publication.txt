@@ -1,5 +1,5 @@
 ############# MULTICOM2 protein structure prediction system ############
-T. Wu, J. Liu, Z. Guo, J. Hou, J. Cheng. MULTICOM2: an open-source protein structure prediction system powered by deep learning and distance prediction. (CASP13 invited paper).
+T. Wu, J. Liu, Z. Guo, J. Hou, J. Cheng. MULTICOM2: an open-source protein structure prediction system powered by deep learning and distance prediction.
 
 ##################### methods
 hhblits, hhblits3,hhsu, hhsuite, sbl, hhh, shh, deephhblits3, deephhsuite, deephybrid
