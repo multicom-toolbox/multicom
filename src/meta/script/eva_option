@@ -1,0 +1,13 @@
+prosys_dir=/home/chengji/software/prosys/
+
+model_check_dir=/home/chengji/software/model_eva1.0/
+
+betacon_dir=/home/chengji/software/betacon/
+
+pspro_dir=/home/chengji/software/pspro2/
+
+model_energy_dir=/home/chengji/software/energy/
+
+betapro_dir=/home/chengji/software/betapro-1.0-src-new/
+
+thread_num=12
