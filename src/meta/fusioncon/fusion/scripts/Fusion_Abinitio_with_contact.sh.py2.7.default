@@ -1,7 +1,0 @@
-#!/bin/bash
-source SOFTWARE_PATH/tools/PyRosetta.ScientificLinux-r55981.64Bit/SetPyRosettaEnvironment.sh
-#export LD_LIBRARY_PATH=SOFTWARE_PATH/tools/Python-2.6.8/lib:$LD_LIBRARY_PATH
-export PYROSETTA_DATABASE=$PYROSETTA/rosetta_database
-export R_LIBS=SOFTWARE_PATH/tools/Fusion/fusion_lib
-export PATH=$PATH:SOFTWARE_PATH/tools/Fusion/fusion_lib/phycmap.release/bin
-python SOFTWARE_PATH/src/meta/fusioncon/fusion/scripts/Fusion_Abinitio_with_contact.py $*

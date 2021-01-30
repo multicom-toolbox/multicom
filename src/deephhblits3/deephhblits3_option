@@ -1,0 +1,200 @@
+############################################################################################################
+#this text file includes the options used in comparative modelling used by cm_main_comb.pl (originally)
+##the same settings are re-used by hhsearch-based template based approach (10/17/2007)
+############################################################################################################
+
+###############################Software and Data Settings####################
+#prosys script dir
+prosys_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/prosys/ 
+
+#multicom tool dir
+multicom_tool_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/
+#
+#multicom_database_dir
+multicom_database_dir = /storage/htc/bdm/tianqi/MULTICOM2/databases/
+
+#blast tool dir
+#blast_dir = /home/jianlinc/pspro/blast2.2.8/
+blast_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/blast-2.2.17/bin 
+
+#modeller 7.0 dir
+modeller_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/modeller-9.16/ 
+
+#formated pdb database dir
+#pdb_db_dir = /storage/htc/bdm/tianqi/MULTICOM2/databases/cm_lib 
+pdb_db_dir = /storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/cm_lib 
+
+###########new settings specifically for hhsearch profile-profile based approach
+#hhblits dir
+hhblits3_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/hhsuite-3.2.0/
+
+hhblits3_seq_db = /storage/htc/bdm/tianqi/MULTICOM2/databases/uniprot20_2016_02/uniprot20_2016_02
+
+#deepmsa program
+deepmsa_program = /storage/htc/bdm/tianqi/MULTICOM2/tools/deepmsa/deepmsa_v2.sh
+
+#2018 version - work
+#latest verson (1/4/2020) - work too
+hhblits3_pdb_hmm_db = /storage/htc/bdm/tianqi/MULTICOM2/databases/hhsuite_dbs/pdb70
+
+#old hhblits software. addss.pl of this tool will be used to predict secondary structures. The databases in addss.pl needs to be updated
+#psipred is called by addss.pl to make secondary structure prediction
+hhblits_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/hhblits/
+
+#psipred dir. the database in this tool does not need to be updatedi because addss.pl in hhblits software overwrite it.
+psipred_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/psipred-2.61/
+
+#pdb template structure database
+#atom_dir=/storage/htc/bdm/tianqi/MULTICOM2/databases/pdb
+atom_dir=/storage/htc/bdm/tianqi/MULTICOM2/databases/HHsuite_PDB70
+
+#pdb template list and sequence dir
+pdb_list_dir=/storage/htc/bdm/tianqi/MULTICOM2/databases/update_db_pdb70/
+
+#meta dir for hhblits tertiary structure predictor
+meta_dir=/storage/htc/bdm/tianqi/MULTICOM2/deephhblits3/
+
+#meta common dir
+meta_common_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/meta/
+###############################################################################
+
+############################End of Software and Data Settings#################
+
+#################################PDB blasting options#######################
+#Not used any more. evalue threshold for msa alignment generation. 
+#Should we change it to 1.0?
+#this value is not used anymore. (collpased with cm_blast_evalue)
+#cm_align_evalue = 0.5
+cm_align_evalue = 0.001
+
+#evalue threshold for template blasting and selection on PDB. 
+#Reasonable values: 1.0, 0.1, 0.01, 0.001. 
+#psi-blast default evalue is 1.0. (-e option)
+#casp6, some paper suggest: 0.01. (we may choose this one)
+#cm_blast_evalue = 1.0
+cm_blast_evalue = 0.001 
+
+#number of iteration of blasting on PDB. (-j option)
+cm_blast_iteration = 5
+
+#evalue threshold of including into profile on PDB (-h option)
+#in old version: we didn't set this value. defalut is 0.001?
+#cm_including_evalue = 0.001
+#this is the same as default.
+cm_including_evalue = 0.002
+##############################End of PDB blasting option#################
+
+#############################NR profile building option###################
+#number of iterations of blasting on NR for profile building. (-j option)
+#nr_iteration_num = 2
+nr_iteration_num = 5
+
+#evalue threshold for returning from blasting on NR database
+#and is is also the initial blast evalue (psi-blast default is 1.0)(-e option)
+nr_return_evalue = 0.001
+
+#evalue threshold for including in profile building on NR database (-h option)
+#old value (and still used by SSpro, FR feature generation is 1e-10, too small?)
+#nr_including_evalue = 0.001
+#this is used in sspro, better?
+nr_including_evalue = 0.001
+###############################End of NR profile building options#########
+
+#############################Alignment Combination Options##############
+#maximum allowed gap for stopping the alignment generation
+#cm_max_gap_size = 20
+#cm_max_gap_size = 15 
+cm_max_gap_size = -1 
+
+#minimum covered size for one template to be chosen
+#cm_min_cover_size = 20
+cm_min_cover_size = 15 
+
+#Modeller Option
+#From blast comparative modeling, how many 
+#models to simulate. One model with lowest energy will be chosen.
+#cm_model_num = 10 
+cm_model_num = 10 
+
+#number of models to predict
+easy_model_num=10
+#more prefix name
+output_prefix_name=dhhbl
+
+#set the combination method
+#1. blast_comb (first version of simple combination). 
+#if set to this option, cm_align_blast.pl will be used.
+#2. new_comb (latest version of alignment combination)
+#if set to this option, blast_align_comb.pl will be used.
+cm_comb_method=new_comb
+#cm_comb_method=blast_comb
+
+#option for advanced combination only (new_comb && cm_max_liner_size>=0)
+#<0: don't join the adjacent fragments(no gaps)
+#>=0: join adjacent fragments (allow gaps)
+#this option controls the maximum allowed intermedite
+#regions betweew two fragments for joining.
+adv_comb_join_max_size=5
+
+
+#option to use simple/advanced combination
+#>=0: use advanced combination. value is the max linker size at two ends
+#<0: use simple combination
+#must be an integer
+cm_max_linker_size=10
+
+#threshold to include significant matched templates
+#templates with evalue lower than e^value will always
+#be included no matter how many gaps are filled by this alignment.
+#for negative number: the real evalue is: 1e^num (always positive)
+#for 0: means only combined if it can cover gaps disregard significance.
+#for 0: don't simply combine significant templates with low evalues
+#for negative number: real value = 1*10^cm_evalue_comb
+#for positive number: real value = cm_evalue_comb * 10^-0
+#cm_evalue_comb=0
+cm_evalue_comb=-20
+
+#option to decide if the redundant alignments should be removed
+#yes: remove, no: not remove
+cm_clean_redundant_align=no
+
+#for the unconditional evalue combination, this option control the evalue difference
+#threshold of adding a less significant templates
+#e.g., 10: means the evalue exponent difference must be less than 10
+cm_evalue_diff=10
+#########################End of Alignment Combination Options#################
+
+
+##########################Options for sorting blast local alignment###########
+
+#The file containing resolution/method/match ratio for all chains
+#chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
+#chain_stx_info=/storage/htc/bdm/tianqi/MULTICOM2/databases/cm_lib/chain_stx_info
+chain_stx_info=/storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/cm_lib/chain_stx_info
+
+#resort blast local alignment according to stx quality.
+#yes: resort, no: don't sort
+sort_blast_align=no
+
+#ratio of evalue to be considered in resorting (must > 1).
+#only be valid if sort_blast_align is set to yes.
+#only if the ratio of two evalues is between 1 and ratio to
+#be considered for exchanging positions.
+#smaller, more strict.
+sort_blast_local_ratio=2
+
+#ratio of resolution difference for being considered exchange.
+#in Angstrom.
+#only valid if sort_blast_align is set to yes.
+sort_blast_local_delta_resolution=2
+
+#Option for adding stx information and remove identical by resolution
+#yes: do it. no: don't.
+add_stx_info_rm_identical=no
+
+#resolution difference that decide if the redundant alignment will 
+#be removed. bigger, more strict.
+rm_identical_resolution=2
+
+###############################End of sorting and stx information option#######
+

@@ -1,0 +1,29 @@
+## FLAG path of DeepDist database commone folder
+DeepDist_db_dir=/storage/htc/bdm/zhiye/DNCON4_db_tools/
+
+## FLAG path of DeepDist database 
+uniref90_version=uniref90_04_2020
+metaclust50_version=Metaclust_2018_06
+hhsuitedb_version=UniRef30_2020_03
+ebi_uniref100_version=myg_uniref100_04_2020
+
+## path of runfile script
+DeepDist_run_file =/lib
+
+## path of train script
+DeepDist_train_script=/train
+
+## path of evalu_ensemble script
+DeepDist_evalu_ensemble=/predictors/ensemble
+
+## path of pred_ensemble script
+DeepDist_pred_ensemble=/predictors/ensemble
+
+## path of evalu_individual script
+DeepDist_evalu_individual=/predictors/individual
+
+## path of pred_individual script
+DeepDist_pred_individual=/predictors/individual
+
+## path of feature_generate script
+DeepDist_feature_generate=/features
