@@ -1,118 +1,73 @@
 # system option
-src/multicom_system_option_casp13
-src/meta/test_system/multicom_option_hard_casp13
-src/meta/test_system/multicom_option_casp13
+src/multicom_system/multicom_option_v8_newdb
+src/multicom_system/multicom_server_option_v8_newdb
+src/multicom_system/multicom_server_option_hard_v8_newdb
 
 # common option
-src/meta/script/align_option
-src/meta/script/meta_option
-src/meta/script/eva_option
-
-
-#blast
-src/meta/blast/cm_option_adv
+src/meta/script/local_global_align.pl
 
 #psiblast
-src/meta/psiblast/cm_option_adv
-src/meta/psiblast/psiblast_option_hard
-
-#csiblast
-src/meta/csblast/csblast_option
-src/meta/csblast/csiblast_option
-src/meta/csblast/csiblast_option_hard
-
-
-#sam
-src/meta/sam/sam_option_nr
-src/meta/sam/sam_option_hard
-
-#prc
-src/meta/prc/prc_option
-src/meta/prc/prc_option_hard
-
-#hmmer
-src/meta/hmmer/hmmer_option
-src/meta/hmmer/hmmer_option_hard
-
-#hmmer3
-src/meta/hmmer3/hmmer3_option
-src/meta/hmmer3/hmmer3_option_hard
-
-#hhsearch
-src/meta/hhsearch/hhsearch_option_cluster
-src/meta/hhsearch/hhsearch_option_hard
-src/meta/hhsearch/hhsearch_option_cluster_used_in_casp8
-
-#hhsearch1.5
-src/meta/hhsearch1.5/hhsearch1.5_option
-src/meta/hhsearch1.5/hhsearch1.5_option_hard
-
-#hhsearch1.5.1
-src/meta/hhsearch151/hhsearch151_option
-src/meta/hhsearch151/hhsearch151_option_hard
-
-#compass
-src/meta/compass/compass_option
-src/meta/compass/compass_option_hard
-
-#multicom
-src/meta/multicom/cm_option_adv
-
-#construct
-src/meta/construct/construct_option
-
-#msa
-src/meta/msa/msa_option
-
-#hhpred
-src/meta/hhpred/hhpred_option
-src/meta/hhpred/hhpred_option_hard
-
-#ffas
-src/meta/ffas/ffas_option
-
-#hhblits
-src/meta/hhblits/hhblits_option
+src/psiblast/psiblast_option
 
 #hhblits3
-src/meta/hhblits3/hhblits3_option
-
-#muster
-src/meta/muster/muster_option_version4
+tools/hhblits/scripts/addss_v2020.pl
+src/hhblits3/script/local_global_align.pl
+src/hhblits3/script/filter_identical_hhblits.pl
+src/hhblits3/hhblits3_option_2020
+src/hhblits3/align_option
 
 #hhsuite
-src/meta/hhsuite/hhsuite_option
-src/meta/hhsuite/super_option
+src/hhsuite/hhsuite_option_v2
+src/hhsuite/align_option
 
-#hhsuite3
-src/meta/hhsuite3/hhsuite3_option
+#hhsu
+src/hhsu/hhsuite_option
 
-#fugue
-src/meta/fugue/fugue_option
+#sbl
+src/sbl/hhsuite_option
 
-#raptorx
-src/meta/raptorx/raptorx_option_version3
+#hhh
+src/hhh/hhsuite_option
 
-#newblast
-src/meta/newblast/newblast_option
+#shh
+src/shh/hhsuite_option
 
-#CONFOLD
-src/meta/confold2/CONFOLD_option
+#hmmer3
+src/hmmer3/hmmer3_option
+src/hmmer3/align_option
 
-#CONFOLDtemplate
-src/meta/confoldtemp/confoldtemp_option
+#deephhblits3
+src/deephhblits3/script/local_global_align.pl
+src/deephhblits3/deephhblits3_option
+src/deephhblits3/align_option
 
-#UNICON3d
-src/meta/unicon3d/Unicon3D_option
+#deephhsuite
+src/deephhsuite/deephhsuite_option_v2
+src/deephhsuite/align_option
 
-#rosettacon
-src/meta/rosettacon/rosettacon_option
+#deephybrid
+src/deephybrid/deephybrid_option_v2
+src/deephybrid/align_option
 
-#fusicon
-src/meta/fusioncon/fusioncon_option
+#DeepHbond
+src/DeepHbond/installation/path.inf
 
-#deepsf
-src/meta/deepsf/deepsf_option
+#dfold2
+tools/dfold2/src/DFOLD_v3.py
+tools/dfold2/src/DFOLD.pl
 
-#novel
-src/meta/novel/novel_option
+#disrank
+src/disrank/run_disrank.sh
+
+#trRosetta
+tools/trRosetta/scripts/run_trRosetta_v3.sh
+tools/casp_tools/scripts/self.pl
+
+#casp_tools
+tools/casp_tools/self_modeling.sh
+
+#disorder_new
+tools/disorder_new/configure.pl
+
+#pspro2
+tools/pspro2/configure.pl
