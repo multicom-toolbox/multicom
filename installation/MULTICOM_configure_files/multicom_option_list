@@ -2,6 +2,7 @@
 src/multicom_system/multicom_option_v8_newdb
 src/multicom_system/multicom_server_option_v8_newdb
 src/multicom_system/multicom_server_option_hard_v8_newdb
+src/multicom_system/run_multicom2.sh
 
 # common option
 src/meta/script/local_global_align.pl
