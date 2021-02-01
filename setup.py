@@ -23,19 +23,12 @@ def direct_download(tool, address, tools_dir):  ####Tools don't need to be confi
     os.chdir(tools_dir)
     if not os.path.exists(tools_dir+"/"+tool):
         os.system("wget "+address)
-    if os.path.exists(tools_dir+"/"+tool):
         print("Decompressing "+tools_dir+"/"+tool)
-        if "tar.gz" in tool:
-            os.system("tar -zxf "+tool+" && rm "+tool)
-            tool = re.sub("\.tar.gz","",tool)
-        if "zip" in tool:
-            os.system("unzip "+tool)
-            tool = re.sub("\.zip","",tool)
-        os.system("chmod -R 755 "+tool)
+        os.system("tar -zxf "+tool+".tar.gz && rm "+tool+".tar.gz")
+        os.system("chmod -R 755 "+tools_dir+"/"+tool)
         print("Downloading "+tools_dir+"/"+tool+"....Done")
     else:
-        print("Failed to download "+tool+" from "+address)
-        sys.exit(1)
+        print(tool+" has been installed "+tools_dir+"/"+tool+"....Skip....")
 
 
 if __name__ == '__main__':
@@ -65,11 +58,11 @@ if __name__ == '__main__':
     db_lst = ["HHsuite_PDB70","RCSB_PDB","uniref","update_db_deephybrid","update_db_hhsuite","update_db_pdb70"]
     for db in db_lst:
         print("Download "+db)
-        direct_download(db,"http://daisy.rnet.missouri.edu/multicom2/databases/"+db+".tar.gz",database_dir)
+        direct_download(db,"http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/databases/"+db+".tar.gz",database_dir)
 
     #### Download hhsuite_dbs
     print("Download hhsuite_dbs\n");
-    direct_download("hhsuite_dbs","http://daisy.rnet.missouri.edu/multicom2/databases/hhsuite_dbs.tar.gz",database_dir)
+    direct_download("hhsuite_dbs","http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/databases/hhsuite_dbs.tar.gz",database_dir)
     os.chdir("hhsuite_dbs")
     os.system("ln -s pdb70_a3m.ffdata pdb70_a3m_db")
     os.system("ln -s pdb70_hhm.ffdata pdb70_hhm_db")
@@ -90,7 +83,7 @@ if __name__ == '__main__':
         else:
             os.system("touch "+log_dir+"/"+tool+".running")
             tool = tool+".tar.gz"
-            address = "http://daisy.rnet.missouri.edu/multicom2/tools/"+tool+".tar.gz"
+            address = "http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/tools/"+tool+".tar.gz"
             direct_download(tool, address, tools_dir)
             os.system("chmod -R 777 "+tools_dir+"/"+tool)
             os.system("mv "+log_dir+"/"+tool+".running "+log_dir+"/"+tool+".done")
@@ -103,7 +96,7 @@ if __name__ == '__main__':
     else:
         os.system("touch "+log_dir+"/"+tool+".running")
         tool = tool+".tar.gz"
-        address = "wget http://daisy.rnet.missouri.edu/multicom2/tools/"+tool+".tar.gz"
+        address = "wget http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/tools/"+tool+".tar.gz"
         direct_download(tool, address, tools_dir)
         tool = re.sub("\.tar.gz","",tool)
         os.chdir(tools_dir+"/"+tool+"/modlib/modeller")
