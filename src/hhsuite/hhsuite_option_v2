@@ -52,7 +52,7 @@ hhsuitedb=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/update_db_hh
 #hhsearch pdb dir
 atom_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/atom/
 
-meta_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/hhsuite/
+meta_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/
 
 #meta common dir
 meta_common_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/meta/

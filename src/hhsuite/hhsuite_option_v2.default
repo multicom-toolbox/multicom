@@ -52,7 +52,7 @@ hhsuitedb=SOFTWARE_PATH/databases/update_db_hhsuite/hhsuitedb3
 #hhsearch pdb dir 
 atom_dir=SOFTWARE_PATH/databases/RCSB_PDB/atom/
 
-meta_dir=SOFTWARE_PATH/hhsuite/
+meta_dir=SOFTWARE_PATH/src/hhsuite/
 
 #meta common dir
 meta_common_dir=SOFTWARE_PATH/src/meta/
