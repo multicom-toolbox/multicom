@@ -2,7 +2,7 @@
 src/multicom_system/multicom_option_v8_newdb
 src/multicom_system/multicom_server_option_v8_newdb
 src/multicom_system/multicom_server_option_hard_v8_newdb
-src/multicom_system/run_multicom2.sh
+src/run_multicom2.sh
 
 # common option
 src/meta/script/local_global_align.pl
@@ -21,17 +21,14 @@ src/hhblits3/align_option
 src/hhsuite/hhsuite_option_v2
 src/hhsuite/align_option
 
-#hhsu
-src/hhsu/hhsuite_option
-
 #sbl
-src/sbl/hhsuite_option
+src/hhblits3/sbl_option
 
 #hhh
-src/hhh/hhsuite_option
+src/hhsuite/hhsu_hhbl_option
 
 #shh
-src/shh/hhsuite_option
+src/hhsuite/simple_hhsuite_option
 
 #hmmer3
 src/hmmer3/hmmer3_option
@@ -49,13 +46,6 @@ src/deephhsuite/align_option
 #deephybrid
 src/deephybrid/deephybrid_option_v2
 src/deephybrid/align_option
-
-#DeepHbond
-src/DeepHbond/installation/path.inf
-
-#dfold2
-tools/dfold2/src/DFOLD_v3.py
-tools/dfold2/src/DFOLD.pl
 
 #disrank
 src/disrank/run_disrank.sh

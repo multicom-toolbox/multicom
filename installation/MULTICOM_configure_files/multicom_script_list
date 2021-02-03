@@ -6,9 +6,7 @@ installation/MULTICOM_programs/P14-run-DeepHbond.sh
 installation/MULTICOM_programs/P15-run-DeepDist.sh
 installation/MULTICOM_programs/P16-run-dfold2.sh
 installation/MULTICOM_programs/P17-run-trRosetta.sh
-installation/MULTICOM_programs/P1-run-hhblits.sh
 installation/MULTICOM_programs/P2-run-hhblits3.sh
-installation/MULTICOM_programs/P3-run-hhsu.sh
 installation/MULTICOM_programs/P4-run-hhsuite.sh
 installation/MULTICOM_programs/P5-run-sbl.sh
 installation/MULTICOM_programs/P6-run-hhh.sh
