@@ -5,62 +5,62 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /exports/store2/casp14/tools/prosys/ 
+prosys_dir = SOFTWARE_PATH/tools/prosys/ 
 
 #multicom tool dir
-multicom_tool_dir = /exports/store2/casp14/tools/
+multicom_tool_dir = SOFTWARE_PATH/tools/
 
 #multicom_database_dir
-multicom_database_dir = /exports/store2/casp14/databases/
+multicom_database_dir = SOFTWARE_PATH/databases/
 
 #blast tool dir
-blast_dir = /exports/store2/casp14/tools/blast-2.2.17/bin 
+blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin 
 
-modeller_dir = /exports/store2/casp14/tools/modeller-9.16/ 
+modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/ 
 
 #formated pdb database dir
-pdb_db_dir = /exports/store2/casp14/databases/RCSB_PDB/cm_lib/
+pdb_db_dir = SOFTWARE_PATH/databases/RCSB_PDB/cm_lib/
 
 #nr database used by hhblits to generate profiles
-#nr_db = /exports/store2/casp14/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
-nr_db = /exports/store2/casp14/tools/commons/databases/UniRef30_2020_01/UniRef30_2020_01
+#nr_db = SOFTWARE_PATH/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
+nr_db = SOFTWARE_PATH/tools/commons/databases/UniRef30_2020_01/UniRef30_2020_01
 #
 
-hhsuite3_dir = /exports/store2/casp14/tools/hhsuite-3.2.0
+hhsuite3_dir = SOFTWARE_PATH/tools/hhsuite-3.2.0
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsuite dir
-hhsuite_dir=/exports/store2/casp14/tools/hhsuite-2.0.8-linux-x86_64
+hhsuite_dir=SOFTWARE_PATH/tools/hhsuite-2.0.8-linux-x86_64
 
 #This one does not work. It needs a database in new format
-#hhsuite_dir=/exports/store2/casp14/tools/hh-suite/build/
+#hhsuite_dir=SOFTWARE_PATH/tools/hh-suite/build/
 
 #hhblits dir (used for secondary structure prediction only)
 #addss.pl is called to generate secondary structures for building hmm models
 #addss.pl has some database paths that need to be updated
-hhblits_dir=/exports/store2/casp14/tools/hhblits/
+hhblits_dir=SOFTWARE_PATH/tools/hhblits/
 
 #psipred dir
-psipred_dir=/exports/store2/casp14/tools/psipred-2.61/
+psipred_dir=SOFTWARE_PATH/tools/psipred-2.61/
 
 ######################################################
 #hhsearchdb 
 #all current templates
 #hhsuitedb=/disk2/chengji/hhsuite/a3m/hhsuitedb
-#hhsuitedb=/exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb3
-hhsuitedb=/exports/store2/casp14/databases/RCSB_PDB/msa/hhsuitedb3
+#hhsuitedb=SOFTWARE_PATH/databases/update_db_hhsuite/hhsuitedb3
+hhsuitedb=SOFTWARE_PATH/databases/RCSB_PDB/msa/hhsuitedb3
 
 #the following hhsuite database in a3m does not work yet
-#hhsuitedb=/exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb_a3m
+#hhsuitedb=SOFTWARE_PATH/databases/update_db_hhsuite/hhsuitedb_a3m
 ######################################################
 
 #hhsearch pdb dir 
-atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
+atom_dir=SOFTWARE_PATH/databases/RCSB_PDB/atom/
 
-meta_dir=/exports/store2/casp14/hhsuite/
+meta_dir=SOFTWARE_PATH/src/hhsuite/
 
 #meta common dir
-meta_common_dir=/exports/store2/casp14/tools/meta/
+meta_common_dir=SOFTWARE_PATH/tools/meta/
 ###############################################################################
 
 ############################End of Software and Data Settings#################
@@ -174,7 +174,7 @@ cm_evalue_diff=10
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-chain_stx_info=/exports/store2/casp14/databases/RCSB_PDB/cm_lib/chain_stx_info
+chain_stx_info=SOFTWARE_PATH/databases/RCSB_PDB/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort
