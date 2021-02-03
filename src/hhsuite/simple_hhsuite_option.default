@@ -5,7 +5,7 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /exports/store2/casp14/tools/prosys/
+prosys_dir = /exports/store2/casp14/tools/prosys/ 
 
 #multicom tool dir
 multicom_tool_dir = /exports/store2/casp14/tools/
@@ -14,9 +14,9 @@ multicom_tool_dir = /exports/store2/casp14/tools/
 multicom_database_dir = /exports/store2/casp14/databases/
 
 #blast tool dir
-blast_dir = /exports/store2/casp14/tools/blast-2.2.17/bin
+blast_dir = /exports/store2/casp14/tools/blast-2.2.17/bin 
 
-modeller_dir = /exports/store2/casp14/tools/modeller-9.16/
+modeller_dir = /exports/store2/casp14/tools/modeller-9.16/ 
 
 #formated pdb database dir
 pdb_db_dir = /exports/store2/casp14/databases/RCSB_PDB/cm_lib/
@@ -44,7 +44,7 @@ hhblits_dir=/exports/store2/casp14/tools/hhblits/
 psipred_dir=/exports/store2/casp14/tools/psipred-2.61/
 
 ######################################################
-#hhsearchdb
+#hhsearchdb 
 #all current templates
 #hhsuitedb=/disk2/chengji/hhsuite/a3m/hhsuitedb
 #hhsuitedb=/exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb3
@@ -54,7 +54,7 @@ hhsuitedb=/exports/store2/casp14/databases/RCSB_PDB/msa/hhsuitedb3
 #hhsuitedb=/exports/store2/casp14/databases/update_db_hhsuite/hhsuitedb_a3m
 ######################################################
 
-#hhsearch pdb dir
+#hhsearch pdb dir 
 atom_dir=/exports/store2/casp14/databases/RCSB_PDB/atom/
 
 meta_dir=/exports/store2/casp14/hhsuite/
@@ -66,18 +66,18 @@ meta_common_dir=/exports/store2/casp14/tools/meta/
 ############################End of Software and Data Settings#################
 
 #################################PDB blasting options#######################
-#Not used any more. evalue threshold for msa alignment generation.
+#Not used any more. evalue threshold for msa alignment generation. 
 #Should we change it to 1.0?
 #this value is not used anymore. (collpased with cm_blast_evalue)
 #cm_align_evalue = 0.5
 cm_align_evalue = 0.001
 
-#evalue threshold for template blasting and selection on PDB.
-#Reasonable values: 1.0, 0.1, 0.01, 0.001.
+#evalue threshold for template blasting and selection on PDB. 
+#Reasonable values: 1.0, 0.1, 0.01, 0.001. 
 #psi-blast default evalue is 1.0. (-e option)
 #casp6, some paper suggest: 0.01. (we may choose this one)
 #cm_blast_evalue = 1.0
-cm_blast_evalue = 0.001
+cm_blast_evalue = 0.001 
 
 #number of iteration of blasting on PDB. (-j option)
 cm_blast_iteration = 5
@@ -108,18 +108,18 @@ nr_including_evalue = 0.001
 #############################Alignment Combination Options##############
 #maximum allowed gap for stopping the alignment generation
 #cm_max_gap_size = 20
-#cm_max_gap_size = 15
-cm_max_gap_size = -1
+#cm_max_gap_size = 15 
+cm_max_gap_size = -1 
 
 #minimum covered size for one template to be chosen
 #cm_min_cover_size = 20
-cm_min_cover_size = 15
+cm_min_cover_size = 15 
 
 #Modeller Option
-#From blast comparative modeling, how many
+#From blast comparative modeling, how many 
 #models to simulate. One model with lowest energy will be chosen.
-#cm_model_num = 10
-cm_model_num = 10
+#cm_model_num = 10 
+cm_model_num = 10 
 
 #number of models to predict
 easy_model_num=10
@@ -127,7 +127,7 @@ easy_model_num=10
 output_prefix_name=shh
 
 #set the combination method
-#1. blast_comb (first version of simple combination).
+#1. blast_comb (first version of simple combination). 
 #if set to this option, cm_align_blast.pl will be used.
 #2. new_comb (latest version of alignment combination)
 #if set to this option, blast_align_comb.pl will be used.
@@ -196,7 +196,7 @@ sort_blast_local_delta_resolution=2
 #yes: do it. no: don't.
 add_stx_info_rm_identical=no
 
-#resolution difference that decide if the redundant alignment will
+#resolution difference that decide if the redundant alignment will 
 #be removed. bigger, more strict.
 rm_identical_resolution=2
 

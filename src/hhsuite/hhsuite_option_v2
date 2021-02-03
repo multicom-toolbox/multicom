@@ -5,74 +5,74 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/prosys/ 
+prosys_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/prosys/
 
 #multicom tool dir
-multicom_tool_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/
+multicom_tool_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/
 
 #multicom_database_dir
-multicom_database_dir = /storage/htc/bdm/tianqi/MULTICOM2/databases/
+multicom_database_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/
 
 #blast tool dir
-blast_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/blast-2.2.17/bin 
+blast_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/blast-2.2.17/bin
 
-modeller_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/modeller-9.16/ 
+modeller_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/modeller-9.16/
 
 #formated pdb database dir
-pdb_db_dir = /storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/cm_lib/
+pdb_db_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/cm_lib/
 
 #nr database used by hhblits to generate profiles
-nr_db = /storage/htc/bdm/tianqi/MULTICOM2/databases/UniRef30_2020_02/UniRef30_2020_02
+nr_db = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/UniRef30_2020_02/UniRef30_2020_02
 #
 
-hhsuite3_dir = /storage/htc/bdm/tianqi/MULTICOM2/tools/hhsuite-3.2.0
+hhsuite3_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhsuite-3.2.0
 
 ###########new settings specifically for hhsearch profile-profile based approach
 #hhsuite dir
-hhsuite_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/hhsuite-2.0.8-linux-x86_64
+hhsuite_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhsuite-2.0.8-linux-x86_64
 
 #This one does not work. It needs a database in new format
-#hhsuite_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/hh-suite/build/
+#hhsuite_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hh-suite/build/
 
 #hhblits dir (used for secondary structure prediction only)
 #addss.pl is called to generate secondary structures for building hmm models
 #addss.pl has some database paths that need to be updated
-hhblits_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/hhblits/
+hhblits_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhblits/
 
 #psipred dir
-psipred_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/psipred-2.61/
+psipred_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/psipred-2.61/
 
 ######################################################
-#hhsearchdb 
+#hhsearchdb
 #all current templates
-hhsuitedb=/storage/htc/bdm/tianqi/MULTICOM2/databases/update_db_hhsuite/hhsuitedb3
+hhsuitedb=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/update_db_hhsuite/hhsuitedb3
 
 ######################################################
 
-#hhsearch pdb dir 
-atom_dir=/storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/atom/
+#hhsearch pdb dir
+atom_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/atom/
 
-meta_dir=/storage/htc/bdm/tianqi/MULTICOM2/hhsuite/
+meta_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/hhsuite/
 
 #meta common dir
-meta_common_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/meta/
+meta_common_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/meta/
 ###############################################################################
 
 ############################End of Software and Data Settings#################
 
 #################################PDB blasting options#######################
-#Not used any more. evalue threshold for msa alignment generation. 
+#Not used any more. evalue threshold for msa alignment generation.
 #Should we change it to 1.0?
 #this value is not used anymore. (collpased with cm_blast_evalue)
 #cm_align_evalue = 0.5
 cm_align_evalue = 0.001
 
-#evalue threshold for template blasting and selection on PDB. 
-#Reasonable values: 1.0, 0.1, 0.01, 0.001. 
+#evalue threshold for template blasting and selection on PDB.
+#Reasonable values: 1.0, 0.1, 0.01, 0.001.
 #psi-blast default evalue is 1.0. (-e option)
 #casp6, some paper suggest: 0.01. (we may choose this one)
 #cm_blast_evalue = 1.0
-cm_blast_evalue = 0.001 
+cm_blast_evalue = 0.001
 
 #number of iteration of blasting on PDB. (-j option)
 cm_blast_iteration = 5
@@ -103,18 +103,18 @@ nr_including_evalue = 0.001
 #############################Alignment Combination Options##############
 #maximum allowed gap for stopping the alignment generation
 #cm_max_gap_size = 20
-#cm_max_gap_size = 15 
-cm_max_gap_size = -1 
+#cm_max_gap_size = 15
+cm_max_gap_size = -1
 
 #minimum covered size for one template to be chosen
 #cm_min_cover_size = 20
-cm_min_cover_size = 15 
+cm_min_cover_size = 15
 
 #Modeller Option
-#From blast comparative modeling, how many 
+#From blast comparative modeling, how many
 #models to simulate. One model with lowest energy will be chosen.
-#cm_model_num = 10 
-cm_model_num = 10 
+#cm_model_num = 10
+cm_model_num = 10
 
 #number of models to predict
 easy_model_num=10
@@ -122,7 +122,7 @@ easy_model_num=10
 output_prefix_name=hhsuite
 
 #set the combination method
-#1. blast_comb (first version of simple combination). 
+#1. blast_comb (first version of simple combination).
 #if set to this option, cm_align_blast.pl will be used.
 #2. new_comb (latest version of alignment combination)
 #if set to this option, blast_align_comb.pl will be used.
@@ -169,7 +169,7 @@ cm_evalue_diff=10
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-chain_stx_info=/storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/cm_lib/chain_stx_info
+chain_stx_info=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort
@@ -191,7 +191,7 @@ sort_blast_local_delta_resolution=2
 #yes: do it. no: don't.
 add_stx_info_rm_identical=no
 
-#resolution difference that decide if the redundant alignment will 
+#resolution difference that decide if the redundant alignment will
 #be removed. bigger, more strict.
 rm_identical_resolution=2
 
