@@ -1,7 +1,7 @@
 import sys,os,glob,re
 
 docstring='''
-MULTICOM2-configuration script
+MULTICOM2 configuration script
 
 usage: python configure.py
 '''
@@ -90,3 +90,4 @@ if __name__ == '__main__':
     option_list = os.path.join(install_dir,"installation/MULTICOM_configure_files/multicom_tools_packages.list")
     check_file(option_list,'tools');
     print("#########  Checking tool files, done\n\n\n")
+    
