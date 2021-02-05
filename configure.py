@@ -84,9 +84,9 @@ if __name__ == '__main__':
     print("#########  (3)  Checking database files")
     option_list = os.path.join(install_dir, "installation/MULTICOM_configure_files/multicom_databases_packages.list")
     check_file(option_list,'databases');
-    print "#########  Checking database files, done\n\n\n";
+    print("#########  Checking database files, done\n\n\n")
 
     print("#########  (4) Checking tool files")
     option_list = os.path.join(install_dir,"installation/MULTICOM_configure_files/multicom_tools_packages.list")
     check_file(option_list,'tools');
-    print "#########  Checking tool files, done\n\n\n";
+    print("#########  Checking tool files, done\n\n\n")
