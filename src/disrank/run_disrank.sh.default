@@ -13,11 +13,11 @@ hhsuite_dir=$3
 dist_map=$4
 outdir=$5
 ##GLOBAL_FLAG
-global_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/disrank/
-modeller_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/modeller-9.16/
-databases=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/atom/
+global_dir=SOFTWARE_PATH/src/disrank/
+modeller_dir=SOFTWARE_PATH/tools/modeller-9.16/
+databases=SOFTWARE_PATH/databases/RCSB_PDB/atom/
 ## ENV_FLAG
-source /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/distrank/installation/env/distrank_virenv/bin/activate
+source SOFTWARE_PATH/tools/distrank/installation/env/distrank_virenv/bin/activate
 
 model_dir=$outdir/hhusite_out
 output_dir=$outdir/temp_rank

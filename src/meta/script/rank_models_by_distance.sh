@@ -18,7 +18,7 @@ then
         exit 1
 fi
 
-source $1/env/distrank_virenv/bin/activate
+source $1/installation/env/distrank_virenv/bin/activate
 
 python $1/lib/dfold_rank.py -f $2 -d $3 -fa $4 -o $5
 

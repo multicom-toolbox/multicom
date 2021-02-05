@@ -1597,13 +1597,14 @@ if ($manual_domain == 0)
 	if ($DEBUG == 0)
 	{
 
-	        if ($cluster_ranking == 1)
+		if ($cluster_ranking == 1)
 		{
-               		print "Considering model clustering when combining full-length models.\n";
+			print "Considering model clustering when combining full-length models.\n";
 			system("$multicom_dir/script/combine_models_gdt_tm_v5.pl $system_option $multicom_dir  $full_length_dir/meta/ $output_dir/full_length.dash $query_file $output_dir/mcomb/");
 		}
 		else
 		{
+			#print "$multicom_dir/script/combine_models_gdt_tm_v4.pl $system_option $multicom_dir  $full_length_dir/meta/ $output_dir/full_length.dash $query_file $output_dir/mcomb/\n";
 			system("$multicom_dir/script/combine_models_gdt_tm_v4.pl $system_option $multicom_dir  $full_length_dir/meta/ $output_dir/full_length.dash $query_file $output_dir/mcomb/");
 			
 		}

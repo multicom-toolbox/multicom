@@ -31,7 +31,7 @@ $output_name = shift @ARGV;
 
 open(OPTION, $align_option) || die "can't read $align_option file.\n";
 
-$align_dir="/home/chengji/casp8/meta/script"; 
+$align_dir="/home/chengji/casp8/hhpred/script"; 
 
 while (<OPTION>)
 {
@@ -443,21 +443,17 @@ sub compare_locals
 	#get structures of common regions of two templates
 	my $tname1 = $local1->{"tname"};
 	my $tname2 = $local2->{"tname"};
-	my $pdb1 = "$tname1.atm";
-	my $pdb2 = "$tname2.atm";
+	my $pdb1 = "$tname1.pdb";
+	my $pdb2 = "$tname2.pdb";
 
 	if (! -f $pdb1)
 	{
-		`cp $atom_dir/$tname1.atom.gz .`; 
-		`gunzip $tname1.atom.gz`; 
-		`mv $tname1.atom $tname1.atm`; 
+		`cp $atom_dir/$tname1.pdb .`; 
 	}
 	
 	if (! -f $pdb2)
 	{
-		`cp $atom_dir/$tname2.atom.gz .`; 
-		`gunzip $tname2.atom.gz`; 
-		`mv $tname2.atom $tname2.atm`; 
+		`cp $atom_dir/$tname2.pdb .`; 
 	}
 
 	#create two temporary alignment file		
@@ -468,7 +464,7 @@ sub compare_locals
 	while (@atom)
 	{
 		$line = shift @atom;
-		if ($line !~ /^END/)
+		if ($line =~ /^ATOM/)
 		{
 		#	@fields = split(/\s+/, $line);
 		#	my $a_idx = $fields[4]; 
@@ -479,7 +475,7 @@ sub compare_locals
 				print TMP $line;
 			}
 		}
-		else
+		elsif ($line =~ /^END/)
 		{
 			print TMP $line;
 		}
@@ -493,7 +489,7 @@ sub compare_locals
 	while (@atom)
 	{
 		$line = shift @atom;
-		if ($line !~ /^END/)
+		if ($line =~ /^ATOM/)
 		{
 			#@fields = split(/\s+/, $line);
 			#my $a_idx = $fields[4]; 
@@ -504,7 +500,7 @@ sub compare_locals
 				print TMP $line;
 			}
 		}
-		else
+		elsif ($line =~ /^END/)
 		{
 			print TMP $line;
 		}
@@ -563,7 +559,7 @@ close SIM;
 #Using Align.pm ------------ Developed by Soeding.
 #########################################################
 
-use lib "SOFTWARE_PATH/src/meta/script";
+use lib "SOFTWARE_PATH/src/meta/script/";
 use Align; 
 #load the alignment methods
 #require "$align_dir/align_methods.pl";
@@ -676,7 +672,7 @@ for ($i = 0; $i < @new_local_list; $i++)
 	#do left extension if necessary (only do extension for tail regions)
 
 
-	if ($left_ext_len > 0 &&  $local->{"ltail_len"} <= $max_extension_length)
+	if ($left_ext_len > 0 &&  $local->{"ltail_len"} <= $max_extension_length && 0)
 	{
 		#do left extension
 		$left_qseq = substr($qseq, $local->{"qstart"} - $left_ext_len - 1, $left_ext_len);  
@@ -724,7 +720,8 @@ for ($i = 0; $i < @new_local_list; $i++)
 	}	
 	
 	#do right extension if necessary
-	if ($right_ext_len > 0 && $local->{"rtail_len"} <= $max_extension_length)
+	#disable extension because the index problem of hhpred pdb file
+	if ($right_ext_len > 0 && $local->{"rtail_len"} <= $max_extension_length && 0)
 	{
 		#do left extension
 		$right_qseq = substr($qseq, $local->{"qend"}, $right_ext_len);  
@@ -784,7 +781,7 @@ for ($i = 0; $i < @new_local_list; $i++)
 	$qalign = $local->{"qalign"};
 	$talign = $local->{"talign"}; 
 		
-	if ($left_ext_len > 0 && $local->{"ltail_len"} <= $max_extension_length)
+	if ($left_ext_len > 0 && $local->{"ltail_len"} <= $max_extension_length && 0)
 	{	
 		if ($q_left_ext > 0 &&  $t_left_ext > 0)
 		{
@@ -794,7 +791,7 @@ for ($i = 0; $i < @new_local_list; $i++)
 			$talign = $left_tseq . $talign; 
 		}
 	}
-	if ($right_ext_len > 0 && $local->{"rtail_len"} <= $max_extension_length)
+	if ($right_ext_len > 0 && $local->{"rtail_len"} <= $max_extension_length && 0)
 	{
 		if ($q_right_ext > 0 && $t_right_ext > 0)
 		{
@@ -813,7 +810,9 @@ for ($i = 0; $i < @new_local_list; $i++)
 	$qalign =~ s/-//g;	
 	$qalign eq substr($qseq, $qstart-1, $qend - $qstart + 1) || die "query alignment is inconsistent: $tname\n";
 	$talign =~ s/-//g;
-	$talign eq substr($tseq, $tstart-1, $tend - $tstart + 1) || die "template alignment is inconsistnet: $tname\n";
+
+	#this checking is not necessary because the hhpred pdb file's residue may not start from 1
+	#$talign eq substr($tseq, $tstart-1, $tend - $tstart + 1) || die "template alignment is inconsistnet: $tname\n";
 
 }
 

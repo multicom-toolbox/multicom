@@ -465,12 +465,12 @@ while (<OPTION>)
 #-d $scwrl_dir || die "can't find $scwrl_dir.\n";
 -d $deepmsa_src || die "can't find $deepmsa_src.\n";
 -f $deepdist || die "can't find $deepdist.\n";
--f $deephbond || die "can't find $deephbond.\n";
+#-f $deephbond || die "can't find $deephbond.\n";
 -d $deephhsuite_dir || die "can't find $deephhsuite_dir.\n";
 -f $deephhsuite_option || die "can't find $deephhsuite_option.\n";
 -d $deephhblits3_dir || die "can't find $deephhblits3_dir.\n";
 -f $deephhblits3_option || die "can't find $deephhblits3_option.\n";
--d $dfold2_dir || die "can't find $dfold2_dir.\n";
+#-d $dfold2_dir || die "can't find $dfold2_dir.\n";
 -d $deephybrid_dir || die "can't find $deephybrid_dir.\n";
 -d $pspro_dir || die "can't find $pspro_dir.\n";
 -d $trrosetta_dir || die "can't find $trrosetta_dir.\n";
@@ -540,7 +540,7 @@ chdir $output_dir;
 #{
 	#@servers = ("psiblast", "hhblits3", "hhsuite", "pspro", "disthbond", "shh", "betacon"); 
 	#@servers = ("psiblast", "hhblits3", "hhblits", "hhsuite", "hhsu", "disthbond", "shh", "betacon", "sbl", "hmmer3");
-    @servers = ("psiblast", "hhblits3", "hhsuite", "disthbond", "hmmer3");   #####Tianqi modification for simplicity
+    @servers = ("sbl", "psiblast", "hhblits3", "hhsuite", "hmmer3","deepmsa");   #####Tianqi modification for simplicity
 #}
 
 $post_process = 0; 
@@ -679,12 +679,13 @@ for ($i = 0; $i < @servers; $i++)
 		}
 		elsif ($server eq "disthbond")
 		{
-			print("$i. $deephbond -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1\n"); 
-			system("python $deephbond -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1");
 			print("$i. $deepdist -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1\n");  
 			system("python $deepdist -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1"); 
-			$current_time = `date`; 
-			print "$server deepdist and deephbond end at $current_time.\n";
+            #print("$i. $deephbond -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1\n"); 
+			#system("python $deephbond -f $query_file -o $output_dir/$server >$server/${server}_log.txt 2>&1");
+			$current_time = `date`;
+			#print "$server deepdist and deephbond end at $current_time.\n";
+            print "$server deepdist ends at $current_time.\n";
 		}
 		elsif ($server eq "pspro")
 		{
@@ -693,6 +694,16 @@ for ($i = 0; $i < @servers; $i++)
 			system("$pspro_dir/bin/predict_ssa.sh $query_file $query_name.ssa >log.txt 2>&1");
 			print "Secondary structure prediction by pspro is done.\n";
 			
+		}
+		elsif ($server eq "deepmsa")
+		{
+            chdir $server;
+            $deepmsa_dir = "$output_dir/deepmsa/";
+            print("$i. $deepmsa_src/deepmsa_v2.sh $query_file $output_dir/$server $server > log.txt 2>&1\n");
+            system("$deepmsa_src/deepmsa_v2.sh $query_file $output_dir/$server> log.txt 2>&1\n");
+            $deepmsa_file = "$deepmsa_dir/$query_name.a3m";
+            $current_time = `date`;
+			print "DeepMSA is done at $current_time.\n";
 		}
 		elsif ($server eq "betacon")
 		{
@@ -749,19 +760,37 @@ if ($i == $thread_num && $post_process == 0)
 		}
 	}
 
-	$deepmsa_dir = "$output_dir/disthbond/full_length/msa/alignment/";
-	#$deepmsa_src = "/exports/store2/casp14/tools/deepmsa";
-	#Extract deepmsa a3m file
+	# $deepmsa_dir = "$output_dir/deepmsa/";
+	# #$deepmsa_src = "/exports/store2/casp14/tools/deepmsa";
+	# #Extract deepmsa a3m file
+    # if ($prediction_type eq "hard"){
+            # if (! -f "$deepmsa_dir/$query_name.aln") {
+                # system("python $deepmsa_src/deepmsa_v2.sh $query_file $deepmsa_dir");
+            # } else {
+                # print("DeepMSA generated...... $deepmsa_dir/$query_name.aln..Skip..\n");
+            # }
+            # $deepmsa_file = "$deepmsa_dir/$query_name.a3m";
+    # }
+
+    $deepdist_dir = "$output_dir/disthbond";
+    $deepmsa_dir = "$output_dir/deepmsa/";
+    $deepmsa_file = "$deepmsa_dir/$query_name.a3m";
     if ($prediction_type eq "hard"){
-            if (-f "$deepmsa_dir/$query_name.aln") {
-                system("python $deepmsa_src/aln2a3m_v2.py -d $deepmsa_dir");
-            } else {
-                print("DeepMSA failed to generate MSA, pls check $deepmsa_dir/$query_name.aln....\n");
+        if (!(-f "$deepdist_dir/pred_map_ensem/real_dist/$query_name.txt")){
+            if (-f "$output_dir/deepmsa/$query_name.aln"){
+                print("$deepdist $query_file $output_dir/deepmsa/$query_name.aln $output_dir/disthbond/ > $output_dir/disthbond_log.txt 2>&1\n");
+                system("$deepdist $query_file $output_dir/deepmsa/$query_name.aln $output_dir/disthbond/ > $output_dir/disthbond_log.txt 2>&1"); 
+                $current_time = `date`; 
+                print "DeepDist ends at $current_time.\n";}
+            else{
+                print "DeepMSA failed to generate $output_dir/deepmsa/$query_name.aln\n";
             }
-            $deepmsa_file = "$deepmsa_dir/$query_name.a3m";
+        }
+        else{
+            print("DeepDist generated.... $output_dir/disthbond...Skip..\n");
+        }
     }
-
-
+        
 	############################The second round of modelling for hard targets#################################
 	if ($prediction_type eq "hard" && -f $deepmsa_file)
 	{
@@ -769,8 +798,8 @@ if ($i == $thread_num && $post_process == 0)
 		{
 			print "Run hard template-based and ab initio preditio for $query_name\n";
 		}
-		@servers = ("deephhblits3", "deephhsuite", "deephybrid","dfold2_r","dfold2_m", "disrank", "trrosetta"); 
-
+		#@servers = ("deephhblits3", "deephhsuite", "deephybrid","dfold2_r","dfold2_m", "disrank", "trrosetta"); 
+        @servers = ("deephhblits3", "deephhsuite", "deephybrid", "disrank", "trrosetta"); 
 		$thread_num = @servers;
 		$hard_post_process = 0; 
 
@@ -829,8 +858,8 @@ if ($i == $thread_num && $post_process == 0)
 				{
 					if (-d "$output_dir/hhsuite")
 					{
-						print("$disrank_dir/run_disrank.sh $query_name $query_file $output_dir/hhsuite/ $output_dir/disthbond/full_length/ensemble/pred_map_ensem/real_dist/$query_name.txt $output_dir/$server >$server/log.txt 2>&1\n");
-						system("$disrank_dir/run_disrank.sh $query_name $query_file $output_dir/hhsuite/ $output_dir/disthbond/full_length/ensemble/pred_map_ensem/real_dist/$query_name.txt $output_dir/$server >$server/log.txt 2>&1");
+						print("$j. $disrank_dir/run_disrank.sh $query_name $query_file $output_dir/hhsuite/ $output_dir/disthbond/pred_map_ensem/real_dist/$query_name.txt $output_dir/$server $server...(see $server/log.txt for details)\n");
+						system("$disrank_dir/run_disrank.sh $query_name $query_file $output_dir/hhsuite/ $output_dir/disthbond/pred_map_ensem/real_dist/$query_name.txt $output_dir/$server >$server/log.txt 2>&1");
 						$current_time = `date`; 
 						print "$server prediction ends at $current_time.\n";
 					}
@@ -880,8 +909,8 @@ if ($i == $thread_num && $post_process == 0)
 					
 					#print("$trrosetta_dir/run_trRosetta_v2.sh $query_name $query_file $output_dir/disthbond/ $server >$server/log.txt\n");   	
 					#system("$trrosetta_dir/run_trRosetta_v2.sh $query_name $query_file $output_dir/disthbond/ $server >$server/log.txt 2>&1");   	
-					print("$trrosetta_dir/run_trRosetta_v3.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1\n");   	
-					system("$trrosetta_dir/run_trRosetta_v3.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1");   	
+					print("$j. $trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1\n");   	
+					system("$trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1");   	
 					$current_time = `date`; 
 					print "$server prediction ends at $current_time.\n";
 				}
@@ -891,7 +920,7 @@ if ($i == $thread_num && $post_process == 0)
 				{
 
 					#check if need to run confold on contacts predicted from non-covolution features
-					$align_stat = "$output_dir/disthbond/full_length/aln/alnstat/$query_name.colstats";
+					$align_stat = "$output_dir/disthbond/alnstat/$query_name.colstats";
 					$effective_num = 10000; 
 					if (-f $align_stat)
 					{
@@ -1002,7 +1031,7 @@ if ($i == $thread_num && $post_process == 0)
 
 	#copy files into one common directory
 	#@servers = ("psiblast", "hhblits3", "hhsuite", "deephhsuite", "deephybrid", "deephhblits3","dfold2_r","dfold2_m", "hhh", "shh", "sbl", "disrank", "confold", "betacon", "trrosetta", "hhblits", "hhsu", "hmmer3"); 
-    @servers = ("psiblast", "hhblits3", "hhsuite", "deephhsuite", "deephybrid", "deephhblits3","dfold2_r","dfold2_m", "disrank", "trrosetta", "hhblits", "hmmer3"); 
+    @servers = ("sbl", "psiblast", "hhblits3", "hhsuite", "deephhsuite", "deephybrid", "deephhblits3", "disrank", "trrosetta", "hhblits", "hmmer3"); 
 	for ($i = 0; $i < @servers; $i++)
 	{
 		if ($model_generation == 0)
@@ -1128,7 +1157,7 @@ if ($i == $thread_num && $post_process == 0)
 	#do pairwise QA evaluation
 
 	print("Using pairwise comparison to rank models: $meta_dir/script/pairwise_model_eva.pl $model_dir $query_file $q_score $tm_score $name $model_dir\n"); 
-	system("$meta_dir/script/pairwise_model_eva.pl $model_dir $query_file $q_score $tm_score $name $model_dir"); 
+	system("$meta_dir/script/pairwise_model_eva.pl $model_dir $query_file $q_score $tm_score $name $model_dir");
 
 	#generate clash information of the models
    	system("$meta_dir/script/evaluate_models_meta_v3.pl $prosys_dir $model_dir $name $query_file $model_dir/$name.eva >/dev/null 2>&1");
@@ -1144,7 +1173,8 @@ if ($i == $thread_num && $post_process == 0)
 		`mkdir $dist_dir`; 
 		print("Rank models using distance maps...\n");
 
-		$distance_map_file = "$output_dir/disthbond/full_length/ensemble/pred_map_ensem/real_dist/$query_name.txt";
+		$distance_map_file = "$output_dir/disthbond/pred_map_ensem/real_dist/$query_name.txt";
+        #print("$meta_dir/script/rank_models_by_distance.sh $distrank_dir $model_list_file $distance_map_file $query_file $dist_dir >$model_dir/$query_name.drank.log 2>&1\n");
 		system("$meta_dir/script/rank_models_by_distance.sh $distrank_dir $model_list_file $distance_map_file $query_file $dist_dir >$model_dir/$query_name.drank.log 2>&1");
 		$rank_file = "$dist_dir/rank.txt";
 		if (-f $rank_file)

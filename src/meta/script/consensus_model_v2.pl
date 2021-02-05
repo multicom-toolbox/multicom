@@ -161,7 +161,7 @@ for ($i = 1; $i <= 5; $i++)
 				{
 					#$max_sub = $1;
 				}
-				if ($line =~ /^GDT-score\s+=\s+([\d.]+)\s+/)
+				if ($line =~ /^GDT-TS-score=\s+([\d.]+)\s+/)
 				{
 					$gdt_ts = $1; 
 				}

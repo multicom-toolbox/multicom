@@ -1,22 +1,22 @@
 
 #TM_Score
-tm_score=/storage/htc/bdm/tianqi/MULTICOM2/tools/tm_score/TMscore_32
+tm_score=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/tm_score/TMscore_32
 
 #TM_align
-tm_align=/storage/htc/bdm/tianqi/MULTICOM2/tools/tm_align2/TMalign
+tm_align=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/tm_align2/TMalign
 #tm_align=/home/chengji/software/tm_align/TMalign_32
 
 #template structure library dir
-atom_dir=/storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/atom
+atom_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/atom
 
 #template sequence library
 #one interesting question: 1DXM exists in hhsearchdb library, but not in pdb_cm or sort_90 (new)
 #so use all the pdb sequences
-seq_lib=/storage/htc/bdm/tianqi/MULTICOM2/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
+seq_lib=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/cm_lib/pdb_cm_all_sel.fasta
 
 #clustalw dir
-clustalw_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/clustalw1.83
+clustalw_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/clustalw1.83
 
 #alignment package library (Align.pm)
-align_dir=/storage/htc/bdm/tianqi/MULTICOM2/tools/meta/script/
+align_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/meta/script/
 

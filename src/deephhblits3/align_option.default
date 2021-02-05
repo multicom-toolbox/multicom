@@ -1,0 +1,25 @@
+
+#TM_Score
+tm_score=SOFTWARE_PATH/tools/tm_score/TMscore_32
+
+#TM_align
+tm_align=SOFTWARE_PATH/tools/tm_align2/TMalign
+#tm_align=/home/chengji/software/tm_align/TMalign_32
+
+#template structure library dir
+#atom_dir=SOFTWARE_PATH/databases/pdb
+atom_dir=SOFTWARE_PATH/databases/HHsuite_PDB70
+
+#template sequence library
+#one interesting question: 1DXM exists in hhsearchdb library, but not in pdb_cm or sort_90 (new)
+#so use all the pdb sequences
+#seq_lib=SOFTWARE_PATH/databases/pdb.fasta
+#seq_lib=SOFTWARE_PATH/hhblits3/database/pdb.fasta
+seq_lib=SOFTWARE_PATH/databases/update_db_pdb70/pdb.fasta
+
+#clustalw dir
+clustalw_dir=SOFTWARE_PATH/tools/clustalw1.83
+
+#alignment package library (Align.pm)
+align_dir=SOFTWARE_PATH/src/meta/script/
+

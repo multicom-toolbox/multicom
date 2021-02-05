@@ -114,7 +114,7 @@ if ($range ne "")
 		$sim_score = 0; 
 		foreach $record (@res)
 		{
-			if ($record =~ /GDT-score\s+=\s+(.+) \%.+\%.+\%.+\%.+/)
+			if ($record =~ /GDT-TS-score=\s+(.+) \%.+\%.+\%.+\%.+/)
 			{
 				$sim_score = $1; 
 			}	

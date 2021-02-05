@@ -5,85 +5,69 @@
 
 ###############################Software and Data Settings####################
 #prosys script dir
-prosys_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/prosys/
+prosys_dir = SOFTWARE_PATH/tools/prosys/ 
 
 #multicom tool dir
-multicom_tool_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/
-#
+multicom_tool_dir = SOFTWARE_PATH/tools/
+
 #multicom_database_dir
-multicom_database_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/
+multicom_database_dir = SOFTWARE_PATH/databases/
 
 #blast tool dir
-#blast_dir = /home/jianlinc/pspro/blast2.2.8/
-blast_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/blast-2.2.17/bin
+blast_dir = SOFTWARE_PATH/tools/blast-2.2.17/bin 
 
-#modeller 7.0 dir
-modeller_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/modeller-9.16/
+modeller_dir = SOFTWARE_PATH/tools/modeller-9.16/ 
 
 #formated pdb database dir
-#pdb_db_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/cm_lib
-pdb_db_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/cm_lib
+pdb_db_dir = SOFTWARE_PATH/databases/RCSB_PDB/cm_lib/
 
-###########new settings specifically for hhsearch profile-profile based approach
-#hhblits dir
-hhblits3_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhsuite-3.2.0
-hhblits3_seq_db = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhsuite-3.0-beta.1/databases/uniprot20_2016_02/uniprot20_2016_02
 
 #deepmsa program
-#deepmsa_program = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/deepmsa/deepmsa.sh
-deepmsa_program = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/deepmsa/deepmsa_v2.sh
+#deepmsa_program = SOFTWARE_PATH/tools/deepmsa/deepmsa.sh
+deepmsa_program = SOFTWARE_PATH/tools/deepmsa/deepmsa_v2.sh
 
-#2018 version - work
-#hhblits3_pdb_hmm_db = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/pdb70/pdb70
-#latest verson (1/4/2020) - work too
-hhblits3_pdb_hmm_db = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/hhsuite_dbs/pdb70
-
-#old hhblits software. addss.pl of this tool will be used to predict secondary structures. The databases in addss.pl needs to be updated
-#psipred is called by addss.pl to make secondary structure prediction
-hhblits_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhblits/
-
-#psipred dir. the database in this tool does not need to be updatedi because addss.pl in hhblits software overwrite it.
-psipred_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/psipred-2.61/
-
-#pdb template structure database
-#atom_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/pdb
-atom_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/atom/
-
-#pdb template list and sequence dir
-pdb_list_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/update_db_pdb70/
-
-#the mapping file containing maps from pdb_cm to sort90
-pdbcm2sort90 = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/update_db_deephybrid/pdbcm2sort
-
-#meta dir for hhblits tertiary structure predictor
-meta_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/
-
+###########new settings specifically for hhsearch profile-profile based approach
 #hhsuite dir
-hhsuite_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/hhsuite-2.0.8-linux-x86_64
+hhsuite_dir=SOFTWARE_PATH/tools/hhsuite-3.2.0
 
-#template hmm directory
-#hmm_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/msa/hmm/
-hmm_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/msa/hmm_ss/
+#hhblits dir (used for secondary structure prediction only)
+#addss.pl is called to generate secondary structures for building hmm models
+#addss.pl has some database paths that need to be updated
+hhblits_dir=SOFTWARE_PATH/tools/hhblits/
+
+#psipred dir
+psipred_dir=SOFTWARE_PATH/tools/psipred-2.61/
+
+######################################################
+#hhsearchdb 
+#all current templates
+hhsuitedb=SOFTWARE_PATH/databases/update_db_hhsuite/hhsuitedb3
+######################################################
+
+#hhsearch pdb dir 
+atom_dir=SOFTWARE_PATH/databases/RCSB_PDB/atom/
+
+meta_dir=SOFTWARE_PATH/src/deephhsuite/
 
 #meta common dir
-meta_common_dir=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/meta/
+meta_common_dir=SOFTWARE_PATH/src/meta/
 ###############################################################################
 
 ############################End of Software and Data Settings#################
 
 #################################PDB blasting options#######################
-#Not used any more. evalue threshold for msa alignment generation.
+#Not used any more. evalue threshold for msa alignment generation. 
 #Should we change it to 1.0?
 #this value is not used anymore. (collpased with cm_blast_evalue)
 #cm_align_evalue = 0.5
 cm_align_evalue = 0.001
 
-#evalue threshold for template blasting and selection on PDB.
-#Reasonable values: 1.0, 0.1, 0.01, 0.001.
+#evalue threshold for template blasting and selection on PDB. 
+#Reasonable values: 1.0, 0.1, 0.01, 0.001. 
 #psi-blast default evalue is 1.0. (-e option)
 #casp6, some paper suggest: 0.01. (we may choose this one)
 #cm_blast_evalue = 1.0
-cm_blast_evalue = 0.001
+cm_blast_evalue = 0.001 
 
 #number of iteration of blasting on PDB. (-j option)
 cm_blast_iteration = 5
@@ -98,7 +82,7 @@ cm_including_evalue = 0.002
 #############################NR profile building option###################
 #number of iterations of blasting on NR for profile building. (-j option)
 #nr_iteration_num = 2
-nr_iteration_num = 5
+nr_iteration_num = 4
 
 #evalue threshold for returning from blasting on NR database
 #and is is also the initial blast evalue (psi-blast default is 1.0)(-e option)
@@ -114,26 +98,26 @@ nr_including_evalue = 0.001
 #############################Alignment Combination Options##############
 #maximum allowed gap for stopping the alignment generation
 #cm_max_gap_size = 20
-#cm_max_gap_size = 15
-cm_max_gap_size = -1
+#cm_max_gap_size = 15 
+cm_max_gap_size = -1 
 
 #minimum covered size for one template to be chosen
 #cm_min_cover_size = 20
-cm_min_cover_size = 15
+cm_min_cover_size = 15 
 
 #Modeller Option
-#From blast comparative modeling, how many
+#From blast comparative modeling, how many 
 #models to simulate. One model with lowest energy will be chosen.
-#cm_model_num = 10
-cm_model_num = 10
+#cm_model_num = 10 
+cm_model_num = 10 
 
 #number of models to predict
 easy_model_num=10
 #more prefix name
-output_prefix_name=dhybrid
+output_prefix_name=dhhsu
 
 #set the combination method
-#1. blast_comb (first version of simple combination).
+#1. blast_comb (first version of simple combination). 
 #if set to this option, cm_align_blast.pl will be used.
 #2. new_comb (latest version of alignment combination)
 #if set to this option, blast_align_comb.pl will be used.
@@ -180,8 +164,7 @@ cm_evalue_diff=10
 
 #The file containing resolution/method/match ratio for all chains
 #chain_stx_info=/home/jianlinc/prosys/database/cm_lib/chain_stx_info
-#chain_stx_info=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/cm_lib/chain_stx_info
-chain_stx_info=/storage/htc/bdm/tianqi/test/MULTICOM2/multicom/databases/RCSB_PDB/cm_lib/chain_stx_info
+chain_stx_info=SOFTWARE_PATH/databases/RCSB_PDB/cm_lib/chain_stx_info
 
 #resort blast local alignment according to stx quality.
 #yes: resort, no: don't sort
@@ -203,7 +186,7 @@ sort_blast_local_delta_resolution=2
 #yes: do it. no: don't.
 add_stx_info_rm_identical=no
 
-#resolution difference that decide if the redundant alignment will
+#resolution difference that decide if the redundant alignment will 
 #be removed. bigger, more strict.
 rm_identical_resolution=2
 

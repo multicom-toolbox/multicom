@@ -380,7 +380,7 @@ for ($i = 0; $i < @model_files; $i++)
 		#	{
 		#		$max_sub = $1;
 		#	}
-			if ($line =~ /^GDT-score\s+=\s+([\d.]+)\s+/)
+			if ($line =~ /^GDT-TS-score=\s+([\d.]+)\s+/)
 			{
 				$gdt_ts = $1; 
 				$ave_gdt += $gdt_ts;

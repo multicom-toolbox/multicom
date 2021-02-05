@@ -1,104 +1,104 @@
-#MULTICOM server ideally needs 8 to 12 processors 
+#MULTICOM server ideally needs 8 to 12 processors
 
 #MULTICOM option file for server
 #
 ########################################################################
 #main directory
-main_dir = /exports/store2/casp14/multicom_system
+main_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/multicom_system
 ############################################################
 
 #meta directory (containing many common scripts)
-meta_dir = /exports/store2/casp14/tools/meta
+meta_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/meta
 
 #prosys dir
-prosys_dir = /exports/store2/casp14/tools/prosys
+prosys_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/prosys
 
 #psiblast dir - server 1
-psiblast_dir = /exports/store2/casp14/psiblast/ 
+psiblast_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/psiblast/
 #psiblast option
-psiblast_option = /exports/store2/casp14/psiblast/psiblast_option
+psiblast_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/psiblast/psiblast_option
 
 #hhblits3 - server 2
-hhblits3_dir = /exports/store2/casp14/hhblits3/
-hhblits3_option = /exports/store2/casp14/hhblits3/hhblits3_option_2020
+hhblits3_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits3/
+hhblits3_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits3/hhblits3_option_2020
 
 #hhblits (early version)
-hhblits_dir = /exports/store2/casp14/hhblits/
-hhblits_option = /exports/store2/casp14/hhblits/hhblits_option
+hhblits_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits/
+hhblits_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits/hhblits_option
 
 #hhsu (early version)
-hhsu_dir = /exports/store2/casp14/hhsu/
-hhsu_option = /exports/store2/casp14/hhsu/hhsu_option
+hhsu_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsu/
+hhsu_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsu/hhsu_option
 
 #hhsuite - server 3
-hhsuite_dir = /exports/store2/casp14/hhsuite/
-hhsuite_option = /exports/store2/casp14/hhsuite/hhsuite_option_v2
+hhsuite_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/
+hhsuite_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/hhsuite_option_v2
 
-hhsu_hhbl_dir = /exports/store2/casp14/hhsuite/
-hhsu_hhbl_option = /exports/store2/casp14/hhsuite/hhsu_hhbl_option
+hhsu_hhbl_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/
+hhsu_hhbl_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/hhsu_hhbl_option
 
-simple_hhsuite_dir = /exports/store2/casp14/hhsuite/
-simple_hhsuite_option = /exports/store2/casp14/hhsuite/simple_hhsuite_option
+simple_hhsuite_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/
+simple_hhsuite_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhsuite/simple_hhsuite_option
 
 #simple hhblits predictor
-sbl_dir = /exports/store2/casp14/hhblits3/
-sbl_option = /exports/store2/casp14/hhblits3/sbl_option
+sbl_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits3/
+sbl_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hhblits3/sbl_option
 
 #jackhmmer predictor
-hmmer3_dir = /exports/store2/casp14/hmmer3/
-hmmer3_option = /exports/store2/casp14/hmmer3/hmmer3_option
+hmmer3_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hmmer3/
+hmmer3_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/hmmer3/hmmer3_option
 
 #deephhsuite - server 4
-deephhsuite_dir = /exports/store2/casp14/deephhsuite/
-deephhsuite_option = /exports/store2/casp14/deephhsuite/deephhsuite_option_v2
+deephhsuite_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhsuite/
+deephhsuite_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhsuite/deephhsuite_option_v2
 
 #deephhblist3 - server 5
-deephhblits3_dir = /exports/store2/casp14/deephhblits3/
-deephhblits3_option = /exports/store2/casp14/deephhblits3/deephhblits3_option
+deephhblits3_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/
+deephhblits3_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/deephhblits3_option
 
 #deephybrid - server 6
-deephybrid_dir = /exports/store2/casp14/deephybrid/
-deephybrid_option = /exports/store2/casp14/deephybrid/deephybrid_option_v2
+deephybrid_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/
+deephybrid_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/deephybrid_option_v2
 
 #deepmsa
-deepmsa_src = /exports/store2/casp14/tools/deepmsa
+deepmsa_src = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/deepmsa
 
 #predisorder dir
-predisorder_dir = /exports/store2/casp14/tools/disorder_new/
+predisorder_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/disorder_new/
 
 #sbrod dir
-sbrod_dir = /exports/store2/casp14/tools/commons/tools/DFOLD2_tools/SBROD/
+sbrod_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/commons/tools/DFOLD2_tools/SBROD/
 
 #disrank dir. Use distance map to select templates to build template-based models
-disrank_dir = /exports/store2/casp14/disrank
+disrank_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/disrank
 
 #distrank dir (rank protein models by distance map)
-distrank_dir = /exports/store2/casp14/tools/distrank/
+distrank_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/distrank/
 
 #confold dir
-confold_dir = /exports/store2/casp14/confold2/
-confold_option = /exports/store2/casp14/confold2/confold2_option
+confold_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/confold2/
+confold_option = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/confold2/confold2_option
 
 #betacon dir
-betacon_dir = /exports/store2/casp14/tools/betacon
+betacon_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/betacon
 
 #maxcluster dir
-maxcluster_dir = /exports/store2/casp14/tools/maxcluster/
+maxcluster_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/maxcluster/
 
 #trRosetta dir
-trrosetta_dir = /exports/store2/casp14/tools/commons/tools/trRosetta/scripts/
+trrosetta_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/commons/tools/trRosetta/scripts/
 
 #self modeling program
-self_model = /exports/store2/casp14/tools/casp_tools/self_modeling.sh
+self_model = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/casp_tools/self_modeling.sh
 
 #deep rank pgoram (if this file does not exist, the deep rank program will not be called)
-deep_rank = /exports/store2/casp14/tools/deeprank3_singleqa/bin/DeepRank3_SingleQA_lite.sh
+deep_rank = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/deeprank3_singleqa/bin/DeepRank3_SingleQA_lite.sh
 
 #signalp program
-signalp = /exports/store2/casp14/tools/signalp-4.1/signalp
+signalp = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/signalp-4.1/signalp
 
 #tmhmm program
-tmhmm = /exports/store2/casp14/tools/tmhmm-2.0c/bin/tmhmm
+tmhmm = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/tmhmm-2.0c/bin/tmhmm
 
 #easy or hard case (easy or hard)
 
@@ -112,37 +112,38 @@ dfold_threshold = 400
 tr_lower_threshold = 0.1
 tr_upper_threshold = 0.6
 tr_interval_size = 0.1
-tr_process_num = 10 
+tr_process_num = 10
 
 #
 ##############################################################
-pspro_dir = /exports/store2/casp14/tools/pspro2/
+pspro_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/pspro2/
 ##############################################################
 #Three new servers to add
 #
 #(1) DeepDist: distance prediction (to add)
 #deepdist
-deepdist = /data/casp14/DeepDist/lib/run_deepdist.py 
+#deepdist = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/DeepDist/lib/run_deepdist.py
+deepdist = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/deepdist/predictors/ensemble/pred_deepdist2.sh
 #deephbond
-deephbond = /data/casp14/DeepHbond/lib/run_deephbond.py 
+deephbond = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/DeepHbond/lib/run_deephbond.py
 #
 #(2) dfold_dir (distance-based ab initio modeling) (to add)
-dfold2_dir = /exports/store2/casp14/tools/dfold2/ 
+dfold2_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/dfold2/
 
 #(3) combination of predicted distance and templates to make prediction (to add)
-dist_tbm_dir = /exports/store2/casp14/dist_tbm_dir/
+dist_tbm_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/dist_tbm_dir/
 ##############################################################
 
 #scwrl_dir
-scwrl_dir = /exports/store2/casp14/tools/scwrl4
+scwrl_dir = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/scwrl4
 
 #this TMscore cannot generate GDT-TS score for pairwiseQA
-#tm_score = /exports/store2/casp14/tools/tm_score2/TMscore 
+#tm_score = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/tm_score2/TMscore
 
 #We have to use this 32bit TMscore32
-tm_score = /exports/store2/casp14/tools/tm_score/TMscore_32
+tm_score = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/tm_score/TMscore_32
 
-q_score = /exports/store2/casp14/tools/pairwiseQA/q_score
+q_score = /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/pairwiseQA/q_score
 
 #########################################################################
 #number of ab initio models to simulate by default at local
@@ -155,7 +156,7 @@ q_score = /exports/store2/casp14/tools/pairwiseQA/q_score
 local_model_num = 100
 
 #maximum waiting time for a rosetta server to finish (minutes)
-max_wait_time = 360 
+max_wait_time = 360
 
 #we need five processors (sp3, sp3, multicom, hhs, compass)
 #and a remote server for rosetta

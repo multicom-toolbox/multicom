@@ -1,0 +1,164 @@
+#MULTICOM server ideally needs 8 to 12 processors 
+
+#MULTICOM option file for server
+#
+########################################################################
+#main directory
+main_dir = SOFTWARE_PATH/src/multicom_system
+############################################################
+
+#meta directory (containing many common scripts)
+meta_dir = SOFTWARE_PATH/src/meta
+
+#prosys dir
+prosys_dir = SOFTWARE_PATH/tools/prosys
+
+#psiblast dir - server 1
+psiblast_dir = SOFTWARE_PATH/src/psiblast/ 
+#psiblast option
+psiblast_option = SOFTWARE_PATH/src/psiblast/psiblast_option
+
+#hhblits3 - server 2
+hhblits3_dir = SOFTWARE_PATH/src/hhblits3/
+hhblits3_option = SOFTWARE_PATH/src/hhblits3/hhblits3_option_2020
+
+#hhblits (early version)
+hhblits_dir = SOFTWARE_PATH/src/hhblits/
+hhblits_option = SOFTWARE_PATH/src/hhblits/hhblits_option
+
+#hhsu (early version)
+hhsu_dir = SOFTWARE_PATH/src/hhsu/
+hhsu_option = SOFTWARE_PATH/src/hhsu/hhsu_option
+
+#hhsuite - server 3
+hhsuite_dir = SOFTWARE_PATH/src/hhsuite/
+hhsuite_option = SOFTWARE_PATH/src/hhsuite/hhsuite_option_v2
+
+hhsu_hhbl_dir = SOFTWARE_PATH/src/hhsuite/
+hhsu_hhbl_option = SOFTWARE_PATH/src/hhsuite/hhsu_hhbl_option
+
+simple_hhsuite_dir = SOFTWARE_PATH/src/hhsuite/
+simple_hhsuite_option = SOFTWARE_PATH/src/hhsuite/simple_hhsuite_option
+
+#simple hhblits predictor
+sbl_dir = SOFTWARE_PATH/src/hhblits3/
+sbl_option = SOFTWARE_PATH/src/hhblits3/sbl_option
+
+#jackhmmer predictor
+hmmer3_dir = SOFTWARE_PATH/src/hmmer3/
+hmmer3_option = SOFTWARE_PATH/src/hmmer3/hmmer3_option
+
+#deephhsuite - server 4
+deephhsuite_dir = SOFTWARE_PATH/src/deephhsuite/
+deephhsuite_option = SOFTWARE_PATH/src/deephhsuite/deephhsuite_option_v2
+
+#deephhblist3 - server 5
+deephhblits3_dir = SOFTWARE_PATH/src/deephhblits3/
+deephhblits3_option = SOFTWARE_PATH/src/deephhblits3/deephhblits3_option
+
+#deephybrid - server 6
+deephybrid_dir = SOFTWARE_PATH/src/deephybrid/
+deephybrid_option = SOFTWARE_PATH/src/deephybrid/deephybrid_option_v2
+
+#deepmsa
+deepmsa_src = SOFTWARE_PATH/tools/deepmsa
+
+#predisorder dir
+predisorder_dir = SOFTWARE_PATH/tools/disorder_new/
+
+#sbrod dir
+sbrod_dir = SOFTWARE_PATH/tools/commons/tools/DFOLD2_tools/SBROD/
+
+#disrank dir. Use distance map to select templates to build template-based models
+disrank_dir = SOFTWARE_PATH/src/disrank
+
+#distrank dir (rank protein models by distance map)
+distrank_dir = SOFTWARE_PATH/tools/distrank/
+
+#confold dir
+confold_dir = SOFTWARE_PATH/src/confold2/
+confold_option = SOFTWARE_PATH/src/confold2/confold2_option
+
+#betacon dir
+betacon_dir = SOFTWARE_PATH/tools/betacon
+
+#maxcluster dir
+maxcluster_dir = SOFTWARE_PATH/tools/maxcluster/
+
+#trRosetta dir
+trrosetta_dir = SOFTWARE_PATH/tools/commons/tools/trRosetta/scripts/
+
+#self modeling program
+self_model = SOFTWARE_PATH/tools/casp_tools/self_modeling.sh
+
+#deep rank pgoram (if this file does not exist, the deep rank program will not be called)
+deep_rank = SOFTWARE_PATH/tools/deeprank3_singleqa/bin/DeepRank3_SingleQA_lite.sh
+
+#signalp program
+signalp = SOFTWARE_PATH/tools/signalp-4.1/signalp
+
+#tmhmm program
+tmhmm = SOFTWARE_PATH/tools/tmhmm-2.0c/bin/tmhmm
+
+#easy or hard case (easy or hard)
+
+prediction_type = easy
+
+#the number of residues to decide if DFOLD should be run
+#DFOLD will be run on the targets whose length is smaller than this number
+dfold_threshold = 400
+
+#trRosetta parameters
+tr_lower_threshold = 0.1
+tr_upper_threshold = 0.6
+tr_interval_size = 0.1
+tr_process_num = 10 
+
+#
+##############################################################
+pspro_dir = SOFTWARE_PATH/tools/pspro2/
+##############################################################
+#Three new servers to add
+#
+#(1) DeepDist: distance prediction (to add)
+#deepdist
+#deepdist = SOFTWARE_PATH/src/DeepDist/lib/run_deepdist.py
+deepdist = SOFTWARE_PATH/tools/deepdist/predictors/ensemble/pred_deepdist2.sh
+#deephbond
+deephbond = SOFTWARE_PATH/src/DeepHbond/lib/run_deephbond.py 
+#
+#(2) dfold_dir (distance-based ab initio modeling) (to add)
+dfold2_dir = SOFTWARE_PATH/tools/dfold2/ 
+
+#(3) combination of predicted distance and templates to make prediction (to add)
+dist_tbm_dir = SOFTWARE_PATH/src/dist_tbm_dir/
+##############################################################
+
+#scwrl_dir
+scwrl_dir = SOFTWARE_PATH/tools/scwrl4
+
+#this TMscore cannot generate GDT-TS score for pairwiseQA
+#tm_score = SOFTWARE_PATH/tools/tm_score2/TMscore 
+
+#We have to use this 32bit TMscore32
+tm_score = SOFTWARE_PATH/tools/tm_score/TMscore_32
+
+q_score = SOFTWARE_PATH/tools/pairwiseQA/q_score
+
+#########################################################################
+#number of ab initio models to simulate by default at local
+#local_model_num = 50
+#local_model_num = 100  (will take about 3 hours)
+#it takes 6 hours to generate 200 models for 150 residues
+#it may tak 3 hours to generate 100 models for 150 residues
+#it may take 9 hours to generate 100 models for 200 residues (power^4)
+#we need to test how long it will take for 200 residues
+local_model_num = 100
+
+#maximum waiting time for a rosetta server to finish (minutes)
+max_wait_time = 360 
+
+#we need five processors (sp3, sp3, multicom, hhs, compass)
+#and a remote server for rosetta
+#########################################################################
+

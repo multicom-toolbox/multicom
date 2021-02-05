@@ -12,7 +12,7 @@ if (@ARGV != 6)
 
 $model_dir = shift @ARGV;
 use Cwd 'abs_path';
-$model_dir = abs_path($model_dir);
+#$model_dir = abs_path($model_dir);
 -d $model_dir || die "can't find $model_dir.\n";
 $fasta_file = shift @ARGV;
 -f $fasta_file || die "can't find $fasta_file.\n";
