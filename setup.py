@@ -166,14 +166,14 @@ if __name__ == '__main__':
 
     #### Create distrank virtual environment
     tool = "distrank"
-    if (os.path.exists(log_dir+"/disrank.done")):
-        if not os.path.exists(log_dir+"/distrank.done"):
-            os.system("touch "+log_dir+"/distrank.running")
+    if (os.path.exists(log_dir+"/distrank.done")):
+        if not os.path.exists(log_dir+"/distrank_vir.done"):
+            os.system("touch "+log_dir+"/distrank_vir.running")
             print("\n"+tools_dir+"/"+tool+" installed....Setting environment...python3.6 required....\n")
             os.chdir(tools_dir+"/"+tool+"/installation")
             makedir_if_not_exists("env")
             os.system("sh set_env.sh")
-            os.system("mv "+log_dir+"/distrank.running "+log_dir+"/distrank.done")
+            os.system("mv "+log_dir+"/distrank_vir.running "+log_dir+"/distrank_vir.done")
         else:
             print(tools_dir+"/"+tool+" virtual env has been created...")
     else:
