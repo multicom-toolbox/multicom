@@ -106,7 +106,6 @@ if __name__ == '__main__':
             os.system("touch "+log_dir+"/"+tool+".running")
             address = "http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/tools/"+tool+".tar.gz"
             direct_download(tool, address, tools_dir)
-            os.system("chmod -R 777 "+tools_dir+"/"+tool)
             os.system("mv "+log_dir+"/"+tool+".running "+log_dir+"/"+tool+".done")
             print(log_dir+"/"+tool+" installed")
 
@@ -143,7 +142,8 @@ if __name__ == '__main__':
     else:
         os.system("touch "+log_dir+"/deepdist.running")
         tool = "deepdist"
-        os.system("git clone https://github.com/multicom-toolbox/deepdist")
+        address = "http://daisy.rnet.missouri.edu/multicom_db_tools/multicom2/tools/"+tool+".tar.gz"
+        direct_download(tool, address, tools_dir)
         os.system("mv "+log_dir+"/deepdist.running "+log_dir+"/deepdist.done")
         print(log_dir+"/deepdist installed")
 
