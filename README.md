@@ -15,11 +15,21 @@ cd multicom
 python setup.py
 
 python configure.py
+
+```
+
+**(3) Download trRosetta package manually(optional)**
+
+```
+The trRosetta package(trRosetta.tar.bz2) needs to be downloaded at  http://yanglab.nankai.edu.cn/trRosetta/download/.
+and installed under the folder multicom/tools/trRosetta/
+
+
 ```
 
 Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM2 system for publication. The tools can be also downloaded from their official websites.
 
-**(3) Run MULTICOM for structure predicton**
+**(4) Run MULTICOM for structure predicton**
 
 ```
    Usage:
@@ -32,7 +42,7 @@ Please refer to 'cite_methods_for_publication.txt' to cite the methods that you 
    $ sh bin/run_multicom2.sh T0993s2 examples/T0993s2.fasta 3e7u
 ```
 
-**(4) Testing the individual predictor in MULTICOM2 (recommended)**
+**(5) Testing the individual predictor in MULTICOM2 (recommended)**
 ```
 Examples:
    hmmer3:
