@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
     ### (2) Download basic tools
     os.chdir(tools_dir)
-    tools_lst = ["blast-2.2.17", "clustalw1.83", "dfold2", "hhsuite-2.0.8-linux-x86_64" ,"hmmer3", "meta", "pairwiseQA", "psipred-2.61", "scwrl4", "tm_score", "casp_tools", "deepmsa", "disorder_new", "hhblits", "hhsuite-3.2.0","maxcluster","prosys","pspro2","tm_align2","distrank","trRosetta","SBROD"]
+    tools_lst = ["blast-2.2.17", "clustalw1.83", "dfold2", "hhsuite-2.0.8-linux-x86_64" ,"hmmer3", "pairwiseQA", "psipred-2.61", "scwrl4", "tm_score", "casp_tools", "deepmsa", "disorder_new", "hhblits", "hhsuite-3.2.0","maxcluster","prosys","pspro2","tm_align2","distrank","trRosetta","SBROD"]
     for tool in tools_lst:
         if os.path.exists(log_dir+"/"+tool+".done"):
             print(log_dir+"/"+tool+" installed....skip")
