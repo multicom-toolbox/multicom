@@ -20,9 +20,9 @@ python configure.py
 
 **(3) Download trRosetta package manually(optional)**
 
-```
-The trRosetta package(trRosetta.tar.bz2) needs to be downloaded at  ``<http://yanglab.nankai.edu.cn/trRosetta/download/>`` and installed under the folder multicom/tools/trRosetta/
-```
+
+The trRosetta package(trRosetta.tar.bz2) needs to be downloaded at  ``<http://yanglab.nankai.edu.cn/trRosetta/download/>`` and installed under the folder **multicom/tools/trRosetta/**
+
 
 Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM2 system for publication. The tools can be also downloaded from their official websites.
 
