@@ -37,7 +37,7 @@ Please refer to **cite_methods_for_publication.txt** to cite the methods that yo
    Example:
    $ cd examples
    $ mkdir 3e7u
-   $ sh bin/run_multicom2.sh T0993s2 examples/T0993s2.fasta 3e7u
+   $ sh ../bin/run_multicom2.sh 3e7u examples/3e7u.fasta 3e7u
 ```
 
 **(5) Testing the individual predictor in MULTICOM2 (recommended)**
