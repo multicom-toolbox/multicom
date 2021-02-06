@@ -37,22 +37,23 @@ Please refer to **cite_methods_for_publication.txt** to cite the methods that yo
    Example:
    $ cd examples
    $ mkdir 3e7u
-   $ sh ../bin/run_multicom2.sh 3e7u examples/3e7u.fasta 3e7u
+   $ sh ../bin/run_multicom2.sh 3e7u.fasta 3e7u
 ```
 
 **(5) Testing the individual predictor in MULTICOM2 (recommended)**
 ```
 Examples:
+   cd examples
    hmmer3:
-   $ sh bin/P9-run-hmmer3.sh <target id> <file name>.fasta  <output folder>
+   $ sh ../bin/P9-run-hmmer3.sh <target id> <file name>.fasta  <output folder>
 
    hhsuite:
-   $ sh bin/P4-run-hhsuite.sh <target id> <file name>.fasta  <output folder>
+   $ sh ../bin/P4-run-hhsuite.sh <target id> <file name>.fasta  <output folder>
 
    psibalst:
-   $ sh bin/P8-run-psibalst.sh <target id> <file name>.fasta  <output folder>
+   $ sh ../bin/P8-run-psibalst.sh <target id> <file name>.fasta  <output folder>
 
    DeepDist:
-   $ sh bin/P15-run-DeepDist.sh <target id> <file name>.fasta  <output folder>
+   $ sh ../bin/P15-run-DeepDist.sh <target id> <file name>.fasta  <output folder>
 
 ```
