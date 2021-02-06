@@ -1,2 +1,50 @@
 # The MULTICOM2 protein structure system. 
 This repository include the source code and documents of both template-based and template-free modeling of the MULTICOM2 protein structure prediction system.
+
+**(1) Download MULTICOM2 package (short path is recommended)**
+
+```
+cd /home/MULTICOM_TS
+git clone https://github.com/multicom-toolbox/multicom.git
+cd multicom
+```
+
+**(2) Download tools database and configure MULTICOM2 system(required)**
+
+```
+python setup.py
+
+python configure.py
+```
+
+Please refer to 'cite_methods_for_publication.txt' to cite the methods that you use in MULTICOM2 system for publication. The tools can be also downloaded from their official websites.
+
+**(3) Run MULTICOM for structure predicton**
+
+```
+   Usage:
+   $ mkdir <output folder>
+   $ sh bin/run_multicom.sh <file name>.fasta  <output folder>
+
+   Example:
+   $ cd examples
+   $ mkdir 3e7u
+   $ sh bin/run_multicom2.sh T0993s2 examples/T0993s2.fasta 3e7u
+```
+
+**(4) Testing the individual predictor in MULTICOM2 (recommended)**
+```
+Examples:
+   hmmer3:
+   $ sh bin/P9-run-hmmer3.sh <target id> <file name>.fasta  <output folder>
+
+   hhsuite:
+   $ sh bin/P4-run-hhsuite.sh <target id> <file name>.fasta  <output folder>
+
+   psibalst:
+   $ sh bin/P8-run-psibalst.sh <target id> <file name>.fasta  <output folder>
+
+   DeepDist:
+   $ sh bin/P15-run-DeepDist.sh <target id> <file name>.fasta  <output folder>
+
+```
