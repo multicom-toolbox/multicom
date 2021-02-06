@@ -6,7 +6,7 @@ Note: current package requires **~430G** space to install complete version due t
 **(1) Download MULTICOM2 package (short path is recommended)**
 
 ```
-git clone https://github.com/multicom-toolbox/multicom.git
+git clone --branch multicom_v2.0 https://github.com/multicom-toolbox/multicom.git
 cd multicom
 ```
 
