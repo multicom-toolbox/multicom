@@ -21,7 +21,7 @@ python configure.py
 **(3) Download trRosetta package manually(optional)**
 
 ```
-The trRosetta package(trRosetta.tar.bz2) needs to be downloaded at  http://yanglab.nankai.edu.cn/trRosetta/download/.
+The trRosetta package(trRosetta.tar.bz2) needs to be downloaded at  [http://yanglab.nankai.edu.cn/trRosetta/download/](http://yanglab.nankai.edu.cn/trRosetta/download/).
 and installed under the folder multicom/tools/trRosetta/
 ```
 
