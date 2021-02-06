@@ -1,7 +1,7 @@
 # The MULTICOM2 protein structure system. 
 This repository include the source code and documents of both template-based and template-free modeling of the MULTICOM2 protein structure prediction system. 
 
-Note: current package requires **~420G** space to install complete version due to many large sequence/profile databases and tools requried by this system.
+Note: current package requires **~430G** space to install complete version due to many large sequence/profile databases and tools requried by this system.
 
 **(1) Download MULTICOM2 package (short path is recommended)**
 
