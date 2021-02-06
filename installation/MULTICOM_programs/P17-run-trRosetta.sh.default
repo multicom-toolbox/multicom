@@ -28,14 +28,14 @@ mkdir -p $outputdir/trrosetta
 
 cd $outputdir
 
-sh SOFTWARE_PATH/tools/trRosetta/scripts/run_trRosetta_v3.sh $targetid $fastafile 0.05 0.55 0.05 5 $outputdir/disthbond/ $outputdir/trrosetta/  2>&1 | tee  trrosetta.log
+sh /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/trRosetta/scripts/run_trRosetta_v4.sh $targetid $fastafile $outputdir/deepmsa/$targetid.a3m 0.05 0.55 0.05 5 $outputdir/trrosetta/  2>&1 | tee  trrosetta.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/trrosetta.log>\n\n"
 
 
 if [[ ! -f "$outputdir/trrosetta/trRosetta1.pdb" ]];then
-        printf "!!!!! Failed to run trRosetta, check the installation <SOFTWARE_PATH/tools/trRosetta/>\n\n"
+        printf "!!!!! Failed to run trRosetta, check the installation </storage/htc/bdm/tianqi/test/MULTICOM2/multicom/tools/trRosetta/>\n\n"
 else
         printf "\nJob successfully completed!"
         cp $outputdir/trrosetta/trRosetta1.pdb $outputdir/$targetid.pdb
