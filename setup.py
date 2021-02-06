@@ -109,12 +109,6 @@ if __name__ == '__main__':
             os.system("mv "+log_dir+"/"+tool+".running "+log_dir+"/"+tool+".done")
             print(log_dir+"/"+tool+" installed")
 
-    #### Compile scwrl4
-    print("Install Scwrl4......")
-    os.chdir(tools_dir+"/scwrl4")
-    os.system("./install_Scwrl4_Linux")
-    print("Install Scwrl4......done.......")
-
     #### Download trRosetta
     if os.path.exists(log_dir+"/trRosetta_dist.done"):
         print(log_dir+"/trRosetta_dist installed....skip")
