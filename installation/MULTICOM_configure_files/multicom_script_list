@@ -2,14 +2,11 @@ installation/MULTICOM_programs/P10-run-deephhblits3.sh
 installation/MULTICOM_programs/P11-run-deephhsuite.sh
 installation/MULTICOM_programs/P12-run-deephybrid.sh
 installation/MULTICOM_programs/P13-run-disrank.sh
-installation/MULTICOM_programs/P14-run-DeepHbond.sh
 installation/MULTICOM_programs/P15-run-DeepDist.sh
 installation/MULTICOM_programs/P16-run-dfold2.sh
 installation/MULTICOM_programs/P17-run-trRosetta.sh
 installation/MULTICOM_programs/P2-run-hhblits3.sh
 installation/MULTICOM_programs/P4-run-hhsuite.sh
 installation/MULTICOM_programs/P5-run-sbl.sh
-installation/MULTICOM_programs/P6-run-hhh.sh
-installation/MULTICOM_programs/P7-run-shh.sh
 installation/MULTICOM_programs/P8-run-psibalst.sh
 installation/MULTICOM_programs/P9-run-hmmer3.sh

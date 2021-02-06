@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [ $# != 3 ]; then
-	echo "$0 <target id> <fasta> <output-directory>"
+if [ $# != 4 ]; then
+	echo "$0 <target id> <fasta> <msa> <output-directory>"
 	exit
 fi
 
 targetid=$1
 fastafile=$2
-outputdir=$3
+deepmsa=$3
+outputdir=$4
 
 mkdir -p $outputdir
 cd $outputdir
@@ -15,6 +16,12 @@ cd $outputdir
 if [[ "$fastafile" != /* ]]
 then
    echo "Please provide absolute path for $fastafile"
+   exit
+fi
+
+if [[ "$deepmsa" != /* ]]
+then
+   echo "Please provide absolute path for $deepmsa"
    exit
 fi
 
@@ -28,7 +35,7 @@ mkdir -p $outputdir/deephybrid
 
 cd $outputdir
 
-perl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/script/tm_deephybrid_main_v2.pl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/deephybrid_option_v2 $fastafile deephybrid  2>&1 | tee  deephybrid.log
+perl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/script/tm_deephybrid_main_v2.pl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephybrid/deephybrid_option_v2 $fastafile $deepmsa deephybrid  2>&1 | tee  deephybrid.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/deephybrid.log>\n\n"

@@ -50,8 +50,17 @@ src/deephybrid/align_option
 #disrank
 src/disrank/run_disrank.sh
 
+#deepmsa
+tools/deepmsa/deepmsa_v2.sh
+
+#deepdist
+tools/deepdist/lib/Model_predict_v2.py
+tools/deepdist/setup_v2.py
+tools/deepdist/configure.py
+
 #trRosetta
-tools/trRosetta/scripts/run_trRosetta_v3.sh
+tools/trRosetta/scripts/run_trRosetta_v4.sh
+tools/trRosetta/scripts/trRosetta_comb_hybrid_v3.py
 tools/casp_tools/scripts/self.pl
 
 #casp_tools

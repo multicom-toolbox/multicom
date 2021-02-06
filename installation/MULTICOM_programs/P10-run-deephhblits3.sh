@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [ $# != 3 ]; then
-	echo "$0 <target id> <fasta> <output-directory>"
+if [ $# != 4 ]; then
+	echo "$0 <target id> <fasta> <msa> <output-directory>"
 	exit
 fi
 
 targetid=$1
 fastafile=$2
-outputdir=$3
+deepmsa=$3
+outputdir=$4
 
 mkdir -p $outputdir
 cd $outputdir
@@ -15,6 +16,12 @@ cd $outputdir
 if [[ "$fastafile" != /* ]]
 then
    echo "Please provide absolute path for $fastafile"
+   exit
+fi
+
+if [[ "$deepmsa" != /* ]]
+then
+   echo "Please provide absolute path for $deepmsa"
    exit
 fi
 
@@ -28,7 +35,7 @@ mkdir -p $outputdir/deephhblits3
 
 cd $outputdir
 
-perl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/script/tm_deephhblits3_main.pl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/deephhblits3_option $fastafile  deephhblits3  2>&1 | tee  deephhblits3.log
+perl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/script/tm_deephhblits3_main.pl /storage/htc/bdm/tianqi/test/MULTICOM2/multicom/src/deephhblits3/deephhblits3_option $fastafile $deepmsa deephhblits3  2>&1 | tee  deephhblits3.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/deephhblits3.log>\n\n"

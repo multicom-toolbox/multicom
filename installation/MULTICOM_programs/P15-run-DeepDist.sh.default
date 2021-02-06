@@ -27,8 +27,7 @@ fi
 mkdir -p $outputdir/disthbond
 
 cd $outputdir
-
-perl SOFTWARE_PATH/src/DeepDist/lib/run_deepdist.py -f $fastafile -o $outputdir/disthbond/  2>&1 | tee  disthbond.log
+sh  SOFTWARE_PATH/tools/deepdist/predictors/ensemble/pred_deepdist2.sh $fastafile $outputdir/deepmsa/$targetid.aln $outputdir/disthbond/  2>&1 | tee  disthbond.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/disthbond.log>\n\n"

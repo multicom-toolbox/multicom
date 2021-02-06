@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [ $# != 3 ]; then
-	echo "$0 <target id> <fasta> <output-directory>"
+if [ $# != 4 ]; then
+	echo "$0 <target id> <fasta> <msa> <output-directory>"
 	exit
 fi
 
 targetid=$1
 fastafile=$2
-outputdir=$3
+deepmsa=$3
+outputdir=$4
 
 mkdir -p $outputdir
 cd $outputdir
@@ -15,6 +16,12 @@ cd $outputdir
 if [[ "$fastafile" != /* ]]
 then
    echo "Please provide absolute path for $fastafile"
+   exit
+fi
+
+if [[ "$deepmsa" != /* ]]
+then
+   echo "Please provide absolute path for $deepmsa"
    exit
 fi
 
@@ -28,7 +35,7 @@ mkdir -p $outputdir/deephhsuite
 
 cd $outputdir
 
-perl SOFTWARE_PATH/src/deephhsuite/script/tm_deephhsuite_main_v2.pl SOFTWARE_PATH/src/deephhsuite/deephhsuite_option_v2 $fastafile deephhsuite  2>&1 | tee  deephhsuite.log
+perl SOFTWARE_PATH/src/deephhsuite/script/tm_deephhsuite_main_v2.pl SOFTWARE_PATH/src/deephhsuite/deephhsuite_option_v2 $fastafile $deepmsa deephhsuite  2>&1 | tee  deephhsuite.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/deephhsuite.log>\n\n"

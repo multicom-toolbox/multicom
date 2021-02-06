@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [ $# != 3 ]; then
-	echo "$0 <target id> <fasta> <output-directory>"
+if [ $# != 4 ]; then
+	echo "$0 <target id> <fasta> <dist_map> <output-directory>"
 	exit
 fi
 
 targetid=$1
 fastafile=$2
-outputdir=$3
+distmap=$3
+outputdir=$4
 
 mkdir -p $outputdir
 cd $outputdir
@@ -15,6 +16,12 @@ cd $outputdir
 if [[ "$fastafile" != /* ]]
 then
    echo "Please provide absolute path for $fastafile"
+   exit
+fi
+
+if [[ "$distmap" != /* ]]
+then
+   echo "Please provide absolute path for $distmap"
    exit
 fi
 
@@ -28,7 +35,7 @@ mkdir -p $outputdir/disrank
 
 cd $outputdir
 
-sh SOFTWARE_PATH/src/disrank/run_disrank.sh $targetid $fastafile $outputdir/hhsuite/ $outputdir/disthbond/full_length/ensemble/pred_map_ensem/real_dist/$targetid.txt $outputdir/disrank  2>&1 | tee  disrank.log
+sh SOFTWARE_PATH/src/disrank/run_disrank.sh $targetid $fastafile $outputdir/hhsuite/ $distmap $outputdir/disrank  2>&1 | tee  disrank.log
 
 printf "\nFinished.."
 printf "\nCheck log file <$outputdir/disrank.log>\n\n"
