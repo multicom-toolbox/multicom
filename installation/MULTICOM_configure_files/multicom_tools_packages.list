@@ -10,7 +10,6 @@ tools/hhsuite-2.0.8-linux-x86_64
 tools/hhsuite-3.2.0
 tools/hmmer3
 tools/maxcluster
-tools/meta
 tools/modeller-9.16
 tools/pairwiseQA
 tools/prosys
