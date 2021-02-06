@@ -97,7 +97,7 @@ while ($count <= 5)
 	print "do model combination...\n";
 
 	#system("$meta_dir/script/stx_model_comb_global.pl /home/chengji/software/tm_score/TMscore_32 $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.5");
-    print "$meta_dir/script/stx_model_comb_global.pl $tm_score $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70\n";
+    #print "$meta_dir/script/stx_model_comb_global.pl $tm_score $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70\n";
 	system("$meta_dir/script/stx_model_comb_global.pl $tm_score $casp_model_dir $name.score $fasta_file $output_dir/$name.pir 4 0.8 0.70");
 
 	open(PIR, "$output_dir/$name.pir") || die "can't read $output_dir/$name.pir\n";
