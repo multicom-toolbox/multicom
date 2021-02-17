@@ -49,7 +49,7 @@ pdb_list_dir=SOFTWARE_PATH/databases/update_db_pdb70/
 meta_dir=SOFTWARE_PATH/src/hhblits3/
 
 #meta common dir
-meta_common_dir=SOFTWARE_PATH/tools/meta/
+meta_common_dir=SOFTWARE_PATH/src/meta/
 ###############################################################################
 
 ############################End of Software and Data Settings#################
