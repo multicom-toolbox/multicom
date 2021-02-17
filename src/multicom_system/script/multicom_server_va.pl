@@ -909,8 +909,8 @@ if ($i == $thread_num && $post_process == 0)
 					
 					#print("$trrosetta_dir/run_trRosetta_v2.sh $query_name $query_file $output_dir/disthbond/ $server >$server/log.txt\n");   	
 					#system("$trrosetta_dir/run_trRosetta_v2.sh $query_name $query_file $output_dir/disthbond/ $server >$server/log.txt 2>&1");   	
-					print("$j. $trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1\n");   	
-					system("$trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/disthbond/ $server >$server/log.txt 2>&1");   	
+					print("$j. $trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $deepmsa_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num $output_dir/trrosetta/ $server >$server/log.txt 2>&1\n");   	
+					system("$trrosetta_dir/run_trRosetta_v4.sh $query_name $query_file $deepmsa_file $tr_lower_threshold $tr_upper_threshold $tr_interval_size $tr_process_num  $output_dir/trrosetta/ >$server/log.txt 2>&1");   	
 					$current_time = `date`; 
 					print "$server prediction ends at $current_time.\n";
 				}
