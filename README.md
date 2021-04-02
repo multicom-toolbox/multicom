@@ -58,7 +58,7 @@ Examples:
 
 ```
 
-**(6) Configuring multicom2 packing scripts**
+**(6) Configuring multicom2 packing scripts(optional)**
 ```
 cd src/pack_multicom/
 python configure.py
