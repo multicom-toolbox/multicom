@@ -1,0 +1,66 @@
+use FileHandle; # use FileHandles instead of open(),close()
+use Cwd 'abs_path';
+
+if(@ARGV < 2 )
+{
+	  die "The number of parameter is not correct!\n";
+}
+
+$target_name = @ARGV[0];
+$models_dir = $ARGV[1];
+$models_dir = abs_path($models_dir);
+
+$Tmscore_tool = "SOFTWARE_PATH/visualize_multicom_cluster/tools/TMscore";
+$tmp_folder = "$models_dir/tmp";
+-s $tmp_folder || system("mkdir $tmp_folder");
+
+for ($i = 1; $i <= 5; $i = $i + 1)
+{
+    $src_pdb = "$models_dir/${target_name}.casp${i}.pdb";
+    $out = "$models_dir/${target_name}.casp${i}.avetm";
+    open(OUT,">$out");
+    $average_tmscore = 0;
+    for ($j = 1; $j <= 5; $j = $j + 1)
+    {
+        if($i == $j)
+        {
+            next;
+        }
+        $target_pdb = "$models_dir/${target_name}.casp${j}.pdb";
+        $log = $tmp_folder."/tmscore.log";
+        ($s0, $s1) = cal_TMscore($src_pdb, $target_pdb, $log);
+        print OUT "$s0\n";
+        $average_tmscore = $average_tmscore + $s0;
+    }
+    $average_tmscore = sprintf("%.5f",$average_tmscore/4);
+    print OUT "$average_tmscore\n";
+}
+
+system("rm -rf $tmp_folder");
+
+sub cal_TMscore
+{
+    my $model1 = shift;
+    my $model2 = shift;
+    my $log = shift;
+	my($IN,$OUT,$line);
+	my($score)=0;
+	my(@tem);
+	system("$Tmscore_tool $model1 $model2 > $log");
+    $IN = new FileHandle "$log";
+	while(defined($line=<$IN>))
+	{
+		chomp($line);
+		@tem = split(/\s+/,$line);
+		if($tem[0] eq "TM-score")
+		{
+			$tm_score = $tem[2];
+		}
+		if($tem[0] eq "GDT-TS-score=")
+        {
+            $gdt_score = $tem[1];
+        }
+	}
+	$IN->close();
+	return ($tm_score, $gdt_score);
+}

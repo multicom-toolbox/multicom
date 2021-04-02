@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+if [ $# -lt 3 ]
+then
+	echo "need at least three parameters : target id, path of fasta sequence, directory of output, contact file (optional)"
+	exit 1
+fi
+
+workdir=$1 #
+targetid=$2 #
+outputdir=$3 #
+
+perl SOFTWARE_PATH/visualize_multicom_cluster/P1_organize_prediction_v2.pl  $workdir $targetid  $outputdir
+
+

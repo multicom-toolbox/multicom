@@ -1,0 +1,598 @@
+#!/usr/bin/perl -w
+$num =@ARGV;
+if($num != 3)
+{
+	die "The number of parameter is not correct!\n";
+}
+
+$workdir = $ARGV[0];
+$targetid = $ARGV[1];
+$outputdir = $ARGV[2];
+
+$scripts_dir = 'SOFTWARE_PATH/visualize_multicom_cluster/';
+if(!(-d $outputdir))
+{
+	`mkdir $outputdir`;
+}
+
+###### handle full_length proteins
+chdir($outputdir);
+`mkdir $outputdir/full_length/`;
+`mkdir $outputdir/full_length/Top5_aln/`;
+`mkdir $outputdir/Final_models/`;
+
+$full_length_dir = 'full_length';
+if(-d "$workdir/full_length_hard")
+{
+	$full_length_dir = 'full_length_hard';
+}
+
+###### copy basic information
+if(!(-e "$workdir/full_length/psiblast/$targetid.fasta"))
+{
+	print "Warning: 0. Failed to find $workdir/full_length/psiblast/$targetid.fasta\n";
+	`touch $outputdir/warning`;
+}else{
+	`cp $workdir/full_length/psiblast/$targetid.fasta $outputdir/query.fasta`;
+	`cp $workdir/full_length/psiblast/$targetid.fasta $outputdir/$targetid.fasta`;
+	`cp $workdir/full_length/psiblast/$targetid.fasta $outputdir/full_length/$targetid.fasta`;
+}
+
+if(!(-e "$workdir/domain_info"))
+{
+	if(-d "$workdir/domain0")
+	{
+		print "Warning: 1. Failed to find $workdir/domain_info\n";
+	}
+	#print out domain information
+	open(TMP,"$outputdir/query.fasta");
+	@content = <TMP>;
+	close TMP;
+	shift @content;
+	$seq = shift @content;
+	chomp $seq;
+	open(DOM_DEF, ">$outputdir/domain_info");
+	print DOM_DEF "domain 0:1-".length($seq)."\n";
+	close DOM_DEF;
+}else{
+	open(TMP1,"$workdir/domain_info");
+	open(OUTMP1,">$outputdir/domain_info");
+	while(<TMP1>)
+	{
+		$tmpa = $_;
+		chomp $tmpa;
+		$index = index(lc $tmpa,'normal');
+		if($index < 0)
+		{
+			$index = index(lc $tmpa, 'easy');
+		}
+		if($index < 0)
+		{
+			$index = index(lc $tmpa, 'hard');
+		}
+
+		if($index>0)
+		{
+			$tmpa = substr($tmpa,0,$index-1);
+			#print "Checking $tmpa\n";
+		}
+		print OUTMP1 "$tmpa\n";
+	}
+	close TMP1;
+	close OUTMP1;
+}
+
+if(-e "$outputdir/domain_info")
+{
+  `cp $outputdir/domain_info $outputdir/$targetid.domain_info`;
+	
+	#print "perl $scripts_dir/P4_make_domain_marker.pl $outputdir/$targetid.domain_info $outputdir/$targetid.fasta $outputdir/$targetid.domain_info.marker\n";
+	`perl $scripts_dir/P4_make_domain_marker.pl $outputdir/$targetid.domain_info $outputdir/$targetid.fasta $outputdir/$targetid.domain_info.marker`;
+	
+	
+	### create domain marker
+	
+
+	#print "python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/$targetid.domain_info.marker $outputdir/$targetid.domain_info.marker.jpeg\n";
+	`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/$targetid.domain_info.marker $outputdir/$targetid.domain_info.marker.jpeg`;
+}
+
+$disorder_file = "$workdir/full_length/hhsearch15/$targetid.fasta.disorder";
+if(!-e $disorder_file)
+{
+	$disorder_file = "$workdir/full_length/hhsuite/$targetid.fasta.disorder"
+}
+
+if(!-e $disorder_file)
+{
+	print "Warning: 2. Failed to find disorder file: $workdir/full_length/hhsearch15/$targetid.fasta.disorder or $disorder_file\n";
+        `touch $outputdir/warning`;
+}else{
+	`cp $disorder_file $outputdir/full_length/$targetid.fasta.disorder`;
+}
+
+$secondary_file = "$workdir/full_length/dncon2/ss_sa/$targetid.ss_sa";
+if(!-e $secondary_file)
+{
+	$secondary_file = "$workdir/full_length/disthbond/full_length/aln/ss_sa/$targetid.ss_sa";
+	if(!-e $secondary_file)
+	{
+		$secondary_file = "$workdir/full_length/disthbond/ss_sa/$targetid.ss_sa";
+	}
+}
+
+if(!(-e $secondary_file))
+{
+	print "Warning: 3. Failed to find secondary file: $workdir/full_length/dncon2/ss_sa/$targetid.ss_sa or $secondary_file\n";
+	`touch $outputdir/warning`;
+}
+else
+{
+	`cp $secondary_file $outputdir/full_length/$targetid.ss_sa`;
+}
+
+$dncon_file = "$workdir/full_length/dncon2/$targetid.dncon2.rr";
+if(-e $dncon_file)
+{
+	#print "perl $scripts_dir/N1_clean_dncon_rr.pl   multicom_results/full_length/casp1_contact/4coo.dncon2.rr   multicom_results/full_length/casp1_contact/4coo.dncon2.clean.rr\n"; 
+	`cp $dncon_file $outputdir/full_length/$targetid.dncon2.rr`;
+	#print "perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/full_length/$targetid.dncon2.rr $outputdir/full_length/$targetid.dncon2.rr.stats\n";
+	`perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/full_length/$targetid.dncon2.rr $outputdir/full_length/$targetid.dncon2.rr.stats`;
+}
+else
+{
+	$multicom2_new = 0;
+	$dncon_file = "$workdir/full_length/disthbond/$targetid.rr";
+	if(!-e $dncon_file)
+	{
+		$multicom2_new = 1;
+		$dncon_file = "$workdir/full_length/disthbond/pred_map_ensem/rr/$targetid.rr";
+	}
+	if(!(-e $dncon_file))
+	{
+		print "Warning: 4. Failed to find dncon file: $workdir/full_length/dncon2/$targetid.dncon2.rr or $dncon_file\n";
+		`touch $outputdir/warning`;
+	}
+	else
+	{
+		`cp $dncon_file $outputdir/full_length/$targetid.dncon2.rr`;
+		if($multicom2_new == 1)
+		{
+			`cp $workdir/full_length/disthbond/alnstat/$targetid.aln $outputdir/full_length/`;
+			$rr_stats_file = "$workdir/full_length/disthbond/alnstat/$targetid.colstats";
+		}
+		else
+		{
+			`cp $workdir/full_length/disthbond/full_length/aln/alignment/$targetid.aln $outputdir/full_length/`;
+    			#`cp $workdir/full_length/disthbond/full_length/ensemble/pred_map_mul_class_ensem/bin_map_from_bin_avg/$targetid.txt $outputdir/full_length/$targetid.rr.txt`;
+			$rr_stats_file = "$workdir/full_length/disthbond/full_length/aln/alnstat/$targetid.colstats";
+		}
+		$output_rr_stats = "$outputdir/full_length/$targetid.dncon2.rr.stats";
+		open(IN, "$rr_stats_file") || die("Couldn't open file $rr_stats_file\n");
+		open(MARKER, ">$output_rr_stats") || die("Couldn't open file $output_rr_stats\n");
+		$sequence_num = 0;
+		$effective_sequence_num = 0;
+		$count = 0;
+		while(<IN>)
+		{
+				if($count > 2)
+				{
+					last;
+				}
+		        $line = $_; #domain 0:1-47
+		        chomp $line;
+		        if($count == 1)
+				{
+					$sequence_num = $line;
+					$sequence_num =~ s/^\s+|\s+$//g;
+				}
+				elsif($count == 2)
+				{
+					$effective_sequence_num = $line;
+					$effective_sequence_num =~ s/^\s+|\s+$//g;
+				}
+				$count = $count + 1;
+		}
+		close IN;
+		$effective_sequence_num = sprintf("%.0f",$effective_sequence_num);
+		print MARKER "Alignment Number\n";
+		print MARKER "N $sequence_num\n";
+		print MARKER "Neff $effective_sequence_num\n";
+		close MARKER;
+	}
+}
+
+$casp1_pdb = "";
+$casp2_pdb = "";
+$casp3_pdb = "";
+$casp4_pdb = "";
+$casp5_pdb = "";
+
+if(-d "$workdir/top_full_models")
+{
+	if(-d "$workdir/top_domain_comb")
+	{
+		$casp1_pdb = "$workdir/top_domain_comb/casp1.pdb";
+		$casp2_pdb = "$workdir/top_domain_comb/casp2.pdb";
+		$casp3_pdb = "$workdir/top_domain_comb/casp3.pdb";
+		$casp4_pdb = "$workdir/top_domain_comb/casp4.pdb";
+		$casp5_pdb = "$workdir/top_domain_comb/casp5.pdb";
+		print "This is multi-domain proteins, copy...\n";
+	}
+	else
+	{
+		$casp1_pdb = "$workdir/top_full_models/ave1-casp.pdb";
+		$casp2_pdb = "$workdir/top_full_models/ave2-casp.pdb";
+		$casp3_pdb = "$workdir/top_full_models/ave3-casp.pdb";
+		$casp4_pdb = "$workdir/top_full_models/ave4-casp.pdb";
+		$casp5_pdb = "$workdir/top_full_models/ave5-casp.pdb";
+	}
+}
+elsif(-d "$workdir/mcomb")
+{
+	if(-d "$workdir/comb")
+	{
+		$casp1_pdb = "$workdir/comb/casp1.pdb";
+		$casp2_pdb = "$workdir/comb/casp2.pdb";
+		$casp3_pdb = "$workdir/comb/casp3.pdb";
+		$casp4_pdb = "$workdir/comb/casp4.pdb";
+		$casp5_pdb = "$workdir/comb/casp5.pdb";
+		print "This is multi-domain proteins, copy...\n";
+	}
+	else
+	{
+		$casp1_pdb = "$workdir/mcomb/casp1.pdb";
+		$casp2_pdb = "$workdir/mcomb/casp2.pdb";
+		$casp3_pdb = "$workdir/mcomb/casp3.pdb";
+		$casp4_pdb = "$workdir/mcomb/casp4.pdb";
+		$casp5_pdb = "$workdir/mcomb/casp5.pdb";
+	}
+}
+else
+{
+	print "cannot find any final pdb folder!\n";
+}
+
+####### copy top models
+if(-e $casp1_pdb)
+{
+	print "cp $casp1_pdb $outputdir/full_length/$targetid.casp1.pdb\n";
+	`cp $casp1_pdb $outputdir/full_length/$targetid.casp1.pdb`;
+	`cp $casp1_pdb $outputdir/Final_models/$targetid-1.pdb`;
+}else
+{
+	print "Warning: 5. Failed to find $casp1_pdb\n";
+	`touch $outputdir/warning`;
+}
+
+if(-e $casp2_pdb)
+{
+	print "cp $casp2_pdb $outputdir/full_length/$targetid.casp2.pdb\n";
+	`cp $casp2_pdb $outputdir/full_length/$targetid.casp2.pdb`;
+	`cp $casp2_pdb $outputdir/Final_models/$targetid-2.pdb`;
+}else
+{
+	print "Warning: 5. Failed to find $casp2_pdb\n";
+	`touch $outputdir/warning`;
+}
+
+if(-e $casp3_pdb)
+{
+	print "cp $casp3_pdb $outputdir/full_length/$targetid.casp3.pdb\n";
+	`cp $casp3_pdb $outputdir/full_length/$targetid.casp3.pdb`;
+	`cp $casp3_pdb $outputdir/Final_models/$targetid-3.pdb`;
+}else
+{
+	print "Warning: 5. Failed to find $casp3_pdb\n";
+	`touch $outputdir/warning`;
+}
+
+if(-e $casp4_pdb)
+{
+	print "cp $casp4_pdb $outputdir/full_length/$targetid.casp4.pdb\n";
+	`cp $casp4_pdb $outputdir/full_length/$targetid.casp4.pdb`;
+	`cp $casp4_pdb $outputdir/Final_models/$targetid-4.pdb`;
+}else
+{
+	print "Warning: 5. Failed to find $casp4_pdb\n";
+	`touch $outputdir/warning`;
+}
+
+if(-e $casp5_pdb)
+{
+	print "cp $casp5_pdb $outputdir/full_length/$targetid.casp5.pdb\n";
+	`cp $casp5_pdb $outputdir/full_length/$targetid.casp5.pdb`;
+	`cp $casp5_pdb $outputdir/Final_models/$targetid-5.pdb`;
+}else
+{
+	print "Warning: 5. Failed to find $casp5_pdb\n";
+	`touch $outputdir/warning`;
+}
+
+
+## check if alignment are found
+if(!(-e "$workdir/$full_length_dir/meta/$targetid.gdt"))
+{
+	print "Warning: 10. Failed to find $workdir/$full_length_dir/meta/$targetid.gdt\n";
+	`touch $outputdir/warning`;
+}else{
+	$ranking_file = "$workdir/$full_length_dir/meta/$targetid.gdt";
+	if(-e "$workdir/top_full_models/ave_score")
+	{
+		$ranking_file = "$workdir/top_full_models/ave_score";
+	}
+	open(TMP,"$ranking_file");
+	$indx = 0;
+	while(<TMP>)
+	{
+		$li=$_;
+		chomp $li; 
+		if(index($li,'.pdb')<0)
+		{
+			next;
+		}
+		$indx++;
+		@tmp = split(/\s+/,$li);
+		$model = $tmp[0];
+		$score = sprintf("%.3f",$tmp[1]);
+		@tmp2 = split(/\./,$model);
+		$modelname = $tmp2[0];
+		$modelpir = "$workdir/$full_length_dir/meta/$modelname.pir";
+		open(SCORE,">$outputdir/full_length/Top5_aln/$targetid.casp$indx.APOLLO");
+		print SCORE "APOLLO score: $score\n";
+		close SCORE;
+		if(!(-e $modelpir))
+		{
+			print "Failed to find $modelpir, this ab initio model\n";
+		}else{
+			`cp $modelpir $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir`;
+			
+			#print "perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir  $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa\n";
+			`perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/full_length/Top5_aln/$targetid.casp$indx.pir  $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa`;
+
+			#print "python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker.jpeg\n";
+			`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker $outputdir/full_length/Top5_aln/$targetid.casp$indx.msa.marker.jpeg`;
+
+
+		}
+		
+		if($indx == 5)
+		{
+			last;
+		}
+	}
+	close TMP;
+}
+
+##### generate contact information
+for($indx = 1; $indx <=5; $indx++)
+{
+	mkdir("$outputdir/full_length/casp${indx}_contact/");
+	chdir("$outputdir/full_length/casp${indx}_contact/");
+	`cp ../$targetid.fasta ./`;
+	`cp ../$targetid.dncon2.rr ./`;
+	`cp ../$targetid.casp$indx.pdb  ./`;
+	#print "perl $scripts_dir/cmap/coneva-camp.pl  -fasta $targetid.fasta -rr $targetid.dncon2.rr  -pdb $targetid.casp$indx.pdb  -smin 24 -o ./\n";
+	`perl $scripts_dir/cmap/coneva-camp.pl  -fasta $targetid.fasta -rr $targetid.dncon2.rr  -pdb $targetid.casp$indx.pdb  -smin 24 -o ./`;
+	#print "perl $scripts_dir/cmap/P1_format_acc.pl long_Acc.txt  long_Acc_formated.txt\n";
+	`perl $scripts_dir/cmap/P1_format_acc.pl long_Acc.txt  long_Acc_formated.txt`;
+}
+
+##### generate distance and contact figures
+if($multicom2_new == 1)
+{
+    mkdir("$outputdir/full_length/dist/");
+    #`cp $workdir/full_length/disthbond/pred_map_ensem/$targetid.txt $outputdir/full_length/dist/$targetid.rr.txt`;
+    `cp $workdir/full_length/disthbond/pred_map_ensem/$targetid.txt $outputdir/full_length/dist/`;
+    `python $scripts_dir/P7_dist_to_fig_and_prob.py $targetid $outputdir/full_length/$targetid.dncon2.rr $outputdir/full_length/dist/$targetid.txt $outputdir/full_length/dist/`;
+}
+
+
+
+########### handle domain proteins
+$domainfile = "$outputdir/domain_info";
+open(IN, "$domainfile") || die("Couldn't open file $domainfile\n"); 
+@content = <IN>;
+close IN;
+$domain_num = @content;
+if($domain_num>1)
+{
+	for($domid=0;$domid<$domain_num;$domid++)
+	{
+		chdir($outputdir);
+		`mkdir $outputdir/domain$domid/`;
+		`mkdir $outputdir/domain$domid/Top5_aln/`;
+
+		$full_length_dir = "domain$domid";
+		###### copy basic information
+		if(!(-e "$workdir/domain$domid.fasta"))
+		{
+			print "Warning: 1. Failed to find $workdir/domain$domid.fasta\n";
+			`touch $outputdir/warning`;
+		}else{
+			`cp $workdir/domain$domid.fasta $outputdir/domain$domid/domain$domid.fasta`;
+		}
+
+		$dom_disorder_file = "$workdir/domain$domid/hhsearch15/domain$domid.fasta.disorder";
+		if(!-e $dom_disorder_file)
+		{
+			$dom_disorder_file = "$workdir/domain$domid/hhsuite/domain$domid.fasta.disorder";
+		}
+
+		if(!(-e $dom_disorder_file))
+		{
+			print "Warning: 2. Failed to find $workdir/domain$domid/hhsearch15/domain$domid.fasta.disorder or $dom_disorder_file\n";
+			`touch $outputdir/warning`;
+		}else{
+			`cp $dom_disorder_file $outputdir/domain$domid/domain$domid.fasta.disorder`;
+		}
+
+		$dom_secondary_file = "$workdir/domain$domid/dncon2/ss_sa/domain$domid.ss_sa";
+		if(!-e $dom_secondary_file)
+		{
+			$dom_secondary_file = "$workdir/domain$domid/disthbond/full_length/aln/ss_sa/domain$domid.ss_sa";
+		}
+
+		if(!(-e $dom_secondary_file))
+		{
+			print "Warning: 3. Failed to find secondary file: $workdir/full_length/dncon2/ss_sa/$targetid.ss_sa or $dom_secondary_file\n";
+			`touch $outputdir/warning`;
+		}
+		else
+		{
+			`cp $dom_secondary_file $outputdir/domain$domid/domain$domid.ss_sa`;
+		}
+
+		$dom_dncon_file = "$workdir/domain$domid/dncon2/domain$domid.dncon2.rr";
+		if(-e $dom_dncon_file)
+		{
+			#print "perl $scripts_dir/N1_clean_dncon_rr.pl   multicom_results/full_length/casp1_contact/4coo.dncon2.rr   multicom_results/full_length/casp1_contact/4coo.dncon2.clean.rr\n"; 
+			`cp $dom_dncon_file $outputdir/domain$domid/domain$domid.dncon2.rr`;
+			#print "perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/full_length/$targetid.dncon2.rr $outputdir/full_length/$targetid.dncon2.rr.stats\n";
+			`perl $scripts_dir/P5_extract_aln_from_dncon.pl $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/domain$domid.dncon2.rr.stats`;
+		}
+		else
+		{
+			$dom_dncon_file = "$workdir/domain$domid/disthbond/domain$domid.rr";
+			if(!(-e $dom_dncon_file))
+			{
+				print "Warning: 4. Failed to find dncon file: $workdir/domain$domid/dncon2/domain$domid.dncon2.rr or $dom_dncon_file\n";
+				`touch $outputdir/warning`;
+			}
+			else
+			{
+				`cp $dom_dncon_file $outputdir/domain$domid/domain$domid.dncon2.rr`;
+				`cp $workdir/domain$domid/disthbond/full_length/aln/alignment/domain$domid.aln $outputdir/domain$domid/`;
+        #`cp $workdir/domain$domid/disthbond/full_length/ensemble/pred_map_mul_class_ensem/bin_map_from_bin_avg/domain$domid.txt $outputdir/domain$domid/domain$domid.rr.txt`;
+				$rr_stats_file = "$workdir/domain$domid/disthbond/full_length/aln/alnstat/domain$domid.colstats";
+				$output_rr_stats = "$outputdir/domain$domid/domain$domid.dncon2.rr.stats";
+				open(IN, "$rr_stats_file") || die("Couldn't open file $rr_stats_file\n");
+				open(MARKER, ">$output_rr_stats") || die("Couldn't open file $output_rr_stats\n");
+				$sequence_num = 0;
+				$effective_sequence_num = 0;
+				$count = 0;
+				while(<IN>)
+				{
+						if($count > 2)
+						{
+							last;
+						}
+				        $line = $_; #domain 0:1-47
+				        chomp $line;
+				        if($count == 1)
+						{
+							$sequence_num = $line;
+							$sequence_num =~ s/^\s+|\s+$//g;
+						}
+						elsif($count == 2)
+						{
+							$effective_sequence_num = $line;
+							$effective_sequence_num =~ s/^\s+|\s+$//g;
+						}
+						$count = $count + 1;
+				}
+				close IN;
+				$effective_sequence_num = sprintf("%.0f",$effective_sequence_num);
+				print MARKER "Alignment Number\n";
+				print MARKER "N $sequence_num\n";
+				print MARKER "Neff $effective_sequence_num\n";
+				close MARKER;
+			}
+		}
+
+		####### copy top models
+		## check if alignment are found
+		if(!(-e "$workdir/domain$domid/meta/domain$domid.gdt"))
+		{
+			print "Warning: 10. Failed to find $workdir/domain$domid/meta/domain$domid.gdt\n";
+			`touch $outputdir/warning`;
+		}else{
+			$dom_ranking_file = "$workdir/domain$domid/meta/domain$domid.gdt";
+			if(-e "$workdir/domain$domid/meta/domain$domid.ave")
+			{
+				$dom_ranking_file = "$workdir/domain$domid/meta/domain$domid.ave";
+			}
+			open(TMP, $dom_ranking_file);
+			$indx = 0;
+			while(<TMP>)
+			{
+				$li=$_;
+				chomp $li;
+				if(index($li,'.pdb')<0)
+				{
+					next;
+				}
+				$indx++;
+				@tmp = split(/\s+/,$li);
+				$model = $tmp[0];
+				$score = sprintf("%.3f",$tmp[1]);
+				@tmp2 = split(/\./,$model);
+				$modelname = $tmp2[0];
+				$modelpir = "$workdir/$full_length_dir/meta/$modelname.pir";
+				$modelpdb = "$workdir/$full_length_dir/meta/$modelname.pdb";
+				open(SCORE,">$outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.APOLLO");
+				print SCORE "APOLLO score: $score\n";
+				close SCORE;
+				if(!(-e $modelpir))
+				{
+					print "Failed to find $modelpir, this ab initio model\n";
+				}else{
+					`cp $modelpir $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir`;
+					
+					`perl $scripts_dir/P2_pir2msa_web.pl  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.pir  $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa`;
+
+					#`source /home/casp13/python_virtualenv/bin/activate`;
+
+					`python $scripts_dir/P3_Visualize_aln_folds.py $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker $outputdir/domain$domid/Top5_aln/domain$domid.casp$indx.msa.marker.jpeg`;
+
+
+				}
+				if(!(-e $modelpdb))
+				{
+					print "Failed to find $modelpir, this ab initio model\n";
+				}else{
+					`cp $modelpdb $outputdir/domain$domid/domain$domid.casp$indx.pdb`;
+					
+
+				}
+				
+				if($indx == 5)
+				{
+					last;
+				}
+			}
+			close TMP;
+			
+			
+			############# get domain alignment for full_length report 
+			## get domain start 
+			## get domain align information domain1/Top5_aln/domain1.casp1.msa.marker
+		}
+
+		##### generate contact information
+		for($indx = 1; $indx <=5; $indx++)
+		{
+			mkdir("$outputdir/domain$domid/casp${indx}_contact/");
+			chdir("$outputdir/domain$domid/casp${indx}_contact/");
+			`cp ../domain$domid.fasta ./`;
+			`cp ../domain$domid.dncon2.rr ./`;
+			`cp ../domain$domid.casp$indx.pdb  ./`;
+			`perl $scripts_dir/cmap/coneva-camp.pl  -fasta domain$domid.fasta -rr domain$domid.dncon2.rr  -pdb domain$domid.casp$indx.pdb  -smin 24 -o ./`;
+			`perl $scripts_dir/cmap/P1_format_acc.pl long_Acc.txt  long_Acc_formated.txt`; 
+		}
+
+		if($multicom2_new == 1)
+        {
+            mkdir("$outputdir/domain$domid/dist/"); 
+            `cp $workdir/domain$domid/disthbond/pred_map_ensem/domain$domid.txt $outputdir/domain$domid/dist/`;
+            `python $scripts_dir/P7_dist_to_fig_and_prob.py domain$domid $outputdir/domain$domid/domain$domid.dncon2.rr $outputdir/domain$domid/dist/domain$domid.txt $outputdir/domain$domid/dist/`;
+        }
+
+		`perl $scripts_dir/compare_pdbs.pl domain$domid $outputdir/domain$domid/`;
+	}
+}
+`perl $scripts_dir/compare_pdbs.pl $targetid $outputdir/full_length/`;
+#`perl $scripts_dir/compare_pdbs.pl $targetid $outputdir/Final_models/`;
+
+#### mark done
+`touch $outputdir/.done`;

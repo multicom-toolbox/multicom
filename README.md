@@ -57,3 +57,18 @@ Examples:
    $ sh ../bin/P15-run-DeepDist.sh <target id> <file name>.fasta  <output folder>
 
 ```
+
+**(6) Configuring multicom2 packing scripts**
+```
+cd src/pack_multicom/
+python configure.py
+
+# Use your own python environment or the python environment in tools directory to install required packages
+pip install -r requirements.txt
+
+Usage:
+    # activate your python environment first
+    # Use full path for <workdir> and <outputdir>
+    $ sh visualize_multicom_cluster/P1_organize_prediction_v2.sh <workdir> <target id> <outputdir>  
+```
+
