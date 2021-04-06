@@ -431,6 +431,10 @@ if($domain_num>1)
 		if(!-e $dom_secondary_file)
 		{
 			$dom_secondary_file = "$workdir/domain$domid/disthbond/full_length/aln/ss_sa/domain$domid.ss_sa";
+			if(!-e $dom_secondary_file)
+            {
+                $dom_secondary_file = "$workdir/domain$domid/disthbond/ss_sa/domain$domid.ss_sa";
+            }
 		}
 
 		if(!(-e $dom_secondary_file))
@@ -444,6 +448,10 @@ if($domain_num>1)
 		}
 
 		$dom_dncon_file = "$workdir/domain$domid/dncon2/domain$domid.dncon2.rr";
+		if(!-e $dom_dncon_file or $multicom2_new==1)
+        {
+            $dom_dncon_file = "$workdir/domain$domid/disthbond/pred_map_ensem/rr/domain$domid.rr";
+        }
 		if(-e $dom_dncon_file)
 		{
 			#print "perl $scripts_dir/N1_clean_dncon_rr.pl   multicom_results/full_length/casp1_contact/4coo.dncon2.rr   multicom_results/full_length/casp1_contact/4coo.dncon2.clean.rr\n"; 
