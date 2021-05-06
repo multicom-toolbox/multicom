@@ -24,7 +24,7 @@ def Transform_rr_to_marix(input_txt):
         line = fp_in.readline()
         while line:
             tmp = line.replace('\n', '').split(' ')
-            if len(tmp) == 1:
+            if len(tmp) == 1 and tmp[0] != 'END':
                 seq = tmp[0]
                 L = len(tmp[0])
                 rr_matrix = np.eye(L)
