@@ -72,7 +72,7 @@ Usage:
     $ sh visualize_multicom_cluster/P1_organize_prediction_v2.sh <workdir> <target id> <outputdir>  
 ```
 
-**Citing this work
+## Citing this work
 ```
 Wu, T., Liu, J., Guo, Z. et al. MULTICOM2 open-source protein structure prediction system powered by deep learning and distance prediction. Sci Rep 11, 13155 (2021). https://doi.org/10.1038/s41598-021-92395-6
 ```
