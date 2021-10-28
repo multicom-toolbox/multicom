@@ -1,0 +1,141 @@
+HHsearch 1.5
+NAME  T1062
+FAM   
+COM   /exports/store2/casp14/tools/hhsuite-3.2.0/bin/hhmake -i T1062.ss.a3m -o T1062.hmm 
+DATE  Fri Jun 19 09:58:38 2020
+LENG  35 match states, 35 columns in multiple alignment
+
+FILT  10 out of 12 sequences passed filter (-id 90 -cov 0 -qid 0 -qsc -20 -diff 100)
+NEFF  2.5 
+SEQ
+>ss_pred PSIPRED predicted secondary structure
+CCHHHHHHCCCHHHHHHHHHHHHCCCCCHHHHCCC
+>ss_conf PSIPRED confidence values
+94556420561889999999980487568761488
+>Consensus
+xSFxxfaxxNxxafrxAVExaLNexGxtLxxlxxx
+>T1062
+ASFRDFASNNSTAFRDAVELALNENGTTLKSLGNS
+>UniRef100_A0A0A7RZ92 Tape measure protein n=1 Tax=Escherichia phage DT57C TaxID=2681606 RepID=A0A0A7RZ92_9CAUD
+ASFREFASSNSGALRDAVELALNENGASLKTLGNS
+>UniRef100_A0A1S6KUU1 Tape measure protein n=1 Tax=Providencia phage vB_PreS_PR1 TaxID=1931407 RepID=A0A1S6KUU1_9CAUD
+ASFAEFASRNKETFRDAVEWSLNEEGATLVR----
+>UniRef100_A0A2D2W719 Tail length tape-measure protein n=1 Tax=Pectobacterium phage DU_PP_V TaxID=2041492 RepID=A0A2D2W719_9CAUD
+LSLKDYLANNSDAVRNAVEQALNEQGTSLDRLNR-
+>UniRef100_A0A3B8DJ88 Tape measure protein n=1 Tax=Proteus phage Stubb TaxID=2315597 RepID=A0A3B8DJ88_9CAUD
+ESFSSFLTRHGESVALTVESQLNNEGKTLY-----
+>UniRef100_A0A4Y5P1M0 Tape measure protein n=1 Tax=Pantoea phage vB_PagS_AAS21 TaxID=2575261 RepID=A0A4Y5P1M0_9CAUD
+KSFVAFANENAGVFYSAVENTLNENGSTLKRLNR-
+>UniRef100_A0A5P8PM35 Pore-forming tail tip protein n=1 Tax=Serratia phage Slocum TaxID=2601679 RepID=A0A5P8PM35_9CAUD
+KSFRQYALENANIFEGAVESSLNDKGSTLRSNR--
+#
+NULL   3706	5728	4211	4064	4839	3729	4763	4308	4069	3323	5509	4640	4464	4937	4285	4423	3815	3783	6325	4665	
+HMM    A	C	D	E	F	G	H	I	K	L	M	N	P	Q	R	S	T	V	W	Y	
+       M->M	M->I	M->D	I->M	I->I	D->M	D->D	Neff	Neff_I	Neff_D
+       0	*	*	0	*	0	*	*	*	*	
+A 1    1367	*	*	2600	*	*	*	*	2177	3048	*	*	*	3245	*	*	*	*	*	*	1
+       0	*	*	*	*	*	*	2587	0	0	
+
+S 2    *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	2
+       0	*	*	*	*	*	*	2587	0	0	
+
+F 3    *	*	*	*	186	*	*	*	*	3048	*	*	*	*	*	*	*	*	*	*	3
+       0	*	*	*	*	*	*	2587	0	0	
+
+R 4    3470	*	*	*	*	*	*	*	2286	*	3245	*	*	*	1603	2600	*	3250	*	*	4
+       0	*	*	*	*	*	*	2587	0	0	
+
+D 5    3250	*	1154	2603	*	*	*	*	*	*	*	*	*	3108	*	2600	*	*	*	*	5
+       0	*	*	*	*	*	*	2587	0	0	
+
+F 6    *	*	*	*	390	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2078	6
+       0	*	*	*	*	*	*	2587	0	0	
+
+A 7    486	*	*	*	*	*	*	*	*	1806	*	*	*	*	*	*	*	*	*	*	7
+       0	*	*	*	*	*	*	2587	0	0	
+
+S 8    3048	*	*	*	*	*	*	*	*	1783	3572	3250	*	*	*	2093	2600	*	*	*	8
+       0	*	*	*	*	*	*	2587	0	0	
+
+N 9    3245	*	*	2177	*	2707	*	*	*	*	*	2391	*	*	1970	3749	*	*	*	*	9
+       0	*	*	*	*	*	*	2587	0	0	
+
+N 10   *	*	*	*	*	*	2600	*	*	*	*	260	*	*	*	*	*	*	*	*	10
+       0	*	*	*	*	*	*	2587	0	0	
+
+S 11   2177	*	*	*	*	2600	*	*	3470	*	*	*	3245	*	*	1581	3572	*	*	*	11
+       0	*	*	*	*	*	*	2587	0	0	
+
+T 12   3572	*	3048	1970	*	2008	*	*	*	*	*	2175	*	*	*	*	3841	*	*	*	12
+       0	*	*	*	*	*	*	2587	0	0	
+
+A 13   933	*	*	*	*	*	*	3108	*	*	*	*	*	*	*	2600	3470	3250	*	*	13
+       0	*	*	*	*	*	*	2587	0	0	
+
+F 14   *	*	*	*	809	*	*	*	*	2801	*	*	*	*	*	*	*	1806	*	*	14
+       0	*	*	*	*	*	*	2587	0	0	
+
+R 15   2600	*	*	3108	*	*	*	*	3572	*	*	*	*	*	916	*	*	*	*	3250	15
+       0	*	*	*	*	*	*	2587	0	0	
+
+D 16   *	*	1367	*	*	3108	*	*	3245	2600	*	3048	*	*	*	3250	*	*	*	*	16
+       0	*	*	*	*	*	*	2587	0	0	
+
+A 17   260	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	2600	*	*	*	17
+       0	*	*	*	*	*	*	2587	0	0	
+
+V 18   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	18
+       0	*	*	*	*	*	*	2587	0	0	
+
+E 19   *	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	19
+       0	*	*	*	*	*	*	2587	0	0	
+
+L 20   3245	*	*	*	*	*	*	*	*	2794	*	3250	*	3048	*	1832	*	*	3470	2707	20
+       0	*	*	*	*	*	*	2587	0	0	
+
+A 21   1258	*	*	*	*	*	*	*	*	*	*	*	*	2600	*	1682	3250	*	*	*	21
+       0	*	*	*	*	*	*	2587	0	0	
+
+L 22   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	22
+       0	*	*	*	*	*	*	2587	0	0	
+
+N 23   *	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	23
+       0	*	*	*	*	*	*	2587	0	0	
+
+E 24   *	*	3108	476	*	*	*	*	*	*	*	2600	*	*	*	*	*	*	*	*	24
+       0	*	*	*	*	*	*	2587	0	0	
+
+N 25   *	*	*	1970	*	*	*	*	3108	*	*	1313	*	2143	*	*	*	*	*	*	25
+       0	*	*	*	*	*	*	2587	0	0	
+
+G 26   *	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	*	*	*	*	26
+       0	*	*	*	*	*	*	2587	0	0	
+
+T 27   2097	*	*	*	*	*	*	*	2600	*	*	*	*	3245	*	2177	1864	*	*	*	27
+       0	*	*	*	*	*	*	2587	0	0	
+
+T 28   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	1139	873	*	*	*	28
+       0	*	*	*	*	*	*	2587	0	0	
+
+L 29   *	*	*	*	*	*	*	*	*	0	*	*	*	*	*	*	*	*	*	*	29
+       0	*	*	*	*	*	*	2587	0	0	
+
+K 30   *	*	3048	*	*	*	*	*	1585	*	*	3245	*	*	2434	*	*	3470	*	2600	30
+       0	*	*	*	*	*	*	2587	0	0	
+
+S 31   *	*	*	*	*	*	*	*	*	*	*	3031	*	*	1085	2169	2443	*	*	*	31
+       0	*	*	*	*	*	*	2273	0	0	
+
+L 32   *	*	*	*	*	*	*	*	*	265	*	2577	*	*	*	*	*	*	*	*	32
+       0	*	*	*	*	*	*	2185	0	0	
+
+G 33   *	*	*	*	*	1723	*	*	*	*	*	1755	*	*	1717	3372	*	*	*	*	33
+       0	*	*	*	*	*	*	2185	0	0	
+
+N 34   *	*	*	*	*	*	*	*	*	*	*	1239	*	2747	1227	*	*	*	*	*	34
+       0	*	*	*	*	*	*	1850	0	0	
+
+S 35   *	*	*	*	*	*	*	*	*	*	*	*	*	*	*	0	*	*	*	*	35
+       0	*	*	0	*	*	*	1278	0	0	
+
+//
